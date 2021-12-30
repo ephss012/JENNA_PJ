@@ -3,9 +3,61 @@
   <head>
     <title>  네이버 요약 뉴스  </title>
     <meta charset="utf-8"> 
+    <style>
+      /*이것이 스타일시트의 주석이다*/
+      /* css문법만 사용 가능함
+        선택자 {
+          속성명:값;
+        }
+      */
+      header{
+        width: 727px; 
+        border:2px solid #f2f2f2;
+        text-align:center;
+        margin: 20px auto;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+      }
+
+      header h1{
+        color:rgb(14, 160, 45);
+        text-shadow: 2px 2px 3px rgb(158, 158, 158);
+        /* text-shadow: x y 블러 rgb(202, 202, 202); */
+      }
+
+      nav a{
+        color: rgb(14, 160, 45);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav img{
+        vertical-align: -4px;
+      }
+
+      main{
+        width: 727px;
+        margin: 0px auto;
+        text-align: center;
+      }
+
+      footer{
+        width: 727px;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+
+      footer address{
+        font-style: normal;
+      }
+    </style>
   </head>
 
-  <body>
+  <body align="center">
     <!-- div요소: 컨텐츠를 구분해 주는 블록박스 요소 -->
     <!-- 상단 -->
     <header>
@@ -25,11 +77,18 @@
 
     <!-- 메인 -->
     <main>
-      <img src="./images/news.jpg" alt="메인이미지">
+      <img src="./images/news.jpg" alt="메인이미지" 
+      style="width:600px">
     </main>
 
     <!-- 하단 -->
-    <footer></footer>
+    <footer>
+      <address>
+        서울시 강남구 대호빌딩 8층<br>
+        대표: Jenna Park <br> 
+        전화: 010-1111-1111
+      </address>
+    </footer>
     <!-- 
       html 핵심 요소들 - html, head, body
       
