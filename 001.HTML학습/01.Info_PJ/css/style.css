@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* 외부 css파일의 상단에는 반드시 문자셋을 해야함 - 아무것도 쓰지 말것 */
+
+
+/*이것이 스타일시트의 주석이다*/
+/* css문법만 사용 가능함
+        선택자 {
+          속성명:값;
+        }
+      */
+header {
+  width: 727px;
+  border: 2px solid #f2f2f2;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+}
+
+header h1 {
+  color: rgb(2, 70, 16);
+  text-shadow: 2px 2px 3px rgb(158, 158, 158);
+  /* text-shadow: x y 블러 rgb(202, 202, 202); */
+}
+
+div {
+  box-sizing: border-box;
+  border-left: 2px solid #222;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+nav a {
+  color: rgb(14, 160, 45);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav img {
+  vertical-align: -4px;
+}
+
+main {
+  width: 727px;
+  margin: 0px auto;
+  /* text-align: center; */
+  font-size: 15px;  
+}
+
+main figure {
+  text-align: center;
+}
+main figure figcaption {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+footer {
+  width: 727px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+footer address {
+  font-style: normal;
+  font-size: 13px;
+  color: darkslategray;
+}
