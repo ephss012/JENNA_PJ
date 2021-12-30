@@ -3,7 +3,101 @@
   <head>
     <title>  네이버 요약 뉴스  </title>
     <meta charset="utf-8"> 
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* 스타일시트를 사용하는 영역 */
+      /* CSS문법만 쓸 수 있음! */
+      /* 
+          기본 사용법:
+          선택자 {
+              속성명: 값;
+          }
+      */
+
+      /* 1. 상단영역 */
+      header{
+          border: 1px solid silver;
+          /* 
+              박스의 테두리 속성
+              border: 두께 종류 색상;(두종색) 
+          */
+          text-align: center;
+          /* 텍스트 중앙정렬 */
+          width: 727px;
+
+          /* 박스 바깥여백(마진:margin) */
+          margin: 20px auto;
+          /* margin: 위아래 양쪽 
+          -> 크기를 가진 블록박스의 양쪽 마진을 
+          auto로 설정하면 가로방향 중앙정렬됨! 
+              magin: 0 auto; -> 마영오씨!
+          */
+
+          /* 박스 안쪽여백(패딩:padding) */
+          padding: 10px;
+
+          /* 박스 크기유지하기(패딩,보더포함) */
+          box-sizing: border-box;
+          /* 기본값 content-box 
+          -> 사이즈 지정시 패딩,보더만큼 커짐 */
+
+          /* 배경색넣기 */
+          background-color: #ffe4db;
+      }
+
+      /* 큰제목 */
+      header h1{
+          color: #ec0082;
+          text-shadow: 2px 2px 2px #5e5e5e;
+          /* 글자그림자
+          text-shadow: x축 y축 블러 색; */
+      }
+
+      /* 메뉴 a요소 */
+      nav a{
+          color: #129700;
+          /* 글자색 */
+          text-decoration: none;
+          /* 밑줄없앰 */
+          font-weight: bold;
+          /* 글자두껍게 */
+      }
+      /* 로고이미지 */
+      nav img{
+          vertical-align: -4px;
+          /* 인라인요소간 세로정렬 */
+      }
+
+      /* 2.메인영역 */
+      main{
+          width: 727px;
+          margin: 0 auto;
+          /* 마영오! */
+          text-align: center;
+          /* 인라인요소 중앙정렬 */
+      }
+      /* 하단영역 */
+      footer{
+          width: 727px;
+          margin: 0 auto;
+          /* 마영오! */
+          text-align: center;
+          /* 인라인요소 중앙정렬 */
+          padding: 20px;
+          background-color: #ebebeb;
+          margin-top: 20px;
+          box-sizing: border-box;
+      }
+
+      /* 주소박스 */
+      address{
+          font-style: normal;
+          /* 이탤릭해제 */
+          font-size: 14px;
+          /* 글자크기(기본값->16px) */
+          color: #555;
+      }
+
+  </style>
   </head>
 
   <body align="center">
