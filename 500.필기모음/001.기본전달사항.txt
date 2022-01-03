@@ -1,4 +1,5 @@
 [ 프론트엔드 웹개발 3회차 - 기본전달사항 ]
+탐쌤이멜: tombap@naver.com
 
 1. 교재: NCS 2권, 개발서 2권
 
@@ -40,6 +41,20 @@ https://github.com/
 - 개인포폴 주제선정 후 코딩하여 수료날 발표하기!
 예시)
 https://tombap8.github.io/KNG-FED211/index.html
+
+
+10. UI/UX 참고자료
+
+1) UX 개념의 예 :  피아노건반 계단
+- The Fun Theory 동영상 시리즈 1번
+https://youtu.be/SByymar3bds
+
+2) 인터페이스 개념
+- 나건교수 동영상
+https://youtu.be/EKFM5yeXdck
+
+-> 소통이 이루지는 장소에서 사용되는 
+수단과 방법을 인터페이스라고함!
 
 
 
