@@ -8,6 +8,8 @@
           속성명:값;
         }
       */
+
+/* 상단영역 */
 header {
   width: 727px;
   border: 2px solid #f2f2f2;
@@ -58,6 +60,23 @@ main figure figcaption {
   color: gray;
 }
 
+/* 메인문단 */
+main>p{
+  /* font-style: italic; */
+  /* font-weight: bold; */
+
+  font-size: 17px;
+  font-family: "굴림","궁서";
+  line-height: 1.4;
+  /* 행간 */
+  letter-spacing: -1px;
+  /* 자간 기본값 0 , normal */
+  word-spacing: 1px;
+  /* 어간 */
+  padding: 0 30px ;
+  }
+
+/* 하단영역 */
 footer {
   width: 727px;
   margin: 0 auto;
