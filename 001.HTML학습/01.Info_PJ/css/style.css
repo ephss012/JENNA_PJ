@@ -9,8 +9,18 @@
         }
       */
 
+
+
+/* 적용 우선순위
+    인라인 테이블 > id > class > type요소명 (class와 id 가 같이 있으면 id가 더 강함) */
+/* !important 가 값 뒤어 적용되면 가장 장력 */
+
+
+
+
+
 /* 상단영역 */
-header {
+#top {
   width: 727px;
   border: 2px solid #f2f2f2;
   text-align: center;
@@ -34,6 +44,13 @@ div {
   padding-left: 10px;
 }
 
+/* span.fc = .fc와
+span .fc는 다름 */
+.fc {
+  color: aqua;
+  font-style: italic;
+}
+
 nav a {
   color: rgb(14, 160, 45);
   text-decoration: none;
@@ -43,6 +60,15 @@ nav a {
 nav img {
   vertical-align: -4px;
 }
+
+/* 요소명.class - 종속 선택자 */
+nav.gnb a{
+  color: blue;
+}
+nav.gnb>div>a{
+  color: #000;
+}
+
 
 main {
   width: 727px;
@@ -76,7 +102,45 @@ main>p{
   padding: 0 30px ;
   }
 
+
+/* = 정확히 일치 */
+/* ^=로 시작하는 것 */
+/* *=http가 포함되는 것 */
+[href^=http]{
+  color: blue;
+  text-decoration: underline;
+}
+/* $=로 끝나는 것 */
+[href$="639"]{
+  color: pink;
+}
+
+
+/* :hover 마우스 오버시 가상클래스 */
+[href^="http"]:hover{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 정치주요뉴스 */
+/* +은 형제 선택자 */
+.politics li+li{
+  border-top: 3px dotted rgb(173, 0, 87);
+}
+
+/* .ranking li:first-child{} */
+/* .ranking li:lastt-child{} */
+.ranking li:nth-child(1){
+  font-size: 1.5em;
+}
+
+/* ~ 앞의 선택자 뒤의 형제요소 모두 선택 */
+.ranking li:first-child~li{
+  border-top: 4px dashed green;
+}
+
 /* 하단영역 */
+
 footer {
   width: 727px;
   margin: 0 auto;
@@ -92,3 +156,8 @@ footer address {
   font-size: 13px;
   color: darkslategray;
 }
+
+/*  */
+#top, #info[
+  border
+]
