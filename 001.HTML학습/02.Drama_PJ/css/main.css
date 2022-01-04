@@ -1,6 +1,72 @@
 @charset "utf-8";
 /* 최신드라마 페이지 */
 
-h1.tit{
+h1.title{
   text-align: center;
+  color: rgb(255, 0, 191);
+  text-shadow: 2px 2px 2px #555;
+}
+.menu{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu a{
+  color: #222;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.on{
+  color: lightseagreen;
+  text-decoration: overline;
+}
+
+.menu a:last-child{
+  border-left: 2px solid #111;
+  padding-left: 10px;
+  margin-left: 5px;
+}
+
+.drama{
+  width: 900px;
+  margin: 0 auto; 
+    /* 마영오 - 가로 중앙정렬, 블록박스 또는 테이블에만 적용됨 */
+  border: 4px double #ccc;
+  padding: 10px;
+}
+
+/* 드라마 테이블 */
+
+#drama{
+  width: 100%;
+  border-collapse: collapse;
+  }
+
+#drama tr td{
+
+
+}
+
+#drama img{
+  border-radius: 10px;
+
+}
+
+#drama td:nth-child(even){
+  width: 270px;
+  padding: 5px;
+  line-height: 32px;
+}
+
+#drama a{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#drama a:hover{
+   color: red;
+   text-decoration: underline;
 }
