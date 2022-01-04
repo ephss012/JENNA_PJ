@@ -28,29 +28,25 @@ h1.title{
   margin-left: 5px;
 }
 
+
+/* 드라마 테이블 class div */
 .drama{
   width: 900px;
   margin: 0 auto; 
     /* 마영오 - 가로 중앙정렬, 블록박스 또는 테이블에만 적용됨 */
-  border: 4px double #ccc;
   padding: 10px;
+  border: 4px double #ccc;
 }
 
-/* 드라마 테이블 */
+/* 드라마 테이블 id */
 
 #drama{
   width: 100%;
   border-collapse: collapse;
-  }
-
-#drama tr td{
-
-
 }
 
 #drama img{
   border-radius: 10px;
-
 }
 
 #drama td:nth-child(even){
