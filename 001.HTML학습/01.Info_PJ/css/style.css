@@ -122,18 +122,20 @@ main>p{
   font-weight: bold;
 }
 
-/* 정치주요뉴스 */
+
 /* +은 형제 선택자 */
 .politics li+li{
   border-top: 3px dotted rgb(173, 0, 87);
 }
 
+
 /* .ranking li:first-child{} */
-/* .ranking li:lastt-child{} */
+/* .ranking li:last-child{} */
 .ranking li:nth-child(1){
   font-size: 1.5em;
 }
 
+/* ~ 틸드는 다중형제 선택자 */
 /* ~ 앞의 선택자 뒤의 형제요소 모두 선택 */
 .ranking li:first-child~li{
   border-top: 4px dashed green;
@@ -158,6 +160,6 @@ footer address {
 }
 
 /*  */
-#top, #info[
-  border
-]
+#top, #info{
+  border-bottom: 2px solid gray;
+}
