@@ -1,2 +1,75 @@
 @charset "utf-8";
 
+/* 디폴트 리셋 */
+html,body{
+  margin: 0; 
+  padding: 0;
+}
+h1,h2,h3,h4{
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+
+body *{
+  outline: 1px dashed rgb(216, 216, 228);
+}
+
+body{
+  background-color: rgb(197, 197, 228);
+  background-image: url(../images/bg_mainvisual.jpg);
+  background-attachment: fixed;
+  background-position: center;
+    /* background-position: x, y - left,right, top, bottom, center / px, % 등으로 조절 */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/*--------------------------------- 상단영역 ---------------------------------*/
+.top{
+  height: 120px;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.logo{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff; 
+}
+
+.top ul>li{
+  display: inline-block;
+  list-style: none;
+}
+
+.top a{
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+
+
+
+/*--------------------------------- 메인영역 ---------------------------------*/
+
+.cont{
+  height: 800px;
+  background-image: url(../images/bg_logo_a_01.png);
+  background-repeat: no-repeat;
+  background-position: 100px 100px;
+
+}
+
+
+
+
+/*--------------------------------- 하단영역 ---------------------------------*/
+.info{
+  height: 240px;
+}
