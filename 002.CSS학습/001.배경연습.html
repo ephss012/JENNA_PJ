@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>001.배경넣기 연습</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 세로크기 화면만큼 채우기 */
+        }
+        h1{
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        body{
+            /* 1. 배경색 */
+            background-color: pink;
+
+            /* 2. 배경이미지: url(이미지경로) */
+            background-image: url(./imgs/bg_logo_a_01.png);
+
+            /* 3. 배경반복여부 : 
+            반복없음(no-repeat),
+            x축반복(repeat-x),y축반복(repeat-y) */
+            background-repeat: no-repeat;
+
+            /* 4. 배경고정 : fixed 고정함! */
+            /* background-attachment: fixed; */
+
+            /* 5. 배경위치 : 가로 세로 
+                값 - 
+                px, %
+                left,center,right
+                top,center,bottom
+            */
+            background-position: right bottom;
+
+            /* 6. 배경크기: 가로 세로 
+                가로와 세로 중 하나만 주면 이미지가
+                자동으로 비율을 유지함!
+                background-size: 특정크기 auto;
+                background-size: auto 특정크기;
+
+                -> 가로세로 모두 주면 기존 비율이 깨짐
+            */
+            background-size: auto 200px;
+
+            /* 배경이미지 여러개 주기 */
+             /* 배경 이미지 여러개 주려면 한번에 세팅해야 함
+            background: 색 이미지 반복 고정 위치/크기;
+            background: 색이반고윙/크 */
+
+            background:
+            url(./imgs/dc1.png) no-repeat center/400px,
+            url(./imgs/dc2.png) no-repeat right top/auto 150px,
+            url(./imgs/dc3.png) no-repeat left bottom/300px,
+            url(./imgs/dc4.png) no-repeat right center/250px,
+            url(./imgs/bg_mainvisual.jpg) no-repeat left center/50%;
+
+        }
+
+        
+
+        
+
+        div{
+            height: 100%;
+            /* body에 꽉채움! */
+
+            
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>001.배경넣기 연습</h1>
+    </div>
+</body>
+</html>
