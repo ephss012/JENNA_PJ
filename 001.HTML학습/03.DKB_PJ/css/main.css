@@ -12,7 +12,7 @@ h1,h2,h3,h4{
 }
 
 body *{
-  outline: 1px dashed rgb(216, 216, 228);
+  outline: 0px dashed rgb(216, 216, 228);
 }
 
 body{
@@ -27,24 +27,20 @@ body{
   background:
   url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
   url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
-}
+
+  font-family: }
 
 
 /*--------------------------------- 상단영역 ---------------------------------*/
 .top{
+  background: url(../images/tvnlogo2.png) no-repeat center 20px;
+  background-color: #fff ;
   height: 120px;
-  background-color: #fff;
   text-align: center;
-  padding: 20px 0 0 0;
 }
 
-.logo{
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #fff; 
-}
-
-.top ul>li{
+.gnb ul>li{
+  padding-top:80px;
   display: inline-block;
   list-style: none;
 }
@@ -134,13 +130,14 @@ background: 색이반고윙/크 */
 /*--------------------------------- 하단영역 ---------------------------------*/
 .info{
   height: 240px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 
 .info ul>li{
   list-style: none;
-  display: inline-block; 
+  display: inline-block;
+  padding-top: 20px; 
   /* 한줄로 나열하기 */
 }
 
@@ -150,4 +147,30 @@ background: 색이반고윙/크 */
   font-weight: bold;
   text-decoration: none;
   padding: 5px;
+
+}
+
+.info a:hover{
+  color: red;
+  text-decoration: underline;
+}
+
+
+.add{
+  box-sizing: border-box;
+  border: gray double 4px;
+  width: 800px;
+  height: 100px;
+  margin: auto;
+}
+
+.info address{
+  padding-top: 10px;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.add img{
+  margin-top: 30px;
 }
