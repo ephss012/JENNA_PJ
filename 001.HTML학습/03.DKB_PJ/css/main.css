@@ -16,13 +16,17 @@ body *{
 }
 
 body{
-  background-color: rgb(197, 197, 228);
-  background-image: url(../images/bg_mainvisual.jpg);
-  background-attachment: fixed;
-  background-position: center;
-    /* background-position: x, y - left,right, top, bottom, center / px, % 등으로 조절 */
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-color: rgb(197, 197, 228); */
+  /* background-image: url(../images/bg_mainvisual.jpg);
+     background-attachment: fixed;
+     background-position: center;
+  /* background-position: x, y - left,right, top, bottom, center / px, % 등으로 조절 */
+  /* background-repeat: no-repeat;
+     background-size: cover; */ 
+
+  background:
+  url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
+  url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
 }
 
 
@@ -57,11 +61,73 @@ body{
 
 .cont{
   height: 800px;
+}
+
+#cbx{
+  width: 90%;
+  margin: 0 auto;
+  /* overflow: hidden */
+}
+
+/* 가상요소로  clear:both 세팅 */
+#cbx::after{
+  content: '';
+  /* 빈 컨텐트 속성은 span 태그를 쓴 것 같dma */
+  display: block;
+  /* 블록 설정을 하는 손간 div 태그를 쓴 것 같음 */
+  clear:both;
+  /* 블록 요소만 clear설정이 먹힘으로 블록으로 만들기 */
+}
+
+.cat{
+  /* 4등분 가로 크기 25% */
+  width: 25%;
+  float: left;
+  ;
+}
+
+  /* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
+    - left 나는 왼쪽 너는 오른쪽으로
+    - right 나는 오른쪽 너는 왼쪽으로 */
+  /* [자식요소가 float된 경우 부모요소는 높이값이0]
+  해결방법:
+  1. 부모요소에 overflow:hidden 설정
+  2. float 자식 요소 중 마지막 요소에 float해제인 clear설정하기
+    clear:left, clear: right, clear:both
+    -> 실제요소를 쓰면 지워지거나 관리에 문제가 될 소지가 큼
+    따라서 가상요소로 세팅함
+    맨 뒤 추가 가상요소는 ::after */
+
+
+
+
+.ci>img{
+  width: 100%;
+  /* 이미지 가로 세로 중 하나만 설정하면 됨 - 나머지 자동으로 비율 유지 */ 
+}
+
+/* 배경이미지 여러개 주기 */
+/* 배경 이미지 여러개 주려면 한번에 세팅해야 함
+background: 색 이미지 반복 고정 위치/크기;
+background: 색이반고윙/크 */
+
+/*   background:
+  url(./imgs/dc1.png) no-repeat center/400px,
+  url(./imgs/dc2.png) no-repeat right top/auto 150px,
+  url(./imgs/dc3.png) no-repeat left bottom/300px,
+  url(./imgs/dc4.png) no-repeat right center/250px,
+  url(./imgs/bg_mainvisual.jpg) no-repeat left center/50%; */
+
+/* 
   background-image: url(../images/bg_logo_a_01.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100px 200px;
-  background-size: 8em;
+  background-size: 8em; */
+
+
+.cd p{
+  font-size: 14px;
 }
 
 
@@ -69,9 +135,19 @@ body{
 .info{
   height: 240px;
   background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
 
 .info ul>li{
-
   list-style: none;
-  display: inline-block;
+  display: inline-block; 
+  /* 한줄로 나열하기 */
+}
+
+.info a{
+  color:black;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px;
 }
