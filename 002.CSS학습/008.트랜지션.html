@@ -59,6 +59,7 @@
         /* 원 */
         span {
             position: relative;
+            /* relative 주면 위치 이동 가능 */
             left: 0;
             /* 현재위치로 부터 이동! */
             display: block;
@@ -71,15 +72,54 @@
 
 
         /* #tr1에 트랜지션 설정 */
+        /* 트랜지션을 호버가 아닌 원래 요소에 주면 양방향 도동시 적용 */
+        #tr1 span{
+            transition: 2s;
+        }
+        #tr1:hover span{
+            left: 50%;
+            background-color: red;
+        }
 
         /* #tr2에 트랜지션 설정 */
-        
+        #tr2 span{
+            left: -5%;
+            background-color: orange;
+        }
+        #tr2:hover span{
+            left: 70%;
+            background-color: lime;
+            transition: all 3s;
+        }      
 
         /* #tr3에 트랜지션 설정 */
-        
+        #tr3 span{
+            transition: all 5s ease-in-out 2s;
+            /* 모든 속성이 5초 동안 천천히 이동 - 2초 후에 제자리로 돌아오며 애니메이션 */
+        }
+
+        #tr3:hover span{
+            left: 50%;
+            background-color: pink;
+            border-radius: 0;
+            transition: 1s ease-out;
+        }
 
         /* #tr4에 트랜지션 설정 */
+        /* 여러가지 속성을 별도로 트랜지션 주고자 할 경우,
+        속.시.이.지 순으로 세팅하고 콤마로 구분 */
+        #tr4 span{
+            transition: left 5s ease-in-out,
+            background-color 2s ease-in 3s,
+            border-radius 1s ease-out 4s;
+        }
         
+        #tr4:hover span{
+            left:70%;
+            background-color: hotpink;
+            border-radius: 0;
+        }
+
     </style>
 </head>
 
