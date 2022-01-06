@@ -54,6 +54,7 @@ body {
 
 
 /*--------------------------------- 상단영역 ---------------------------------*/
+
 .top {
   background: url(../images/tvnlogo2.png) no-repeat center 20px;
   background-color: #fff;
@@ -70,13 +71,11 @@ body {
     overflow:hidden 안 쓰려면 마진을 0으로 잡아주어야 함
   */
 }
-
 .gnb ul>li {
   padding-top: 80px;
   display: inline-block;
   list-style: none;
 }
-
 .top a {
   color: black;
   text-decoration: none;
@@ -254,7 +253,6 @@ body {
   font-weight: bold;
   text-decoration: none;
   padding: 5px;
-
 }
 
 .info a:hover {
