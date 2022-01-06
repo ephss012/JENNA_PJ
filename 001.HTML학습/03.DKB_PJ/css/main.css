@@ -12,7 +12,7 @@ h1,h2,h3,h4{
 }
 
 body *{
-  outline: 0px dashed rgb(216, 216, 228);
+  outline: 1px dashed rgb(204, 204, 219);
 }
 
 body{
@@ -61,7 +61,7 @@ body{
 
 #cbx{
   width: 90%;
-  margin: 0 auto;
+  margin: 20% auto;
   /* overflow: hidden */
 }
 
@@ -78,8 +78,12 @@ body{
 .cat{
   /* 4등분 가로 크기 25% */
   width: 25%;
+  padding: 0.5%;
+  box-sizing: border-box;
+  /* 패딩 때문에 써니가 떨어지는 것 방지 */
+  /* width: 24%;
+      margin: 0 0.5% */
   float: left;
-  ;
 }
 
   /* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
@@ -102,28 +106,68 @@ body{
   /* 이미지 가로 세로 중 하나만 설정하면 됨 - 나머지 자동으로 비율 유지 */ 
 }
 
-/* 배경이미지 여러개 주기 */
-/* 배경 이미지 여러개 주려면 한번에 세팅해야 함
-background: 색 이미지 반복 고정 위치/크기;
-background: 색이반고윙/크 */
+      /* 배경이미지 여러개 주기 */
+      /* 배경 이미지 여러개 주려면 한번에 세팅해야 함
+      background: 색 이미지 반복 고정 위치/크기;
+      background: 색이반고윙/크 */
 
-/*   background:
-  url(./imgs/dc1.png) no-repeat center/400px,
-  url(./imgs/dc2.png) no-repeat right top/auto 150px,
-  url(./imgs/dc3.png) no-repeat left bottom/300px,
-  url(./imgs/dc4.png) no-repeat right center/250px,
-  url(./imgs/bg_mainvisual.jpg) no-repeat left center/50%; */
+      /*   background:
+        url(./imgs/dc1.png) no-repeat center/400px,
+        url(./imgs/dc2.png) no-repeat right top/auto 150px,
+        url(./imgs/dc3.png) no-repeat left bottom/300px,
+        url(./imgs/dc4.png) no-repeat right center/250px,
+        url(./imgs/bg_mainvisual.jpg) no-repeat left center/50%; */
 
-/* 
-  background-image: url(../images/bg_logo_a_01.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 100px 200px;
-  background-size: 8em; */
+      /* 
+        background-image: url(../images/bg_logo_a_01.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 100px 200px;
+        background-size: 8em; */
 
 
+
+/* 캐릭터 이름 */
+.ci span{
+  display: block;
+  text-align: center;
+  margin-top: -20%;
+    /* 비율로 이미지가 변경되므로 마진도 상대적으로 변경되어야 위치가 일정 */
+}
+
+/* 캐릭터 이미지 */
+.ci span img{
+  width: 40%;
+}
+.ci span img:first-child{
+  display: none;
+}
+.cat:hover .ci span img:first-child{
+  display: inline;
+  /* 원래값 복원 */
+}
+.cat:hover .ci span img:last-child{
+  display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cat .cd{
+  background: url(../images/eachBG.jpg); no-repeat center/cover;
+  /* display:none */
+}
+.cat:hover .cd{
+  display: inline-block;
+  height: 200px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.cd h3{
+  font-weight: bold;
+}
 .cd p{
   font-size: 14px;
+  font-family: "궁서";
 }
 
 
