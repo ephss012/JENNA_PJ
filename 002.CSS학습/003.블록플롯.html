@@ -59,7 +59,6 @@
             [ flaot에 의한 진행방향 ]
             float:left 만 사용 : 왼쪽 -> 오른쪽
             (경우5)
-
         
         */
 
@@ -86,19 +85,19 @@
             background-size: cover;
         }
 
-        /* 개별 디자인 */
-        .bx1{
-            background-image: url(imgs/dc1.png);
-        }
-        .bx2{
-            background-image: url(imgs/dc2.png);
-        }
-        .bx3{
-            background-image: url(imgs/dc3.png);
-        }
-        .bx4{
-            background-image: url(imgs/dc4.png);
-        }
+                    /* 개별 디자인 */
+                    .bx1{
+                        background-image: url(imgs/dc1.png);
+                    }
+                    .bx2{
+                        background-image: url(imgs/dc2.png);
+                    }
+                    .bx3{
+                        background-image: url(imgs/dc3.png);
+                    }
+                    .bx4{
+                        background-image: url(imgs/dc4.png);
+                    }
 
         /* 플롯관련 class */
         .fll{
@@ -121,6 +120,7 @@
             clear: right;
             /* 오른쪽float지워! */
         }
+
 
         /* float해제용 가상요소 */
         .flclb::after{
@@ -152,6 +152,7 @@
                 같아짐!
         */
 
+
         /* 경우4 */
         .case4 {
             overflow: hidden;
@@ -161,6 +162,7 @@
         .case4 .bx{
             float: left;
         }
+
 
         /* 경우5 */
         .case5 .bx{
@@ -233,6 +235,7 @@
 
     <h2>경우5</h2>
     <h3>
+        모든 .bx박스에 float:right 적용하기 <br>
         부모박스에 가상요소 after로 clear:both 적용하기
     </h3>
     <div class="wrap case5">
