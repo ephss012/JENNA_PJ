@@ -1,11 +1,16 @@
 @charset "utf-8";
 
 /* 디폴트 리셋 */
-html,body{
-  margin: 0; 
+html,
+body {
+  margin: 0;
   padding: 0;
 }
-h1,h2,h3,h4{
+
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
   font-size: 100%;
@@ -14,27 +19,29 @@ h1,h2,h3,h4{
 /* 공통 클래스 */
 /* 스크롤바 디자인 */
 /* 접두어 -webkit-  <--- 벤더사명(크롬/사파리 기준) */
-.scbar::-webkit-scrollbar{
+.scbar::-webkit-scrollbar {
   /* 전체 스크롤바 크기 변경 */
   width: 7px;
 }
-.scbar::-webkit-scrollbar-thumb{
+
+.scbar::-webkit-scrollbar-thumb {
   background: #aaa;
   border-radius: 5px;
 }
-.scbar::-webkit-scrollbar-track{
+
+.scbar::-webkit-scrollbar-track {
   background-color: #fff;
   border-radius: 5px;
 }
 
-body *{
+body * {
   outline: 0px dashed rgb(204, 204, 219);
 }
 
-body{
+body {
   background:
-  url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
-  url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
+    url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
 
   /* background-color: rgb(197, 197, 228); */
   /* background-image: url(../images/bg_mainvisual.jpg);
@@ -42,20 +49,20 @@ body{
      background-position: center;
   /* background-position: x, y - left,right, top, bottom, center / px, % 등으로 조절 */
   /* background-repeat: no-repeat;
-     background-size: cover; */ 
+     background-size: cover; */
 }
 
 
 /*--------------------------------- 상단영역 ---------------------------------*/
-.top{
+.top {
   background: url(../images/tvnlogo2.png) no-repeat center 20px;
-  background-color: #fff ;
+  background-color: #fff;
   height: 120px;
   text-align: center;
   /* overflow: hidden; */
 }
 
-.gnb ul{
+.gnb ul {
   margin: 0;
   /* ul에는 자동으로 
     margin-block-start: 1em;
@@ -65,13 +72,13 @@ body{
   */
 }
 
-.gnb ul>li{
-  padding-top:80px;
+.gnb ul>li {
+  padding-top: 80px;
   display: inline-block;
   list-style: none;
 }
 
-.top a{
+.top a {
   color: black;
   text-decoration: none;
   font-size: 14px;
@@ -81,16 +88,16 @@ body{
 
 /*--------------------------------- 메인영역 ---------------------------------*/
 
-.cont{
+.cont {
   height: 800px;
   overflow: hidden;
 }
 
 /* 캐릭터 부모박스 */
-#cbx{
+#cbx {
   width: 90%;
-  margin: 0 auto; 
-    /* 캐릭터박스 중앙정렬 */
+  margin: 0 auto;
+  /* 캐릭터박스 중앙정렬 */
   margin-top: 400px;
   /* 자식요소 블록박스에 마진탑을 줄 경우 
     부모박스인 메인영역 바깥으로 마진값이 나가서 자체가 길어져서 밑으로 내려가 있음
@@ -98,16 +105,16 @@ body{
 }
 
 /* 가상요소로  clear:both 세팅 */
-#cbx::after{
+#cbx::after {
   content: '';
   /* 빈 컨텐트 속성은 span 태그를 쓴 것 같dma */
   display: block;
   /* 블록 설정을 하는 손간 div 태그를 쓴 것 같음 */
-  clear:both;
+  clear: both;
   /* 블록 요소만 clear설정이 먹힘으로 블록으로 만들기 */
 }
 
-.cat{
+.cat {
   /* 4등분 가로 크기 25% */
   width: 25%;
   padding: 0.5%;
@@ -120,21 +127,22 @@ body{
 }
 
 /* 마우스 오버 시 캐릭터 설명박스 */
-.cat:hover .cd{
+.cat:hover .cd {
   display: inline-block;
   height: 250px;
   transition: height 1s ease-out;
-  /* 소개박스 펼쳐지게함 */ 
+  /* 소개박스 펼쳐지게함 */
 }
-.cat:hover{
+
+.cat:hover {
   margin-top: -10%;
   /* 캐릭터 이미지가 위로 올라가게 함 */
 }
 
-  /* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
+/* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
     - left 나는 왼쪽 너는 오른쪽으로
     - right 나는 오른쪽 너는 왼쪽으로 */
-  /* [자식요소가 float된 경우 부모요소는 높이값이0]
+/* [자식요소가 float된 경우 부모요소는 높이값이0]
   해결방법:
   1. 부모요소에 overflow:hidden 설정
   2. float 자식 요소 중 마지막 요소에 float해제인 clear설정하기
@@ -144,24 +152,24 @@ body{
     맨 뒤 추가 가상요소는 ::after */
 
 
-.ci>img{
+.ci>img {
   width: 100%;
-  /* 이미지 가로 세로 중 하나만 설정하면 됨 - 나머지 자동으로 비율 유지 */ 
+  /* 이미지 가로 세로 중 하나만 설정하면 됨 - 나머지 자동으로 비율 유지 */
 }
 
-      /* 배경이미지 여러개 주기 */
-      /* 배경 이미지 여러개 주려면 한번에 세팅해야 함
+/* 배경이미지 여러개 주기 */
+/* 배경 이미지 여러개 주려면 한번에 세팅해야 함
       background: 색 이미지 반복 고정 위치/크기;
       background: 색이반고윙/크 */
 
-      /*   background:
+/*   background:
         url(./imgs/dc1.png) no-repeat center/400px,
         url(./imgs/dc2.png) no-repeat right top/auto 150px,
         url(./imgs/dc3.png) no-repeat left bottom/300px,
         url(./imgs/dc4.png) no-repeat right center/250px,
         url(./imgs/bg_mainvisual.jpg) no-repeat left center/50%; */
 
-      /* 
+/* 
         background-image: url(../images/bg_logo_a_01.png);
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -171,47 +179,53 @@ body{
 
 
 /* 캐릭터 이름 - 흐린이름 */
-.ci span{
+.ci span {
   display: block;
   text-align: center;
   margin-top: -20%;
-    /* 비율로 이미지가 변경되므로 마진도 상대적으로 변경되어야 위치가 일정 */
+  /* 비율로 이미지가 변경되므로 마진도 상대적으로 변경되어야 위치가 일정 */
 }
 
 /* 캐릭터 이미지 */
-.ci span img{
+.ci span img {
   width: 40%;
 }
-.ci span img:first-child{
+
+.ci span img:first-child {
   display: none;
 }
+
 /* 캐릭터 이미지 마우스 오버 */
-.cat:hover .ci span img:first-child{
+.cat:hover .ci span img:first-child {
   /* 진한이름 */
   display: inline;
   /* 원래값 복원 */
 }
-.cat:hover .ci span img:last-child{
+
+.cat:hover .ci span img:last-child {
   /* 흐린이름 */
   display: none;
 }
 
 /* 캐릭터 설명박스 */
-.cd{
-  background: url(../images/eachBG.jpg); no-repeat center/cover;
+.cd {
+  background: url(../images/eachBG.jpg);
+  no-repeat center/cover;
   margin-top: 15px;
   overflow-y: scroll;
   /* 마우스 오버 시 height: 250px; */
   height: 0px;
   border-radius: 20px 0 0 20px;
-  
+
 }
-.cd h3{
+
+.cd h3 {
   font-size: 20px;
   font-weight: normal;
   padding: 20px 10px 0;
 }
-.cd p{
+
+.cd p {
   font-size: 16px;
   line-height: 1.7;
   font-family: "굴림";
@@ -222,21 +236,21 @@ body{
 
 
 /*--------------------------------- 하단영역 ---------------------------------*/
-.info{
+.info {
   height: 240px;
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 
-.info ul>li{
+.info ul>li {
   list-style: none;
   display: inline-block;
-  padding-top: 20px; 
+  padding-top: 20px;
   /* 한줄로 나열하기 */
 }
 
-.info a{
-  color:black;
+.info a {
+  color: black;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
@@ -244,13 +258,13 @@ body{
 
 }
 
-.info a:hover{
+.info a:hover {
   color: red;
   text-decoration: underline;
 }
 
 
-.add{
+.add {
   box-sizing: border-box;
   border: gray double 4px;
   width: 800px;
@@ -258,13 +272,13 @@ body{
   margin: auto;
 }
 
-.info address{
+.info address {
   padding-top: 10px;
   font-style: normal;
   font-size: 13px;
   line-height: 25px;
 }
 
-.add img{
+.add img {
   margin-top: 30px;
 }
