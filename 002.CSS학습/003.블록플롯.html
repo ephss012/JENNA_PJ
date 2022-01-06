@@ -164,8 +164,12 @@
 
         /* 경우5 */
         .case5 .bx{
+            float: right;
         }
         .case5::after{
+            content: '';
+            display: block;
+            clear: both;
         }
        
 
@@ -181,7 +185,7 @@
     <div class="wrap">
         <div class="bx bx1 fll"></div>
         <div class="bx bx2 flr"></div>
-        <div class="bx bx3 clb fll"></div>
+        <div class="bx bx3 clb"></div>
         <div class="bx bx4"></div>
     </div>
 
