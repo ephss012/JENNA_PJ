@@ -32,6 +32,10 @@ body *{
 }
 
 body{
+  background:
+  url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
+  url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+
   /* background-color: rgb(197, 197, 228); */
   /* background-image: url(../images/bg_mainvisual.jpg);
      background-attachment: fixed;
@@ -39,12 +43,7 @@ body{
   /* background-position: x, y - left,right, top, bottom, center / px, % 등으로 조절 */
   /* background-repeat: no-repeat;
      background-size: cover; */ 
-
-  background:
-  url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
-  url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
-
-  font-family: }
+}
 
 
 /*--------------------------------- 상단영역 ---------------------------------*/
@@ -53,12 +52,21 @@ body{
   background-color: #fff ;
   height: 120px;
   text-align: center;
-  box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.gnb ul{
+  margin: 0;
+  /* ul에는 자동으로 
+    margin-block-start: 1em;
+    margin-block-end: 1em; 이 설정되어 나와서 
+    header위로 마진이 잡혀서 밀리게 됨.
+    overflow:hidden 안 쓰려면 마진을 0으로 잡아주어야 함
+  */
 }
 
 .gnb ul>li{
-  padding-top:70px;
+  padding-top:80px;
   display: inline-block;
   list-style: none;
 }
@@ -67,7 +75,7 @@ body{
   color: black;
   text-decoration: none;
   font-size: 14px;
-  padding: 0 15px;
+  padding: 15px;
 }
 
 
@@ -81,12 +89,12 @@ body{
 /* 캐릭터 부모박스 */
 #cbx{
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto; 
+    /* 캐릭터박스 중앙정렬 */
   margin-top: 400px;
   /* 자식요소 블록박스에 마진탑을 줄 경우 
     부모박스인 메인영역 바깥으로 마진값이 나가서 자체가 길어져서 밑으로 내려가 있음
     >>> 메인영역에 overflow:hidden 줄 것 */
-  
 }
 
 /* 가상요소로  clear:both 세팅 */
@@ -104,11 +112,11 @@ body{
   width: 25%;
   padding: 0.5%;
   box-sizing: border-box;
-  /* 패딩 때문에 써니가 떨어지는 것 방지 */
+  /* 박스 사이징 - 패딩 때문에 써니가 아래로 떨어지는 것 방지 */
   /* width: 24%;
       margin: 0 0.5% */
   float: left;
-  transition: margin-top 1s ease-out;
+  transition: margin-top 0.5s ease-out;
 }
 
 /* 마우스 오버 시 캐릭터 설명박스 */
@@ -116,11 +124,12 @@ body{
   display: inline-block;
   height: 250px;
   transition: height 1s ease-out;
+  /* 소개박스 펼쳐지게함 */ 
 }
 .cat:hover{
   margin-top: -10%;
+  /* 캐릭터 이미지가 위로 올라가게 함 */
 }
-
 
   /* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
     - left 나는 왼쪽 너는 오른쪽으로
@@ -133,8 +142,6 @@ body{
     -> 실제요소를 쓰면 지워지거나 관리에 문제가 될 소지가 큼
     따라서 가상요소로 세팅함
     맨 뒤 추가 가상요소는 ::after */
-
-
 
 
 .ci>img{
@@ -163,7 +170,7 @@ body{
 
 
 
-/* 캐릭터 이름 */
+/* 캐릭터 이름 - 흐린이름 */
 .ci span{
   display: block;
   text-align: center;
@@ -178,12 +185,14 @@ body{
 .ci span img:first-child{
   display: none;
 }
-/* 캐릭터 이미지 마우스 */
+/* 캐릭터 이미지 마우스 오버 */
 .cat:hover .ci span img:first-child{
+  /* 진한이름 */
   display: inline;
   /* 원래값 복원 */
 }
 .cat:hover .ci span img:last-child{
+  /* 흐린이름 */
   display: none;
 }
 
@@ -200,7 +209,7 @@ body{
 .cd h3{
   font-size: 20px;
   font-weight: normal;
-  padding: 10px 10px;
+  padding: 20px 10px 0;
 }
 .cd p{
   font-size: 16px;
