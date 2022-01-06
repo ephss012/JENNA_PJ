@@ -28,7 +28,7 @@ h1,h2,h3,h4{
 }
 
 body *{
-  outline: 1px dashed rgb(204, 204, 219);
+  outline: 0px dashed rgb(204, 204, 219);
 }
 
 body{
@@ -53,10 +53,12 @@ body{
   background-color: #fff ;
   height: 120px;
   text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .gnb ul>li{
-  padding-top:80px;
+  padding-top:70px;
   display: inline-block;
   list-style: none;
 }
@@ -73,12 +75,18 @@ body{
 
 .cont{
   height: 800px;
+  overflow: hidden;
 }
 
+/* 캐릭터 부모박스 */
 #cbx{
   width: 90%;
-  margin: 25% auto;
-  /* overflow: hidden */
+  margin: 0 auto;
+  margin-top: 400px;
+  /* 자식요소 블록박스에 마진탑을 줄 경우 
+    부모박스인 메인영역 바깥으로 마진값이 나가서 자체가 길어져서 밑으로 내려가 있음
+    >>> 메인영역에 overflow:hidden 줄 것 */
+  
 }
 
 /* 가상요소로  clear:both 세팅 */
@@ -100,7 +108,19 @@ body{
   /* width: 24%;
       margin: 0 0.5% */
   float: left;
+  transition: margin-top 1s ease-out;
 }
+
+/* 마우스 오버 시 캐릭터 설명박스 */
+.cat:hover .cd{
+  display: inline-block;
+  height: 250px;
+  transition: height 1s ease-out;
+}
+.cat:hover{
+  margin-top: -10%;
+}
+
 
   /* float속성 - 블록요소를 옆으로 흘러가게 하는 속성
     - left 나는 왼쪽 너는 오른쪽으로
@@ -173,7 +193,9 @@ body{
   margin-top: 15px;
   overflow-y: scroll;
   /* 마우스 오버 시 height: 250px; */
-  display:none
+  height: 0px;
+  border-radius: 20px 0 0 20px;
+  
 }
 .cd h3{
   font-size: 20px;
@@ -188,15 +210,6 @@ body{
   text-align: justify;
 }
 
-/* 마우스 오버 시 캐릭터 설명박스 */
-.cat:hover .cd{
-  display: inline-block;
-  height: 250px;
-}
-.cat:hover{
-  margin-top: -10%;
-  transition: 1s;
-}
 
 
 /*--------------------------------- 하단영역 ---------------------------------*/
