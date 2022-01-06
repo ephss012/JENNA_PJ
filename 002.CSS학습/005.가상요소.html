@@ -50,10 +50,25 @@
 
              */
         /* h2요소 맨앞에 이미지 넣기 */
-        
+        h2::before{
+            content: url(./imgs/blogo.png);
+            /* 이미지는 원본 그대로 표시 - 가로세로 크기 조정 불가 */
+            margin-right: 20px;
+            vertical-align: middle;
+                /* 세로정렬 top middle bottom XXpx*/
+        }
 
         /* 맨뒤 추가요소 ::after */
-        
+        h2::after{
+            content: '';
+            display: inline-block;
+            /* 블록 설정으로 박스 디자인 적용 */
+            width: 42px;
+            height: 20px;
+            background: url(./imgs/blogo.png) no-repeat center/cover;
+            /* 색이반고윙/크 */
+
+        }
         
 
         /* dl요소 디자인 */
@@ -66,25 +81,54 @@
         }
 
         /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-        
+        dl dt::before{
+            content: '♣';
+            color: blue;
+            font-size: 30px;
+            vertical-align: 1px;
+            margin-right: 10px;
+        }        
 
         /* dd전체와 
         dd.story>h3에 가상요소 before적용하기 */
-        
+        dl dd::before,
+        dd.story>h3::before{
+            content: '♥';
+            color: red;
+            vertical-align: 1px;
+            margin-right: 5px;
+        }
         
 
         /* 스토리의 dd는 가상요소 없애기 */
+        dd.story::before{
+            display:none;
+        }
         
         /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-        
+        .story p:first-of-type:first-letter{
+            font-family: "궁서";
+            color: aqua;
+            font-size: 50px;
+        }
 
         /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
+        .story p:first-of-type::first-line{
+            color: blueviolet;
+        }
         
         
-
         /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
-        
+            
+        dd.story p:last-of-type b{
+            font-size: 40px;
+            font-weight: bold;
+            color: hotpink;
+        }
+        dd.story p:last-of-type span{
+            color:blue;
+        }
         
 
     </style>
