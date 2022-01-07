@@ -60,7 +60,7 @@ body {
   background-color: #fff;
   height: 120px;
   text-align: center;
-  /* overflow: hidden; */
+  /* overflow: hidden;  쓰지말것 */
 }
 
 #logo{
@@ -72,9 +72,16 @@ body {
 }
 
 /* 글로벌 네비게이션 비 */
+
+.gnb{
+  width: 600px;
+  /* max-width:600px 로 하면 또 아래로 떨어짐 */
+  margin: 0 auto;
+}
 .gnb ul {
   margin: 0;
-    padding: 0;
+  padding: 0 auto;
+  /* padding: 0 auto 로 설정해야 네비바에서 중앙에 오게할 수 있음 */
   /* ul에는 자동으로 
     margin-block-start: 1em;
     margin-block-end: 1em; 이 설정되어 나와서 
@@ -83,17 +90,19 @@ body {
   */
 }
 .gnb>ul>li {
-  display: inline-block;
+  /* display: inline-block; 한줄로 만들기 */
+  float: left;
   list-style: none;
-  margin-top: 15px;
+  /* margin-top: 15px; a의 lineheight 대신 */
 }
 .gnb>ul::after{
   content: '';
   display: block;
   clear: both;
 }
-.top a {
-  color: black;
+.gnb a {
+  color: #222;
+  line-height: 50px;
   text-decoration: none;
   font-size: 14px;
   padding: 0 15px;
@@ -251,15 +260,15 @@ body {
 
 /*--------------------------------- 하단영역 ---------------------------------*/
 .info {
-  height: 240px;
+  /* height: 240px; */
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 
 .info ul>li {
+  margin-top: 20px;
   list-style: none;
   display: inline-block;
-  padding-top: 20px;
   /* 한줄로 나열하기 */
 }
 
@@ -276,22 +285,18 @@ body {
   text-decoration: underline;
 }
 
-
-.add {
+.addr {
   box-sizing: border-box;
-  border: gray double 4px;
+  border:  4px double gray ;
   width: 800px;
-  height: 100px;
-  margin: auto;
-}
-
-.info address {
-  padding-top: 10px;
+  /* height: 100px; */
+  margin: 0 auto;
+  padding: 10px;
   font-style: normal;
   font-size: 16px;
   line-height: 25px;
 }
 
-.add img {
-  margin-top: 30px;
+.info img {
+  margin: 20px;
 }
