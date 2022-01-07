@@ -54,16 +54,26 @@ body {
 
 
 /*--------------------------------- 상단영역 ---------------------------------*/
-
+/* 헤더 */
 .top {
-  background: url(../images/tvnlogo2.png) no-repeat center 20px;
+  /* background: url(../images/tvnlogo2.png) no-repeat center 20px; */
   background-color: #fff;
   height: 120px;
   text-align: center;
   /* overflow: hidden; */
 }
+
+#logo{
+  padding-top: 20px;
+  text-align: center;
+}
+#logo img{
+  width: 100px;
+}
+
+/* 네비게이션 */
 .gnb ul {
-  margin: 0;
+  /* margin: 0; */
   /* ul에는 자동으로 
     margin-block-start: 1em;
     margin-block-end: 1em; 이 설정되어 나와서 
@@ -72,7 +82,6 @@ body {
   */
 }
 .gnb ul>li {
-  padding-top: 80px;
   display: inline-block;
   list-style: none;
 }
@@ -80,7 +89,7 @@ body {
   color: black;
   text-decoration: none;
   font-size: 14px;
-  padding: 15px;
+  padding: 0 15px;
 }
 
 
@@ -219,6 +228,7 @@ body {
 
 .cd h3 {
   font-size: 1.6vw;
+  white-space: nowrap;
   padding: 20px 10px 0;
 }
 
