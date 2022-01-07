@@ -10,8 +10,8 @@
             [ 뷰포트 단위란? ]
 
             - 먼저 뷰포트란 무엇인가?
-            : 디바이스(화면을 가진 기기)의 보이는 화면의 
-            접점을 이른다
+            ***보이는 화면에 대한 비율***
+            : 디바이스(화면을 가진 기기)의 보이는 화면의 접점을 이른다
             - 뷰포트 단위란 무엇인가?
             : 보이는 화면을 기준한 %단위로 크기를 정하는 것!
 
@@ -96,52 +96,93 @@
         }
         /* 1. vw단위 - 보이는 화면 가로폭기준 */
         .vp1 {
-            
+            width: 50vw;
+            font-size: 10vw;
         }
         
         /* 2. vh단위 - 보이는 화면 세로폭기준 */
         .vp2{
-            
+            width: 20vh;
+            font-size: 10vh;
         }
 
         /* 3. vmax단위 - 보이는 화면 가로,세로폭 중 큰것기준 */
         .vp3{
-            
+            width: 50vmax;
+            font-size: 10vmax;
         }
 
         /* 4. vmin단위 - 보이는 화면 가로,세로폭 중 작은것기준 */
         .vp4{
-            
+            width: 50vmin;
+            font-size: 10vmin;
         }
         
 
         /* 뷰포트 단위와 일반 %단위 비교 */
         .vp5 {
-            
+            width: 50%;
+            font-size: 24px;
         }
         .vp5-1{/* 뷰포트단위사용! */
-            
+            width: 50vw;
+            border: 5px dotted red;
         }
         .vp5-2{/* %단위사용! */
-            
+            width: 50%;
+            border: 5px dotted green;
         }
 
         /* 100vw */
         .vp6{
-            
+            width: 100vw;
+            background-color: red;
+            font-size: 24px;
         }
         /* 100% */
         .vp7{
-            
+            width: 100%;
+            background-color: yellow;
+            font-size: 24px;
+        }
+
+        .vp1-2{
+            width: 50vw;
+            font-size: min(10vw,70px);
+            /* css함수: mix ->> 최소값 선택함
+                mix(유동적값,특정값) 특정값보다 안 작커짐 */
+        
+        }
+        .vp1-3{
+            width: max(50vw,700px);
+            font-size: max(10vw,30px);
+            /* css함수: max ->> 최대값 선택함
+                max(유동적값,특정값) 특정값보다 안 작아짐 */
+        }
+        .vp1-4{
+            width: 50vw;
+            font-size: min(max(10vw,50px),100px);
+            /* min,max 같이 사용하면 사이 범위를 만들 수 있음
+            min(max(10vw,50px),100px)
+            최소 50px, 최대 100px 범위 */
         }
         
-
-
     </style>
 </head>
+
+
 <body>
     <div class="vp vp1">
         I am vw!
+    </div>
+    <div class="vp vp1-2">
+        I am vw min!
+    </div>
+    <div class="vp vp1-3">
+        I am vw max!
+    </div>
+    <div class="vp vp1-4">
+        I am vw mm!
     </div>
     <div class="vp vp2">
         I am vh!
