@@ -218,14 +218,15 @@ body {
 }
 
 .cd h3 {
-  font-size: 20px;
+  font-size: 1.6vw;
   padding: 20px 10px 0;
 }
 
 .cd p {
-  font-size: 20px;
-  line-height: 1.7;
-  padding: 10px;
+  font-size: 1.4vw; 
+  /* width가 줄어들면 폰트사이즈 작아짐 */
+  line-height: 1.4;
+  padding: 0 10px;
   text-align: justify;
 }
 
@@ -270,7 +271,7 @@ body {
 .info address {
   padding-top: 10px;
   font-style: normal;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 25px;
 }
 
