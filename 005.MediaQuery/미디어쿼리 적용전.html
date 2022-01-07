@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta:vp 로 젠코딩해서 쓰자! -->
+
+    <!-- 
+        [ 뷰포트(viewport)란? ]
+        - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
+        일반적인 물리적 크기의 픽셀로 변환해 주는 메타태그임
+        - 미디어쿼리를 사용하는 웹 페이지에서 필수!!!
+
+        mata  요소 속성 name="viewport" 로 설정
+        content 속성에
+        1) width=device-width 
+            : 가로픽셀크기를 디바이스 물리적크기와 일치시킴
+        2) initial-scale=1.0
+            : 물리적크기를 그대로 쓸때 1.0을 사용
+            (1보다 작게하면 축소, 1보다 크게하면 확대)
+
+        예) 아이폰 6플러스의 물리적 가로크기는 414px인데
+            디스플레이할때는 1080px로 보여진다!
+            이때 viewport를 쓰면 414px로 변환해서 보여준다!
+
+
+     -->
+    <title>미디어쿼리란?</title>
+</head>
+
+<body>
+
+    <div class="bx">
+        <h1 class="tit">
+            이정재 컬렉션
+        </h1>
+        <div class="screen">
+            <img src="./images/sc_noise.png" alt="노이즈화면">
+            <img src="./images/jeong1.jpg" alt="이정재1">
+            <img src="./images/jeong2.jpg" alt="이정재2">
+            <img src="./images/jeong3.jpg" alt="이정재3">
+            <img src="./images/jeong4.jpg" alt="이정재4">
+            <img src="./images/jeong5.jpg" alt="이정재5">
+            <img src="./images/jeong6.jpg" alt="이정재6">
+            <img src="./images/jeong7.jpg" alt="이정재7">
+            <img src="./images/jeong8.jpg" alt="이정재8">
+            <img src="./images/jeong9.jpg" alt="이정재9">
+        </div>
+    </div>
+
+</body>
+
+</html>
