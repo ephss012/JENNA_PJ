@@ -71,9 +71,10 @@ body {
   width: 100px;
 }
 
-/* 네비게이션 */
+/* 글로벌 네비게이션 비 */
 .gnb ul {
-  /* margin: 0; */
+  margin: 0;
+    padding: 0;
   /* ul에는 자동으로 
     margin-block-start: 1em;
     margin-block-end: 1em; 이 설정되어 나와서 
@@ -81,9 +82,15 @@ body {
     overflow:hidden 안 쓰려면 마진을 0으로 잡아주어야 함
   */
 }
-.gnb ul>li {
+.gnb>ul>li {
   display: inline-block;
   list-style: none;
+  margin-top: 15px;
+}
+.gnb>ul::after{
+  content: '';
+  display: block;
+  clear: both;
 }
 .top a {
   color: black;
