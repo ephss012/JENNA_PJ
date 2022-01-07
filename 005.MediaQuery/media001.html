@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- meta:vp 로 젠코딩해서 쓰자! -->
-    
+
     <!-- 
         [ 뷰포트(viewport)란? ]
         - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
@@ -80,13 +80,25 @@
                 5) and : 구문 사이 연결자
                     -> 주의사항 - and 앞뒤에 공백필수!
 
+
+                [웹페이지 가로세로 모드 인식하기]
+                1. 가로모드
+                @media (orientation:landscape){
+                    가로모드 css
+                }
+                2. 세로모드
+                @media (orientation:portrait){
+                    세로모드 css
+                }
+
+                *********************************************
                 [ 미디어 쿼리 코딩시 주의사항! ]
 
                 1. 기존 CSS 선택자와 동일하게 코딩한다!
                 (그래야 덮어쓰기가 원활하다!)
                 2. max-width로 셋팅한 경우 큰 사이즈부터 작은
                 사이즈 순으로 코딩한다!(min-width는 순서반대)
-                
+
                 *********************************************
                 3. 미디어쿼리를 외부css파일로 만들어 쓴 경우
                 @import방식으로 호출하면 적용되지 않는다!
@@ -189,38 +201,239 @@
         /************ 미디어쿼리 적용하기 ************/
 
         /*************** 1200px 이하 ***************/
-        
-
-        /* 1200px이하 */
+        /* 출력글자 변경하기 */
+        @media screen and (max-width:1200px) {
+            .tit::after {
+                content: "1200px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: pink;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(1){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(2){
+                display: inline;
+            }
+            /* 1200px이하 */
 
         /***************** 1100px 이하 *****************/
-       /* 1100px 이하 */
+        @media screen and (max-width:1100px) {
+            .tit::after {
+                content: "1100px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightgreen;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(2){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(3){
+                display: inline;
+            }
+        /* 1100px 이하 */
 
 
 
         /****************** 1000px 이하 ******************/
+        @media screen and (max-width:1000px) {
+            .tit::after {
+                content: "1000px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightsalmon;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(3){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(4){
+                display: inline;
+            }
         /* 1000px이하 */
 
+
         /*************** 900px 이하 ***************/
-       /* 900px 이하 */
+        @media screen and (max-width:900px) {
+            .tit::after {
+                content: "900px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightgoldenrodyellow;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(4){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(5){
+                display: inline;
+            }
+        /* 900px 이하 */
+
 
         /***************** 850px 이하 *****************/
-       /* 850px 이하 */
+        @media screen and (max-width:850px) {
+            .tit::after {
+                content: "850px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightsteelblue;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(5){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(6){
+                display: inline;
+            }
+        /* 850px 이하 */
+
 
         /****************** 830px 이하 ******************/
-         /* 830px 이하 */
-        
+        @media screen and (max-width:830px) {
+            .tit::after {
+                content: "830px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightcyan;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(6){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(7){
+                display: inline;
+            }
+        /* 830px 이하 */
+
+        /* ------------------------- 가로모드 830 --------------------------- */
+        @media screen and (max-width:770px) {
+            .tit::after {
+                content: "770px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: rgb(255, 218, 176);
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(9){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(10){
+                display: inline;
+            }
+
+        /* .bx 가상요소 배경변경하기 */
+        .bx::after{
+            background-position: top;
+            background-size: auto 60%;
+        }
+
+        /* 스크린 위치변경 */
+        .screen {
+            top: 123px;
+        }
 
 
         /******************** 810px 이하 ********************/
+        @media screen and (max-width:810px) {
+            .tit::after {
+                content: "810px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: lightcyan;
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(7){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(8){
+                display: inline;
+            }
         /* 810px 이하 */
 
+
         /******************* 790px 이하 *******************/
+        @media screen and (max-width:790px) {
+            .tit::after {
+                content: "790px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: rgb(255, 215, 252);
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(8){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(9){
+                display: inline;
+            }
         /* 790px 이하 */
 
+
         /******************* 770px 이하 *******************/
+        @media screen and (max-width:770px) {
+            .tit::after {
+                content: "770px이하";
+                display: block;
+                font-size: 24px;
+                line-height: 3;
+                color: rgb(255, 218, 176);
+            }
+            /* 기존이미지 숨기기 */
+            .screen img:nth-child(9){
+                display: none;
+            }
+            /* 다른이미지 보이기 */
+            .screen img:nth-child(10){
+                display: inline;
+            }
+
+        /* .bx 가상요소 배경변경하기 */
+        .bx::after{
+            background-position: top;
+            background-size: auto 60%;
+        }
+
+        /* 스크린 위치변경 */
+        .screen {
+            top: 123px;
+        }
         /* 770px 이하 */
 
+
+        @media screen and (orientation:landscape) and (max-width:830px) {
+
+        /* .bx 가상요소 배경변경하기 */
+        .bx::after{
+            background-position: top;
+            background-size: auto 60%;
+        }
+
+        /* 스크린 위치변경 */
+        .screen {
+            top: 123px;
+        }
+        
     </style>
 </head>
 
