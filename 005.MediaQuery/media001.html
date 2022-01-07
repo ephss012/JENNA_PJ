@@ -224,6 +224,7 @@
             .screen img:nth-child(2){
                 display: inline;
             }
+        }
             /* 1200px이하 */
 
         /***************** 1100px 이하 *****************/
@@ -243,12 +244,14 @@
             .screen img:nth-child(3){
                 display: inline;
             }
+        }
         /* 1100px 이하 */
 
 
 
         /****************** 1000px 이하 ******************/
         @media screen and (max-width:1000px) {
+
             .tit::after {
                 content: "1000px이하";
                 display: block;
@@ -256,19 +259,24 @@
                 line-height: 3;
                 color: lightsalmon;
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(3){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(4){
                 display: inline;
             }
+        }
+
         /* 1000px이하 */
 
 
         /*************** 900px 이하 ***************/
         @media screen and (max-width:900px) {
+
             .tit::after {
                 content: "900px이하";
                 display: block;
@@ -276,19 +284,24 @@
                 line-height: 3;
                 color: lightgoldenrodyellow;
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(4){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(5){
                 display: inline;
             }
+        }
+
         /* 900px 이하 */
 
 
         /***************** 850px 이하 *****************/
         @media screen and (max-width:850px) {
+
             .tit::after {
                 content: "850px이하";
                 display: block;
@@ -296,19 +309,24 @@
                 line-height: 3;
                 color: lightsteelblue;
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(5){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(6){
                 display: inline;
             }
+        }
+
         /* 850px 이하 */
 
 
         /****************** 830px 이하 ******************/
         @media screen and (max-width:830px) {
+
             .tit::after {
                 content: "830px이하";
                 display: block;
@@ -316,32 +334,36 @@
                 line-height: 3;
                 color: lightcyan;
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(6){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(7){
                 display: inline;
             }
+        }
+            
         /* 830px 이하 */
 
 
         /* ****************************************************************** */
         /* ------------------------- 가로모드 + 830이하 --------------------------- */
         @media screen and (orientation:landscape) and (max-width:830px) {
-  
-        /* .bx 가상요소 배경변경하기 */
-        .bx::after{
-            background-position: top;
-            background-size: auto 60%;
-        }
+    
+            /* .bx 가상요소 배경변경하기 */
+            .bx::after{
+                background-position: top;
+                background-size: auto 60%;
+            }
 
-        /* 스크린 위치변경 */
-        .screen {
-            top: 171px;
+            /* 스크린 위치변경 */
+            .screen {
+                top: 171px;
+            }
         }
-
 
         /******************** 810px 이하 ********************/
         @media screen and (max-width:810px) {
@@ -351,31 +373,38 @@
                 content: "810px이하";
                 color: lightcyan;
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(7){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(8){
                 display: inline;
             }
+        }
         /* 810px 이하 */
 
 
         /******************* 790px 이하 *******************/
         @media screen and (max-width:790px) {
+
             .tit::after {
                 content: "790px이하";
                 color: rgb(255, 215, 252);
             }
+
             /* 기존이미지 숨기기 */
             .screen img:nth-child(8){
                 display: none;
             }
+
             /* 다른이미지 보이기 */
             .screen img:nth-child(9){
                 display: inline;
             }
+        }
         /* 790px 이하 */
 
 
@@ -394,15 +423,16 @@
                 display: inline;
             }
 
-        /* .bx 가상요소 배경변경하기 */
-        .bx::after{
-            background-position: top;
-            background-size: auto 60%;
-        }
+            /* .bx 가상요소 배경변경하기 */
+            .bx::after{
+                background-position: top;
+                background-size: auto 60%;
+            }
 
-        /* 스크린 위치변경 */
-        .screen {
-            top: 123px;
+            /* 스크린 위치변경 */
+            .screen {
+                top: 123px;
+            }
         }
         /* 770px 이하 */
 
