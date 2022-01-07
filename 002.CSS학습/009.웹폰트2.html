@@ -8,6 +8,8 @@
       <!-- font-family: 'Amatic SC', cursive;
             font-family: 'Rock 3D', cursive; -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Love+Light&display=swap');
+
         /* 
             [ CDN 방식으로 웹폰트 불러오기 ]
             - Content Delivery Network
@@ -21,6 +23,7 @@
             2. import 방식으로 불러오기
             - @import 를 사용하여 css코딩구역 상단에 넣는다
             예) @import url(cdn주소)
+                @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Love+Light&display=swap');
 
             -> 결론적으로 위의 2가지 방식을 사용하면
             @font-face를 사용할 필요가 없다! 왜?
@@ -58,10 +61,12 @@
 
         .cdn3 {
             color: darkred;
+            font-family: 'Cinzel', serif;
         }
 
         .cdn4 {
             color: darkcyan;
+            font-family: 'Love Light', cursive;
         }
     </style>
 </head>
