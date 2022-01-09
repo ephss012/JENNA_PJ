@@ -159,11 +159,11 @@
             color: red;
         }
 
-        /* 오버시(:hover) */        
-        .part1 li:first-child:hover{
-            font-size: 50px;
-            color: blueviolet;
-        }
+            /* 오버시(:hover) */        
+            .part1 li:first-child:hover{
+                font-size: 50px;
+                color: blueviolet;
+            }
 
         /* 2번째 li */
         .part1 li:nth-child(2){
@@ -172,11 +172,11 @@
             color: lightcoral;
             font-weight: bold;
         }
-       
-        /* 오버시 */
-        .part1 li:nth-child(2):hover{
-            color: skyblue;
-        }
+    
+            /* 오버시 */
+            .part1 li:nth-child(2):hover{
+                color: skyblue;
+            }
         
         /* 3번째 li */
         .part1 li:nth-child(3){
@@ -187,10 +187,10 @@
             font-style: italic;
         }
         
-        /* 오버시 */
-        .part1 li:nth-child(3):hover{
-            font-style: normal;
-        }
+            /* 오버시 */
+            .part1 li:nth-child(3):hover{
+                font-style: normal;
+            }
 
         /* ------------------------------------------------------------------------------------------- */
 
@@ -201,23 +201,23 @@
             color: dodgerblue;
         }
 
-        /* 처음에 한글(b태그)숨기기 */
-        .part1 li:nth-child(4) b{
-            display: none;
-        }       
+            /* 처음에 한글(b태그)숨기기 */
+            .part1 li:nth-child(4) b{
+                display: none;
+            }       
 
-        /* 오버시 한글(b태그)보이고 한자(span태그)숨기기 */
-        .part1 li:nth-child(4):hover b{
-            display: inline;
-        }
-        .part1 li:nth-child(4):hover span{
-            display: none;
-        }
+            /* 오버시 한글(b태그)보이고 한자(span태그)숨기기 */
+            .part1 li:nth-child(4):hover b{
+                display: inline;
+            }
+            .part1 li:nth-child(4):hover span{
+                display: none;
+            }
 
-        /* 오버시 li에 노란배경색 */
-        .part1 li:nth-child(4):hover{
-            background-color: yellow;
-        }
+            /* 오버시 li에 노란배경색 */
+            .part1 li:nth-child(4):hover{
+                background-color: yellow;
+            }
 
         /* 4번 이후 모든 li 전부셋팅 */
         /* 틸드(~)를 사용한 다중형제 요소 선택 */
@@ -227,20 +227,20 @@
             color: orangered;
         }
 
-        /* 오버시 */
-        .part1 li:nth-child(4)~li:hover{
-            font-weight: bold;
-            color: blue;
-        }
+            /* 오버시 */
+            .part1 li:nth-child(4)~li:hover{
+                font-weight: bold;
+                color: blue;
+            }
 
         
-        /* 마지막 li */
+        /**************** 마지막 li ****************/ 
         body .part1 li:last-child{
             font-weight: bold;
             font-size: 40px;
             color: blue; 
          
-        /* 마지막 li 에 코딩하려면 다중선택자 앞으로 가야함 - 뒤에 있으면 밀림 - 앞에 body 붙이기 - 강력해지도록 */
+        /* 앞에 body 붙이기 - 강력해지도록 - 마지막 li 에 코딩하려면 다중선택자 앞으로 가야함 - 뒤에 있으면 밀림  */
         /* .part1 li:last-child{   <------- 이렇게 쓰면 안됨
             font-weight: bold;
             font-size: 40px;
@@ -251,13 +251,13 @@
             틸드(~)를 사용한 CSS가 한단계 더 선택하여서
             우선 순위가 높으므로 이것보다 우선순위를 
             높이는 가장쉬운 방법은 한단계위의 부모요소를
-            써준면 된다~!!!
+            써준면 된다~!!! 
             -> 여기서 한단계 위의 부모는 body!
             (호가호위! 여우 뒤에 호랑이!)
         */
        
 
-        /* 두번째 파트 */
+        /************** 두번째 파트 *************/
         div.part2{
             width: 800px;
             margin: 0 auto;
@@ -275,7 +275,7 @@
         /* 두번째 div */
         .part2 div:nth-of-type(2){
             font-size: 30px;
-            font-family: "궁서";
+            font-family: "굴림";
             color: blueviolet;
         }
 
