@@ -35,6 +35,7 @@ h4 {
 }
 
 body * {
+  /* 코딩 아웃라인 실선으로 보기 */
   outline: 0px dashed rgb(204, 204, 219);
 }
 
@@ -60,22 +61,23 @@ body {
   background-color: #fff;
   height: 120px;
   text-align: center;
-  /* overflow: hidden;  쓰지말것 */
+  /* overflow: hidden;  네비게이션에서 쓰지말것 */
 }
 
 #logo{
+  /* 로고는 h1으로 만들기 */
   padding-top: 20px;
   text-align: center;
 }
 #logo img{
+  /* 이미지 사이즈 변경하려면 img 붙여서 수정 */
   width: 100px;
 }
 
-/* 글로벌 네비게이션 비 */
-
+/* 글로벌 네비게이션 바 */
 .gnb{
   width: 600px;
-  /* max-width:600px 로 하면 또 아래로 떨어짐 */
+  /* max-width:600px 로 하면 네비 메뉴들 또 아래로 떨어짐 */
   margin: 0 auto;
 }
 .gnb ul {
@@ -90,7 +92,7 @@ body {
   */
 }
 .gnb>ul>li {
-  /* display: inline-block; 한줄로 만들기 */
+  /* display: inline-block; 한줄로 만들기 - 네비바에서 사용하지 않음 */
   float: left;
   list-style: none;
   /* margin-top: 15px; a의 lineheight 대신 */
@@ -99,6 +101,7 @@ body {
   content: '';
   display: block;
   clear: both;
+  /* 네비바 메뉴들이 밑으로 떨어지지 않게 해줌 */
 }
 .gnb a {
   color: #222;
@@ -138,7 +141,7 @@ body {
 }
 
 .cat {
-  /* 4등분 가로 크기 25% */
+  /* 부모요소 cbs의 4분의 1 = 가로 크기 25% 설정 */
   width: 25%;
   padding: 0.5%;
   box-sizing: border-box;
@@ -153,8 +156,9 @@ body {
 .cat:hover .cd {
   display: inline-block;
   height: 250px;
+  /* 캐릭터 이미지에 마우스 오버 시 설명박스가 250px 만큼 펼쳐지게됨 */
   transition: height 1s ease-out;
-  /* 소개박스 펼쳐지게함 */
+  /* 설명박스 세로로 펼쳐지게함 */
 }
 
 .cat:hover {
@@ -182,7 +186,8 @@ body {
 
 /* 배경이미지 여러개 주기 */
 /* 배경 이미지 여러개 주려면 한번에 세팅해야 함
-      background: 색 이미지 반복 고정 위치/크기;
+      background: 색 이미지url 반복 고정 위치/크기;
+      *** background: white url() no-repeat fixed center/50%;
       background: 색이반고윙/크 */
 
 /*   background:
@@ -201,7 +206,7 @@ body {
 
 
 
-/* 캐릭터 이름 - 흐린이름 */
+/* 캐릭터 이름표 태그 - 흐린이름 */
 .ci span {
   display: block;
   text-align: center;
@@ -214,65 +219,83 @@ body {
   width: 40%;
 }
 
-.ci span img:first-child {
+.ci span img:first-child { 
+  /* 진한 이름표 태그 숨기기 */
   display: none;
 }
 
-/* 캐릭터 이미지 마우스 오버 */
+/* 캐릭터 이미지에 마우스 오버 1 */
 .cat:hover .ci span img:first-child {
-  /* 진한이름 */
   display: inline;
+  /* 진한 이름표 태그 표시하기 */
   /* 원래값 복원 */
 }
 
+/* 캐릭터 이미지에 마우스 오버 2 */
 .cat:hover .ci span img:last-child {
-  /* 흐린이름 */
+  /* 흐린 이름표 태그 숨기기 */
   display: none;
-}
+} 
 
 /* 캐릭터 설명박스 */
 .cd {
-  background: url(../images/eachBG.jpg);
-  no-repeat center/cover;
+  background: url(../images/eachBG.jpg) no-repeat center/cover;
   margin-top: 15px;
   overflow-y: scroll;
-  /* 마우스 오버 시 height: 250px; */
+  /* 마우스 오버 시 height: 250px; 가 되고 스크롤바 생겨남 */
   height: 0px;
+  /* height가 0으로 잡힘으로 cat에 마우스 오버하지 않으면 보이지 않음 */
   border-radius: 20px 0 0 20px;
-
 }
 
 .cd h3 {
   font-size: 1.6vw;
   white-space: nowrap;
-  padding: 20px 10px 0;
+  /* 제목이 두줄 되는 것 방지 */
+  padding: 20px 15px 0;
 }
 
 .cd p {
   font-size: 1.4vw; 
   /* width가 줄어들면 폰트사이즈 작아짐 */
   line-height: 1.4;
-  padding: 0 10px;
+  padding: 0 15px;
   text-align: justify;
 }
-
 
 
 /*--------------------------------- 하단영역 ---------------------------------*/
 .info {
   /* height: 240px; */
+  /* 모바일 버전으로 줄였을때 바닥까지 배경색 표시하려면 높이 잡지 않기 */
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
 
-.info ul>li {
-  margin-top: 20px;
+.gnb2{
+  margin: 0 auto;
+  width: 760px;
+}
+.gnb2 ul{
+  margin: 0;
+  padding: 0 auto;
+}
+.gnb2 ul>li {
+  margin: 20px auto;
   list-style: none;
-  display: inline-block;
+  float: left;
+  /* 네비게이션 스타일에서는 인라인블록으로 하지 말고 nav 쓸 것 */
+  /* display: inline-block; */
   /* 한줄로 나열하기 */
 }
 
-.info a {
+.gnb2>ul::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gnb2 a {
   color: black;
   font-size: 14px;
   font-weight: bold;
@@ -286,7 +309,7 @@ body {
 }
 
 .addr {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border:  4px double gray ;
   width: 800px;
   /* height: 100px; */
