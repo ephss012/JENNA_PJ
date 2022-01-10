@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Position - Static</title>
+  <title>Position - Relative</title>
   <style>
     .bx{
       width: 100px;
@@ -15,36 +15,75 @@
       line-height: 100px;
     }
 
-    #s1{
-      position:static;
+    #r1{
 
-      /* css의 포지션은 뭘까 */
-      /* 위치를 효과적으로 배치하기 위한 코딩법을 제공하는 속성 */
+      /* [relative 포지션] 
+      1) 위치 이동 속성이 적용됨
+      2) 위치이동의 기준은 원래 있던 위치
+        (상대적인, relative라는 단어 사용)
+      3) 이동시에 다른 요소에 영향 없이 겹쳐질 수 있다.
+      4) 원래 자신이 있던 위치는 그대로 보존
+        -> 기존위치가 보존되기 떄문에 이동시켜도 보낼의 디자인은 망가지지 않음
+      5) 위치값 설정 시 2가지 기준으로만 세팅
+        -> 위아래, 좌우
+      6) 마진은 그대로 적용 - 다른 스태틱 요소에 영향
+        -> 원래 위치에서 마진으로 밀고 있는것과 같다
+      7) relative는 위치이동값을 사용하지 않으면 스태틱과 똑같은 특성을 가짐
+      8) 겹쳐질 수 있으므로 위아래 관계가 성립된다
+        (1) 스태틱보다 항상 위
+            스태틱 0 보다 아래로 내려가는 방법은 음수를 줌
+        (2) 스태틱 포지션이 아닌 경우
+            나중에 그려진 요소가 위
+        (3) z-index속성으로 숫자가 크면 위에 옴
+      9)
 
-      /* [static 포지션]
-      1) 설정하지 않아도 기봄값
-      2) 위치이동값 top left bottom right 속성이 적용되지 않음
-      3) 위치이동을 하려면 margin 사용
-        -> 마진 위치 이동  */
+      */
 
-      /* [위치이동 속성]
-      - 선택요소의 위치를 이동하기 위한 속성
-      - 포지션에 따라 다르게 적용된다 
-      -  top bottom left right*/
+      position: relative;
+      color: white;
+      background: url(./ab_img/ab5.jpg) no-repeat center/cover;
+      top: 50px;
+      left: 50px;
+      margin-bottom: 50px;
 
-      top: 100px;
-      left: 100px;
-      /* 위치 이동 속성은 스태틱에는 적용되지 않음 */
+      /* [z-index?]
+        겹치는 포지션을 주는 경우 윛 ㅣ순서를 정하여 디스플레이를 변경하는 속성
+        z는 화면방향의 z축을 의미하며 기본값은 0. 같은 층에 있다는 의미. 설정 안해도 0.
 
-      /* 마진으로 이동하기 */
-      margin-top: 100px;
-      margin-left: 100px;
+        포지션이 스태틱인 경우, 즉 아무 포지션을 주지 않은 경우 z-index는 적용 안 됨
+        -> 결론적으로 포지션이 있는 경우에만 z-index 사용 가능 
+        
+        **유의사항**
+        z-index 비교 시에 형제 레벨에 있어야 비교 가능
+        -> 자손 요소의 zindex를 아무리 높이 줘도 부모 요소의 다른 형제요소가 zindex가 높다면 위로 올라갈 수 없다
+      */
+      z-index: 1;
+
     }
+
+    #r2{
+      position: relative;
+      bottom: 75px;
+      right: -75px;
+      color: white;
+      background: url(./ab_img/ab4.jpg) no-repeat center/cover;
+      z-index: -1;
+    }
+
+    #s2,
+    #s3{
+      position: relative;
+      background-color: yellow;
+      top: -40px;
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="bx" id="s1">s1</div>
+  <div class="bx" id="r1">r1</div>
   <div class="bx" id="s2">s2</div>
+  <div class="bx" id="r2">r2</div>
   <div class="bx" id="s3">s3</div>
 
   <!-- 젠코딩
