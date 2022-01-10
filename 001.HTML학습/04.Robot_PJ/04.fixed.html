@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Position - Absolute</title>
+  <title>Position - Fixed</title>
   <style>
     body{
-      height: 2000px;
+      height: 3000px;
     }
     .bx{
       width: 100px;
@@ -19,38 +19,6 @@
     }
 
 
-  /* 
-  [ absolute 포지션 ]
-  앱솔루트 포지션은 위치이동값을 쓰기 전과 후로 나눌 수 있음
-  (1) 위치이동값을 쓰지 않은 경우
-    - 자기보다 위에 있는 요소를 존중하여 그 아래에 위치한다 - 젠틀 앱솔루트
-    - 자기보다 아래쪽에 있는 요소는 앱솔루트를 인식하지 못하여 같은 자리에 올라옴
-    - 어떤 요소 내부에 자식 요소가 앱솔루트일 경우 부모 박스가 가만히 있는다 - 젠클앱솔루트
-  (2) 위치이동값을 사용한 경우
-    - 위치이동값으 사용한 부분에 대해서만 앱솔루트가 위치를 잡을 떄 부모를 찾는다
-      부모 자격은 싸고있는 요소들 중 스태틱이 아닌 포지션을 가진 요소가 부모가 됨
-
-      스태틱이 아닌 포지션
-      relative, absolute, fixed, sticky
-
-      위치이동값을 쓰지 않은 부분은 젠특함  
-      부모 자격이 있는 부모 요소들 중 가장 가까운 것이 부모가 됨    
-
-      [만약 부모자격이 모두 없으면 보이는 화면을 기준으로 함]
-        보이는 화면은 바디가 아니다. 보이는 브라우저 화면, 즉 윈도우 화면이다
-        스크롤이 생겨도 스크롤 위쪽 화면을 말한다
-
-  3) 인라인 요소에 앱솔루트를 준 경우
-        자동으로 display:block
-        일반적으로 모든 앱솔루트는 블록
-        
-  4) 앱솔루트에 마진을 설정할 경우 위치 설정과 같은 방향의 마진만 적용
-      기본은 top left
-
-  5) 위치이동값의 초기화는 auto를 쓰면됨
-      기준값이 left로 설정된 걸 right으로 바꾸려면 left:auto로 초기화 해줘야함
-  */
-
 
     #a1{
       position: absolute;
@@ -59,18 +27,17 @@
       color: white;
     }
 
-        #r1{
-          position: relative;
-          color: white;
-          background: url(./ab_img/ab5.jpg) no-repeat center/cover;
-          top: 50px;
-          left: 50px;
-          z-index: 1;
-        }
+    #r1{
+      position: relative;
+      color: white;
+      background: url(./ab_img/ab5.jpg) no-repeat center/cover;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+    }
 
     #r2{
       position: relative;
-      /* position: absolute; */
       bottom: 75px;
       right: -75px;
       color: white;
@@ -78,14 +45,13 @@
 
     }
 
-        #s2,
-        #s3{
-          background-color: yellow;
-        }
-        
+    #s2,
+    #s3{
+      background-color: yellow;
+    }
+    
     #a2{
       position: absolute;
-      /* position: relative; */
       top: 0;
       right: 0;
       background: url(./ab_img/ab1.jpg) no-repeat center/cover;
@@ -106,10 +72,9 @@
 
     .a3{
       /* 스태틱 요소 안에 가만히 있음 - 위치값 없음 */
-      /* 앱솔루트는 위에 있는 것만 존중하고 아래는 신경 안씀  */
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       color: white;
       background: url(./ab_img/ab1.jpg) no-repeat center/cover;
     }
@@ -129,11 +94,11 @@
     /* 부모자격세팅 */
     /* relative를 준 게 부모 */
     .s5{
-      /* position: relative; */
+      position: relative;
       background-color: pink;
     }
     .s6{
-      position: relative;
+      /* position: relative; */
       background-color: lightgreen;
     }
     .s7{
@@ -178,11 +143,81 @@
       position: absolute;
     }
     .absimg img:last-child{
-      opacity:1;
+      opacity:0;
       transition: 1s;
     }
     .absimg:hover img:last-child{
-      opacity: 0;
+      opacity: 1;
+    }
+
+    .f1{
+      position: fixed;
+      /* fixed는 앱솔루트와 거의 유사 
+        1) 위치값을 설정하지 않을 때 
+          자신보다 위에 있는 스태틱한 요소 아래에 그대로 있다가 스크롤 시 그 자리를 지키고 움직이지 않음
+        2) 위치이동값을 썼을 때
+          부모를 기준으로 하여 위를 잡음 - 보이는 화면이 부모 = 윈도우
+          보이는 화면에서 사라지지 않게 하고자 할 때 사용하는 포지션 - 쇼핑몰의 장바구니, 오늘 본 상품 리스트 등
+          부모를 제외한 모든 다른 특성은 앱솔루트와 거의 같다
+        3) 부모요소가 여러개여도 fixed를 주면 보이는 화면이 부모가 됨
+        4) 부모박스가 fixed이면 그 자식요소들은 모두 보이는 화면에 고정됨
+            자식요소들은 fixed될 필요가 없다
+        5) 화면 바깥으로 숨겼다가 보이게 할 때도 fixed 사용
+
+      */
+      color: white;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border: 4px double green;
+      background: url(./ab_img/ab0.jpg) repeat-x 0/auto 100%;
+    }
+
+    
+    .f2{
+      position: fixed;
+      top: 0;
+      left: 0;
+      color: white;
+      width: 100%;
+      height: 100px;
+      line-height: 50px;
+      text-align: center;
+      border: 4px double green;
+      background: url(./ab_img/ab1.jpg) repeat-x 0/auto 100%;
+      z-index: 4;
+    }
+
+    .f3{
+      position: fixed;
+      /* fixed의 부모는 당연히 보이는 화면 */
+      top: 0;
+      right: -240px;
+      transition: right .5s ease-out;
+
+      width: 300px;
+      height: 100px;
+      background-color: yellow;
+      font-size: 30px;
+      line-height: 100px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 5;
+    }
+    .f3:hover{
+      right:0;
+    }
+
+    .newabs{
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      font-size: 20px;
+      background-color: pink;
+      line-height: 40px;
+      /* 부모로부터 글자 속성들이 상속됨 - 재정의가 필요
+        박스는 상속 안됨 */
     }
   </style>
 </head>
@@ -204,17 +239,27 @@
     <img src="./ab_img/ab4.jpg" alt="닥스">
   </div>
 
+
+  <!-- 화면고정 fixed포지션 -->
+  <div class="f1">f1</div>
+  <div class="f2">f2
+    <div class="newabs">나는 fixed자식!</div>
+  </div>
+
+
   <!-- 부모를 찾는 앱솔루트 요소 -->
   <div class="bx2 s5">s5
     <div class="bx2 s6">s6
       <div class="bx2 s7">s7
         <div class="bx2 s8">s8
-          <!-- 아래 3개는 부모 요소가 여러개인 셈임 -->
           <div class="a3">a3</div>
           <div class="a4">a4</div>
           <span class="sabs">
             나는 span 앱솔루트다! 
           </span>
+          <div class="f3">
+            나는 fixed다!
+          </div>
         </div>
       </div>
     </div>
