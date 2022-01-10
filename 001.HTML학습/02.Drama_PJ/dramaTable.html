@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/drama.css">
 
   <style>
-
+    
   </style>
 </head>
 
@@ -37,16 +37,104 @@
         <td>진영,차태현</td>
         <td>KBS2</td>
         <td>월화</td>
-        <td>오후 09:30</td>
+        <td>오후09:30</td>
         <td>16부작</td>
       </tr>
+      <tr>
+        <td>2</td>
+        <td>홍천기</td>
+        <td>안효섭,김유정</td>
+        <td>SBS</td>
+        <td>월화</td>
+        <td>오후10:00</td>
+        <td>12부작</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>더 로드 : 1의 비극</td>
+        <td>지진희,윤세아</td>
+        <td>tvN</td>
+        <td>수목</td>
+        <td>오후10:50</td>
+        <td>20부작</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>죽어야 산다</td>
+        <td>지창욱,오윤아</td>
+        <td>JTBC</td>
+        <td>수목</td>
+        <td>오후10:00</td>
+        <td>18부작</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>아름다운 세상</td>
+        <td>김동길,오세정</td>
+        <td>MBC</td>
+        <td>수목</td>
+        <td>오후09:50</td>
+        <td>16부작</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>혹여나 오시나요</td>
+        <td>마윤석,이필모</td>
+        <td>KBS2</td>
+        <td>수목</td>
+        <td>오후10:50</td>
+        <td>20부작</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>당신오면 죽어</td>
+        <td>성소희,이기로</td>
+        <td>tvN</td>
+        <td>토일</td>
+        <td>오후09:50</td>
+        <td>15부작</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>칼부림의 세계</td>
+        <td>장윤배,오세동</td>
+        <td>SBS</td>
+        <td>금토</td>
+        <td>오후10:00</td>
+        <td>20부작</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>호떡집 사장</td>
+        <td>송기영,판도라</td>
+        <td>tvN</td>
+        <td>수목</td>
+        <td>오후10:50</td>
+        <td>20부작</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>마이크로 칩</td>
+        <td>이라미,박노라</td>
+        <td>MBC</td>
+        <td>수목</td>
+        <td>오후10:50</td>
+        <td>10부작</td>
+      </tr>
+
     <tbody>
       <!-- 티바디는 안넣어도 나옴 -->
 
     </tbody>
     <!-- 테이블 하단부분 -->
     <tfoot>
-
+      <tr>
+        <td colspan="7">
+          ◀ 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 ▶
+          <!-- colspan 속성은 td를 합칠 때 사용 -->
+          <!-- 상단의 td, th가 7개이고 이것을 합치려면 7개를 하나로 합치는 값을 설정 -->
+        </td>
+      </tr>
     </tfoot>
 
     <!-- [ 가장 복잡한 그룹요소인 테이블!!! ]
@@ -62,7 +150,36 @@
       37. thead : 테이블 머릿부분
       38. tbody : 테이블 중앙 내용부분
       39. tfoot : 테이블 하단부분 -->
+
+      <!-- tbody는 일반적으로 table tr td로 구성하는 
+      테이블일 경우 자동으로 생성되어 표시됨 -->
   </table>
+  
+ 
+  <div class="gubun">
+    <table class="tbl" id="gubun">
+      <tr>
+        <td rowspan="4">구분</td>
+        <!-- rowspan 위아래 행을 합치는 속성
+        <!-- 아랫쪽 행은 td생략 --> 
+        
+        <td>월화:월화드라마</td>
+      </tr>
+      <tr>
+        <!-- <td>구분</td> -->
+        <td>수목:수목드라마</td>
+      </tr>
+      <tr>
+        <!-- <td>구분</td> -->
+        <td>금토:금토드라마</td>
+      </tr>
+      <tr>
+        <!-- <td>구분</td> -->
+        <td>토일:토일드라마</td>
+      </tr>
+    </table>
+  </div>
+ 
 </body>
 
 </html>
