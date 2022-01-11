@@ -9,7 +9,7 @@ body {
 
 body * {
   /* 코딩 아웃라인 실선으로 보기 */
-  outline: 0px dashed rgb(204, 204, 219);
+  /* outline: 1px dashed rgb(204, 204, 219); */
 }
 
 h1,
@@ -66,6 +66,8 @@ body {
 .top {
   position: relative;
   z-index: 9;
+  /* z-index 적용하기 위해 position:relative 사용 */
+
   /* background: url(../images/tvnlogo2.png) no-repeat center 20px; */
   background-color: #fff;
   /* height: 120px; */
@@ -170,10 +172,16 @@ body {
   display: block;
   position: absolute;
   left: 0;
+
   margin-top: 1px;
     /* 메뉴바 하단 보더 1픽셀이 보이도록 하기 위해서 */
+
   width: 100%;
+    /* 앱솔루트의 크기가 %일 경우 부모자격요소를 기준한다! */
+  height: 0;
+    /* height를 주어야 서브메뉴 텍스트 잔상이 남는 걸 방지 */
   background-color: #fff;
+
   transition: height .5s ease;
 }
 
@@ -211,6 +219,7 @@ body {
   height: 800px;
   overflow: hidden;
   position: relative;
+  /* 아래 open에서 배경문구 넣기 위해 position relative 사용 */
 }
 
 .open{
