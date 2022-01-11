@@ -21,8 +21,7 @@ body{
   font-size: 70px;
   color: white;
   text-align: center;
-  font-weight: 
-  ;
+  font-weight: normal;
 }
 
 .abg{
@@ -44,18 +43,95 @@ body{
   height: 400px;
   border: 3px solid cyan;
   border-radius: 50%;
+  box-shadow: 0 0 20px 1px aqua;
   background: url(../ab_img/ab0.jpg) no-repeat center/cover;
   }
 
 .abg>div{
   position: absolute;
+  /* 자식요소 .cat에 대한 부모자격도 있음 */
   top: 144px;
   left: 104px;
   /* 부모 abg */
+
+  opacity: 0;
+  transition: all 2s ease-in-out;
 }
+
+
 
 .abg>div>img{
   border-radius: 50%;
   box-shadow: 0 0 20px 1px yellow;
     /* x y blur spread; */
+}
+
+/* 공통설명박스 */
+.cat{
+  position: absolute;
+  color: white;
+  font-family: 'Single Day', cursive;
+  width: 300px;
+  border: 2px solid #fff;
+  border-radius: 5px ;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+
+  transition: all .6s ease-in-out;
+}
+
+.abg>div:hover .cat{
+  top: 0;
+  opacity: 1;
+}
+
+.rtxt{
+  opacity: 0;
+  top: 60px;
+  left: 120%;
+  /* 왼쪽을 기준으로 120퍼센트 옆으로 밀리기 */
+}
+
+.ltxt{
+  opacity: 0;
+  top: 60px;
+  right: 120%;
+  /* 오른쪽을 기준으로 120퍼센트 옆으로 밀리기 */
+}
+
+
+/* 바디에 마우스 오버 시 캐릭터 박스 opacity */
+body:hover .abg>div{
+  opacity: 1;
+}
+
+/* 캐릭터별 위치값 */
+/* 아이언맨 */
+body:hover .abg>div:first-child{
+  top:-80px;
+  left:-100px;
+}
+
+/* 타노스 */
+body:hover .abg>div:nth-child(2){
+  top: 260px;
+  left: -160px;
+}
+
+/* 토르 */
+body:hover .abg>div:nth-child(3){
+  top: 460px;
+  left: 100px;
+}
+
+/* 닥터스트레인지 */
+body:hover .abg>div:nth-child(4){
+  top: 260px;
+  left: 365px;
+}
+
+/* 스타로드 */
+body:hover .abg>div:last-child{
+  top: -80px;
+  left: 320px;
 }
