@@ -5,7 +5,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  
 }
 
 h1,
@@ -49,7 +49,10 @@ border-radius: 3px;
     width: 100%;
     /* background-color: aliceblue; */
     background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.logo{}
 
 .gnb{
     width:480px;
@@ -97,6 +100,7 @@ body{
     height: 700px;
     overflow: hidden;
     overflow-y: scroll;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -184,6 +188,7 @@ body{
     background: rgba(255, 255, 255, 0.6) ;
     padding-bottom: 50px;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .gnb2{
