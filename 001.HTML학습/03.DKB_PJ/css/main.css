@@ -7,6 +7,11 @@ body {
   padding: 0;
 }
 
+body * {
+  /* 코딩 아웃라인 실선으로 보기 */
+  outline: 0px dashed rgb(204, 204, 219);
+}
+
 h1,
 h2,
 h3,
@@ -40,10 +45,6 @@ ul, ol{
   border-radius: 5px;
 }
 
-body * {
-  /* 코딩 아웃라인 실선으로 보기 */
-  outline: 1px dashed rgb(204, 204, 219);
-}
 
 body {
   background:
@@ -63,11 +64,14 @@ body {
 /*--------------------------------- 상단영역 ---------------------------------*/
 /* 헤더 */
 .top {
+  position: relative;
+  z-index: 9;
   /* background: url(../images/tvnlogo2.png) no-repeat center 20px; */
   background-color: #fff;
   /* height: 120px; */
   text-align: center;
   /* overflow: hidden;  네비게이션에서 쓰지말것 */
+  border-bottom: 1px solid silver;
 }
 
 #logo{
@@ -79,7 +83,6 @@ body {
   /* 이미지 사이즈 변경하려면 img 붙여서 수정 */
   width: 100px;
 }
-
 
 
 
@@ -95,13 +98,18 @@ body {
 .gnb>ul {
   width: 510px;
   margin: 0 auto;
-
   /* ul에는 자동으로 
     margin-block-start: 1em;
     margin-block-end: 1em; 이 설정되어 나와서 
     header위로 마진이 잡혀서 밀리게 됨.
     overflow:hidden 안 쓰려면 마진을 0으로 잡아주어야 함
   */
+}
+.gnb>ul::after{
+  content: '';
+  display: block;
+  clear: both;
+  /* 네비바 메뉴들이 밑으로 떨어지지 않게 해줌 */
 }
 
 .gnb>ul>li {
@@ -112,71 +120,89 @@ body {
   /* margin-top: 15px; a의 lineheight 대신 */
 }
 
-.gnb>ul::after{
-  content: '';
+/* ******************************************************** */
+.gnb>ul>li>a {
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+
+  line-height: 40px;
   display: block;
-  clear: both;
-  /* 네비바 메뉴들이 밑으로 떨어지지 않게 해줌 */
+  height: 45px;
+  box-sizing: border-box;
 }
 
-/* 네비 밑에 하단 보더 생성하기 */
+/* 네비 메뉴 밑에 하단 보더 생성하기 */
 .gnb>ul>li:hover>a{
   border-bottom: 5px solid red;
 }
 
-.gnb>ul>li>a {
-  color: #222;
-  line-height: 40px;
-  text-decoration: none;
-  font-size: 14px;
-  /* padding: 0 15px; 패딩 포함하여 a 밑에 보더 생김 */
-  display: block;
-}
-
-.gnb>ul>li:hover>a{
-
-}
 
 /* 서브메뉴 */
 .smenu{
   position: absolute;
+  z-index: 1;
+
   height: 0;
   overflow: hidden;
+
   transition: height .5s ease;
-  background-color: #fff;
-  width: 100%;
-  /* left:0; */
 }
 .smenu ol{
   margin: 0;
   padding: 10px 0;
+  margin-top: 1px;
   list-style: none;
-  background-color: white;
   text-align: left;
 }
 
 .smenu a{
-  padding: 15px;
+  padding: 15px 0;
   line-height: 30px;
-  text-decoration: none;
-  color: #222;
   font-size: 14px;
-  position: relative;
+  text-decoration: none;
+  color: rgb(78, 78, 78);
 }
+
+/* 서브메뉴 w100% 배경박스 가상요소 */
+.gnb>ul>li::after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  margin-top: 1px;
+    /* 메뉴바 하단 보더 1픽셀이 보이도록 하기 위해서 */
+  width: 100%;
+  background-color: #fff;
+  transition: height .5s ease;
+}
+
+  
 
 
 /* 상위메뉴 마우스 오버시 서브메뉴 보이기 */
 
-
-.gnb>ul>li:first-child:hover .smenu{
+.gnb>ul>li:first-child:hover .smenu,
+.gnb>ul>li:first-child:hover::after{
   height: 110px;
 }
-.gnb>ul>li:nth-child(3):hover .smenu{
+.gnb>ul>li:nth-child(3):hover .smenu,
+.gnb>ul>li:nth-child(3):hover::after{
   height: 140px;
 }
-.gnb>ul>li:nth-child(4):hover .smenu{
+.gnb>ul>li:nth-child(4):hover .smenu,
+.gnb>ul>li:nth-child(4):hover::after{
   height: 80px;
 }
+
+/* 하단 보더 처리 */
+.gnb>ul>li:first-child:hover::after,
+.gnb>ul>li:nth-child(3):hover::after,
+.gnb>ul>li:nth-child(3):hover::after{
+  border-bottom: 3px solid red;
+}
+
+
 
 
 /*--------------------------------- 메인영역 ---------------------------------*/
@@ -184,7 +210,21 @@ body {
 .cont {
   height: 800px;
   overflow: hidden;
+  position: relative;
 }
+
+.open{
+  position: absolute;
+  top: 12%;
+  right: 15%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out 1s;
+    /* opacity에 대한 것 2초 기다렸다가 1초 동안 나옴  */
+}
+body:hover .open{
+  opacity: 1;
+}
+
 
 /* 캐릭터 부모박스 */
 #cbx {
