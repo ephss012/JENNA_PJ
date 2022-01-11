@@ -16,6 +16,12 @@ h4 {
   font-size: 100%;
 }
 
+ul, ol{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* 공통 클래스 */
 /* 스크롤바 디자인 */
 /* 접두어 -webkit-  <--- 벤더사명(크롬/사파리 기준) */
@@ -36,7 +42,7 @@ h4 {
 
 body * {
   /* 코딩 아웃라인 실선으로 보기 */
-  outline: 0px dashed rgb(204, 204, 219);
+  outline: 1px dashed rgb(204, 204, 219);
 }
 
 body {
@@ -59,7 +65,7 @@ body {
 .top {
   /* background: url(../images/tvnlogo2.png) no-repeat center 20px; */
   background-color: #fff;
-  height: 120px;
+  /* height: 120px; */
   text-align: center;
   /* overflow: hidden;  네비게이션에서 쓰지말것 */
 }
@@ -74,16 +80,22 @@ body {
   width: 100px;
 }
 
+
+
+
 /* 글로벌 네비게이션 바 */
+
 .gnb{
-  width: 600px;
+  background-color: #fff;
+  width: 100%;
   /* max-width:600px 로 하면 네비 메뉴들 또 아래로 떨어짐 */
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
-.gnb ul {
-  margin: 0;
-  padding: 0 auto;
-  /* padding: 0 auto 로 설정해야 네비바에서 중앙에 오게할 수 있음 */
+
+.gnb>ul {
+  width: 510px;
+  margin: 0 auto;
+
   /* ul에는 자동으로 
     margin-block-start: 1em;
     margin-block-end: 1em; 이 설정되어 나와서 
@@ -91,24 +103,79 @@ body {
     overflow:hidden 안 쓰려면 마진을 0으로 잡아주어야 함
   */
 }
+
 .gnb>ul>li {
   /* display: inline-block; 한줄로 만들기 - 네비바에서 사용하지 않음 */
   float: left;
-  list-style: none;
+  text-align: center;
+  padding: 0 15px;
   /* margin-top: 15px; a의 lineheight 대신 */
 }
+
 .gnb>ul::after{
   content: '';
   display: block;
   clear: both;
   /* 네비바 메뉴들이 밑으로 떨어지지 않게 해줌 */
 }
-.gnb a {
+
+/* 네비 밑에 하단 보더 생성하기 */
+.gnb>ul>li:hover>a{
+  border-bottom: 5px solid red;
+}
+
+.gnb>ul>li>a {
   color: #222;
-  line-height: 50px;
+  line-height: 40px;
   text-decoration: none;
   font-size: 14px;
-  padding: 0 15px;
+  /* padding: 0 15px; 패딩 포함하여 a 밑에 보더 생김 */
+  display: block;
+}
+
+.gnb>ul>li:hover>a{
+
+}
+
+/* 서브메뉴 */
+.smenu{
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  transition: height .5s ease;
+  background-color: #fff;
+  width: 100%;
+  /* left:0; */
+}
+.smenu ol{
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background-color: white;
+  text-align: left;
+}
+
+.smenu a{
+  padding: 15px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  position: relative;
+}
+
+
+/* 상위메뉴 마우스 오버시 서브메뉴 보이기 */
+
+
+.gnb>ul>li:first-child:hover .smenu{
+  height: 110px;
+}
+.gnb>ul>li:nth-child(3):hover .smenu{
+  height: 140px;
+}
+.gnb>ul>li:nth-child(4):hover .smenu{
+  height: 80px;
 }
 
 
