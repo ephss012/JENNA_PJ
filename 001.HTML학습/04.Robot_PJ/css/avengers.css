@@ -24,3 +24,38 @@ body{
   font-weight: 
   ;
 }
+
+.abg{
+  /* 왜 포지션이 필요한가 */
+  /* 자유롭게 정중앙에 위치시키고 싶음 */
+  /* 다른 요소의 영향 없이 기준요소에서 위치를 잡는다 */
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 150px);
+  
+  /* 정중앙 이동원리 
+    위치값을 top, left 각 50% 이동후 가로, 세로 크기의 절반을 각 위치값에서 뺴기 
+    
+    값을 계산하는 css함수
+    calc(%수치 - px수치)
+    반드시 띄어쓰기 할 것*/
+
+  width: 300px;
+  height: 400px;
+  border: 3px solid cyan;
+  border-radius: 50%;
+  background: url(../ab_img/ab0.jpg) no-repeat center/cover;
+  }
+
+.abg>div{
+  position: absolute;
+  top: 144px;
+  left: 104px;
+  /* 부모 abg */
+}
+
+.abg>div>img{
+  border-radius: 50%;
+  box-shadow: 0 0 20px 1px yellow;
+    /* x y blur spread; */
+}
