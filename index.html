@@ -10,7 +10,11 @@
             charset="utf-8" -> 인코딩형식 지정
             utf-8 한글 등 2byte문자 안깨짐!
         -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         html,
         body,
@@ -18,6 +22,7 @@
         h2 {
             margin: 0;
             padding: 0;
+            font-family: 'Open Sans', sans-serif;
         }
 
         ul {
@@ -31,7 +36,7 @@
             text-decoration: none;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400&family=Noto+Serif+KR&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 
         body {
@@ -48,14 +53,15 @@
             margin-top: 100px;
             border-radius: 15px;
             padding: 30px;
+
         }
 
         .tit {
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
             color: white;
             margin-bottom: 30px;
-            
+            /* 이미지 작아지게 하려면 max-width:80%;
+                이미지 크기의 80%보다 작아질 때 최대 80% 크기 유지 */
         }
 
         .pbx {
@@ -63,7 +69,7 @@
             /* 자식 블록요소를 옆으로 흐르게 한다 */
             border-top: .5px solid white;
             padding: 30px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Nanum Pen Script';
         }
 
         .pbx>div {
@@ -72,17 +78,21 @@
             padding: 10px;
         }
 
-        .pbx h2{
+        .pbx h2 {
             font-weight: normal;
             padding-bottom: 30px;
         }
 
-        .pbx ul>li{
-
+        .pbx ul>li {
+            font-size: 30px;
         }
 
-        .pbx a{
-            line-height: 40px;
+        .pbx a {
+            line-height: 50px;
+        }
+
+        .pbx a:hover {
+            color: white;
         }
 
 
@@ -119,6 +129,21 @@
                     <li>
                         <a href="001.HTML/03.DKB_PJ/" target="_blank">
                             도깨비 PJ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#l" target="_blank">
+                            프로젝트 넘버
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            프로젝트 넘버
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            프로젝트 넘버
                         </a>
                     </li>
                 </ul>
