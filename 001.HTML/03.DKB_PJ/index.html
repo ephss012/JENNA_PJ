@@ -7,6 +7,38 @@
   <title>쓸쓸하고 찬란하신(神) 도깨비 - 프로그램 소개</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/media.css">
+  
+  <!-- 자바스크립트 코딩 구역 -->
+  <script>
+    //자바스크립트 코딩 구역은 js문법만 사용가능
+    //js코드 저장공간 -> 함수 >>> function (예약어:키워드)
+    //함수형식: function 함수명(){코드}
+    function 보여줘(){
+      // alert("나야나");
+      // 변경대상 선정: .gnb, .ham
+      // 변경내용: 각 대상에 클래스 on 넣기
+
+      // 클래스 넣는 객체 : classList
+      // 클래스 넣기 메소드 classList.add(클래스명)
+      // 클래스 빼기 메소드 classList.remove(클래스명)
+      // 클래스 토글 메소드 classList.togle(클래스명)
+      // 토글이란? 두가지 기능을 전환하는 것
+      // 여기서 토글은 지정 클래스가 없으면 넣고 있으면 뺀다
+
+      // js에서 현재 웹문서 전체란? document
+      // getElementsByClassName(클래스명) - 클래스 요소 선택
+      // item(번호) - 클래스 중 몇 번째, 첫 번째는 0번
+
+      // gnb요소
+      document.getElementsByClassName("gnb").item(0)
+      .classList.toggle("on")  
+      // 햄버거 버튼 요소    
+      document.getElementsByClassName("ham").item(0)
+      .classList.toggle("on")
+    }
+  </script>
+
+
   <style>
     @font-face {
       font-family: nanumpen;
@@ -91,6 +123,15 @@
         <!-- 삭제처리 <li><a href="">심리테스트</a></li> -->
       </ul>
     </nav>
+    
+    <!-- 모바일용 햄버거 버튼 -->
+    <button class="ham" onclick="보여줘()"></button>
+    <!-- on이벤트명 -> html이벤트속성
+        onclick = "값"
+        -> 클릭 이벤트가 발생하면 값을 읽는다
+        -> 값은 js 문법으로 표현되는 코드
+      -->
+
   </header>
 
 
@@ -115,7 +156,7 @@
         <div class="cd scbar">
           <!-- 캐릭터 타이틀 -->
           <h3>도깨비(김신), 939세</h3>
-          <p>백성들은 그를 신(神)이라고 불렀다. 시뻘건 피를 뒤집어쓴 채 푸르게 안광을 빛내며 적들을 베는 그는 문자 그대로의 무신(武神)이었으나, 자신이 지키던 주군의 칼날에 죽었다. 영웅으로 살다
+          <p>백성들은 그를 신이라고 불렀다. 시뻘건 피를 뒤집어쓴 채 푸르게 안광을 빛내며 적들을 베는 그는 문자 그대로의 무신이었으나, 자신이 지키던 주군의 칼날에 죽었다. 영웅으로 살다
             역적으로 죽어가던 김신에게 천상의 존재는 상인지 벌인지 모를 늙지도 죽지도 않는 생을 주었고, 그로부터 935년 동안 도깨비로 살았다. 심장에 검을 꽂은 채로.</p>
 
           <p>“오직 도깨비 신부만이 그 검을 뽑을 것이다.” 지독히 낭만적인 저주였다. 그래서 쉬울 줄 알았지만 그가 만난 어떤 여자도 검을 발견하지 못한 채 불멸을 살던 어느 날. 자신을 도깨비 신부라고

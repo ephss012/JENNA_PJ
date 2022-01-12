@@ -73,14 +73,14 @@ body {
   /* background: url(../images/tvnlogo2.png) no-repeat center 20px; */
   background-color: #fff;
   /* height: 120px; */
-  text-align: center;
+  /* text-align: center; */
   /* overflow: hidden;  네비게이션에서 쓰지말것 */
   border-bottom: 1px solid silver;
 }
 
 #logo{
   /* 로고는 h1으로 만들기 */
-  padding-top: 20px;
+  padding: 20px;
   text-align: center;
 }
 #logo img{
@@ -96,11 +96,11 @@ body {
   background-color: #fff;
   width: 100%;
   /* max-width:600px 로 하면 네비 메뉴들 또 아래로 떨어짐 */
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .gnb>ul {
-  width: 510px;
+  max-width: 510px;
   margin: 0 auto;
   /* ul에는 자동으로 
     margin-block-start: 1em;
@@ -130,7 +130,7 @@ body {
   text-decoration: none;
   font-size: 14px;
 
-  line-height: 40px;
+  line-height: 30px;
   display: block;
   height: 45px;
   box-sizing: border-box;
@@ -212,7 +212,26 @@ body {
   border-bottom: 3px solid red;
 }
 
+.ham{
+  FONT-WEIGHT: 300;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  font-size: 35px;
+  color: #222;
+  display: none;
+  z-index: 999;
+}
 
+/* 햄버거 버튼에 가상요소로 글자넣기 */
+button.ham::before{
+  content: '≡';
+}
+button.ham.on::before{
+  content: '×';
+}
 
 
 /*--------------------------------- 메인영역 ---------------------------------*/
@@ -260,8 +279,9 @@ body:hover .open{
 
 .cat {
   /* 부모요소 cbs의 4분의 1 = 가로 크기 25% 설정 */
-  width: 25%;
-  padding: 0.5%;
+  width: 24%;
+  /* padding: 0.5%; */
+  margin: .5%;
   box-sizing: border-box;
   /* 박스 사이징 - 패딩 때문에 써니가 아래로 떨어지는 것 방지 */
   /* width: 24%;
