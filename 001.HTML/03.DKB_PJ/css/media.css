@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+/* 도깨비 PJ 미디어쿼리 CSS - media.css */
+
+/* 800px 이하일 때 */
+@media screen and (max-width:800px) {
+  /* 디스플레이 없애기 - gnb, gnb2, open */
+  .gnb, .blink, .open{
+    display: none;
+  }
+
+  .top{
+    height: auto;
+  }
+}
+/* 800px 이하 -  */

@@ -5,6 +5,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  /* 가로스크롤 없애기 - 모바일에서 넘치는 화면 조절 */
 }
 
 body * {
@@ -385,18 +387,19 @@ body:hover .open{
   /* height: 240px; */
   /* 모바일 버전으로 줄였을때 바닥까지 배경색 표시하려면 높이 잡지 않기 */
   background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
   text-align: center;
 }
 
-.gnb2{
+.blink{
   margin: 0 auto;
-  width: 760px;
+  max-width: 760px;
 }
-.gnb2 ul{
+.blink ul{
   margin: 0;
   padding: 0 auto;
 }
-.gnb2 ul>li {
+.blink ul>li {
   margin: 20px auto;
   list-style: none;
   float: left;
@@ -405,13 +408,13 @@ body:hover .open{
   /* 한줄로 나열하기 */
 }
 
-.gnb2>ul::after{
+.blink>ul::after{
   content: '';
   display: block;
   clear: both;
 }
 
-.gnb2 a {
+.blink a {
   color: black;
   font-size: 14px;
   font-weight: bold;
@@ -427,7 +430,7 @@ body:hover .open{
 .addr {
   /* box-sizing: border-box; */
   border:  4px double gray ;
-  width: 800px;
+  max-width: 800px;
   /* height: 100px; */
   margin: 0 auto;
   padding: 10px;
