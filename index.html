@@ -1,32 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>나의 첫페이지!</title>
-        <meta charset="utf-8">
-        <!-- 
+
+<head>
+    <title>나의 첫페이지!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
             메타요소: 웹페이지 기본정보 셋팅 
             charset="utf-8" -> 인코딩형식 지정
             utf-8 한글 등 2byte문자 안깨짐!
         -->
-    </head>
-    <body>
-        <h1>공통 프로젝트</h1>
-        <ul>
-            <li>
-                <a href="001.HTML학습/01.Info_PJ/info.html" target="_blank">
-                    기본전달사항
-                </a>
-            </li>
-            <li>
-                <a href="999.portfolios/" target="_blank">
-                    포폴관리페이지
-                </a>
-            </li>
-            <li>
-                <a href="001.HTML/03.DKB_PJ/" target="_blank">
-                    도깨비 PJ
-                </a>
-            </li>
-        </ul>
-    </body>
+
+    <style>
+        html,
+        body,
+        h1,
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400&family=Noto+Serif+KR&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+
+        body {
+            background: url(images/background.jpg) no-repeat fixed center/cover;
+            overflow: hidden;
+
+        }
+
+        .wrap {
+            width: 1200px;
+            max-width: 90%;
+            background-color: rgba(255, 255, 255, 0.4);
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .tit {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            margin-bottom: 30px;
+            
+        }
+
+        .pbx {
+            display: flex;
+            /* 자식 블록요소를 옆으로 흐르게 한다 */
+            border-top: .5px solid white;
+            padding: 30px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .pbx>div {
+            flex: 1;
+            /* flex인 자식을 등분할 시 설정값은 1 */
+            padding: 10px;
+        }
+
+        .pbx h2{
+            font-weight: normal;
+            padding-bottom: 30px;
+        }
+
+        .pbx ul>li{
+
+        }
+
+        .pbx a{
+            line-height: 40px;
+        }
+
+
+        /* 미디어쿼리 */
+        @media screen and (max-width:1000px) {
+            .pbx {
+                flex-direction: column;
+                /* 레이아웃 진행 방향 세로로 바뀜 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1 class="tit">
+            JENNA's Portfolio
+            <!-- <img src="images/mylogo_14.png" alt="아카이브로고"> -->
+        </h1>
+        <div class="pbx">
+            <div>
+                <h2>Shared Project</h2>
+                <ul>
+                    <li>
+                        <a href="001.HTML학습/01.Info_PJ/info.html" target="_blank">
+                            기본전달사항
+                        </a>
+                    </li>
+                    <li>
+                        <a href="999.portfolio/" target="_blank">
+                            포트폴리오
+                        </a>
+                    </li>
+                    <li>
+                        <a href="001.HTML/03.DKB_PJ/" target="_blank">
+                            도깨비 PJ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2>Personal Project</h2>
+                <ul>
+                    <li>
+                        <a href="001.HTML학습/01.Info_PJ/info.html" target="_blank">
+                            기본전달사항
+                        </a>
+                    </li>
+                    <li>
+                        <a href="999.portfolio/" target="_blank">
+                            포폴관리페이지
+                        </a>
+                    </li>
+                    <li>
+                        <a href="999.portfolio/portfolio.html" target="_blank">
+                            도깨비 PJ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
