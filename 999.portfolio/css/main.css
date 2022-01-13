@@ -46,6 +46,7 @@ border-radius: 3px;
 .top{
     position: fixed;
     display: flex;
+    z-index: 100;
 
     height: 70px;
     width: 100%;
@@ -78,8 +79,8 @@ border-radius: 3px;
     width:100%;
 }
 .gnb ul{
-    
-    max-width: 480px;
+    box-sizing: border-box;
+    max-width: 800px;
     margin-left: 55%;
 
 }
@@ -97,6 +98,7 @@ border-radius: 3px;
 .gnb>ul>li>a{
     color: black;
     text-decoration: none;
+    font-size: 1.1vw;
     line-height:67px;
     font-weight: bold;
 }
@@ -104,7 +106,7 @@ border-radius: 3px;
     border-bottom: 3px solid rgb(0, 0, 0);
 }
 .gnb>ul>li:hover .smenu>ol>li>a{
-    color: rgb(77, 64, 128);
+    color: #222;
 }
 
 .smenu>ol>li:hover a{
@@ -129,7 +131,7 @@ border-radius: 3px;
     width: 100%;
     height: 0;
     background-color: #fff;
-    transition: height 1s ease;
+    transition: height .6s ease;
 }
 .gnb>ul>li:nth-child(2):hover .smenu,
 .gnb>ul>li:nth-child(2):hover::after{
@@ -146,7 +148,7 @@ border-radius: 3px;
     padding-top: 10px;
     position: absolute;
     /* 마우스 오버 시 언더바가 서브메뉴 밑에 달리는 것 방지 */
-    z-index: 10;
+    z-index: 1;
     height: 0;
     overflow: hidden;
 }
@@ -154,6 +156,7 @@ border-radius: 3px;
     text-decoration: none;
     line-height: 40px;
     font-weight: bold;
+    font-size: 15px;
 }
 
 
@@ -162,11 +165,10 @@ border-radius: 3px;
 /* ************************** 메인영역 ******************************* */
 
 body{
-    background: url(../images/bg03.jpg) no-repeat fixed 0/cover;
+    background: url(../images/bg03.jpg) no-repeat fixed center/cover;
 }
 
 .content{
-    height: 700px;
     overflow: hidden;
     overflow-y: scroll;
     font-family: 'Montserrat', sans-serif;
@@ -174,9 +176,10 @@ body{
 
 .design{
     width: 90%;
+    height: auto;
     margin: 0 auto;
     /* box-sizing: border-box; */
-    margin-top: 250px;
+    margin-top: 220px;
 }
 .design::after{
     content:'';
@@ -184,22 +187,21 @@ body{
     clear: both;
 }
 
+/* 메인 프로젝트 소개 이미지 + 타이틀 */
 .project{
     position: relative;
     width: 23%;
-    margin: 1%; 
-    /* padding: 1%; */
+    margin: 1%;
+    /* height: 300px;   
+        마우스 오버 시 텍스트 박스 하단 보더라운드 부분이 제대로 보이지 않음 */
+    /* ****************************************************** */
     float: left;
     box-sizing: border-box;
     overflow: hidden;
-    padding-bottom: 7%;
+    padding-bottom: 3%;
+    margin-bottom: 10%;
 }
-.slider{
-    position: absolute;
-    top: calc(100% - 70px);
-    width: 100%;
-    transition: top .8s;
-}
+
 .project:hover .slider{
     top: 0;
 }
@@ -211,8 +213,16 @@ body{
     /* box-shadow: 10px 20px 40px 20px rgba(102, 101, 129, 0.116); */
 }
 
+
+/* 텍스트 본문 박스 */
+.slider{
+    position: absolute;
+    top: calc(100% - 60px);
+    width: 100%;
+    transition: top .5s;
+}
 .each{
-    position: relative;
+    /* position: relative; */
     text-align: center;
     line-height: 60px;
     width: 100%;
@@ -221,10 +231,10 @@ body{
     white-space: nowrap;
     font-size: 1vw;
 }
-
 .txt{
+    /* position: absolute; */
     width: 100%;
-    height: 300px;
+    height: 400px;
     background: rgba(255, 255, 255);
     
     padding: 10px;
@@ -236,62 +246,25 @@ body{
     color: #222;
     line-height: 20px;
 }
-
 .txt p{
     margin-top: 5px;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
     word-break: all;
 }
-
 .txt a{
     color: #aaa;
     font-style: italic;
 }
 
 
-        /* 썸네일 이미지 위에 컬러박스 */
-        .work{
-            position: relative;
-        }
-        /* 컬러박스 공통 */
-        /* #img{
-            width: 200px;
-            height: 200px;
-            border-radius: 0;
-            .project:hover #img1, #img2, #img3, #img4
-        }
-        .img1{
-            background-color: rgba(255, 0, 0, 0.9);
-        }
-        .img2{
-            background-color: rgba(255, 179, 0, 0.9);
-        }
-        .img3{
-            background-color: rgba(0, 119, 255, 0.9);
-        }
-        .img4{
-            background-color: rgba(174, 0, 255, 0.9);
-        } 
-       */
 
-        /* .project:hover #img{
-            display: inline-block;
-            position: absolute;
-            top: 2vh;
-            right: 2vw;
-            z-index: 9;
-        } */
-
-
-/* 프로젝트에 마우스 오버 시 */
+/* 프로젝트에 마우스 오버 시 텍스트 박스 변화 */
 .project:hover{
-    /* margin-top: -10%; */
 }
-/* .project:hover img{
-    display: none;
-} */
-
+    /* .project:hover img{
+        display: none;
+    } */
 .project:hover .each{
     position: relative;
     border-radius: 0;
@@ -303,7 +276,6 @@ body{
     border-bottom: 1px solid #eee;
     color: #fafafa;
     background-color: rgb(19, 8, 63);
-
 }
 .project .txt{
     width: 100%;
