@@ -50,6 +50,9 @@ h1#logo{
   background-size: 160px;
   box-shadow: 0 0 20px pink,
               inset 0 0 20px 5px #000;
+
+  /* 애니메이션 호출 */
+  animation: logoAni 1.5s ease-in-out 2s 3 alternate forwards;
 }
 
 
@@ -109,6 +112,15 @@ h1#logo{
 
 /* ****************************************************** */
 
+/* 로고 키프레임 */
+@keyframes logoAni {
+  /* from은 초기값과 동일함으로 생략 */
+  to{
+    top: 50px;
+    left: 50px;
+    transform: scale(1);
+  }
+} 
 
 
 /* 링크 */
