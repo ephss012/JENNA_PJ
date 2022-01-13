@@ -103,9 +103,14 @@ border-radius: 3px;
 .gnb>ul>li:hover{
     border-bottom: 3px solid rgb(0, 0, 0);
 }
-.gnb>ui>li:hover a{
+.gnb>ul>li:hover .smenu>ol>li>a{
     color: rgb(132, 126, 155);
 }
+
+.smenu>ol>li:hover{
+    text-decoration: underline;
+}
+
 .gnb a:visited{
     color: black;
     text-decoration: none;
@@ -232,17 +237,16 @@ body{
 
 
 
-/* 썸네일 이미지 위에 컬러박스 */
-.work{
-    position: relative;
-}
-/* 컬러박스 공통 */
+        /* 썸네일 이미지 위에 컬러박스 */
+        .work{
+            position: relative;
+        }
+        /* 컬러박스 공통 */
         /* #img{
             width: 200px;
             height: 200px;
             border-radius: 0;
-            /* .project:hover #img1, #img2, #img3, #img4 */
-            display: none;
+            .project:hover #img1, #img2, #img3, #img4
         }
         .img1{
             background-color: rgba(255, 0, 0, 0.9);
@@ -256,8 +260,7 @@ body{
         .img4{
             background-color: rgba(174, 0, 255, 0.9);
         } 
-        */
-
+       */
 
         /* .project:hover #img{
             display: inline-block;
@@ -284,16 +287,16 @@ body{
 }
 .project:hover .each{
     position: relative;
-    border-radius: 0;
+    border-radius: 30px 30px 0 0 ;
     font-weight: bold;
     border-bottom: 1px solid #eee;
     color: #fafafa;
-    background-color: rgb(132, 126, 155);
+    background-color: rgb(19, 8, 63);
     transition: height 1s ease-out;
 }
 .project:hover .txt{
     display: inline-block;
-    height: 250px;
+    height: 300px;
     transition: height 3s ease-out;
 }
 

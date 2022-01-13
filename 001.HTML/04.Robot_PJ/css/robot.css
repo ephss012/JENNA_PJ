@@ -1,25 +1,163 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+
+
 /* PJ CSS - robot.css */
 
+html{
+  scroll-behavior: smooth;
+  /* 내부 id 위치 이동 시 스크롤 애니메이션을 부드럽게 처리 */
+}
 html, body{
   margin: 0;
   padding: 0;
 }
-
 body{
   background: url(../images/bg.jpg) no-repeat fixed top/cover;
   overflow-x: hidden;
 }
-
 body *{
   /* outline: 5px dashed lime; */
+}
+
+
+/* 로고 */
+h1#logo{
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  z-index: 10;
+
+  transform: scale(1.5);
+
+  width: 200px;
+  height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin: 0; 
+    /* h1 기본마진 없애기 */
+  
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  font-family: "vladimir script";
+  font-size: 60px;
+  text-shadow: 2px 2px 2px #000;
+
+  background: pink url(../images/robot_03.png) no-repeat;
+  background-position:  center 10px;
+  background-size: 160px;
+  box-shadow: 0 0 20px pink,
+              inset 0 0 20px 5px #000;
+}
+
+
+/* ****************************************************** */
+/* [ 애니메이션 효과 ]
+    시간에 따라 css설정을 변경하여 애니메이션 하도록
+    키프레임을 설정하고 이것을 호출함으로 의도된 연출을 구현 
+    
+    [ 애니메이션 키 프레임 만들기]
+
+    1. 두 장면 키프레임
+    @keyframes 키프레임 이름{
+      from{시작css설정}
+      to{끝나는css설정}
+
+        or
+
+    @keygrams 이름{
+      0%(css)
+      100%()
+    }
+    
+    -> from 설정과 초기설정이 같다면 생략 가능
+
+    2. 여러 장면 키프레임
+    @keyframes 이름{
+      0%{css}
+      10%{css}
+      20%{css}
+      30%{css}
+      ...
+      80%{css}
+      100%{css}
+    }
+
+    (1) 장면에 대한 시간 계산
+      -> 전체시간 * 설정된 시간 퍼센트 / 100
+    (2) 전체시간 설정은 호출 시에 세팅
+
+    [ 설정된 키프레임 호출하는 방법 ]
+    animation: 이름 시간 이징 지연 반복 방향 마지막상태
+
+      이름 animation-name 
+      시간 animation-duration
+      이징 animation-timing-function
+      지연 animation-delay
+      반복 animation-iteration-count
+         - 반복 기본값 1, 숫자를 쓰면 숫자만큼 반복함
+         - 영원히 infinite
+      방향 animation-direction 시작->끝
+         - 반복 시 시작과 반대경로로 애니를 만들어줌
+         - alternate 시작끝, 끝시작
+      마지막상태 animation-fill-mode
+         - 애니메이션이 끝나면 처음으로 돌아가는게 기본
+         - forwards 를 써서 애니의 끝 장면으로 마무리
+    */
+
+/* ****************************************************** */
+
+
+
+/* 링크 */
+.link{
+  position: absolute;
+  /* 부모는 보이는 화면 */
+  top: 100px;
+  right: 50px;
+}
+.link a{
+  color: rgb(255, 251, 0);
+  font-family: 'Luxurious Roman';
+  font-size: 2vw;
+  font-weight: normal;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px #000;
+}
+.link a:hover{
+  color: aqua;
+  text-decoration: overline;
+}
+
+.btn{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  line-height: 60px;
+  color: orangered;
+}
+
+.btn:hover{
+  background-color: rgb(255, 251, 0);
 }
 
 /* 로봇머리 */
 
 #head{
   position: relative;
+  left: 100%;
+
   width: 250px;
   height: 250px;
   background: url(../images/metal01.jpg) no-repeat center/cover;
@@ -90,6 +228,8 @@ body *{
 /* 바디 */
 #body{
   position: relative;
+  left: -100%;
+
   width: 250px;
   height: 300px;
   margin: 0 auto;
@@ -238,4 +378,10 @@ body *{
   column-count: 3;
   column-rule: 5px dotted lime;
   column-gap: 50px;
+}
+
+#dcbx p::first-letter{
+  color: orange;
+  font-size: 24px;
+  font-weight: bold;
 }
