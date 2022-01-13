@@ -22,7 +22,7 @@ ul, ol{
 }
 
 body *{
-    outline: 1px dashed #aaa;
+    outline: 1px dashed #fefefe;
 }
 
 /* 스크롤바 */
