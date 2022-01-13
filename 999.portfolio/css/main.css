@@ -22,7 +22,7 @@ ul, ol{
 }
 
 body *{
-    /* outline: 1px dashed #aaa; */
+    outline: 1px dashed #aaa;
 }
 
 /* 스크롤바 */
@@ -104,11 +104,13 @@ border-radius: 3px;
     border-bottom: 3px solid rgb(0, 0, 0);
 }
 .gnb>ul>li:hover .smenu>ol>li>a{
-    color: rgb(132, 126, 155);
+    color: rgb(77, 64, 128);
 }
 
-.smenu>ol>li:hover{
+.smenu>ol>li:hover a{
+    border-left: 3px solid rgb(51, 0, 255);
     text-decoration: underline;
+    padding-left: 20px;
 }
 
 .gnb a:visited{
@@ -116,9 +118,32 @@ border-radius: 3px;
     text-decoration: none;
 }
 
+
+/* 네비게이션 W100% 화이트 박스 */
+.gnb>ul>li::after{
+    position: absolute;
+    left: 0; 
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    transition: height 1s ease;
+}
+.gnb>ul>li:nth-child(2):hover .smenu,
+.gnb>ul>li:nth-child(2):hover::after{
+    height: 160px;
+}
+.gnb>ul>li:nth-child(3):hover .smenu,
+.gnb>ul>li:nth-child(3):hover::after{
+    height: 160px;
+}
+
+
 /* 서브메뉴 */
 .smenu{
-    padding-top: 20px;
+    padding-top: 10px;
     position: absolute;
     /* 마우스 오버 시 언더바가 서브메뉴 밑에 달리는 것 방지 */
     z-index: 10;
@@ -132,42 +157,20 @@ border-radius: 3px;
 }
 
 
-/* 서브메뉴 W100% 화이트 박스 */
-.gnb>ul>li::after{
-    position: absolute;
-    left: 0; 
 
-    content: '';
-    display: block;
-    width: 100%;
-    height: 0;
-    background-color: #fff;
-    transition: height .5s ease;
-}
 
-.gnb>ul>li:nth-child(2):hover .smenu,
-.gnb>ul>li:nth-child(2):hover::after{
-    height: 160px;
-}
-.gnb>ul>li:nth-child(3):hover .smenu,
-.gnb>ul>li:nth-child(3):hover::after{
-    height: 160px;
-}
-
-/* ************************** 메인 ******************************* */
+/* ************************** 메인영역 ******************************* */
 
 body{
     background: url(../images/bg03.jpg) no-repeat fixed 0/cover;
 }
 
 .content{
-    height: 800px;
+    height: 700px;
     overflow: hidden;
     overflow-y: scroll;
     font-family: 'Montserrat', sans-serif;
 }
-
-
 
 .design{
     width: 90%;
@@ -175,7 +178,6 @@ body{
     /* box-sizing: border-box; */
     margin-top: 250px;
 }
-
 .design::after{
     content:'';
     display: block;
@@ -183,13 +185,13 @@ body{
 }
 
 .project{
-    
+    position: relative;
     width: 23%;
     margin: 1%; 
     /* padding: 1%; */
     float: left;
     box-sizing: border-box;
-    transition: height 1s ease-out;
+    overflow: hidden;
 }
 
 .project img{
@@ -234,7 +236,10 @@ body{
     word-break: all;
 }
 
-
+.txt a{
+    color: #aaa;
+    font-style: italic;
+}
 
 
         /* 썸네일 이미지 위에 컬러박스 */
@@ -275,9 +280,9 @@ body{
 .project:hover{
     /* margin-top: -10%; */
 }
-.project:hover img{
+/* .project:hover img{
     display: none;
-}
+} */
 
 
 .project:hover .each{
@@ -292,11 +297,17 @@ body{
     border-bottom: 1px solid #eee;
     color: #fafafa;
     background-color: rgb(19, 8, 63);
-    transition: height 1s ease-out;
+
 }
 .project:hover .txt{
-    display: inline-block;
-    height: 300px;
+    top: 0;
+}
+.project .txt{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 0;
+
     transition: height 3s ease-out;
 }
 
@@ -314,7 +325,7 @@ body{
 .blink{
     /* display: block; */
     padding: 20px 0;
-    width: 213px;
+    width: 260px;
     margin: 0 auto;
 }
 
@@ -339,6 +350,12 @@ body{
     text-decoration: none;
     padding: 0 20px;
     font-size: 14px;
+}
+
+.blink img{
+    width: 16px;
+    margin-left: 4px;
+    margin-bottom: -3px;
 }
 
 .addr{
