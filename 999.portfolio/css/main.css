@@ -101,7 +101,7 @@ border-radius: 3px;
 .gnb>ul>li>a{
     color: black;
     text-decoration: none;
-    font-size: 19px;
+    font-size: 18   px;
     line-height:67px;
     font-weight: bold;
 }
@@ -131,6 +131,9 @@ border-radius: 3px;
     height: 0;
     background-color: #fff;
     transition: height .6s ease;
+}
+.gnb>ul>li>a:hover{
+    color:#ccc;
 }
 .gnb>ul>li:nth-child(2):hover .smenu,
 .gnb>ul>li:nth-child(2):hover::after{
@@ -212,6 +215,8 @@ body{
     position: absolute;
     top: calc(100% - 60px);
     width: 100%;
+    /* height: 100%; */
+        border-radius: 30%;
     transition: top .5s;
 }
 .each{
@@ -252,12 +257,14 @@ body{
 
 /* 프로젝트에 마우스 오버 시 텍스트 박스 변화 */
 .project:hover{
+    border-radius: 30px;
 }
     /* .project:hover img{
         display: none;
     } */
 .project:hover .slider{
     top: 0;
+
 }
 .project:hover .each{
     position: relative;
@@ -265,7 +272,7 @@ body{
 }
 .project:hover .each{
     position: relative;
-    border-radius: 30px 30px 0 0 ;
+    /* border-radius: 30px 30px 0 0 ; */
     font-weight: bold;
     /* border-bottom: 1px solid #eee; */
     color: #333;
