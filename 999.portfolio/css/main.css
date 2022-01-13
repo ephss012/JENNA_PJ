@@ -314,6 +314,9 @@ body{
 /* ************************ 하단영역 ***************************** */
 
 .info{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     background: rgba(255, 255, 255, 0.6) ;
     padding-bottom: 40px;
     text-align: center;
