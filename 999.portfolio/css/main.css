@@ -18,6 +18,7 @@ h4 {
 ul, ol{
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 body *{
@@ -52,13 +53,14 @@ border-radius: 3px;
     background-color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
-
+/*  JENNA */
 .logo a{
     color: black;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 30px;
-    display: inline-block;
+
+    display: flex;
     width: 100px;
     margin: 12px 120px;
 }
@@ -68,13 +70,15 @@ border-radius: 3px;
     text-decoration: none;
 }
 
+/* 네비게이션 바 */
 .gnb{
-    display: block;
+    display: flex;
     position: absolute;
-    width:480px;
-    right: 100px;
+    width:100%;
 }
 .gnb ul{
+    max-width: 480px;
+    left: 60%;
     margin: 0;
     padding: 0;
 }
@@ -89,8 +93,7 @@ border-radius: 3px;
     clear: both;
 }
 
-.gnb a{
-    
+.gnb>ul>li>a{
     color: black;
     text-decoration: none;
     line-height:67px;
@@ -98,13 +101,49 @@ border-radius: 3px;
 }
 .gnb>ul>li:hover{
     border-bottom: 3px solid rgb(0, 0, 0);
-
-  }
+}
 .gnb>ui>li:hover a{
     color: rgb(132, 126, 155);
 }
 .gnb a:visited{
+    color: black;
+    text-decoration: none;
+}
 
+/* 서브메뉴 */
+.smenu{
+    padding-top: 20px;
+    position: absolute;
+    /* 마우스 오버 시 언더바가 서브메뉴 밑에 달리는 것 방지 */
+    z-index: 10;
+    height: 0;
+    overflow: hidden;
+}
+.smenu a{
+    text-decoration: none;
+    line-height: 40px;
+}
+
+/* 서브메뉴 W100% 화이트 박스 */
+.gnb>ul>li::after{
+    position: absolute;
+    left: 0; 
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    transition: height .5s ease;
+}
+
+.gnb>ul>li:nth-child(2):hover .smenu,
+.gnb>ul>li:nth-child(2):hover::after{
+    height: 160px;
+}
+.gnb>ul>li:nth-child(3):hover .smenu,
+.gnb>ul>li:nth-child(3):hover::after{
+    height: 160px;
 }
 
 /* ************************** 메인 ******************************* */

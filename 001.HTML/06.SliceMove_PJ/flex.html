@@ -17,10 +17,12 @@
       list-style: none;
     }
 
+    /* 전체부모 */
     #wrap{
       height: 100%;
       /* 부모의 높이값을 채움 */
     }
+
     /* 파티션 박스 */
     #wrap>ul{
       display: flex;
@@ -98,6 +100,9 @@
     /* 중앙타이틀 공통 */
     .tit{
       position: absolute;
+
+      left: calc(50% - 250px);
+      /*************** 가로중앙위치 계산! **************/
       width: 500px;
       height: 100px;
       border: 5px double #fff;
@@ -113,10 +118,11 @@
       color: #fff; 
       text-align: center;
       background-color: red;
+
     }
 
     .t1{
-      top:5%;
+      top:50px;
       display: flex;
       justify-content: space-evenly;
 
@@ -125,7 +131,7 @@
         content는 수평방향으로 여러개의 아이템 요소가 있으니까 컨텐드
         1) flex-start: 왼쪽끝 기본값
         1) flex-end: 오른쪽끝 
-        1) flex-center: 중앙
+        1) center: 중앙
         1) space-between: 아이템요소 양쪽 끝 사이 간격 일정
         1) space-around: 아이템요소 양쪽 간격 일정
         1) space-evenly: 아이템요소 양쪽 과 사이 간격 모두 일정  
@@ -143,7 +149,7 @@
     }
 
     .t2{
-      top:20%;
+      top:200px;
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -156,15 +162,101 @@
     }
 
     .t3{
-      top:35%;
+      top:350px;
       display: flex;
       align-items: center;
     }
-
-    /* 3번째 li부터 오른쪽 끝으로 보내기 */
+    /* 3번째 li부터 오른쪽 끝으로 보내기 - 부모 오른쪽으로 가서 붙음 */
     /* 왼쪽 마진 auto를 사용함 */
     .t3>li:nth-child(3){
       margin-left: auto;
+    }
+
+    .t4{
+      top: 50px;
+      left: 50px;
+      width: 150px;
+      height: 100px;
+
+      display: flex; 
+    }
+    .t4>li{
+      flex-shrink: 0;
+      /* 자식요소에 슈링크 설정하여 크기 유지하기!!! 
+        부모 박스 작아지면 너도 줄어들래? 0 이면 아니- 부모 작아져도 안 줄어듦
+        줄바꿈은 불가능 - 부모밖으로 나감 */
+      /* flex 속성을 세팅하지 않았을 때 기본 값은 아래와 같음
+          flex : initial
+          flex: 0 1 auto -> 두번째 값이 1로 세팅
+      */
+    }
+
+    .t5{
+      top: 200px;
+      left: 50px;
+      width: 150px;
+      height: 500px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 진행방향에 따라 가로세로 정렬이 바뀜 */
+    }
+    /* 4번째 li부터 맨 끝으로 보내기 - 부모 바닥으로 가서 붙음*/
+    .t5>li:nth-child(4){
+      margin-top: auto;
+    }
+
+    .t6{
+      top: 500px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      /* 박스 가로크기보다 아이템 요소가 많을 경우
+         아랫줄로 줄바꿈하여 안 찌그러진 상태로 부모밖으로 안 나가게 랩핑하기
+         기본값은 nowrap
+      */
+      justify-content: space-between;
+      /* 가로정렬 */
+      align-content: space-around;
+      /* 여러 줄일 때 수직 정렬 - 여러 줄이니까 컨텐트
+        1) flex-start: 맨위
+        1) flex-end: 맨아래 
+        1) center: 세로 중앙
+        1) space-between: 아이템요소 양쪽 끝 사이 간격 일정
+        1) space-around: 아이템요소 양쪽 간격 일정
+        1) space-evenly: 아이템요소 양쪽 과 사이 간격 모두 일정
+
+        한줄 수직 정렬은 align-items
+      */
+    }
+
+    /* li에 마진 설정하는 방법 - 마진 설정하면 부모 벽에 붙지 않음 */
+    .t6>li{
+      margin: 0 14px;}
+
+    .t7{
+      top: 50px;
+      right: 70px;
+      left: auto; 
+        /* 기존 left해제 */
+      width: 350px;
+      height: auto;
+        /* 높이값 자동 */
+      
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* 줄바꿈을 위한 li */
+    .tit>li.brk{
+      /* width: 100%; */
+      flex-basis: 100%;
+      /* flex 자식요소는  width대신 flex-basis 사용 가능 */
+      height: 0;
+      border: none;
+
     }
 
 </style>
@@ -201,6 +293,58 @@
     </ol>
     <!-- 타이틀박스3 -->
     <ol class="tit t3">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol>
+    <!-- 타이틀박스4 -->
+    <ol class="tit t4">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol>
+    <!-- 타이틀박스5 -->
+    <ol class="tit t5">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol>
+    <!-- 타이틀박스6 -->
+    <ol class="tit t6">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+    </ol>
+    <!-- 타이틀박스7 -->
+    <ol class="tit t7">
+      <li>W</li>
+      <li>O</li>
+      <li>R</li>
+      <li>L</li>
+      <li>D</li>
+
+      <li class="brk"></li>
+      
       <li>W</li>
       <li>O</li>
       <li>R</li>
