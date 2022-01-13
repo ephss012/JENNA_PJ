@@ -185,13 +185,13 @@ body{
 }
 
 .project{
-    position: relative;
+    
     width: 23%;
     margin: 1%; 
     /* padding: 1%; */
     float: left;
     box-sizing: border-box;
-    overflow: hidden;
+    transition: height 1s ease-out;
 }
 
 .project img{
@@ -280,9 +280,9 @@ body{
 .project:hover{
     /* margin-top: -10%; */
 }
-/* .project:hover img{
+.project:hover img{
     display: none;
-} */
+}
 
 
 .project:hover .each{
@@ -300,15 +300,13 @@ body{
 
 }
 .project:hover .txt{
-    top: 0;
+    height: 300px;
 }
 .project .txt{
-    position: absolute;
-    top: 100%;
-    width: 100%;
+    display: inline-block;
     height: 0;
 
-    transition: height 3s ease-out;
+    transition: height 1s ease-out;
 }
 
 

@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+/* 디폴트 리셋 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body * {
+  outline: 1px dashed #aaa;
+}
+
+/* 스크롤바 */
+.scbar::-webkit-scrollbar {
+  /* 전체 스크롤바 크기 변경 */
+  width: 6px;
+}
+
+.scbar::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 3px;
+}
+
+.scbar::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 3px;
+}
+
+
+
+/* ************************ 상단영역 ***************************** */
+
+.top {
+  position: fixed;
+  display: flex;
+
+  height: 70px;
+  width: 100%;
+
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*  JENNA */
+.logo a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+
+  display: flex;
+  width: 100px;
+  margin: 12px 120px;
+}
+
+.logo a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* 네비게이션 바 */
+.gnb {
+  display: flex;
+  position: absolute;
+
+  width: 100%;
+}
+
+.gnb ul {
+
+  max-width: 480px;
+  margin-left: 55%;
+
+}
+
+.gnb ul>li {
+  padding: 0 20px;
+  list-style: none;
+  float: left;
+}
+
+.gnb>ul::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gnb>ul>li>a {
+  color: black;
+  text-decoration: none;
+  line-height: 67px;
+  font-weight: bold;
+}
+
+.gnb>ul>li:hover {
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+
+.gnb>ul>li:hover .smenu>ol>li>a {
+  color: rgb(77, 64, 128);
+}
+
+.smenu>ol>li:hover a {
+  border-left: 3px solid rgb(51, 0, 255);
+  text-decoration: underline;
+  padding-left: 20px;
+}
+
+.gnb a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+
+/* 네비게이션 W100% 화이트 박스 */
+.gnb>ul>li::after {
+  position: absolute;
+  left: 0;
+
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  background-color: #fff;
+  transition: height 1s ease;
+}
+
+.gnb>ul>li:nth-child(2):hover .smenu,
+.gnb>ul>li:nth-child(2):hover::after {
+  height: 160px;
+}
+
+.gnb>ul>li:nth-child(3):hover .smenu,
+.gnb>ul>li:nth-child(3):hover::after {
+  height: 160px;
+}
+
+
+/* 서브메뉴 */
+.smenu {
+  padding-top: 10px;
+  position: absolute;
+  /* 마우스 오버 시 언더바가 서브메뉴 밑에 달리는 것 방지 */
+  z-index: 10;
+  height: 0;
+  overflow: hidden;
+}
+
+.smenu>ol>li>a {
+  text-decoration: none;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+
+
+
+/* ************************** 메인영역 ******************************* */
+
+body {
+  background: url(../images/bg03.jpg) no-repeat fixed 0/cover;
+}
+
+.content {
+  height: 700px;
+  overflow: hidden;
+  overflow-y: scroll;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.design {
+  width: 90%;
+  margin: 0 auto;
+  /* box-sizing: border-box; */
+  margin-top: 250px;
+}
+
+.design::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.project {
+
+  width: 23%;
+  margin: 1%;
+  /* padding: 1%; */
+  float: left;
+  box-sizing: border-box;
+  transition: height 1s ease-out;
+}
+
+.project img {
+  width: 100%;
+  border-radius: 60px 60px 0 0;
+  /* margin-bottom: 20px; */
+  /* box-shadow: 10px 20px 40px 20px rgba(102, 101, 129, 0.116); */
+}
+
+.each {
+  position: relative;
+  text-align: center;
+  line-height: 60px;
+  width: 100%;
+  background: white;
+  border-radius: 0 0 30px 30px;
+  margin-top: -10%;
+  white-space: nowrap;
+  font-size: 1vw;
+}
+
+.txt {
+  width: 100%;
+  /* height: 200px; */
+  background: rgba(255, 255, 255);
+
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 0 0 3px 30px;
+  overflow-y: scroll;
+
+  font-size: 14px;
+  color: #222;
+  line-height: 20px;
+  display: none;
+}
+
+.txt p {
+  margin-top: 5px;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+  word-break: all;
+}
+
+.txt a {
+  color: #aaa;
+  font-style: italic;
+}
+
+
+/* 썸네일 이미지 위에 컬러박스 */
+.work {
+  position: relative;
+}
+
+/* 컬러박스 공통 */
+/* #img{
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            .project:hover #img1, #img2, #img3, #img4
+        }
+        .img1{
+            background-color: rgba(255, 0, 0, 0.9);
+        }
+        .img2{
+            background-color: rgba(255, 179, 0, 0.9);
+        }
+        .img3{
+            background-color: rgba(0, 119, 255, 0.9);
+        }
+        .img4{
+            background-color: rgba(174, 0, 255, 0.9);
+        } 
+       */
+
+/* .project:hover #img{
+            display: inline-block;
+            position: absolute;
+            top: 2vh;
+            right: 2vw;
+            z-index: 9;
+        } */
+
+
+/* 프로젝트에 마우스 오버 시 */
+.project:hover {
+  /* margin-top: -10%; */
+}
+
+.project:hover img {
+  display: none;
+}
+
+
+.project:hover .each {
+  position: relative;
+  border-radius: 0;
+  transition: height 1s ease-out;
+}
+
+.project:hover .each {
+  position: relative;
+  border-radius: 30px 30px 0 0;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  color: #fafafa;
+  background-color: rgb(19, 8, 63);
+
+}
+
+.project:hover .txt {
+  height: 300px;
+}
+
+.project .txt {
+  display: inline-block;
+  height: 0;
+  transition: height 1s ease-out;
+}
+
+
+
+/* ************************ 하단영역 ***************************** */
+
+.info {
+  background: rgba(255, 255, 255, 0.6);
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.blink {
+  /* display: block; */
+  padding: 20px 0;
+  width: 260px;
+  margin: 0 auto;
+}
+
+.blink ul {
+  margin: 0;
+  padding: 0;
+}
+
+.blink ul>li {
+  list-style: none;
+  float: left;
+}
+
+.blink ul>li::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.blink a {
+  color: black;
+  font-weight: bold;
+  /* line-height: 30px; */
+  text-decoration: none;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.blink img {
+  width: 16px;
+  margin-left: 4px;
+  margin-bottom: -3px;
+}
+
+.addr {
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #eee;
+  text-align: center;
+  font-style: normal;
+  font-size: small;
+  line-height: 20px;
+}
