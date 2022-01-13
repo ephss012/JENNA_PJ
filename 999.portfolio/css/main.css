@@ -78,13 +78,11 @@ border-radius: 3px;
     margin: 0;
     padding: 0;
 }
-
 .gnb ul>li{
     padding: 0 20px;
     list-style: none;
     float: left;
 }
-
 .gnb>ul::after{
     content: '';
     display: block;
@@ -98,12 +96,13 @@ border-radius: 3px;
     line-height:67px;
     font-weight: bold;
 }
-
-
 .gnb>ul>li:hover{
     border-bottom: 3px solid rgb(0, 0, 0);
-  }
 
+  }
+.gnb>ui>li:hover a{
+    color: rgb(132, 126, 155);
+}
 .gnb a:visited{
 
 }
@@ -192,26 +191,42 @@ body{
     margin-top: -10%;
 }
 
+/* 썸네일 이미지 위에 컬러박스 */
+.work{
+    position: relative;
+}
+/* 컬러박스 공통 */
 #img{
     width: 200px;
     height: 200px;
-    background-color: rgba(255, 0, 0, 0.774);
-    border-radius: 50%;
+    border-radius: 0;
     /* .project:hover #img1, #img2, #img3, #img4 */
     display: none;
 }
+.img1{
+    background-color: rgba(255, 0, 0, 0.9);
+}
+.img2{
+    background-color: rgba(255, 179, 0, 0.9);
+}
+.img3{
+    background-color: rgba(0, 119, 255, 0.9);
+}
+.img4{
+    background-color: rgba(174, 0, 255, 0.9);
+}
 
+/* 프로젝트 마우스 오버 시 */
 .project:hover #img{
     display: inline-block;
     position: absolute;
-    top: 150px;
+    top: 2vh;
+    right: 2vw;
     z-index: 9;
 }
-
 .project:hover .each{
     position: relative;
     border-radius: 0;
-    
     transition: height 1s ease-out;
 }
 .project:hover .each{
@@ -220,11 +235,9 @@ body{
     font-weight: bold;
     border-bottom: 1px solid #eee;
     color: #fafafa;
-    background-color: rgb(117, 113, 131);
+    background-color: rgb(132, 126, 155);
     transition: height 1s ease-out;
 }
-
-
 .project:hover .txt{
     display: inline-block;
     height: 250px;
@@ -278,7 +291,7 @@ body{
     margin: 0 auto;
     margin-top: 20px;
     padding: 10px;
-    /* border: 2px solid #aaa; */
+    border: 1px solid #eee;
     text-align: center;
     font-style: normal;
     font-size: small;
