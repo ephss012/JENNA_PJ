@@ -192,18 +192,21 @@ body{
     margin-top: -10%;
 }
 
-/* #img{
-    position: absolute;
-    z-index: 9;
-    top: 0;
-    left: 0%;
-
+#img{
     width: 200px;
     height: 200px;
-    background-color: orangered;
+    background-color: rgba(255, 0, 0, 0.774);
     border-radius: 50%;
     /* .project:hover #img1, #img2, #img3, #img4 */
-} */
+    display: none;
+}
+
+.project:hover #img{
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    z-index: 9;
+}
 
 .project:hover .each{
     position: relative;
