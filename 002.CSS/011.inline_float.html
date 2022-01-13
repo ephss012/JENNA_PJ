@@ -7,7 +7,15 @@
     <style>
         /* 타이틀 */
         h1 {
-            text-align: center;
+            width: 800px;
+            margin: 0 auto;
+            border: 2px dashed #000;
+        }
+        /* 인라인요소의 float으로 오른쪽 끝으로 보내기 */
+        h1 button{
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
         }
 
         /* 박스공통 */
@@ -21,6 +29,7 @@
             border-radius: 20px;
             padding: 15px;
             margin-bottom: 50px;
+
             /* 마진하단 */
 
             /* 보더, 패딩 내부포함 설정 */
@@ -41,6 +50,7 @@
         .bx img {
             width: 50%;
             margin: 15px;
+    
         }
 
         /* 
@@ -75,8 +85,26 @@
         /* 원래 디자인을 별도로 변경하려면 태그로 싸야한다!
          그런데 첫번째 글자나 첫번째 줄은 가상요소로 처리할 수 있다! */
         /* 가상요소로 첫번째 줄 디자인변경하기 */
-        
 
+        .bx::first-line{
+            font-size: 30px;
+            font-family: "궁서";
+            letter-spacing: -1px;
+            line-height: 80px;
+        }
+        .bx:first-of-type::first-line{
+            color: aqua;
+        }
+        .bx:nth-of-type(2)::first-line{
+            color: violet;
+        }
+        .bx:nth-of-type(3)::first-line{
+            color: green;
+
+        }
+        .bx:last-of-type::first-line{
+            color: orangered;
+        }
         /* 개별글자색 넣기 */
         /* 
             .bx요소는 모두 div로 되어있다
@@ -96,10 +124,12 @@
 </head>
 
 <body>
-    <h1>CSS 인라인요소의 float</h1>
+    <h1>CSS 인라인요소의 float
+        <button>오른쪽으로</button>
+    </h1>
 
     <div class="bx">
-        <img src="imgs/dc1.png" alt="김신">
+        <img src="imgs/dc1.png" alt="김신" class="fll">
 
         도깨비(김신), 939세 <br><br>
 
@@ -126,7 +156,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc2.png" alt="지은탁">
+        <img src="imgs/dc2.png" alt="지은탁" class="flr">
 
         지은탁, 19세 <br><br>
 
@@ -145,7 +175,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc3.png" alt="저승사자">
+        <img src="imgs/dc3.png" alt="저승사자" class="fll">
 
         저승사자, 30대 후반 추정 <br><br>
 
@@ -160,7 +190,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc4.png" alt="써니">
+        <img src="imgs/dc4.png" alt="써니" class="flr">
 
         써니, 20대 중후반 <br><br>
 
