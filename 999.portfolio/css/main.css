@@ -120,10 +120,12 @@ border-radius: 3px;
     height: 0;
     overflow: hidden;
 }
-.smenu a{
+.smenu>ol>li>a{
     text-decoration: none;
     line-height: 40px;
+    font-weight: bold;
 }
+
 
 /* 서브메뉴 W100% 화이트 박스 */
 .gnb>ul>li::after{
@@ -227,43 +229,54 @@ body{
     word-break: all;
 }
 
-.project:hover{
-    margin-top: -10%;
-}
+
+
 
 /* 썸네일 이미지 위에 컬러박스 */
 .work{
     position: relative;
 }
 /* 컬러박스 공통 */
-#img{
-    width: 200px;
-    height: 200px;
-    border-radius: 0;
-    /* .project:hover #img1, #img2, #img3, #img4 */
+        /* #img{
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            /* .project:hover #img1, #img2, #img3, #img4 */
+            display: none;
+        }
+        .img1{
+            background-color: rgba(255, 0, 0, 0.9);
+        }
+        .img2{
+            background-color: rgba(255, 179, 0, 0.9);
+        }
+        .img3{
+            background-color: rgba(0, 119, 255, 0.9);
+        }
+        .img4{
+            background-color: rgba(174, 0, 255, 0.9);
+        } 
+        */
+
+
+        /* .project:hover #img{
+            display: inline-block;
+            position: absolute;
+            top: 2vh;
+            right: 2vw;
+            z-index: 9;
+        } */
+
+
+/* 프로젝트에 마우스 오버 시 */
+.project:hover{
+    /* margin-top: -10%; */
+}
+.project:hover img{
     display: none;
 }
-.img1{
-    background-color: rgba(255, 0, 0, 0.9);
-}
-.img2{
-    background-color: rgba(255, 179, 0, 0.9);
-}
-.img3{
-    background-color: rgba(0, 119, 255, 0.9);
-}
-.img4{
-    background-color: rgba(174, 0, 255, 0.9);
-}
 
-/* 프로젝트 마우스 오버 시 */
-.project:hover #img{
-    display: inline-block;
-    position: absolute;
-    top: 2vh;
-    right: 2vw;
-    z-index: 9;
-}
+
 .project:hover .each{
     position: relative;
     border-radius: 0;
