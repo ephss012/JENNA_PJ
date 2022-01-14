@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/* CGV 공통 핵심 */
+/* 웹폰트, 공용 클래스 */
+
+/* 1. 웹폰트 : CDN */
+/* Cute Font, Jua, Audiowide */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap');
+  /* 
+    font-family: 'Audiowide', cursive;
+    font-family: 'Cute Font', cursive;
+    font-family: 'Jua', sans-serif;
+  */
+  
+/* 2. ********************* 공통 클래스 ********************* */

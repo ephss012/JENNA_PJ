@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CGV 메인페이지 */
+
+/* 외부파일 합치기 - 파일 머지 */
+@import url(reset.css);
+@import url(core.css);
+
+body{
+  background-color: black;
+}
+body *{
+  outline: 1px dashed #ddd;
+}
+
+
+/* 레이아웃 공통 클래스 */
+.part{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* 1. *************************** 상단영역 *************************** */
+#top{
+  height: 80px;
+}
+
+
+/* 2. *************************** 메인영역 *************************** */
+#cont{
+  height: 788px;
+}
+
+
+/* 3. *************************** 하단영역 *************************** */
+#info{
+  height: 100px;
+}
