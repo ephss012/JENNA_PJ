@@ -6,9 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CGV PJ</title>
   <link rel="stylesheet" href="css/main.css">
-  <style>
-
-  </style>
+  <!-- 자바스크립트 코딩 구역 -->
+  <script>
+    // 자바스크립트 실행코드 저장소 -> 함수
+    // 함수는 호출시에만 실행!
+    // 형식: function 함수명(전달변수){코드}
+    // ->전달변수로 함수호출시 값을 함수내부로 전달함
+    function 유튜브(클릭재생) {
+      // alert(클릭재생); -> alert 안 하면 바로 재생됨
+      // 변경대상: #mymv -> 아이프레임
+      // 변경내용: 아이프레임 src 속성값을 변경
+      document //전체문서
+      .getElementById("mymv") //mymv 아이디 요소
+      .src = "https://www.youtube.com/embed/"+클릭재생+
+      "?autoplay=1&playsinline=1";
+      // 점(.)은 하위 속성으로 들어감
+      // 이퀄(=)은 오른쪽값이 왼쪽으로 들어감
+      // 세미콜론(;)은 코드 마무리
+    }
+  </script>
 </head>
 
 <body>
@@ -30,7 +46,9 @@
     <!-- 2-1 스크린 박스 -->
     <div id="screen">
       <!-- 유튜브 프레임 -->
-      <iframe src="https://www.youtube.com/embed/vteD1f-SV5I?autoplay=1&mute=1&loop=1&playlist=vteD1f-SV5I&controls=0&playsinline=1" allow="autoplay;">
+      <iframe id="mymv"
+        src="https://www.youtube.com/embed/vteD1f-SV5I?autoplay=1&mute=1&loop=1&playlist=vteD1f-SV5I&controls=0&playsinline=1"
+        allow="autoplay;">
         <!-- youtube.com/embed/동영상ID?d옵션 
         ?
         autoplay=1 자동재생
@@ -51,33 +69,66 @@
     <nav class="mlist">
       <ul>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('VXjGcWq6VnM')">
             <img src="../003.site/images/m1.jpg" alt="듄">
+            <!-- 이미지 하단에 공백 없애기
+              img - vertical-align:bottom or display:block -->
+            <ol class="movtxt">
+              <li>듄</li>
+              <li>티모시 샬라메</li>
+              <li>모험,드라마,SF</li>
+            </ol>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('XOV-6kRHd2s')">
             <img src="../003.site/images/m2.jpg" alt="유체이탈자">
+            <!-- 영화정보 -->
+            <ol class="movtxt">
+              <li>유체이탈자</li>
+              <li>윤계상,임지연</li>
+              <li>액션</li>
+            </ol>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('BdkSkI61aGo')">
             <img src="../003.site/images/m3.jpg" alt="이터널스">
+            <ol class="movtxt">
+              <li>이터널스</li>
+              <li>안젤리나졸리,마동석</li>
+              <li>액션,판타지</li>
+            </ol>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('dWEQjU3GCE0')">
             <img src="../003.site/images/m4.jpg" alt="연애빠진로맨스">
+            <ol class="movtxt">
+              <li>연애 빠진 로맨스</li>
+              <li>전종서, 손석구</li>
+              <li>멜로/로맨스,코미디</li>
+            </ol>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('Y1_Ujpsn1Jc')">
             <img src="../003.site/images/m5.jpg" alt="프렌치 디스패치">
+            <ol class="movtxt">
+              <li>프렌치 디스패치</li>
+              <li>틸다 스윈튼</li>
+              <li>코미디,드라마</li>
+            </ol>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onclick="유튜브('W7edvITC9g4')">
             <img src="../003.site/images/m6.jpg" alt="스파이더맨">
+            <ol class="movtxt">
+              <li>스파이더맨:노웨이홈</li>
+              <li>톰 홀랜드</li>
+              <li>액션,모험</li>
+            </ol>
           </a>
         </li>
       </ul>
