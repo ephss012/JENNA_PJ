@@ -207,8 +207,6 @@ body{
 .project img{
     width: 100%;
     vertical-align: bottom;
-    /* margin-bottom: 20px; */
-    /* box-shadow: 10px 20px 40px 20px rgba(102, 101, 129, 0.116); */
 }
 
 
@@ -255,7 +253,7 @@ body{
 
 /* 프로젝트에 마우스 오버 시 텍스트 박스 변화 */
 .project:hover{
-    box-shadow: 2px 2px 50px rgba(30, 0, 255, 0.15);
+    box-shadow: 0 0  50px rgba(30, 0, 255, 0.15);
 }
 .project:hover .slider{
     top: 0;
@@ -275,7 +273,7 @@ body{
 /* ************************ 하단영역 ***************************** */
 
 .info{
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
     background: rgba(255, 255, 255, 0.6) ;
@@ -307,7 +305,6 @@ body{
 .blink a{
     color: black;
     font-weight: bold;
-    /* line-height: 30px; */
     text-decoration: none;
     padding: 0 20px;
     font-size: 14px;
