@@ -9,7 +9,7 @@ body{
   background-color: black;
 }
 body *{
-  outline: 1px dashed #ddd;
+  /* outline: 1px dashed #ddd; */
 }
 
 
