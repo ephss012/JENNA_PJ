@@ -52,11 +52,45 @@ h1#logo{
               inset 0 0 20px 5px #000;
 
   /* 애니메이션 호출 */
-  animation: logoAni 1.5s ease-in-out 2s 3 alternate forwards;
+  animation: logoAni 2s ease-in-out 2s forwards,
+              logoAni2 2s ease-in-out 4s infinite alternate ;
+              /* logoAni 1.5s ease-in-out 2s 3(왔다갔다 반복) forwards, */
 }
 
 
 /* ****************************************************** */
+
+/* 로고 키프레임 */
+@keyframes logoAni {
+  /* from은 초기값과 동일함으로 생략 */
+  80%{
+    top: 50px;
+    left: 50px;
+    transform: scale(1) rotate(0deg);
+  }
+  100%{
+    top: 50px;
+    left: 50px;
+    transform: scale(1) rotate(25deg);
+  }
+      /* to{
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(25deg);
+      } */
+} 
+@keyframes logoAni2 {
+  from{
+    transform: scale(1) rotate(20deg);
+  }
+  to{
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+
+
+
 /* [ 애니메이션 효과 ]
     시간에 따라 css설정을 변경하여 애니메이션 하도록
     키프레임을 설정하고 이것을 호출함으로 의도된 연출을 구현 
@@ -112,15 +146,6 @@ h1#logo{
 
 /* ****************************************************** */
 
-/* 로고 키프레임 */
-@keyframes logoAni {
-  /* from은 초기값과 동일함으로 생략 */
-  to{
-    top: 50px;
-    left: 50px;
-    transform: scale(1);
-  }
-} 
 
 
 /* 링크 */
@@ -129,6 +154,20 @@ h1#logo{
   /* 부모는 보이는 화면 */
   top: 100px;
   right: 50px;
+
+  opacity: 0;
+  animation: showIt 3s ease-in 6s forwards;
+}
+
+@keyframes showIt {
+  0%{opacity: 0;}
+  20%{opacity: 0.5;}
+  30%{opacity: 0;}
+  40%{opacity: 10;}
+  60%{opacity: 0.3;}
+  70%{opacity: 0;}
+  90%{opacity: 0.7;}
+  100%{opacity: 1;}
 }
 .link a{
   color: rgb(255, 251, 0);
@@ -166,6 +205,14 @@ h1#logo{
 
 /* 로봇머리 */
 
+
+/* 로봇 제자리 키프레임 */
+@keyframes robotAni {
+  to{
+    left:0
+  }
+}
+
 #head{
   position: relative;
   left: 100%;
@@ -176,6 +223,8 @@ h1#logo{
   margin: 0 auto;
   margin-top: 100px;
   /* overflow: hidden; */
+
+  animation: robotAni 1.5s ease-out 4s forwards;
 }
 
 /* 눈1 */
@@ -212,6 +261,16 @@ h1#logo{
   width: 100px;
   height: 40px;
   background: url(../images/mouth.png) no-repeat 0/100% 100%;
+
+  animation: mouthAni1 .2s linear /*가속도 없음*/ 6s infinite alternate;
+}
+@keyframes mouthAni1 {
+  0%{
+    transform: scaleY(1);
+  }
+  100%{
+    transform: scaleY(.4);
+  }
 }
 
 
@@ -249,6 +308,8 @@ h1#logo{
   margin-bottom: 400px;
     /* 다리가 내려간 만큼 여유 마진 */
   background: url(../images/metal01.jpg) no-repeat center/cover;
+
+  animation: robotAni 1.5s ease-out 3.5s forwards;
 }
 
 #neck{
@@ -269,14 +330,52 @@ h1#logo{
 
 #arm1{
   position: absolute;
-  top:5px;
+  top:  20px;
   left: -50px;
-}
+  transform-origin: top;
+  animation: armAni3 2s ease-in-out 5s forwards,
+             armAni4 .5s ease-in-out 6s infinite alternate;
 
+}
 #arm2{
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: -50px;
+
+  transform-origin: top;
+  animation: armAni1 2s ease-in-out 5s forwards,
+              armAni2 .5s ease-in-out 6s infinite alternate;
+}
+
+@keyframes armAni1 {
+  to{
+    transform: rotate(-150deg)
+    /* 로봇이 나타난 후 머리 위로 팔 들어올리기 */
+  }
+}
+@keyframes armAni2 {
+  from{
+    transform: rotate(-150deg)
+  }
+  /* 팔 한번 들어올린 후 그 자리에서 흔들며 반복 */
+  to{
+    transform: rotate(-120deg)
+  }
+}
+@keyframes armAni3 {
+  to{
+    transform: rotate(120deg)
+    /* 로봇이 나타난 후 머리 위로 팔 들어올리기 */
+  }
+}
+@keyframes armAni4 {
+  from{
+    transform: rotate(120deg)
+  }
+  /* 팔 한번 들어올린 후 그 자리에서 흔들며 반복 */
+  to{
+    transform: rotate(150deg)
+  }
 }
 
 #leg1{
