@@ -16,19 +16,48 @@ body *{
 /* 레이아웃 공통 클래스 */
 .part{
   max-width: 1200px;
+  /* 1200 이하일 땐 auto */
   margin: 0 auto;
 }
 /* 1. *************************** 상단영역 *************************** */
 #top{
   height: 80px;
+  background: url(../images/curtain.jpg) repeat-x center;
 }
-
+h1.tit{
+  color: aquamarine;
+  font-size: 40px;
+  font-family: 'Jua', sans-serif;
+  line-height: 80px;
+  /* 그림자 글로우 */
+  text-shadow: 0 0 4px aquamarine;
+}
 
 /* 2. *************************** 메인영역 *************************** */
 #cont{
-  height: 788px;
-}
+  /* height: 788px; 높이값 주지 않고 비율 유지 가상요소로 생성 */
 
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: 100%; /* *********************** */
+  /* 배경이미지 크기도 가로크기에 맞춰서 세로는 자동
+    그래야 비율이 맞음 */
+}
+#cont.rbx::before{
+  padding-top: 65.67%;
+  /* 1200 : 788  = 100% : X% 
+    = 65.67
+  */
+}
+/* 2-1 스크린 박스 */
+#screen{
+  position: absolute;
+  top: 17.2%;
+  left: 21.4%;
+  width: 58.5%;
+  height: 50.4%;
+  background-color: red
+  ;
+}
 
 /* 3. *************************** 하단영역 *************************** */
 #info{
