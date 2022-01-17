@@ -133,3 +133,19 @@ h1.tit{
 #info{
   height: 100px;
 }
+
+/* 회사정보 */
+#info address{
+  color: white;
+  font-family: 'Cute Font', cursive;
+  font-size: 18px;
+  line-height: 20px;
+  font-style: normal;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#info img{
+  float: left;
+  margin-right: 20px;
+}
