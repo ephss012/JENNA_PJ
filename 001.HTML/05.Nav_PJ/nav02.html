@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. 가로네비 서브별 드롭다운 가로형</title>
+  <style>
+    ul, ol{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* float:left 설정용 클래스 */
+
+    .fll{
+      display: flex;
+    }
+
+    body{
+      margin: 0;
+    }
+
+    body *{
+      /* outline: 2px dotted gray; */
+    }
+
+    .gnb{
+      position: relative;
+      background-color: rgb(138, 138, 250);
+      /* height: 50px; */
+    }
+
+    .gnb>ul{
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .gnb>ul>li{
+      width: 200px;
+      text-align: center;
+    }
+
+
+    /* ************************************네비게이션 바************************************ */
+    .gnb>ul>li>a{
+      width: 200px;
+      line-height: 50px;
+        /* a에서 라인하이트로 네비바 높이 조절하기 */
+        /* a는 인라인 요소라서 크기 적용 안됨 */
+        /* 그래서 block 으로 설정 */
+      display: block;
+      color: white;
+      text-decoration: none;
+
+      transition: all .4s;
+    }
+
+    .gnb>ul>li:hover>a{
+      background-color: rgb(235, 237, 255);
+      color: navy;
+      font-weight: bold;
+    }
+
+    /* 서브메뉴 */
+    .smenu{
+      position: absolute;
+      height: 0;
+      overflow: hidden;
+
+      transition: height 0.4s ease-out;
+      background-color: rgb(235, 237, 255);
+    }
+
+    /* 상위 li메뉴에 마우스 오버 시 서브메뉴 보이게 하기 */
+    /* .gnb>ul>li:nth-child(2):hover .smenu{
+      height: 60px;
+    }
+    .gnb>ul>li:nth-child(3):hover .smenu{
+      height: 60px;
+    } */
+    .gnb>ul>li:hover .smenu{
+      height: 50px;
+    }
+
+    .smenu a:hover{
+      background-color: rgb(255, 255, 255);
+      color: royalblue;
+      /* font-weight: bold; */
+    }
+
+    .smenu ol{
+      padding: 10px;
+    }
+    .smenu a{
+      display: block;
+      /* width: 180px; */
+      line-height: 30px;
+      font-size: 14px;
+
+      padding: 0 10px;
+      margin: 0 10px;
+
+      color: navy;
+      text-decoration: none;
+    }
+
+    /* li 가상요소로 서브메뉴 배경 만들기 */
+    .gnb>ul>li::after{
+      content: '';
+      display: block;
+
+      position: absolute;
+      left: 0;
+      width: 100%;
+        /* 나의 부모는? gnb를 부모로 만들기 */
+      height: 0;
+
+      z-index: -1;
+
+      transition: height 0.4s ease-out;
+      background-color: rgb(235, 237, 255);
+    }
+
+    .gnb>ul>li:nth-child(2):hover::after,
+    .gnb>ul>li:nth-child(3):hover::after {
+      height: 50px;
+      border-bottom: 3px solid royalblue;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <h1>
+    2. 가로네비 서브별 드롭다운 가로형
+  </h1>
+  <nav class="gnb">
+    <ul class="fll">
+      <li>
+        <a href="#">home</a>
+      </li>
+      <li>
+        <a href="#">웹개발</a>
+        <!-- 포지션 앱솔루트 사용하기 -->
+        <div class="smenu">
+          <ol class="fll">
+            <li>
+              <a href="">웹디자인</a>
+            </li>
+            <li>
+              <a href="">HTML5+CSS3</a>
+            </li>
+            <li>
+              <a href="">jQuery</a>
+            </li>
+            <li>
+              <a href="">웹+모바일</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">게시판</a>
+        <div class="smenu">
+          <ol class="fll">
+            <li>
+              <a href="">Q&amp;A</a>
+            </li>
+            <li>
+              <a href="">HTML5+CSS3</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">프로필</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
