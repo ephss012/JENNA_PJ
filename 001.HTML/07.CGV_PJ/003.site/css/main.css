@@ -9,9 +9,9 @@ body {
   background-color: black;
 }
 
-/* body *{
+body *{
   outline: 1px dashed #ddd;
-} */
+}
 
 
 /* 레이아웃 공통 클래스 */
