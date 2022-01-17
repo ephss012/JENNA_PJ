@@ -5,26 +5,31 @@
 @import url(reset.css);
 @import url(core.css);
 
-body{
+body {
   background-color: black;
 }
-body *{
-  /* outline: 1px dashed #ddd; */
-}
+
+/* body *{
+  outline: 1px dashed #ddd;
+} */
 
 
 /* 레이아웃 공통 클래스 */
-.part{
+.part {
   max-width: 1200px;
   /* 1200 이하일 땐 auto */
   margin: 0 auto;
 }
+
 /* 1. *************************** 상단영역 *************************** */
-#top{
+#top {
   height: 80px;
   background: url(../images/curtain.jpg) repeat-x center;
+  position: relative;
+  z-index: 100;
 }
-h1.tit{
+
+h1.tit {
   color: aquamarine;
   font-size: 40px;
   font-family: 'Jua', sans-serif;
@@ -34,16 +39,194 @@ h1.tit{
   text-shadow: 0 0 4px aquamarine;
 }
 
+/* 전체메뉴 네비게이션 */
+.gnb {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.gnb a {
+  color: white;
+}
+
+.glist {
+  font-family: 'Jua';
+  display: flex;
+}
+
+.glist>li {
+  padding: 0 10px;
+  padding-bottom: 5px;
+  position: relative;
+  /* text-align: center; */
+  font-size: 20px;
+}
+
+/* 임시로 첫번째 smenu만 보이게*/
+/* .glist>li:first-child~li .smenu{
+  display: none;
+} */
+.glist>li:hover .smenu {
+  display: block;
+}
+
+
+/* 서브메뉴 */
+.smenu {
+  position: absolute;
+  /* left: calc(50% - 80px); 이것도 되긴 함*/
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 140px;
+  background: url(../images/bg_smenu.png) no-repeat center/cover;
+  box-shadow: 0 0 5px 1px white;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 0;
+  display: none;
+}
+
+/* 가상요소로 삼각형 만들기 */
+.smenu::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -10px;
+
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #353535;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.smenu ol {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.smenu li {
+  font-size: 16px;
+  line-height: 32px;
+  /* padding-left: 10px; */
+}
+
+/* a요소 확장 */
+.smenu a {
+  display: block;
+}
+
+/* 서브메뉴 마우스 오버 시 */
+.smenu a:hover {
+  color: red;
+}
+
+.glist>li:nth-child(1) .smenu li a:hover::after {
+  content: '☛';
+  float: right;
+  font-size: 24px;
+}
+
+.glist>li:nth-child(2) .smenu li a:hover::after {
+  content: '☛☛';
+  float: right;
+  font-size: 24px;
+}
+
+.glist>li:nth-child(3) .smenu li a:hover::after {
+  content: '☛☛☛';
+  float: right;
+  font-size: 24px;
+}
+
+.glist>li:nth-child(4) .smenu li a:hover::after {
+  content: '☛☛☛☛';
+  float: right;
+  font-size: 24px;
+}
+
+/* 서브메뉴의 순서에 따라서 바뀌게 */
+/* .glist>li .smenu li:nth-child(1) a:hover::after {
+  content: '☛';
+  float: right;
+  font-size: 24px;
+}
+.glist>li .smenu li:nth-child(2) a:hover::after {
+  content: '☛☛';
+  float: right;
+  font-size: 24px;
+}
+.glist>li .smenu li:nth-child(3) a:hover::after {
+  content: '☛☛☛';
+  float: right;
+  font-size: 24px;
+}
+.glist>li .smenu li:nth-child() a:hover::after {
+  content: '☛☛☛☛';
+  float: right;
+  font-size: 24px;
+} */
+
+/* 서브메뉴 보더탑 디자인 */
+.bdt {
+  border-top: 1px solid #ddd;
+}
+
+/* 영사기 박스 */
+#cam {
+  position: absolute;
+  bottom: -14px;
+  right: -50px;
+}
+#cam img{
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  /* 회전 */
+  transform: rotate(25deg);
+  transition: .5s ease-out .3s
+;
+}
+/* gnb에 마우스 오버 시 영사기 */
+.gnb:hover #cam img{
+  transform: rotate(0deg);
+  transition-delay: 0s
+}
+.gnb:hover .bim{
+  width: 200px;
+  transition-delay: .5s;
+}
+
+.bim{
+  position: absolute;
+  top: -16px;
+  right: 0;
+  width: 0;
+  /* width: 200px; */
+  height: 70px;
+  background: url(../images/bim.png) no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+
+  transition: width .3s linear;
+}
+
 /* 2. *************************** 메인영역 *************************** */
-#cont{
+#cont {
   /* height: 788px; 높이값 주지 않고 비율 유지 가상요소로 생성 */
 
   background: url(../images/bg.jpg) no-repeat;
-  background-size: 100%; /* *********************** */
+  background-size: 100%;
+  /* *********************** */
   /* 배경이미지 크기도 가로크기에 맞춰서 세로는 자동
     그래야 비율이 맞음 */
 }
-#cont.rbx::before{
+
+#cont.rbx::before {
   padding-top: 65.67%;
   /* 1200 : 788  = 100% : X% 
     = 65.67
@@ -51,7 +234,7 @@ h1.tit{
 }
 
 /* 2-1 스크린 박스 */
-#screen{
+#screen {
   position: absolute;
   top: 17.2%;
   left: 21.4%;
@@ -59,8 +242,9 @@ h1.tit{
   height: 50.4%;
   background-color: black;
 }
+
 /* 스크린 아이프레임 */
-#screen iframe{
+#screen iframe {
   width: 100%;
   height: 100%;
   border: none;
@@ -68,33 +252,36 @@ h1.tit{
 }
 
 /* 영화6개 */
-.mlist{
+.mlist {
   position: absolute;
   transform: translateX(-50%);
   /* X축 방향으로 자기 크기의 절반을 왼쪽으로 이동하기 -> 가로 중앙이동! */
-  left: 50.6%;  
+  left: 50.6%;
   bottom: 10%;
   width: 60%;
 
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
 }
-.mlist ul{
+
+.mlist ul {
   display: flex;
 }
-.mlist ul>li{
+
+.mlist ul>li {
   position: relative;
   /* movtxt의 부모 */
   flex: 1;
   margin: 0 1%;
 }
-.mlist img{
+
+.mlist img {
   width: 100%;
   vertical-align: bottom;
 }
 
 /* 영화설명 */
-.movtxt{
+.movtxt {
   position: absolute;
   top: 100%;
   /* 아래쪽으로 100%만큼 나가 있는 중 - 마우스 오버 시 0으로 올라옴 */
@@ -113,12 +300,13 @@ h1.tit{
   /* top 0까지 올라오는 트랜지션 */
   transition: top .6s ease-out;
 }
-.mlist>ul>li:hover .movtxt{
+
+.mlist>ul>li:hover .movtxt {
   top: 0;
 }
 
 /* 첫번째 li는 영화제목 */
-.movtxt li:first-child{
+.movtxt li:first-child {
   color: aqua;
   font-size: min(1.4vw, 17px);
   /* min(유동사이즈, 고정사이즈)
@@ -130,12 +318,13 @@ h1.tit{
 
 
 /* 3. *************************** 하단영역 *************************** */
-#info{
+#info {
   height: 100px;
+  position: relative;
 }
 
 /* 회사정보 */
-#info address{
+#info address {
   color: white;
   font-family: 'Cute Font', cursive;
   font-size: 18px;
@@ -145,7 +334,47 @@ h1.tit{
   padding-left: 20px;
 }
 
-#info img{
+#info img {
   float: left;
   margin-right: 20px;
+}
+
+/* sns박스 */
+ul.sns {
+  position: absolute;
+  /* 부모는 info */
+  top: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.sns li {
+  width: 34px;
+  height: 34px;
+  background: url(../images/sprites_logo.png) no-repeat;
+  filter: grayscale(100%);
+}
+
+.sns li:hover {
+  filter: grayscale(0%);
+}
+
+/* sns 아이콘 위치 조절 */
+.sns li:first-child {
+  background-position: -510px -429px;
+}
+
+.sns li:nth-child(2) {
+  background-position: -551px -429px;
+}
+
+.sns li:last-child {
+  background-position: -593px -429px;
+}
+
+/* a링크 확장 */
+.sns a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

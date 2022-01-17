@@ -60,7 +60,11 @@
 
 
         /* a요소 확장 */
-        
+        .icons a{
+            display: block;
+            width: 0;
+            height: 0;
+        }
 
         /*************************************************
 
@@ -133,16 +137,29 @@
             ***********************************************/
             
         /* IR 숨기기 class */
+        .ir{
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
 
         /* 스프라이츠 연습 */
         .sp{
-            background: url(./images/sp_main_dba1af.png);
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-size: 457px;
         }
         .sp1{
             border: 2px solid blue;
             width: 222px;
             height: 52px;
-            background-position: 0 0;
+            background-position: 0 -156px;
+        }
+        .sp2{
+            border: 2px solid lightgreen;
+            width: 84px;
+            height: 29px;
+            background-position: -198px -266px;
         }
         
     </style>
@@ -152,26 +169,26 @@
     <ul class="icons">
         <li>
             <a href="#">
-                <span>트위터바로가기</span>
+                <span class="ir">트위터바로가기</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <span>인스타그램바로가기</span>
+                <span class="ir">인스타그램바로가기</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <span>페이스북바로가기</span>
+                <span class="ir">페이스북바로가기</span>
             </a>
 
         </li>
     </ul>
     <div class="sp sp1">
-
+        <span class="ir">네이버로고</span>
     </div>
     <div class="sp sp2">
-
+        <span class="ir">오디오 클립</span>
     </div>
 </body>
 
