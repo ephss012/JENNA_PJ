@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CGV 메인페이지 미디어쿼리 */
+
+
+
+
+/* ********** 1050px 이하 시작 ********* */
+@media screen and (max-width:1050px) {
+    .gnb {
+        right: 64px;
+    }
+
+    .glist {
+        position: absolute;
+        left: -70px;
+        width: 120px;
+        text-align: right;
+        flex-direction: column;
+        margin-top: 20px;
+        display: none;
+    }
+
+    .glist>li {
+        padding-bottom: 10px;
+    }
+
+    .glist>li:hover .smenu {
+        display: none;
+    }
+
+    /* gnb에 호버 시 glist display:flex */
+    .gnb:hover .glist {
+        display: flex;
+        /* display:flex였기 때문에 none에서 flex로 다시 보이기 */
+    }
+}
+
+/* ********** 1050px 이하 끝 ********* */
+
+
+
+
+/* ********** 780px 이하 시작 ********* */
+@media screen and (max-width:780px) {
+
+    /* 회사정보 */
+    #info address {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* 하단로고 이미지 */
+    #info img {
+        display: block;
+        float: none;
+        margin: 10px auto;
+    }
+
+    /* sns 아이콘 */
+    ul.sns {
+        position: static;
+        justify-content: center;
+        margin: 10px 0;
+    }
+}
+
+/* ********** 780px 이하 끝 ********* */
+
+
+
+
+/* ********** 600px 이하 시작 ********* */
+@media screen and (max-width:600px) {
+
+    /* 타이틀 글자크기 */
+    h1.tit {
+        font-size: 9vw;
+    }
+
+    /* 하단 회사주소만 숨기기 */
+    #info address span {
+        display: none;
+    }
+
+    /* 하단영역 높이값없앰 */
+    #info {
+        height: auto;
+    }
+
+    /* sns 마진없앰*/
+    ul.sns {
+        margin: 0;
+    }
+
+    /* 로고 이미지 : 위아래 마진없앰*/
+    #info img {
+        margin: 10px auto;
+    }
+
+    /* 메인영역 높이값 비율 변경하기 */
+    #cont.rbx::before {
+        padding-top: 150%;
+    }
+    #cont {
+        background-size: 140%;
+        background-position: center top;
+    }
+    /* 화면 비율 */
+    #screen {
+        position: absolute;
+        top: 10.5%;
+        left: 9.7%;
+        width: 82%;
+        height: 31.2%;
+    }
+
+    /* 예고편 5개 모음 */
+    .mlist{
+        top: 50%;
+        /* 위치 기준을 탑으로 변경 */
+        width: 85%;
+        bottom: auto;
+    }
+    .mlist ul{
+        flex-wrap: wrap;
+        /* 줄바꿈 허용 */
+    }
+    .mlist ul>li {
+        position: relative;
+        flex: none;
+        width: 31.33%;
+        /* 화면 1:1:1로 변경 */
+        margin: 0 1%;
+        overflow: hidden;
+    }
+    .movtxt{
+        font-size: 4vw;
+    }
+    .movtxt li:first-child{
+        font-size: 4vw;
+    }
+}
+
+/* ********** 600px 이하 끝 ********* */

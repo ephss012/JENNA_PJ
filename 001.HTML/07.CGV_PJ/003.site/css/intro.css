@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CGV 인트로 페이지 */
+
+/* 외부파일 합치기 - 파일 머지 */
+@import url(reset.css);
+@import url(core.css);
+
+/* 전체화면 높이값 채우기 */
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 비디오요소 */
+#myvid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* cover는 비율 유지, fill은 찌그러짐 */
+    /* 
+        [object-fit의 속성 - img, video에 사용하는 맞춤 속성]
+        - 부모요소의 크기에 체우는 방식 결정
+        - contain이 기본값
+        1. cover: 이미지나 동영상 비율을 유지하며 부모박스를 빈공간없이 채움 - 잘리는 부분 있음
+        2. fill: 이미지니 동영상 비율을 깨면서 부모박스를 빈공간없이 채움 - 잘리는 부분 없음
+        3. contain: 이미지나 동영상 모두 보이며 비율을 유지 - 빈공간 생김
+    */
+    filter: brightness(50%);
+}
+
+#enter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* outline: 4px dotted yellow; */
+}
+
+#enter span {
+    display: block;
+    /* 옆에 아무도 못오고 width는 끝까지 간다
+         */
+    text-align: center;
+    /* font: 스두크/줄체; */
+    font: bold 34px/1.8 'Audiowide';
+    transition: all .4s ease-out;
+}
+
+#enter:hover span {
+    transform: scale(2);
+    color: chartreuse;
+}
+
+#enter img {
+    transition: transform .4s ease-out;
+}
+
+#enter:hover img {
+    transform: rotate(-15deg) scale(1.5);
+}
+
+
+/* 미디어쿼리 600px 이하 */
+@media screen and (max-width:600px) {
+
+    /* Click Here 글자박스 */
+    #enter span {
+        white-space: nowrap;
+        /* 줄바꿈방지 */
+        font-size: 6vw;
+    }
+}

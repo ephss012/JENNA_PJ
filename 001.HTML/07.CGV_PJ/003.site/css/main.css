@@ -34,9 +34,19 @@ h1.tit {
   font-size: 40px;
   font-family: 'Jua', sans-serif;
   line-height: 80px;
-  /* 그림자 글로우 */
   text-align: center;
+
+  /* 그림자 글로우 */
   text-shadow: 0 0 4px aquamarine;
+  animation: titAni 1.5s ease-in infinite alternate;
+}
+@keyframes titAni {
+  /* from{
+    text-shadow: 0 0 4px aquamarine;
+  } */
+  to{
+    text-shadow: 0 0 12px aquamarine;
+  }
 }
 
 /* 전체메뉴 네비게이션 */
@@ -51,8 +61,12 @@ h1.tit {
 }
 
 .glist {
-  font-family: 'Jua';
+  position: relative;
+  /* zindex 적용을 위해 */
+  z-index: 1;
+  /* 영사기보다 위 */
   display: flex;
+  font-family: 'Jua';
 }
 
 .glist>li {
@@ -196,15 +210,11 @@ h1.tit {
   transform: rotate(0deg);
   transition-delay: 0s
 }
-.gnb:hover .bim{
-  width: 200px;
-  transition-delay: .5s;
-}
 
 .bim{
   position: absolute;
   top: -16px;
-  right: 0;
+  right: 8px;
   width: 0;
   /* width: 200px; */
   height: 70px;
@@ -213,7 +223,28 @@ h1.tit {
   background-size: auto 100%;
 
   transition: width .3s linear;
+  /* 돌아올때는 기다리지 말고 곧바로 */
 }
+.gnb:hover .bim{
+  width: 200px;
+  transition-delay: .5s;
+  /* .5초 기다리기 */
+  animation: bimAni .05s linear infinite alternate;
+}
+
+/* 빔 너울너울 애니메이션 키프레임 */
+@keyframes bimAni {
+  from{
+    opacity: .9;
+  }
+  to{
+    opacity: .5;
+  }
+}
+/* 빔애니 키프레임 */
+
+
+
 
 /* 2. *************************** 메인영역 *************************** */
 #cont {
