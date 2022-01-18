@@ -9,6 +9,11 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
   padding: 0;
 }
 
+/* 가로스크롤 생김 방지 */
+html, body{
+  width: 100vw;
+  overflow-x: hidden;
+}
 
 /* 2. a요소 리셋 */
 a{
