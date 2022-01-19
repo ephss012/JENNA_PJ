@@ -147,6 +147,15 @@
     /* 햄버거 버튼 */
     #ham{
       position: fixed;
+    }
+    /* 닫기버튼 */
+    #cbtn{
+      position: absolute;
+    }
+
+    /* 버튼공통 */
+    .btns{
+      /* position: fixed; */
       right: 3vw;
       top: 3vw;
       width: 60px;
@@ -159,43 +168,60 @@
       font-weight: 100;
       cursor: pointer;
     }
-    /* #ham:hover{
+    /* .btns:hover{
       background-color: #fff;
       color: #222;
       border: 1.5px solid #222;
     } */
 
     /* 가상요소 검정색 원 */
-    #ham::before{
+    .btns::before{
       content: '';
       position: absolute;
       top:0%;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #000;
+      background-color: white;
       border-radius: 50%;
       transform: scale(0);
       transition: transform 0.3s ease-out;
     }
     /* 호버 시 */
-    #ham:hover::before{
+    .btns:hover::before{
       transform: scale(1);
     }
+ 
 
     /* 글자 옆으로 늘리기 */
-    #ham span{
+    .btns span{
       position: relative;
         /* 위치관계 때문에 설정 */
       /* display: inline-block; */
       /* transform: scaleX(1.5); */
     }
     /* 호버 시 글자색 */
-    #ham:hover span{
+    .btns:hover span{
       color: white;
     }
 
   </style>
+
+  <script>
+    //  호출 시에 실행하는 코드블록 -> 함수
+    function 보여숨겨(){
+      //보여숨겨는 함수 이름
+      // alert("나야나")
+      // 변경대상: .gnb
+      // 변경내용: 클래스 "on" 넣거나 빼기
+      // 사용 메소드: classList.toggle(클래스명)
+      // 전체문서.가져와class요소[첫번째0]
+      document.getElementsByClassName("gnb")[0]
+      .classList.toggle("on")
+
+    }
+  </script>
+
 </head>
 
 <body>
@@ -250,9 +276,12 @@
         <a href="#">프로필</a>
       </li>
     </ul>
+    <button id="cbtn" class="btns" onclick="보여숨겨()">
+      <span>×</span> 
+    </button>
   </nav>
   <!-- 햄버거 버튼 -->
-  <button id="ham">
+  <button id="ham" class="btns" onclick="보여숨겨()">
     <span>±</span> 
   </button>
   <!-- 쇼미더네비 -->
