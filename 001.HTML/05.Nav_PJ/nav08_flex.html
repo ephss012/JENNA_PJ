@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8. 숨긴네비 고정전체창형</title>
+  <style>
+    ul,
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* flex 디스플레이 클래스 */
+
+    .fll {
+      display: flex;
+    }
+    h1 {
+      position: absolute;
+      color: white;
+    }
+
+    body * {
+      /* outline: 2px dotted gray; */
+    }
+    /*  */
+    html, body {
+      height: 1500px;
+      background-image: linear-gradient(to bottom, salmon, lightpink, hotpink);
+      /* 선형 그라데이션 - linear-gradient: 방향, 색1, 색2, 색3 */
+    }
+
+    .gnb {
+      position: fixed;
+      top: -100%;
+      /* 위에 올라가 있음 */
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(138, 138, 250);
+      /* height: 50px; */
+
+      /* transition */
+      transition: top 1s ease-in-out;
+      z-index: 999;
+    }
+
+    /* gnb메뉴 보이게 하는 class */
+    .gnb.on{
+      top: 0;
+    }
+
+    .gnb>ul {
+      width: 800px;
+      margin: 0 auto;
+
+      border: 4px dotted aqua;
+      border-radius: 20px;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .gnb>ul>li {
+      width: 200px;
+      text-align: center;
+    }
+
+
+    /* ************************************네비게이션 바************************************ */
+    .gnb>ul>li>a {
+      width: 200px;
+      line-height: 50px;
+      /* a에서 라인하이트로 네비바 높이 조절하기 */
+      /* a는 인라인 요소라서 크기 적용 안됨 */
+      /* 그래서 block 으로 설정 */
+      display: block;
+      color: white;
+      text-decoration: none;
+
+      transition: all .4s;
+    }
+
+    .gnb>ul>li:hover>a {
+      background-color: rgb(235, 237, 255);
+      color: navy;
+      font-weight: bold;
+    }
+
+          /* 서브메뉴 */
+          /* .smenu {
+            position: absolute;
+            height: 0;
+            overflow: hidden;
+
+            transition: height 0.4s ease-out;
+            background-color: rgb(235, 237, 255);
+          } */
+
+          /* 상위 li메뉴에 마우스 오버 시 서브메뉴 보이게 하기 */
+          /* .gnb>ul>li:nth-child(2):hover .smenu {
+            height: 180px;
+          }
+
+          .gnb>ul>li:nth-child(3):hover .smenu {
+            height: 100px;
+          } */
+
+    .smenu a:hover {
+      background-color: rgb(255, 255, 255);
+      color: royalblue;
+      font-weight: bold;
+    }
+    .smenu ol {
+      padding: 10px;
+    }
+    .smenu a {
+      display: block;
+      width: 180px;
+      line-height: 40px;
+      font-size: 14px;
+
+      color: aliceblue;
+      text-decoration: none;
+    }
+
+    .tit{
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100vw;
+
+      font-size: 7vw;
+      text-align: center;
+      color: white;
+      white-space: nowrap;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 햄버거 버튼 */
+    #ham{
+      position: fixed;
+      right: 3vw;
+      top: 3vw;
+      width: 60px;
+      height: 60px;
+      background-color: transparent;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      color: white;
+      font-size: 30px;
+      font-weight: 100;
+      cursor: pointer;
+    }
+    /* #ham:hover{
+      background-color: #fff;
+      color: #222;
+      border: 1.5px solid #222;
+    } */
+
+    /* 가상요소 검정색 원 */
+    #ham::before{
+      content: '';
+      position: absolute;
+      top:0%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.3s ease-out;
+    }
+    /* 호버 시 */
+    #ham:hover::before{
+      transform: scale(1);
+    }
+
+    /* 글자 옆으로 늘리기 */
+    #ham span{
+      position: relative;
+        /* 위치관계 때문에 설정 */
+      /* display: inline-block; */
+      /* transform: scaleX(1.5); */
+    }
+    /* 호버 시 글자색 */
+    #ham:hover span{
+      color: white;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>
+    8. 숨긴네비 고정전체창형
+  </h1>
+  <nav class="gnb">
+    <ul class="fll">
+      <li>
+        <a href="#">home</a>
+      </li>
+      <li>
+        <a href="#">웹개발</a>
+        <!-- 포지션 앱솔루트 사용하기 -->
+        <div class="smenu">
+          <ol>
+            <li>
+              <a href="">웹디자인</a>
+            </li>
+            <li>
+              <a href="">HTML5+CSS3</a>
+            </li>
+            <li>
+              <a href="">jQuery</a>
+            </li>
+            <li>
+              <a href="">웹+모바일</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">게시판</a>
+        <div class="smenu">
+          <ol>
+            <li>
+              <a href="">Q&amp;A</a>
+            </li>
+            <li>
+              <a href="">HTML5+CSS3</a>
+            </li>
+            <li>
+              <a href="">jQuery</a>
+            </li>
+            <li>
+              <a href="">웹+모바일</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">프로필</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- 햄버거 버튼 -->
+  <button id="ham">
+    <span>±</span> 
+  </button>
+  <!-- 쇼미더네비 -->
+  <h2 class="tit">
+    Show Me the Menu
+  </h2>
+</body>
+
+</html>
