@@ -1,0 +1,131 @@
+@charset "utf-8"
+/* 보그 PG 메인 css */
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+
+/* 박스 */
+body * {
+    outline: 1px dashed silver;
+}
+body{
+    letter-spacing: 1px;
+}
+/************************* 상단영역 *************************/
+.top {
+    position: relative;
+    height: 206px;
+    text-align: center;
+}
+
+/* 로고 */
+.logo {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.logo img {
+    top: 30px;
+    vertical-align: bottom;
+}
+
+/* 네비게이션바 */
+.gnb {
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+.glist {
+    justify-content: center;
+    display: flex;
+    white-space: nowrap;
+}
+
+.glist a {
+    display: block;
+    padding-right: 45px;
+    color: black;
+}
+
+/* 맨위 스몰 메뉴들 */
+.sbox{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 40px;
+    top: 0;
+    right: 100px;
+}
+/* 사이드 네비 오른쪽 */
+.side{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex
+}
+.side li{
+    box-sizing: border-box;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.side li:first-child{
+    border-right: 1px solid #eee;
+}
+.side a{
+    color: gray;
+    font-size: 12px;
+    font-family: 'Roboto Condensed';
+    display: block;
+}
+
+/* 속박스 class */
+.ibx {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.pt1 {
+    height: 724px;
+}
+
+.pt3 {
+    height: 650px;
+}
+
+
+/************************* 하단영역 *************************/
+.info {
+    height: 286px;
+    background: #000;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+
+    box-sizing: border-box;
+    padding: 60px;
+}
+
+.info img {
+    vertical-align: bottom;
+    display: block;
+    margin: 0 auto;
+}
+
+.txt{
+    color: gray;
+    font-size: 12px;
+    display: block;
+    margin: 15px;
+}
+ul.flist{
+    display: flex;
+    justify-content: center;
+}
+.flist a {
+    padding: 0 10px;
+    color: gray;
+    font-size: 14px;
+}
