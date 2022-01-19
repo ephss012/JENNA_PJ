@@ -18,8 +18,24 @@
   content: '';
   display: block;
   /* padding-top을 위해 div를 준 것과 동일 */
-  padding-top: 50%;
+  /* padding-top: 50%; */
   /* 패딩탑 %로 가로비율 세팅 */
+}
+
+/* 박스종류별 비율변경 */
+.pt1.rbx::before{
+  padding-top: 55.69%;
+  /* 비율계산: 가로크기:세로크기=100:x
+     x = 세로크기 * 100 / 가로크기
+     724 * 100 / 1300 = 55.69
+  */
+}
+.pt3.rbx::before{
+  padding-top: 50%;
+    /* 비율계산: 가로크기:세로크기=100:x
+     x = 세로크기 * 100 / 가로크기
+     650 * 100 / 1300 = 50
+  */
 }
 
 /* 비율유지 속 박스 */
@@ -51,4 +67,11 @@
   width: 0;
   height: 0;
   overflow: hidden;
+}
+
+/* 배경 이미지 공통 클래스 */
+.bgi{
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
 }
