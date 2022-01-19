@@ -239,15 +239,34 @@
             tg.style.fontSize = "50px";
 
             // 3-3. 트랜지션 주기
-            tg.style.transition = "2s"
+            tg.style.transition = "2s";
 
             // 3-4. 배경이미지 넣기
             tg.style.background = 
-            "url(./images/kimbs.jpg) no-repeat top/cover"
+            "url(./images/kimbs.jpg) no-repeat top/cover";
 
             // 3-5. 원 모양 만들기
-            tg.style.borderRadius = "50%"
+            tg.style.borderRadius = "50%";
 
+            // 3-6. 글자중앙정렬
+            tg.style.textAlign = "center";
+
+            // 3-7. 줄간격
+            tg.style.lineHeight = "300px"
+
+            // 3-8. top, left값 50%밀기
+            tg.style.top = "50%";
+            tg.style.left = "50%";
+
+            // 3-9. 트랜스폼 중앙이동
+            tg.style.transform = "translate(-50%, -50%) rotate(360deg) scale(.7)";
+
+            // 3-10. 전체배경색 변경하기
+                // 대상 body = JS에서 body는 특별히 취급
+                // document.body 라고 선택함
+            var bd = document.body;
+            bd.style.backgroundColor = "salmon";
+            bd.style.transition = "5s"
         }
         //////////////////////////// showMe 함수 //////////////////////////////
         //////////////////////////////////////////////////////////////////////
