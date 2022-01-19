@@ -1,33 +1,29 @@
 @charset "utf-8";
 
-/* CGV 공통 핵심 */
+/* VOGUE 공통 핵심 */
 /* 웹폰트, 공용 클래스 */
 
 
 /* 1. ********************* 웹폰트 : CDN ********************* */
-/* Cute Font, Jua, Audiowide */
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap');
-  /* 
-    font-family: 'Audiowide', cursive;
-    font-family: 'Cute Font', cursive;
-    font-family: 'Jua', sans-serif;
-  */
-  
+
 
 /* 2. ********************* 공통 클래스 ********************* */
-.rbx{
+.rbx {
   position: relative;
   /* 비율유지박스 부모자격 */
 }
+
 /* 비율생성 가상요소 */
-.rbx::before{
+.rbx::before {
   content: '';
   display: block;
   /* padding-top을 위해 div를 준 것과 동일 */
+  padding-top: 50%;
   /* 패딩탑 %로 가로비율 세팅 */
 }
+
 /* 비율유지 속 박스 */
-.rbxIn{
+.rbxIn {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -35,8 +31,22 @@
   right: 0;
 }
 
+/* 한개짜리 파티션 박스 */
+.pt1 .cbx{
+  height: 100%;
+}
+/* 플렉스 박스 */
+.fbx {
+  display: flex;
+}
+/* 플렉스 박스 자식박스 등분할 */
+.fbx .cbx {
+  flex: 1;
+  /* 등분할 시 높이값은 자동으로 부모값의 100% 채움 */
+}
+
 /* IR 클래스 */
-.ir{
+.ir {
   display: block;
   width: 0;
   height: 0;
