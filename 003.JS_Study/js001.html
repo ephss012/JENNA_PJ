@@ -157,6 +157,50 @@
                 예) 해당 태그를 가진 요소 중 세번째 것을 선택
                 ㄴ doument.getElementsByTagName(태그이름).item(2)
                 ㄴ doument.getElementsByTagName(태그이름)[2]
+            _____________________________________________________
+
+            *****************************************************
+
+            [ CSS 선택자를 그대로 사용하는 선택 방법 ]
+            1. 하나의 요소 선택법
+                querySelector(CSS선택자)
+                ㄴ선택요소가 여러개여도 처음만나는 요소 하나만 선택 - 몇 번째라는 부가 선택이 불필요
+                예) 
+                document.querySelector("#my")
+                -> 아이디가 my인 요소
+                document.querySelector(".say")
+                -> 클래스가 say인 요소 - 만나는 첫번째 .say
+                document.querySelector("ul.my>li")
+                -> ul.my의 직계자식 li 요소 중 첫번째
+
+                메소드 이름 분석
+                - query -> 질의 (기술적인 질문)
+                - Selector -> css 선택자
+                ㄴ 브라우저에서 css선택자로 질의한다
+                
+            2. 여러개의 요소를 선택하는 방법
+                querySelectorAll(css선택자)
+                    뒤에 () 가 있으면 모두 함수
+                -> 선택 시 컬렉션 집합에 결과를 담는다
+                -> 따라서 요소가 하나일 지라도 순번으로 선택한다
+
+                1) 순번선택번
+                   .item(순번) or [순번]
+                   ㄴ 0 부터 시작됨
+                   예) 
+                   document.querySelectorAll(".my>li").item(3) 
+                   document.querySelectorAll(".my>li").[3] 
+                   ㄴ .my 직계자식 li중 4번째 요소
+
+                2) 요소개수 알아오기 : length
+                    querySelectorAll(css선택자).length 
+                    -> 요소 개수를 읽어올 수 있다
+                    예)
+                    document.querySelectorAll(".my").length
+                    -> 만약 .my요소가 7개라면 결과로 7이 나온다
+
+            *****************************************************
+
             
 
         [ JS에서 요소 선택 후 html 넣기]
@@ -271,14 +315,73 @@
         //////////////////////////// showMe 함수 //////////////////////////////
         //////////////////////////////////////////////////////////////////////
 
-        function 맘대로해라(헐){
-            // 1. 호출 확인, 전달값 확인
-            console.log("맘대로해라!",헐)
+        /******************************************* 
+            함수명: 맘대로해라
+            기능: 선택요소를 중앙으로 보낸다!
+        *******************************************/
+
+        function 맘대로해라(헐) { // 헐 - 파라미터변수
+            // 1. 호출확인, 전달값확인!
+            console.log("맘대로해라!", 헐)
             // 2. 변경대상: .원이야
-            var 멍청이 = 
-            document.getElementsByClassName("박스야").item(0)
-            .getElementsByClassName("원이야")[1]
+            var 멍청이 =
+                document.querySelectorAll(".박스야 .원이야");
+            console.log("확인:", 멍청이.length);
+            /* document
+            .getElementsByClassName("박스야").item(0)
+            .getElementsByClassName("원이야").item(1) */
+
+            // 3. 변경내용: 트랜지션으로 화면 중앙으로 이동하기
+            멍청이.item(헐).style.transition = "1s ease-out";
+            멍청이.item(헐).style.top = "50%";
+            멍청이.item(헐).style.right = "50%";
+            멍청이.item(헐).style.transform = "translate(50%,-50%)";
+
+            // 너무 복잡하다!
+
+            // .박스야 .원이야 -> CSS선택자 선택법!
+            // [ JS 선택 메소드 등장 ] -> CSS선택자를 쓰는 방법!
+
+            // 1) querySelector(CSS선택자) -> 1개만 선택
+            // 2) querySelectorAll(CSS선택자) -> 다수 선택
+            // -> 2번은 .item(순번)/[순번] 으로 구체적선택!
         }
+        /////////////////////////// 맘대로해라 함수 //////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+
+
+        /*************************************************************
+            함수명: 사각사각
+            기능: 오늘쪽 상단으로 먼저 이동 후 전체화면 채우기 + 환영 메시지 넣기
+        **************************************************************/
+
+        function 사각사각() {
+            // 1. 함수호출확인
+            console.log("사각사각!");
+
+            // 2. 대상선정: .넌뭐냐
+            var 사각 = document.querySelector(".넌뭐냐");
+                // querySelector()는 무조건 하나만 선택
+
+            // 3. 변경내용: top, transition, width, height에
+            사각.style.top = "0";
+            사각.style.borderRadius = "0";
+            사각.style.width = "100vw";
+            사각.style.height = "100vh";
+            사각.style.transition = "all 3s 1s, top 1s 0s";
+            // top값만 1초간 움직이고 기다림없이 애니메이션, 나머지는 1초간 기다린 후 3초간 애니메이션
+
+            // 4. 추가변경
+            사각.innerText = "JS 입문을 환영합니다";
+                // innerText = "값" - 선택요소 내부에 글자데이터 넣기
+            사각.style.fontSize = "5vw";
+            사각.style.color = "hotpink";
+            사각.style.textShadow = "1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000";
+            // 사각.style.textShadow = "1px 0 purple";
+            사각.style.lineHeight = "100vh";
+        }
+        //////////////////////////// 사각사각 함수 //////////////////////////////
+        //////////////////////////////////////////////////////////////////////
     </script>
     <style>
         .pbox {
@@ -310,30 +413,34 @@
         }
 
         /* 원박스 개별 배경 */
-        .원이야:nth-of-type(1){
+        .원이야:nth-of-type(1) {
             right: 400px;
             background-image: url(./images/01.png);
         }
-        .원이야:nth-of-type(2){
+
+        .원이야:nth-of-type(2) {
             right: 200px;
             background-image: url(./images/02.png);
         }
-        .원이야:nth-of-type(3){
+
+        .원이야:nth-of-type(3) {
             right: 0;
             background-image: url(./images/03.png);
         }
 
         /* 사각형으로 변신할 원 */
-        .넌뭐냐{
+        .넌뭐냐 {
             position: absolute;
             top: 40%;
+            right: 0;
             width: 200px;
             height: 200px;
             text-align: center;
             line-height: 200px;
             white-space: nowrap;
+            /* 줄바꿈방지 */
             border-radius: 50%;
-            background: url(./images/prog.jpg) no-repeat top/cover;
+            background: #bcd4b4 url(./images/prog.jpg) no-repeat center/auto 100%;
         }
     </style>
 </head>
@@ -344,14 +451,15 @@
         도대체 <span id="name"></span>
     </p>
     <div class="박스야">
-        <!-- 원모양 박스 -->
-        <div class="원이야" onlick="맘대로해라(0)"></div>
-        <div class="원이야" onlick="맘대로해라(1)"></div>
-        <div class="원이야" onlick="맘대로해라(2)"></div>
 
-        <div class="넌뭐냐" onclick="사각사각()">
+        <!-- 원모양박스 -->
+        <div class="원이야" onclick="맘대로해라(0)"></div>
+        <div class="원이야" onclick="맘대로해라(1)"></div>
+        <div class="원이야" onclick="맘대로해라(2)"></div>
+        <!-- 사각형으로 변할 원박스 -->
+        <div class="넌뭐냐" onclick="사각사각()"></div>
+
     </div>
-
 </body>
 
 </html>
