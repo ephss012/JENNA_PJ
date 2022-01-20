@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. 가로네비 서브별 드롭다운 전체창</title>
+  <style>
+    ul,
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fll {
+      display: flex;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body * {
+      /* outline: 2px dotted gray; */
+    }
+
+
+
+    /* ************************************네비게이션 바************************************ */
+
+    /* 네비게이션 바 */
+    .gnb {
+      position: relative;
+      background-color: rgb(138, 138, 250);
+      /* height: 50px; */
+    }
+
+    .gnb>ul {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .gnb>ul>li {
+      width: 200px;
+      text-align: center;
+    }
+
+    .gnb>ul>li>a {
+      /* a는 인라인요소이므로 크기적용 안됨 - 블록으로 변경 */
+      display: block;
+      width: 200px;
+      line-height: 50px;
+      /* a에서 라인하이트로 네비바 높이 조절하기 */
+      /* a는 인라인 요소라서 크기 적용 안됨 */
+      /* 그래서 block 으로 설정 */
+      color: white;
+      text-decoration: none;
+
+      transition: all .4s;
+    }
+
+    .gnb>ul>li:hover>a {
+      background-color: rgb(235, 237, 255);
+      color: navy;
+      font-weight: bold;
+    }
+
+    /* 서브메뉴 */
+    .smenu {
+      display: flex;
+      /* 자식인 h2, ol이 옆으로 프르게 함 */
+      position: absolute;
+
+      width: 800px;
+      height: 0;
+      overflow: hidden;
+
+      transform: translateX(-50%);
+      /* left를 절반 보내고 자기크기의 절반 중앙이동함! */
+
+      transition: height 0.4s ease-out;
+      background-color: rgb(235, 237, 255);
+    }
+
+    .smenu h2 {
+      font-size: 28px;
+    }
+
+    /* 중분류 */
+    .smenu ol li:first-child a {
+      display: inline;
+      font-weight: bold;
+      font-size: 18px;
+      border-bottom: 1px solid rgb(100, 99, 167);
+      padding-bottom: 5px;
+    }
+
+    /* 상위 ul메뉴에 마우스 오버 시 서브메뉴 보이게 하기 */
+    /* .gnb>ul>li:nth-child(2):hover .smenu{
+      height: 60px;
+    }
+    .gnb>ul>li:nth-child(3):hover .smenu{
+      height: 60px;
+    } */
+    .gnb>ul>li:hover .smenu {
+      height: 180px;
+    }
+
+    .smenu ol {
+      padding: 10px;
+    }
+
+    .smenu a {
+      display: block;
+      width: 180px;
+      line-height: 40px;
+      font-size: 14px;
+      text-align: center;
+      /* 
+      padding: 0 10px;
+      margin: 0 10px; */
+
+      color: navy;
+      text-decoration: none;
+
+      transition: all .4s;
+    }
+
+    .smenu a:hover {
+      background-color: rgb(255, 255, 255);
+      color: royalblue;
+      /* font-weight: bold; */
+    }
+
+    /* 각 서브메뉴별 배경이미지 넣기 */
+    .gnb>ul>li:nth-child(2) .smenu {
+      background: url(images/bgi001.jpg) no-repeat right bottom/auto 160px;
+      /* 위치: 오른쪽 아래 / 가로 세로 */
+    }
+
+    .gnb>ul>li:nth-child(3) .smenu {
+      background: url(images/bgi002.jpg) no-repeat right 20px/auto 160px;
+      /* 위치: 오른쪽 위로부터 20px / 가로 세로 */
+    }
+
+
+    /* ul에 가상요소로 서브메뉴 배경만들기 */
+    .gnb>ul>li::after {
+      content: '';
+      display: block;
+
+      position: absolute;
+      /* 나의부모는? .gnb */
+      top: 50px;
+      left: 0;
+
+      width: 100%;
+      height: 0;
+      /* 처음에 안보임 */
+      background-color: rgb(235, 237, 255);
+
+      /* 트랜지션: 속시이지 */
+      transition: height .4s ease-out;
+      z-index: -1;
+      /* static요소 보다 아래옴 */
+    }
+
+
+    /* li 가상요소로 서브메뉴 배경 만들기 */
+    .gnb>ul>li:nth-child(2):hover::after,
+    .gnb>ul>li:nth-child(3):hover::after {
+      height: 180px;
+      border-bottom: 3px solid #4571ff;
+    }
+        /* 
+        .gnb>ul>li:hover::after {
+          top: 50px;
+          height: 180px;
+          border-bottom: 3px solid royalblue;
+        }
+        */
+  </style>
+</head>
+
+<body>
+  <h1>
+    6. 가로네비 서브별 드롭다운 전체창
+  </h1>
+  <nav class="gnb">
+    <ul class="fll">
+      <li>
+        <a href="#">home</a>
+      </li>
+      <li>
+        <a href="#">웹개발</a>
+        <!-- 포지션 앱솔루트 사용하기 -->
+        <div class="smenu">
+          <!-- 서브메뉴 제목 -->
+          <h2>웹개발</h2>
+          <ol>
+            <li>
+              <a href="">웹디자인</a>
+            </li>
+            <li>
+              <a href="">HTML5+CSS3</a>
+            </li>
+            <li>
+              <a href="">jQuery</a>
+            </li>
+            <li>
+              <a href="">웹+모바일</a>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <a href="">미디어쿼리</a>
+            </li>
+            <li>
+              <a href="">애니메이션</a>
+            </li>
+            <li>
+              <a href="">3D MAX</a>
+            </li>
+            <li>
+              <a href="">인터넷</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">게시판</a>
+        <div class="smenu">
+          <h2>게시판</h2>
+          <ol>
+            <li>
+              <a href="">일반게시판</a>
+            </li>
+            <li>
+              <a href="">Q&amp;A</a>
+            </li>
+            <li>
+              <a href="">방명록</a>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <a href="">아이디어 나누기</a>
+            </li>
+            <li>
+              <a href="">우리들의 세계</a>
+            </li>
+            <li>
+              <a href="">자유게시판</a>
+            </li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <a href="#">프로필</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>
