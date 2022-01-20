@@ -61,6 +61,14 @@
         text-shadow: 0 1px 0 #666;
     }
 
+    /* 첫번째 li의 둥근 모서리 */
+    .gnb li:first-child a{
+        border-radius: 5px 0 0 5px;
+    }
+    .gnb li:last-child a{
+        border-radius: 0 5px 5px 0;
+    }
+
         /* 
             1. 선형그라데이션
 
@@ -80,6 +88,7 @@
             - 각도: 각도수치deg
 
             2. 원형 그라데이션
+            * 기본형, 영역지정형은 박스모양을 따라감!
 
             1) 기본형: 중앙중심, 모양은 박스크기에 맞춤
             background-image: 
@@ -108,6 +117,29 @@
             - 가로위치, 세로위치 (중심점) - 단위는 px / %
 
              */
+
+        /* 타이틀 */
+        .tit{
+            text-align: center;
+            background-image: linear-gradient(45deg, red, green, yellow, yellow, blue);
+            padding: 10px;
+        }
+        /* 원형 그라데이션 연습 */
+        .circ{
+            display: inline-block;
+            background-image: ;
+            width: 50px;
+            height: 50px;
+            /* border: 1px solid #000; */
+            border-radius: 50%;
+            vertical-align: -15px;
+
+            background-image: radial-gradient(farthest-side at 30px 15px, #fff, blue);
+            /* background-image: radial-gradient(circle, red, yellow 30%, blue 40%); */
+            /* background-image: radial-gradient(closest-side at 30px 15px, #fff, blue); */
+            /* background-image: radial-gradient(closest-corner at 30px 15px, #fff, blue); */
+            /* background-image: radial-gradient(farthest-corner at 30px 15px, #fff, blue); */
+        }
     </style>
 </head>
 
