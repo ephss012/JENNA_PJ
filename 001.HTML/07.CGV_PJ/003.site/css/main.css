@@ -40,11 +40,13 @@ h1.tit {
   text-shadow: 0 0 4px aquamarine;
   animation: titAni 1.5s ease-in infinite alternate;
 }
+
 @keyframes titAni {
+
   /* from{
     text-shadow: 0 0 4px aquamarine;
   } */
-  to{
+  to {
     text-shadow: 0 0 12px aquamarine;
   }
 }
@@ -196,22 +198,23 @@ h1.tit {
   bottom: -14px;
   right: -50px;
 }
-#cam img{
+
+#cam img {
   position: relative;
   z-index: 1;
   width: 50px;
   /* 회전 */
   transform: rotate(25deg);
-  transition: .5s ease-out .3s
-;
+  transition: .5s ease-out .3s;
 }
+
 /* gnb에 마우스 오버 시 영사기 */
-.gnb:hover #cam img{
+.gnb:hover #cam img {
   transform: rotate(0deg);
   transition-delay: 0s
 }
 
-.bim{
+.bim {
   position: absolute;
   top: -16px;
   right: 8px;
@@ -225,7 +228,8 @@ h1.tit {
   transition: width .3s linear;
   /* 돌아올때는 기다리지 말고 곧바로 */
 }
-.gnb:hover .bim{
+
+.gnb:hover .bim {
   width: 200px;
   transition-delay: .5s;
   /* .5초 기다리기 */
@@ -234,13 +238,15 @@ h1.tit {
 
 /* 빔 너울너울 애니메이션 키프레임 */
 @keyframes bimAni {
-  from{
+  from {
     opacity: .9;
   }
-  to{
+
+  to {
     opacity: .5;
   }
 }
+
 /* 빔애니 키프레임 */
 
 
@@ -297,6 +303,8 @@ h1.tit {
 
 .mlist ul {
   display: flex;
+  /* 원근설정 */
+  perspective: 480px;
 }
 
 .mlist ul>li {
@@ -304,6 +312,11 @@ h1.tit {
   /* movtxt의 부모 */
   flex: 1;
   margin: 0 1%;
+  /* x축을 기준으로 원근설정 */
+  transform: rotateX(45deg);
+  transform-origin: bottom;
+  transition: .6s ease-out;
+
 }
 
 .mlist img {
@@ -329,11 +342,20 @@ h1.tit {
   line-height: 2.3;
   text-align: center;
   /* top 0까지 올라오는 트랜지션 */
-  transition: top .6s ease-out;
+  transition: top .5s ease-out;
+}
+
+/* li에 마우스 오버 시 세우기 + 클래스 on일 경우 세우기*/
+.mlist>ul>li:hover,
+.mlist>ul>li.on {
+  transform: rotateX(0deg);
+  z-index: 1;
 }
 
 .mlist>ul>li:hover .movtxt {
   top: 0;
+  /* 텍스트 올라오는거 딜레이시키기 */
+  transition-delay: .8s;
 }
 
 /* 첫번째 li는 영화제목 */
