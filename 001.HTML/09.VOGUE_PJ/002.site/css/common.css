@@ -4,7 +4,10 @@
 /* 외부파일 합치기 */
 @import url(reset.css);
 @import url(core.css);
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+
+body * {
+    /* outline: 1px dashed silver; */
+}
 
 /* 
     공통기능: 
@@ -15,20 +18,88 @@
 
 /************************* 상단영역 *************************/
 .top {
-    position: relative;
     height: 206px;
-    text-align: center;
 }
+
+
+/* 맨위 티메뉴들 */
+.tmenu{
+    display: flex;
+    max-width: 982px;
+    height: 45px;
+    margin: 0 auto;
+}
+/* 맨 위 직계박스 등분할 설정 */
+.tmenu div{
+    flex: 1;
+}
+
+/* sns 아이콘 */
+.sns a{
+    width: 16px;
+    height: 16px;
+    /* .fi 설정 inline-block */
+    font-size: 16px;
+    text-align: center;
+
+    /* 아이콘 세로로 중앙정렬 */
+    vertical-align: top;
+    line-height: 16px;
+
+    margin-top: 14px;
+    margin-right: 16px;
+
+    transition: opacity .2s;
+}
+.sns a:hover{
+    opacity: 0.8;
+}
+
+/* sns 첫번째 a요소 왼쪽 밀기 */
+.sns a:first-child{
+    margin-left: 0;
+}
+/* sns 마지막 a요소 카스 이미지 넣기 */
+.sns a:last-child{
+    display: inline-block;
+    /* 크기 디자인 적용을 위해 인라인블록 */
+    background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
+}
+/* 아이콘 사이즈 조정 */
+.sns a.fi-twitter{
+    font-size: 13px;
+}
+.sns a.fi-youtube-play{
+    font-size: 11px;
+}
+
+
+/* 사이드메뉴 */
+.smbx{
+    display: flex;
+    justify-content: flex-end;
+}
+.smbx>li>a{
+    display: block;
+    padding: 0 13px;
+    line-height: 44px;
+
+    font-size: 12px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #747474;
+}
+.smbx li:first-child{
+    border-right: 1px solid #eee;
+}
+
 
 /* 로고 */
 .logo {
     text-align: center;
     padding-bottom: 20px;
 }
-
 .logo img {
     top: 30px;
-    vertical-align: bottom;
 }
 
 /* 네비게이션바 */
@@ -37,46 +108,19 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
 }
-
 .glist {
     justify-content: center;
     display: flex;
     white-space: nowrap;
 }
-
-.glist a {
+.glist>li>a {
     display: block;
     padding-right: 45px;
     color: black;
 }
 
-/* 맨위 스몰 메뉴들 */
-.sbox{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 40px;
-    top: 0;
-    right: 100px;
-}
-/* 사이드 네비 오른쪽 */
-.side{
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: flex
-}
-.side li{
+.cbx:hover::after{
     box-sizing: border-box;
-    line-height: 40px;
-    padding: 0 20px;
-}
-.side li:first-child{
-    border-right: 1px solid #eee;
-}
-.side a{
-    color: gray;
-    font-size: 12px;
-    font-family: 'Roboto Condensed';
-    display: block;
+    border: inherit;
+    border: 20px solid red;
 }

@@ -2,6 +2,16 @@
 
 /* VOGUE 공통 핵심 */
 /* 웹폰트, 공용 클래스 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+
+@font-face {
+  font-family: nbg;
+  src: url(../fonts/NanumBarunGothicLightSubset.woff) format('woff');
+}
+@font-face {
+  font-family: pistilli;
+  src: url(../fonts/Pistilli-Roman.woff) format('woff');
+}
 
 /* 속박스 class */
 .ibx {
@@ -81,3 +91,4 @@
   /* background-position: center; */
   background-size: cover;
 }
+

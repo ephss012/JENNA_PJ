@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* CGV 리셋 */
+/* VOGUE 리셋 */
 /* 각종초기화 */
 
 /* 1. 마진 패딩 없애기 */
@@ -17,6 +17,7 @@ html, body{
 
 /* 2. a요소 리셋 */
 a{
+  color: #000;
   text-decoration: none;
 }
 
@@ -28,4 +29,11 @@ ul,ol{
 /* 4. h요소 글자 크기 리셋 */
 h1,h2,h3,h4,h5,h6{
   font-size: 100%;
+}
+
+/* 5. 이미지 리셋 */
+img{
+  border: none;
+  vertical-align: bottom;
+  /* 박스 이미지 하단 간극 없애기 - top, middle도 가능 */
 }

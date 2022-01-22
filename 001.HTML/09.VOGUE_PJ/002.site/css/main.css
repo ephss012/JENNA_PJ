@@ -8,11 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
 
 /* 박스 */
-body * {
-    outline: 1px dashed silver;
-}
+
 body{
-    letter-spacing: 1px;
+    letter-spacing: 0px;
 }
 
 
