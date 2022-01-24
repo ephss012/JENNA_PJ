@@ -31,13 +31,19 @@ h1.tit{
     line-height: 120px;
     text-align: center;
     text-shadow: 0 0 5px aliceblue;
+    animation: titAni 1.2s ease-in  infinite alternate ;
+}
+@keyframes titAni {
+    100% {
+        text-shadow: 0 0 10px aliceblue;
+    }
 }
 
 /* 네비게이션 메뉴 */
 .gnb {
     position: absolute;
-    right: 0;
-    bottom: 35px;
+    right: 10px;
+    bottom: 25px;
 }
 .glist {
     position: relative;
@@ -46,32 +52,36 @@ h1.tit{
 }
 .glist>li{
     padding: 0 15px;
+    padding-bottom: 10px;
     position: relative;
 }
 .glist>li>a{
     display: block;
+    color: white;   
     font-size: 16px;
     font-weight: bold;
 }
 .glist>li:hover .smenu{
     display: block;
 }
-.glist>li:hover a{
+.glist a:hover{
     color: rgb(255, 217, 0);
 }
+
 
 /* 서브메뉴 */
 .smenu{
     position: absolute;
-    left: calc(50% - 74px);
+    left: 50%;
+    transform: translateX(-50%);
     
     width: 120px;
     /* height: 120px; */
-    background: rgba(255, 255, 255, 0.2) ;
-    border-radius: 10px;
+    background: white ;
+    /* border-radius: 10px; */
     box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.447);
     padding: 7px;
-    margin: 10px;
+    margin-top: 10px;
     display: none;
 }
 /* 서브메뉴 삼각형만들기 */
@@ -79,40 +89,48 @@ h1.tit{
     content: '';
     display: block;
     position: absolute;
-
     left: 50%;
     transform: translateX(-50%);
-
+    top: -8px;
+  
     width: 0;
     height: 0;
-    border-bottom: 10px solid rgba(255, 255, 255, 0.2);
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    top: -10px;
-
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
 }
 .smenu a{
     display: block;
-    line-height: 35px;
+    color: #000;
+    line-height: 40px;
     text-align: center;
 }
-.smenu>li:hover a{
-    background: rgba(0, 0, 0, 0.514);
+.smenu li{
+    width: 100%;
+    height: 100%;
 }
+.smenu a:hover{
+    background-color: aliceblue;
+    color: royalblue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 
 /* 메인영역 */
 
 #cont {
     background: url(../images/tv.jpg) no-repeat top;  
     background-size: 100%;  
-    height: 600px;
+    height: 800px;
+    position: relative;
 }
 #screen {
     position: absolute;
     width: 538px;
     height: 346px;
     left: 27.3%;
-    top: 24.1%;
+    top: 18.1%;
     background-color: #000;
 }
 
@@ -125,13 +143,43 @@ h1.tit{
 /* 플레이리스트 6개 */
 .mlist{
     position: absolute;
+    display: block;
+    box-sizing: border-box;
+    bottom: 50px;  
 }
 .mlist ul{
     display: flex;
 
 }
+.mlist ul li{
+    padding: 1%;
+}
+.mlist img{
+    width: 240px;
+    height: 160px;
+}
 .movtxt{
     color: white;
     font-family: 'Amatic SC', cursive;
     
+}
+
+#info{
+    height: 100px;
+    position: relative;
+}
+#info address{
+    color: #eee;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 20px;
+}
+#info img{
+    padding: 0 20px;  
+    width: 64px;
+    height: 64px;
+    float: left;
+
 }
