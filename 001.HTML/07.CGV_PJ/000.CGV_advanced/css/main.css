@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+@import url(reset.css);
+@import url(core.css);
+
+body{
+    background-color:black  ;
+}
+
+body * {
+    outline: 1px dashed silver;
+}
+
+.part{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 상단영역 */
+#top{
+    position: relative;
+    z-index: 10;
+    background: url(../images/topbg.jpg) no-repeat top/cover;
+    height: 120px;
+    width: 100%;
+}
+h1.tit{
+    color: aliceblue;
+    font-family: 'Amatic SC', cursive;
+    font-size: 50px;
+    line-height: 120px;
+    text-align: center;
+    text-shadow: 0 0 5px aliceblue;
+}
+
+/* 네비게이션 메뉴 */
+.gnb {
+    position: absolute;
+    right: 0;
+    bottom: 35px;
+}
+.glist {
+    position: relative;
+    display: flex;
+    font-family: 'Cinzel', serif;
+}
+.glist>li{
+    padding: 0 15px;
+    position: relative;
+}
+.glist>li>a{
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+}
+.glist>li:hover .smenu{
+    display: block;
+}
+.glist>li:hover a{
+    color: rgb(255, 217, 0);
+}
+
+/* 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: calc(50% - 74px);
+    
+    width: 120px;
+    /* height: 120px; */
+    background: rgba(255, 255, 255, 0.2) ;
+    border-radius: 10px;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.447);
+    padding: 7px;
+    margin: 10px;
+    display: none;
+}
+/* 서브메뉴 삼각형만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.2);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    top: -10px;
+
+}
+.smenu a{
+    display: block;
+    line-height: 35px;
+    text-align: center;
+}
+.smenu>li:hover a{
+    background: rgba(0, 0, 0, 0.514);
+}
+
+/* 메인영역 */
+
+#cont {
+    background: url(../images/tv.jpg) no-repeat top;  
+    background-size: 100%;  
+    height: 600px;
+}
+#screen {
+    position: absolute;
+    width: 538px;
+    height: 346px;
+    left: 27.3%;
+    top: 24.1%;
+    background-color: #000;
+}
+
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 플레이리스트 6개 */
+.mlist{
+    position: absolute;
+}
+.mlist ul{
+    display: flex;
+
+}
+.movtxt{
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    
+}

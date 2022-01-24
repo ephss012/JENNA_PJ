@@ -8,6 +8,7 @@
   font-family: nbg;
   src: url(../fonts/NanumBarunGothicLightSubset.woff) format('woff');
 }
+
 @font-face {
   font-family: pist;
   src: url(../fonts/Pistilli-Roman.woff) format('woff');
@@ -39,16 +40,17 @@
 }
 
 /* 박스종류별 비율변경 */
-.pt1.rbx::before{
+.pt1.rbx::before {
   padding-top: 55.69%;
   /* 비율계산: 가로크기:세로크기=100:x
      x = 세로크기 * 100 / 가로크기
      724 * 100 / 1300 = 55.69
   */
 }
-.pt3.rbx::before{
+
+.pt3.rbx::before {
   padding-top: 50%;
-    /* 비율계산: 가로크기:세로크기=100:x
+  /* 비율계산: 가로크기:세로크기=100:x
      x = 세로크기 * 100 / 가로크기
      650 * 100 / 1300 = 50
   */
@@ -65,35 +67,36 @@
 
 
 /* 한개짜리 파티션 박스 */
-.pt1 .cbx{
+.pt1 .cbx {
   height: 100%;
 }
 
 /* 컨텐츠 박스 */
-.cbx{
+.cbx {
   position: relative;
   text-align: center;
 }
+
 /* 반투명 어두운 배경 그라데이션 */
-.cbx::before{
+.cbx::before {
   /* h2보다 먼저 와야하기 때문에 가상요소 비포 사용 */
   position: absolute;
   content: '';
   display: block;
-    /* div태그와 비슷해짐 */
+  /* div태그와 비슷해짐 */
   bottom: 0;
   left: 0;
   width: 100%;
   height: 50%;
   /* background-color: #000; */
-  background-image: linear-gradient(to top,rgba(0, 0, 0, 0.639),rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.639), rgba(0, 0, 0, 0));
 
 }
 
 /* 컨텐츠 타이틀 박스 */
-.cbx h2{
+.cbx h2 {
   position: absolute;
-    /* 부모는 싸고 있는 cbx */
+  /* 부모는 싸고 있는 cbx */
   width: 100%;
   bottom: 0;
 
@@ -102,31 +105,34 @@
   font-size: min(33px, 3vw);
   font-weight: normal;
 
-  padding: min(40px,3vw );
+  padding: min(50px, 3vw);
   box-sizing: border-box;
 }
 
-.cbx::after{
+.cbx::after {
+  /* cbx 위에 오도록 하기 */
   position: absolute;
   content: '';
   display: block;
 
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 }
-.cbx:hover::after{
-  transition: .2s ease-in;
+
+.cbx:hover::after {
+  transition: .3s ease-in;
   border: 20px solid red;
-  
+
 }
 
 /* 플렉스 박스 */
 .fbx {
   display: flex;
 }
+
 /* 플렉스 박스 자식박스 등분할 */
 .fbx .cbx {
   flex: 1;
@@ -142,9 +148,8 @@
 }
 
 /* 배경 이미지 공통 클래스 */
-.bgi{
+.bgi {
   background-repeat: no-repeat;
   /* background-position: center; */
   background-size: cover;
 }
-
