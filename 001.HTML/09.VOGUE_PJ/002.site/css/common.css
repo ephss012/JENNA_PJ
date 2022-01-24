@@ -6,7 +6,7 @@
 @import url(core.css);
 
 body * {
-    /* outline: 1px dashed silver; */
+    outline: 1px dashed silver;
 }
 
 /* 
@@ -18,7 +18,8 @@ body * {
 
 /************************* 상단영역 *************************/
 .top {
-    height: 206px;
+    min-height: 206px;
+    /* 최소높이 - 컨텐츠가 많아지면 늘어남 */
 }
 
 
@@ -88,8 +89,42 @@ body * {
     font-family: 'Roboto Condensed', sans-serif;
     color: #747474;
 }
+/* 첫번째 사이드메뉴 마우스 오버시 커서모양 텍스트 */
+.smbx>li:first-child>a{
+    cursor: default;
+    /* css 커서 모양 참고 */
+    /* https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
+}
+
 .smbx li:first-child{
     border-right: 1px solid #eee;
+}
+
+/* 사이드메뉴 서브박스 */
+.smsub{
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+.smbx>li:hover .smsub{
+    opacity: 1;
+    height: auto;
+    transition: opacity .4s ease-in-out;
+}
+.smsub a{
+    display: block;
+    padding: 7px 10px;
+    font-family: nbg;
+    font-size: 12px;
+    color: #747474;
+
+    transition: all .2s ease-in-out;
+}
+.smsub a:hover{
+    background-color: #fafafa;
+    color: #333333;
 }
 
 
@@ -102,25 +137,35 @@ body * {
     top: 30px;
 }
 
+/* ***************************************** */
 /* 네비게이션바 */
 .gnb {
     position: relative;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
+    /* line-height: 40px; */
 }
 .glist {
     justify-content: center;
     display: flex;
-    white-space: nowrap;
+    flex-wrap: wrap;
+        /* 좁아지면 자동 줄바꿈 */
+    /* white-space: nowrap; */
 }
-.glist>li>a {
-    display: block;
+.glist li {
+    /* display: block; */
     padding-right: 45px;
     color: black;
 }
-
-.cbx:hover::after{
-    box-sizing: border-box;
-    border: inherit;
-    border: 20px solid red;
+.glist li:last-child{
+    padding-right: 0;
 }
+.glist .fi{
+    font-weight: bold;
+}
+
+.gnb a:hover{
+    color: red;
+    transition: .3s ease-in-out;
+}
+

@@ -20,17 +20,17 @@
 
         function jumsu() {
             // 1.함수호출여부
-            console.log("점수뭐야");
+            // console.log("점수뭐야");
             // 개발자모드에서 콘솔 탭 선택
 
-            // 2.대상선정
+            // 2.대상선정 //
             // 2-1.점수를 가져올 대상 : #jumsu인 input 요소
             var jumsu = document.getElementById("jumsu");
 
             // 2-2.입력된 값을 읽어오기
             var score = jumsu.value;
-            console.log("입력값", score);
-            // console.log(메시지,변수) - 콤마 또는 플러스로 연결 
+            // console.log("입력값", score);
+            // // console.log(메시지,변수) - 콤마 또는 플러스로 연결 
 
             // 2-3.출력대상 #jexp
             var jexp = document.getElementById("jexp");
@@ -38,11 +38,60 @@
             // 2-4.출력대상 칭찬스티커
             var jshow = document.getElementById("jshow");
 
+            ///////////////////////
+            // 2-5.숫자여부 판별하기 //
+            // 숫자여부 판별 JS 내장 함수 : isNaN() is not a number?
+            // 숫자가 아니면 true
+
+            console.log("숫자가 아니니? ",isNaN(score));
+
+            if(isNaN(score)){
+                // 1. 숫자가 아닌 경우 메시지 출력
+                jexp.innerText = "숫자를 입력하세요";
+                
+                // 2. 글자색 초기화
+                jexp.style.color = "#000";
+                // 3. 칭찬스티커 초기화
+                jshow.style.backgroundPosition = "322px 0"
+                // 아래쪽 코드를 실행하지 않도록 함수 나가기
+
+                // 4. 입력창 내용지우기
+                jumsu.value = "";
+
+                // 5. 입력창에 포커스 주기
+                jumsu.focus();
+
+                return;
+            }
+
+            // 2-5.1 숫자 범위 판별하기
+            // 0-100 아닌 수 거르기
+            else if(score<0||score>100){
+
+                // 1. 숫자범위가 아닌 경우 메시지 출력
+                jexp.innerText = "0 이상 100이하의 숫자를 입력하세요";
+                
+                // 2. 글자색 초기화
+                jexp.style.color = "#000";
+                // 3. 칭찬스티커 초기화
+                jshow.style.backgroundPosition = "322px 0"
+                // 아래쪽 코드를 실행하지 않도록 함수 나가기
+
+                // 4. 입력창 내용지우기
+                jumsu.value = "";
+
+                // 5. 입력창에 포커스 주기
+                jumsu.focus();
+
+                return;
+
+            }
+
 
             /* **************************** */
-            // 결과메시지 변수
+            // 결과메시지 변수 //
             var msg;
-            // console.log("할당안된 msg변수:",msg);
+            // // console.log("할당안된 msg변수:",msg);
             // 아무값도 넣지 않으면
             // undefined (정되되지않은값)이 셋팅된다!
 
@@ -50,7 +99,7 @@
             var fc;
             // 결과에 따른 칭찬스티커 위치변수
             var pos;
-
+            /* **************************** */
            
             // 3.점수환산하기
             // if
@@ -80,9 +129,9 @@
                 pos = "-644px -644px" ;
             } //// else //////
 
-            console.log("msg변수:",msg, 
-                        "/색상:",fc,
-                        "/위치:",pos);
+            // console.log("msg변수:",msg, 
+                        // "/색상:",fc,
+                        // "/위치:",pos);
 
 
             // 4.결과출력
@@ -95,6 +144,9 @@
 
             // 6.칭찬스티커 나오게하기
             jshow.style.backgroundPosition = pos;
+
+            // 7.입력창에 포커스 주기
+            jumsu.focus();
 
        } 
        ///////////// jumsu 함수 ///////////////////////////
@@ -167,6 +219,7 @@
     <!-- <input type="email" id="jumsu" placeholder="이메일을 입력하세요"> -->
 
     <!-- 
+        
         [ input요소 : 입력양식 요소 ]
               ㄴ 텍스트, 라디오버튼, 체크박스, 버튼 등
             type="text" 텍스트 입력 양식
@@ -182,6 +235,16 @@
                 입력창에 대한 설명으로 리더기가 이것을 읽어줌
         
     -->
+
+    <hr>
+
+    <!-- switch case문 연습 -->
+
+    <h2>switch case문 연습</h2>
+    <h3 id="info">국번안내</h3>
+    <label for="local"></label>
+    <input type="text" id="local" placeholder="지역명에 '도'를 빼고 쓰세요">
+    <button class="sbtn">국번문의</button>
 </body>
 
 </html>

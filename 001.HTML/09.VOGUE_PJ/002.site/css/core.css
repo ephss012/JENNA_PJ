@@ -9,7 +9,7 @@
   src: url(../fonts/NanumBarunGothicLightSubset.woff) format('woff');
 }
 @font-face {
-  font-family: pistilli;
+  font-family: pist;
   src: url(../fonts/Pistilli-Roman.woff) format('woff');
 }
 
@@ -20,6 +20,7 @@
 }
 
 /* 1. ********************* 웹폰트 : CDN ********************* */
+
 
 
 /* 2. ********************* 공통 클래스 ********************* */
@@ -67,6 +68,61 @@
 .pt1 .cbx{
   height: 100%;
 }
+
+/* 컨텐츠 박스 */
+.cbx{
+  position: relative;
+  text-align: center;
+}
+/* 반투명 어두운 배경 그라데이션 */
+.cbx::before{
+  /* h2보다 먼저 와야하기 때문에 가상요소 비포 사용 */
+  position: absolute;
+  content: '';
+  display: block;
+    /* div태그와 비슷해짐 */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  /* background-color: #000; */
+  background-image: linear-gradient(to top,rgba(0, 0, 0, 0.639),rgba(0, 0, 0, 0));
+
+}
+
+/* 컨텐츠 타이틀 박스 */
+.cbx h2{
+  position: absolute;
+    /* 부모는 싸고 있는 cbx */
+  width: 100%;
+  bottom: 0;
+
+  color: white;
+  font-family: pist, nbg;
+  font-size: min(33px, 3vw);
+  font-weight: normal;
+
+  padding: min(40px,3vw );
+  box-sizing: border-box;
+}
+
+.cbx::after{
+  position: absolute;
+  content: '';
+  display: block;
+
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cbx:hover::after{
+  transition: .2s ease-in;
+  border: 20px solid red;
+  
+}
+
 /* 플렉스 박스 */
 .fbx {
   display: flex;

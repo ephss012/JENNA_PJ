@@ -4,62 +4,76 @@
 /* 외부파일 합치기 */
 @import url(reset.css);
 @import url(core.css);
-@import url(common.css)
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+@import url(common.css) @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
 
 /* 박스 */
 
-body{
+body {
     letter-spacing: 0px;
 }
 
 
 /************************* 메인영역 *************************/
 
+
 /* 컨텐츠 이미지 */
-.bg1{
+.bg1 {
     background-image: url(../images/cont1a.jpg);
 }
-.bg2{
+
+.bg2 {
     background-image: url(../images/cont2-1.jpg);
 }
-.bg3{
+
+.bg3 {
     background-image: url(../images/cont2-2.jpeg);
 }
-.bg4{
+
+.bg4 {
     background-image: url(../images/cont2-3.jpg);
 }
-.bg5{
+
+.bg5 {
     background-image: url(../images/cont3a.jpg);
 }
-.bg6{
+
+.bg6 {
     background-image: url(../images/cont4-1.jpg);
 }
-.bg7{
+
+.bg7 {
     background-image: url(../images/cont4-2.jpg);
 }
-.bg8{
+
+.bg8 {
     background-image: url(../images/cont4-3.jpg);
 }
-.bg9{
+
+.bg9 {
     background-image: url(../images/cont5a.jpg);
 }
-.bg10{
+
+.bg10 {
     background-image: url(../images/cont6-1.png);
 }
-.bg11{
+
+.bg11 {
     background-image: url(../images/cont6-2.jpg);
 }
-.bg12{
+
+.bg12 {
     background-image: url(../images/cont6-3.png);
 }
-.bg13{
+
+.bg13 {
     background-image: url(../images/cont7-1.jpg);
 }
-.bg14{
+
+.bg14 {
     background-image: url(../images/cont7-2.jpg);
 }
-.bg15{
+
+.bg15 {
     background-image: url(../images/cont7-3.jpg);
 }
 
@@ -83,16 +97,18 @@ body{
     margin: 0 auto;
 }
 
-.txt{
+.txt {
     color: gray;
     font-size: 12px;
     display: block;
     margin: 15px;
 }
-ul.flist{
+
+ul.flist {
     display: flex;
     justify-content: center;
 }
+
 .flist a {
     padding: 0 10px;
     color: gray;
