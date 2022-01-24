@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 제어문 - if문, switch case문, for문, while문</title>
+
+    <script>
+        // JS코딩구역
+
+        /*******************************************************************
+
+            함수는 호출시에만 실행되는 코드저장소
+
+            함수명:jumsu
+            기능: 평가점수를 평가결과로 변환하여 출력
+
+        *******************************************************************/
+
+        function jumsu() {
+            // 1.함수호출여부
+            console.log("점수뭐야");
+            // 개발자모드에서 콘솔 탭 선택
+
+            // 2.대상선정
+            // 2-1.점수를 가져올 대상 : #jumsu인 input 요소
+            var jumsu = document.getElementById("jumsu");
+
+            // 2-2.입력된 값을 읽어오기
+            var score = jumsu.value;
+            console.log("입력값", score);
+            // console.log(메시지,변수) - 콤마 또는 플러스로 연결 
+
+            // 2-3.출력대상 #jexp
+            var jexp = document.getElementById("jexp");
+
+            // 2-4.출력대상 칭찬스티커
+            var jshow = document.getElementById("jshow");
+
+
+            /* **************************** */
+            // 결과메시지 변수
+            var msg;
+            // console.log("할당안된 msg변수:",msg);
+            // 아무값도 넣지 않으면
+            // undefined (정되되지않은값)이 셋팅된다!
+
+            // 결과에 따른 글자색 변수
+            var fc;
+            // 결과에 따른 칭찬스티커 위치변수
+            var pos;
+
+           
+            // 3.점수환산하기
+            // if
+            if(score >= 90){
+                msg = "매우잘함";
+                fc = "blue";
+                pos = "0 0" ;
+            } ///// if //////
+            else if(score >= 80){
+                msg = "잘함";
+                fc = "green";
+                pos = "-322px 0" ;
+            } //// else if //////
+            else if(score >= 70){
+                msg = "보통";
+                fc = "purple";
+                pos = "-322px -322px" ;
+            } //// else if //////
+            else if(score >= 60){
+                msg = "잘 좀 하지 왜 그랬대";
+                fc = "orange";
+                pos = "-322px -644px" ;
+            } //// else if //////
+            else{
+                msg = "교무실로 와라";
+                fc = "red";
+                pos = "-644px -644px" ;
+            } //// else //////
+
+            console.log("msg변수:",msg, 
+                        "/색상:",fc,
+                        "/위치:",pos);
+
+
+            // 4.결과출력
+            jexp.innerText = " 평가결과 = " + msg;
+            // innerText는 선택요소 내부에 글자를 넣거나 읽어옴
+
+            // 5.글자색변경
+            // style.color = 값
+            jexp.style.color = fc;
+
+            // 6.칭찬스티커 나오게하기
+            jshow.style.backgroundPosition = pos;
+
+       } 
+       ///////////// jumsu 함수 ///////////////////////////
+       ///////////////////////////////////////////////////
+
+        /*******************************************************************
+
+            [if 문]
+            - 조건문을 검사하여 트루면 중괄호 안의 코드를 실행하는 제어문
+            - 조건문이란 결과가 트루/펄스로 나오는 구문
+            - 보통 비교연산자나 논리연산자가 사용된다
+
+            1. if문은 단독으로 따로 사용 가능
+            2. else if문은 if문 뒤에, 혹은 또다른 else if문 뒤에 사용 가능
+            3. if와 else if로 구성된 조건문은 하나의 조건에 해당할 경우 다른 조건문에는 들어가지 않는다
+
+            else문은 조건문에 해당되지 않을 경우 모든 경우의 수를 기타로 묶어서 최종적으로 실행하는 코드구역이다
+            (else문은 if문 혹은 else if문이 끝나는 맨 뒤에 사용하며 안 쓸 수도 있다)
+
+            *** 주의사항: else if나 else문은 처음에 쓰거나 단독으로 사용 불가능
+
+        *******************************************************************/
+    </script>
+
+    <style>
+        #jshow{
+            position: absolute;
+            top: -20px;
+            left: 120px;
+            width: 322px;
+            height: 322px;
+            transform: scale(.3);
+            background: url(./images/ifshow.jpg) no-repeat;
+            background-position: 322px 0 ;
+            transition: all .4s ease-out;
+        }
+        .ir{
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        JS 제어문
+    </h1>
+    <hr>
+    <!-- if문 연습 -->
+    <h2>if문 연습</h2>
+    <h3 id="jexp">평가출력</h3>
+    <label for="">점수입력:</label>
+    <input type="text" id="jumsu" placeholder="점수를 입력하세요" maxlength="7" onkeypress="if(event.keyCode===13)jumsu()">
+        <!-- onkeypres 키보드를 치면 발생하는 이벤트
+            if조건문
+            조건식: even.keyCode === 13
+                ㄴ 엔터키의 키코드 = carriage return
+                ㄴ 트루면 jumsu() 함수를 호출해라
+            *** 키코드 참조 ascii 코드 참조
+        -->
+    <button class="sbtn" onclick="jumsu()">평가하기</button>
+
+    <div id="jshow">
+         <span class="ir">칭찬스티커</span>
+    </div>
+    <!-- <input type="submit" id="jumsu" placeholder="점수를 입력하세요" value="90"> -->
+    <!-- <input type="search" id="jumsu" placeholder="점수를 입력하세요"> -->
+    <!-- <input type="email" id="jumsu" placeholder="이메일을 입력하세요"> -->
+
+    <!-- 
+        [ input요소 : 입력양식 요소 ]
+              ㄴ 텍스트, 라디오버튼, 체크박스, 버튼 등
+            type="text" 텍스트 입력 양식
+            placeholder 속성 : 안내문구 출력 - 글자 입력 시 사라짐
+            value 속성 : 미리 입력할 글자 넣기
+                JS에서 입력된 글자를 읽어갈 때  value 속성을 사용
+            maxlength 속성 : 최대 입력 글자수 지정
+
+        [ label요소: 입력양식 설명요소 ]
+            - for 속성은 연결된 input 요소의 아이디명을 써줌
+                라벨 클릭시 해당 인풋 요소로 포커스가 들어감
+            - 웹 접근성(평등의 원칙) 측면에서 라벨은 input요소의 필수요소로 사용할 것을 권고하고 있다
+                입력창에 대한 설명으로 리더기가 이것을 읽어줌
+        
+    -->
+</body>
+
+</html>
