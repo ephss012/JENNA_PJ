@@ -7,6 +7,20 @@
     <title>ASMR Best Collection</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <script>
+        window.addEventListener("load", function () {
+        })
+
+        function 유튜브(클릭재생) {
+            document //전체문서
+                .getElementById("mymv") //mymv 아이디 요소
+                .src = "https://www.youtube.com/embed/" + 클릭재생 +
+                "?autoplay=1&playsinline=1";
+        }
+    </script>
+
 </head>
 
 <body>
@@ -69,18 +83,24 @@
         </nav>
     </header>
 
+
     <!-- 메인영역 -->
     <main id="cont" class="part rbx">
         <div id="screen">
             <iframe id="mymv"
-            src="https://www.youtube.com/embed/5rBg_NjFQmc?autoplay=1=1&mute=1&loop=1&playlist=5rBg_NjFQmc&&playsinline=1" allow="autoplay;">
+                src="https://www.youtube.com/embed/5rBg_NjFQmc?autoplay=1=1&mute=1&loop=1&playlist=5rBg_NjFQmc&&playsinline=1"
+                allow="autoplay;">
             </iframe>
+        </div>
+        <div class="candle">
+            <img src=".//images/candle.png" alt="candle">
+            <span></span>
         </div>
         <nav class="mlist">
             <ul>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play01.jpeg" alt="">
+                    <a href="#" onclick="유튜브('yBmPDPCd_ls')">
+                        <img src="../000.CGV_advanced/images/play01.jpg" alt="">
                         <ol class="movtxt">
                             <li>Soupe</li>
                             <li>Great Hall</li>
@@ -88,8 +108,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play02.jpeg" alt="">
+                    <a href="#" onclick="유튜브('5rBg_NjFQmc')">
+                        <img src="../000.CGV_advanced/images/play02.jpg" alt="">
                         <ol class="movtxt">
                             <li>Soupe</li>
                             <li>Gryffindor</li>
@@ -97,8 +117,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play03.png" alt="">
+                    <a href="#" onclick="유튜브('XeUBb6GKHNg')">
+                        <img src="../000.CGV_advanced/images/play03.jpg" alt="">
                         <ol class="movtxt">
                             <li>Rooms</li>
                             <li>Ravenclaw</li>
@@ -106,8 +126,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play04.jpeg" alt="">
+                    <a href="#" onclick="유튜브('9Yf59suTbWI')">
+                        <img src="../000.CGV_advanced/images/play04.jpg" alt="">
                         <ol class="movtxt">
                             <li>Soupe</li>
                             <li>Hufflepuff</li>
@@ -115,8 +135,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play05.jpeg" alt="">
+                    <a href="#" onclick="유튜브('NqSbyaVTqII')">
+                        <img src="../000.CGV_advanced/images/play05.jpg" alt="">
                         <ol class="movtxt">
                             <li>Tigger</li>
                             <li>Hogwarts</li>
@@ -124,8 +144,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="">
-                        <img src="../000.CGV_advanced/images/play06.jpeg" alt="">
+                    <a href="#" onclick="유튜브('wIOc_6QZ3AI')">
+                        <img src="../000.CGV_advanced/images/play06.jpg" alt="">
                         <ol class="movtxt">
                             <li>Rooms</li>
                             <li>Slytherin</li>
@@ -135,6 +155,10 @@
             </ul>
         </nav>
     </main>
+
+
+
+    <!-- 하단영역 -->
 
     <footer id="info" class="part">
         <address>

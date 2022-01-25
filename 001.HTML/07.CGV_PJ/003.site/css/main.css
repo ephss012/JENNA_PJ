@@ -9,7 +9,7 @@ body {
   background-color: black;
 }
 
-body *{
+body * {
   outline: 1px dashed #ddd;
 }
 
@@ -212,7 +212,7 @@ h1.tit {
 .gnb:hover #cam img {
   transform: rotate(0deg);
   transition-delay: 0s
-  /* 딜레이없음 */
+    /* 딜레이없음 */
 }
 
 .bim {
@@ -242,6 +242,7 @@ h1.tit {
   from {
     opacity: .9;
   }
+
   to {
     opacity: .5;
   }
@@ -291,9 +292,9 @@ h1.tit {
 /* 영화6개 */
 .mlist {
   position: absolute;
+  left: 50.6%;
   transform: translateX(-50%);
   /* X축 방향으로 자기 크기의 절반을 왼쪽으로 이동하기 -> 가로 중앙이동! */
-  left: 50.6%;
   bottom: 10%;
   width: 60%;
 
@@ -312,6 +313,7 @@ h1.tit {
   /* movtxt의 부모 */
   flex: 1;
   margin: 0 1%;
+  
   /* x축을 기준으로 원근설정 */
   transform: rotateX(45deg);
   transform-origin: bottom;
@@ -353,7 +355,7 @@ h1.tit {
 
 .mlist>ul>li:hover .movtxt {
   top: 0;
-    /* top 100% 였던 걸 0까지 올리기 */
+  /* top 100% 였던 걸 0까지 올리기 */
   /* 텍스트 올라오는거 딜레이시키기 */
   transition-delay: .8s;
 }
