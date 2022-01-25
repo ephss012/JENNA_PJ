@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>For문 옵션</title>
+    <style>
+        .forCls img {
+            height: 100px;
+        }
+    </style>
+    <script>
+        /*///////////////////////////////////////
+            함수명: addNum
+            기능: for문으로 숫자이미지를 추가한다
+        */ ///////////////////////////////////////
+
+        function addNum(num) { // num - 전달변수
+            // 1.함수호출 및 전달값 확인
+            console.log("나야나", num);
+
+            // 2.대상선정: .forCls
+            var tg = document.querySelectorAll(".forCls");
+            console.log("대상개수:",tg.length);
+                // length는 컬렉션 집합의 개수
+                // 대상의 숫자에 맞게 for문에서 숫자이미지를 넣어준다
+
+            // 3.숫자이미지 넣기
+            // for(시;한;증){코드}
+            for(var i=1; i<=10; i++){
+                // console.log(i);
+
+                // 4,7번 빼고 돌리기
+                // continue 키워드 사용하기 - 해당 순번을 제외하고 계속하라는 뜻
+                if(num===1&&(i===4||i===7)) continue;
+
+                // 5번까지만 돌리기
+                // break 키워드 사용
+                // 조건: num이 2이고 i가 6이면 나가라
+                if(num===2&&i===6) break;
+
+
+                // tg.item(num)과 같다
+                tg[num].innerHTML += 
+                '<img src="images/num/num_0'+i+'.png" alt="숫자">';
+                // `<img src="images/num/num_0${i}.png" alt="숫자">`;
+            }
+            
+
+        } ///////// addNum함수 ///////////////////
+        //////////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    
+    <h1>for문 옵션</h1>
+
+    <hr>
+
+    <button onclick="addNum(0)">기본호출</button>
+    <h2>기본for문</h2>
+    <div class="forCls"></div>
+
+    <hr>
+
+    <button onclick="addNum(1)">for문옵션1</button>
+    <h2>4번과 7번빼고 돌리기</h2>
+    <div class="forCls"></div>
+
+    <hr>
+
+    <button onclick="addNum(2)">for문옵션2</button>
+    <h2>5번까지만 돌리기</h2>
+    <div class="forCls"></div>
+
+    <hr>
+
+</body>
+
+</html>
