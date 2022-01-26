@@ -168,9 +168,9 @@ h1.tit {
     display: block;
     width: 50px;
     height: 50px;
-    background: rgb(255, 226, 5);
+    background: rgba(255, 226, 5, 0.639);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgb(255, 226, 5);
+    box-shadow: 0 0 10px rgba(255, 226, 5, 0.735);
 }
 
 /* 플레이리스트 6개 */
@@ -180,12 +180,11 @@ h1.tit {
     left: 50%;
     width: 1200px;
     transform: translateX(-50%);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .mlist ul {
     display: flex;
-
 }
 
 .mlist ul>li {
@@ -197,11 +196,11 @@ h1.tit {
 .mlist img {
     width: 210px;
     vertical-align: bottom;
-    /* border: 1px solid transparent; */
-    box-sizing: border-box;
+    border: 1px solid transparent;
+    /* box-sizing: border-box; */
 }
 .mlist img::after{
-    border: 1px solid aliceblue;
+    /* border: 1px solid aliceblue; */
 }
 
 
