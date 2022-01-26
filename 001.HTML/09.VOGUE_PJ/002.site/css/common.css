@@ -151,8 +151,12 @@ body * {
     position: relative;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
-    line-height: 40px;
+    /* line-height: 40px; */
+    line-height: 50px;
+    font-size: 14px;
+    
 }
+/* 네비게이션 바 오른쪽 옆으로 디스플레이 플렉스 */
 .glist {
     display: flex;
     justify-content: center;
@@ -162,9 +166,10 @@ body * {
 }
 .glist li {
     /* display: block; */
-    padding-right: 45px;
+    padding-right: 35px;
     color: black;
 }
+/* 마지막 물음표 패딩 제거 */
 .glist li:last-child{
     padding-right: 0;
 }
@@ -176,8 +181,21 @@ body * {
     color: red;
     transition: .3s ease-in-out;
 }
-/* ************** */
-/* 슬림스타일 상단영역 */
+
+
+/************* 슬림스타일 상단영역 *************/
+/* 전체 상단영영역 고정하기 */
+#top.on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+/* gnb 마진탑 없애기 - 부모 박스 바깥쪽을 밀기 때문 */
+#top.on .gnb{
+    margin-top: 0;
+    padding: 5px 30px 5px 120px;
+}
 #top.on .logo{
     position: absolute;
     left: 0;

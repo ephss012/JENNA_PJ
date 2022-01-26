@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>배열변수와 객체</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            width: 1000px;
+            height: 80px;
+            border: 2px solid #000;
+            text-align: center;
+            white-space: nowrap;
+            /* 줄바꿈방지 */
+            line-height: 84px;
+            margin: 5px auto;
+            /* 가로중앙 */
+            font-size: 24px;
+        }
+    </style>
+
+    <script>
+        // window.addEventListener("load",function(){
+            // let htxt = document.querySelector("h1");
+            // console.log("타이틀글자:",htxt.innerText);
+
+        // 로드구역    
+        window.addEventListener("DOMContentLoaded",loadFn);
+            // window 객체 : 브라우저 전체 창에 관련된 객체
+
+            // 함수명 loadFn
+            // 기능: 페이지 로딩 시 호출되는 함수  
+        function loadFn(){
+            // 1.로딩 후 호출확인
+            console.log("로딩완료");
+        }
+    
+        
+
+    </script>
+</head>
+
+<body>
+    <h1>배열변수와 객체</h1>
+    <div id="txt1"></div>
+    <div id="txt2"></div>
+    <div id="txt3"></div>
+    <div id="txt4"></div>
+    <div id="txt5"></div>
+    <div id="txt6"></div>
+
+    <!-- 다른영화로 바꿔보기 -->
+    
+    <div id="txt7" style="text-align:center">
+        <button onclick="chgMv()">다른영화보기</button>
+    </div>
+
+</body>
+
+</html>
