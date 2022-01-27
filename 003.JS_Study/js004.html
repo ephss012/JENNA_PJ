@@ -164,6 +164,143 @@
             // 배열사이에 별(★)을 넣어서 출력할 것!
             txt3.innerText = arr3.join("★");
 
+            /************************************************* 
+
+                [ 객체 Object란 ]
+                - 독립된 속성과 메서드를 가지는 프로그램 단위체
+                - 속성은 명사적 특징, 메서드는 동사적 특징
+                예) 
+                자동차의 명사적 특징 : 핸들 백미러 트렁크 등
+                자동차의 동사적 특징 : 운전하다 멈추다 주차하다 등
+
+                *** 참고:
+                브라우저에 이미 만들어져 있는 객체들을 내장 객체라고 한다
+                ㄴ 브라우저 내장 객체들:
+                    window: 윈도우 표시 관련 객체
+                    document: 문서 구조에 관련된 객체
+                    Array: 배열객체
+                    Object: 객체를 만들기 위한 객체
+                    Date: 날짜객체
+                    Math: 수학객체
+
+                [ 객체의 선언 ]
+                - new Object()
+                [ 객체의 할당 ]
+                - 중괄호를 사용하여 할당코딩을 함
+                - {속성명:값,속성명:값,...}
+                - 여러값을 셋팅할때 콤마로 구분한다
+                - 배열과 비교하여 이해하기 쉽고 호출하기 쉽다!
+                - 객체의 스타일로 데이터 구조를 만들고
+                이런 파일로 DB와 데이터 통신을 하는 경우가 많다
+                이런 파일을 제이슨(JSON:확장자.json) 이라고 한다!
+                
+                [ 객체의 호출 ]
+                - 객체명[속성명]
+
+
+
+            *************************************************/
+
+            const SHK = new Object({
+                '너의 이름은?': '김수현',
+                '생일': '1988년 2월 16일',
+                '키': '180cm',
+                '몸무게': '65kg',
+                '성별': '남자',
+                '비밀번호': 1234,
+                '팬레터': function () {
+                    // 알림메시지 띄우기
+                    alert('오빠 나야');
+                    // 배경이미지, 출력박스에 넣기
+                    txt4.style.background =
+                        'url(https://file2.nocutnews.co.kr/newsroom/image/2020/01/01/20200101093641185867_0_786_786.jpg) repeat-x top/auto 100%';
+                    // 글자색
+                    txt4.style.color = '#fff';
+                    // 글자그림자
+                    txt4.style.textShadow = '0 0 5px #000';
+                    // 글자내용 변경하기
+                    txt4.innerText = '김수현 최고 멋쟁이는 아냐';
+                    // 트랜지션
+                    txt4.style.transition = '1s ease-out 1s';
+                    // 박스 크게하기
+                    // txt4.style.transform
+
+                    // 손가락 표시
+                    txt4.style.cursor = 'pointer';
+                }
+            });
+
+            // 김수현 객체 출력하기
+            // 대상: #txt4
+            // let txt4 = document.getElementById('txt4');
+
+                    // txt4.innerText = 
+                    // `당신이 좋아하는 남자 배우는? ${SHK['너의 이름은?']}
+                    // `;
+                    // txt4.innerText = 
+                    // `생일은? ${SHK['생일']}
+                    // `;
+            let txt4 = document.getElementById("txt4");
+
+            txt4.innerText =
+                `당신이 좋아하는 남자배우는? ${SHK["너의 이름은?"]}`;
+            txt4.innerText +=
+                ` / 몸무게를 아세요? ${SHK["몸무게"]}`;
+
+
+            // 객체에 세팅된 함수를 보통 메서드라고 부른다
+
+            txt4.onclick = function () {
+                SHK['팬레터']();
+                // 함수 호출 시엔 소괄호 필수
+            };
+
+            //타이틀 속성 넣기
+            txt4.title = `여기를 클릭하여 ${SHK['너의 이름은?']}팬레터를 확인하세요`;
+
+            txt4.style.cursor = 'pointer';
+
+
+            // 공유 객체 생성하기
+            const GU = {
+                name:"공유",
+                tall: '184cm',
+                weight: '74kg',
+                com: '매니지먼트 숲',
+                work: '도깨비,부산행',
+                // function(){} 대신해서 ()=>{} 화살표함수
+                msg: (txt)=>{ //txt는 전달변수
+                    // 1.메시지띄우기
+                    alert('팬레터'+txt);
+                }
+            }; //////////////////// 공유 객체 ////////////////////////
+
+            // 공유 객체 출력하기 ///////////////////
+            let txt5 = document.getElementById('txt5');
+            // 줄간격 조절
+            txt5.style.lineHeight = '24px';
+            // 내용출력
+            txt5.innerHTML = `저는 ${GU.name}입니다. 몸무게는 비밀인데 그래도 말씀드리자면 ${GU.weight}입니다.<br> 제 대표작은 ${GU.work}입니다. 제 소속사는 모르시는 분들이 많은데 ${GU.com}입니다.`;
+
+            // 공유 박스 마우스 오버 시 툴팁 보이기
+            // 속성넣기 2가지 방법
+            // 요소.속성명=값 or 요소.setAttribute()
+            txt5.setAttribute(
+                'title', 
+                GU.name+'팬레터를 확인하세요 - 바로 클릭');
+
+            txt5.style.cursor = 'pointer';
+            txt5.style.lineHeight = '40px';
+
+            // 공유박스 클릭함수
+            txt5.onclick = ()=>{
+                // 메시지 띄우기
+                GU.msg('\n공유오빠, 서복에서도 멋졌어요 \n 차기작도 기대해요 화이팅')
+                    // ㄴ alert 창은 html태그 사용 불가 - 줄바꿈은 \n 으로 설정하기
+                // 이미지 배경에 넣기
+                txt5.style.background = 'url(https://upload.wikimedia.org/wikipedia/commons/4/41/Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%';
+            };
+
         } ///////////// loadFn 함수 ////////////////////////
         ////////////////////////////////////////////////////
     </script>
