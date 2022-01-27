@@ -275,6 +275,7 @@
                 }
             }; //////////////////// 공유 객체 ////////////////////////
 
+
             // 공유 객체 출력하기 ///////////////////
             let txt5 = document.getElementById('txt5');
             // 줄간격 조절
@@ -290,16 +291,85 @@
                 GU.name+'팬레터를 확인하세요 - 바로 클릭');
 
             txt5.style.cursor = 'pointer';
-            txt5.style.lineHeight = '40px';
+
 
             // 공유박스 클릭함수
             txt5.onclick = ()=>{
-                // 메시지 띄우기
+                // 1.메시지 띄우기
                 GU.msg('\n공유오빠, 서복에서도 멋졌어요 \n 차기작도 기대해요 화이팅')
                     // ㄴ alert 창은 html태그 사용 불가 - 줄바꿈은 \n 으로 설정하기
-                // 이미지 배경에 넣기
+
+                // 2.이미지 배경에 넣기
                 txt5.style.background = 'url(https://upload.wikimedia.org/wikipedia/commons/4/41/Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%';
+
+                // 3.글자색 변경
+                txt5.style.color = '#fff';
+                
+                // 4.글자 테두리 - 그림자로 처리
+                txt5.style.textShadow = '1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000';
+
+                // 5.높이값 설정
+                txt5.style.height = '100px';
+                
+                // 6.트랜지션
+                txt5.style.transition = '2s ease-in-out .5s';
+
+                // 7.패딩상단
+                txt5.style.paddingTop = '100px';
+
+                // 8.줄간격
+                txt5.style.lineHeight = '30px';
             };
+
+            //////////////////////////////////////////
+            // 미션: #txt6은 개체를 만들어서 자유출력하시오
+
+            const mymv = {
+                title: '악마는 프라다를 입는다',
+                director: '데이빗 프랭켈',
+                actors: '앤 해서웨이',
+                genre: '코미디',
+                ratings: '15세',
+                trailer:()=>{
+                    console.log('예고편');
+
+                    // 영화박스에 iframe
+                    // mvtrailer
+                    document.getElementById('mvtrailer').innerHTML =
+                        /* 악마는 프라다를 입는다 예고편 */
+                    `
+                        <div id="mv">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2PjZAeiU7uM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <span class="closebtn">×</span>
+                        </div>
+                    `
+                }
+            };
+
+            // 마이무비 화면출력
+            // 대상: #txt6
+            let txt6 = document.getElementById('txt6');
+
+            txt6.style.lineHeight = '34px';
+            txt6.innerHTML = 
+            `
+                 🟣 영화명: ${mymv.title}
+                 🟣 감독: ${mymv.director}
+                 🟣 배우: ${mymv.actors} <br>
+                 🟣 장르: ${mymv.genre}
+                 🟣 등급: ${mymv.ratings}
+            `;
+
+            // 툴팁보이기
+            txt6.title = 
+            `클릭하시면 ${mymv.title} 예고편을 보실 수 있습니다.`;
+            
+            // 손가락표시
+            txt6.style.cursor = 'pointer';
+            txt6.onclick = ()=>{
+                mymv.trailer();
+            }
+
 
         } ///////////// loadFn 함수 ////////////////////////
         ////////////////////////////////////////////////////
@@ -314,6 +384,11 @@
     <div id="txt4"></div>
     <div id="txt5"></div>
     <div id="txt6"></div>
+
+    <!-- 예고편 동영상용 박스 -->
+    <aside id="mvtrailer">
+
+    </aside>
 
     <!-- 다른영화로 바꿔보기 -->
 
