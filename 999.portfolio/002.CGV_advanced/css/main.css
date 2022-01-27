@@ -14,16 +14,22 @@ body * {
 
 /* 메인영역 */
 #cont {
+    position: relative;
     background: url(../images/tv.jpg) no-repeat top;
     background-size: 100%;
-    height: 1050px;
-    position: relative;
+    /* height: 1050px; */
+}
+#cont.rbx::before{
+    padding-top: 87.5%;
+    /* 1200:1050=100%:87.5% */
+    content: '';
+    display: block;
 }
 /* 메인영상 재생영역 */
 #screen {
     position: absolute;
-    width: 538px;
-    height: 346px;
+    width: 48.7%;
+    height: 33%;
     left: 27.3%;
     top: 13.7%;
     background-color: #000;
@@ -41,15 +47,76 @@ body * {
     left: 40px;
     top: 40px;
     transform-origin: bottom;
+    transition: .5s ease-in-out .3s;
+}
+.candle2>img{
+    position: absolute;
+    width: 100px;
+    right: 20px;
+    top: 420px;
+    transform-origin: bottom;
+    transition: .5s ease-in-out .3s;
 }
 /* 촛불 호버 시 */
 .candle:hover>img{
-    transform: rotate(25deg);  
+    transform: rotate(25deg) scale(1.5);  
     transition: .5s ease-in-out;
 }
-.candle:hover h1.tit{
-    color:rgb(255, 217, 0);
+.candle2:hover>img{
+    transform: rotate(-25deg) scale(1.5);  
+    transition: .5s ease-in-out;
 }
+.candle:hover span{
+    opacity: 1;
+    transition: .9s ease-in-out;
+    animation: candleAni 1s linear infinite alternate;
+    animation-delay: 1s;
+}
+.candle span{
+    position: absolute;
+    z-index: 999;
+    top: -9%;
+    left: -1%;
+
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    background-image: radial-gradient(circle, rgba(255, 217, 0, 0.8), rgba(255, 217, 0, 0), rgba(255, 255, 255, 0));
+    opacity: 0;
+    /* display: none; */
+}
+.candle2:hover span{
+    opacity: 1;
+    transition: .9s ease-in-out;
+    animation: candleAni 1s linear infinite alternate;
+    animation-delay: 1s;
+}
+.candle2 span{
+    position: absolute;
+    z-index: 999;
+    top: 28%;
+    right: -2%;
+
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    background-image: radial-gradient(circle, rgba(255, 217, 0, 0.8), rgba(255, 217, 0, 0), rgba(255, 255, 255, 0));
+    opacity: 0;
+}
+
+/* 촛불 애니메이션 */
+@keyframes candleAni {
+    from {
+      opacity: .9;
+    }
+    to {
+      opacity: .5;
+    }
+  }
+
+
 
 /* 플레이리스트 6개 */
 .mlist {
@@ -59,10 +126,12 @@ body * {
     width: 75%;
     transform: translateX(-50%);
     overflow: hidden;
+    font-weight: bold;
 }
 .mlist ul {
     display: flex;
-    flex-wrap: wrap;/* 줄바꿈허용 */
+    flex-wrap: wrap;
+        /* 줄바꿈허용 */
 }
 /* 플레이리스트 3X2 만들기 */
 .mlist ul>li {
@@ -135,65 +204,9 @@ body * {
     overflow: hidden;
 }
 .movtxt li:first-child {
-    color: rgb(130, 161, 255);
+    color: rgb(150, 176, 254);
     /* padding-top:30%; */
 }
 
 
 
-/* 하단영역 */
-
-#info {
-    position: relative;
-    height: 120px;
-    border-top: 1px solid #333;
-}
-#info address {
-    position: absolute;
-    top: 30px;
-    left: 10%;
-    width: 50%;
-
-    color: #eee;
-    font-style: normal;
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    line-height: 20px;
-    /* padding-top: 30px; */
-}
-#info img {
-    padding: 0 20px;
-    width: 64px;
-    height: 64px;
-    float: left;
-}
-
-
-/* sns 아이콘 영역 */
-.sns{
-    position: absolute;
-    display: flex;
-    right: 12%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.sns li{
-    margin: 10px;
-}
-.sns a{
-    display: block;
-    border: 1px solid white;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    
-    color: white;
-    /* font-weight: bold; */
-    text-align: center;
-    line-height: 35px;
-}
-.sns li:hover a{
-    background-color: #fff;
-    color: #000;
-    transition: .3s ease-out;
-}

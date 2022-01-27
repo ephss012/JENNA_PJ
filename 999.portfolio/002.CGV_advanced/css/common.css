@@ -111,3 +111,62 @@ h1.tit {
     font-weight: bold;
     text-decoration: underline;
 }
+
+
+/* 하단영역 */
+
+#info {
+    position: relative;
+    height: 120px;
+    border-top: 1px solid #333;
+}
+#info address {
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    width: 50%;
+
+    color: #eee;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 1vw;
+    /* font-size: 14px; */
+    line-height: 20px;
+    /* padding-top: 30px; */
+}
+#info img {
+    padding: 0 20px;
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+
+
+/* sns 아이콘 영역 */
+.sns{
+    position: absolute;
+    display: flex;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sns li{
+    margin: 10px;
+}
+.sns a{
+    display: block;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    
+    color: white;
+    /* font-weight: bold; */
+    text-align: center;
+    line-height: 35px;
+}
+.sns li:hover a{
+    background-color: #fff;
+    color: #000;
+    transition: .3s ease-out;
+}
