@@ -25,6 +25,7 @@ body * {
     content: '';
     display: block;
 }
+
 /* 메인영상 재생영역 */
 #screen {
     position: absolute;
