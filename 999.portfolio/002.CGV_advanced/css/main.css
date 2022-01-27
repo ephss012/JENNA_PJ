@@ -153,14 +153,14 @@ h1.tit {
 }
 
 /* 촛불 */
-.candle img{
+.candle>img{
     position: absolute;
     width: 100px;
     left: 40px;
-    top: 30px;
+    top: 40px;
     transform-origin: bottom;
 }
-.candle:hover img{
+.candle:hover>img{
     transform: rotate(25deg);  
     transition: .5s ease-in-out;
 }
@@ -180,7 +180,7 @@ h1.tit {
     left: 50%;
     width: 1200px;
     transform: translateX(-50%);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .mlist ul {

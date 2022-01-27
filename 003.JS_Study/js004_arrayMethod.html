@@ -64,11 +64,21 @@
     <script>
         // 로드 구역 /////////////////////////////////////
         window.addEventListener('DOMContentLoaded', 
+
         function(){
+
             console.log('로딩완료');
 
             // 1. 배열변수 선언과 할당
             const fruit = ['배','사과','용과','딸기'];
+            // 과일명과 과일이미지 명 매칭하기
+            const frObj = {
+                '배':'fruits_01',
+                '사과':'fruits_02',
+                '용과':'fruits_14',
+                '딸기':'fruits_09'
+            };
+
             // 2. 공통모듈 요소
             // 배열정보출력
             let showit = document.querySelector('.showit');
@@ -85,8 +95,37 @@
 
             ///////////////////////////////////////////////
             // 4. 각 기능버튼 함수 구현하기 /////////////////////
+
             // 4-1. 과일주세요 버튼 - 순서 0
-            
+            mbtn[0].onclick = function(){
+                console.log('과일주세요')
+                ;
+                // 변경내용: 배열된 과일만큼 ul>li 만들어서  html로 .cont에 출력하기
+
+                const mk = (val) => { 
+                    // val - 배열값 전달변수
+                    console.log('배열값:',val)
+                    // 전달된 배열값으로 li코드를 만든다!
+                    code +=
+                    `
+                        <li style="background:url(./addimg/${frObj[val]}.png) no-repeat center/cover">${val}</li>
+                    `
+                }
+                
+                let code = '<ul>';
+                    // 배열내용만큼 li만들기!
+                    // 배열명.forEach(함수명) 
+                    // -> 특징: 배열값 하나씩 순서대로 함수를 호출하며 값을 전달하는 배열메서드
+                    // -> 함수에서 코드생성!
+
+                    fruit.forEach(mk);
+                    code += '</ul>';
+
+                    console.log('출력HTML:'+code);
+
+                    // 화면출력하기
+                    cont.innerHTML = code;
+            }
             
             // 4-2. 뒷배열추가요 버튼 - 순서 1
             mbtn[1].onclick = function(){
