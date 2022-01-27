@@ -185,16 +185,18 @@ h1.tit {
 
 .mlist ul {
     display: flex;
+    flex-wrap: wrap;/* 줄바꿈허용 */
 }
 
 .mlist ul>li {
     position: relative;
-    flex: 1;
+    /* flex: 1; */
+    width: 32.33%;/* 3등분! */
     margin: 0 0.5%;
 }
 
 .mlist img {
-    width: 210px;
+    width: 100%;/* 이미지채우기 */
     vertical-align: bottom;
     border: 1px solid transparent;
     /* box-sizing: border-box; */
