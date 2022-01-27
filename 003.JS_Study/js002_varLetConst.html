@@ -183,8 +183,42 @@
         console.log("상수 fish:",fish);
         ///////////////////////////////////////////////////
 
-        // const의 활용
+        // const의 활용 /////////////////////////////////
 
+
+
+        /************************ 배열 ************************/
+
+        // 배열일 경우 /////////////////////////////////
+        const myArr = ['상추','고기','마늘'];
+        console.log('상수배열 myArr 전체값:', myArr.valueOf());
+        console.log('상수배열 myArr 두번째값:', myArr[1]);
+
+        // 배열값 추가하기
+        // push() - 배열 맨 뒤에 추가
+        myArr.push('김치');
+        console.log('상수배열 myArr 전체값:', myArr.valueOf());
+        
+        // 배열값 변경
+        // 배열 주소에 값을 할당
+        myArr[1] = '닭고기';
+        console.log('상수배열 myArr 전체값:', myArr.valueOf());
+        
+        // 배열값 삭제 1
+        // shift() - 맨앞 배열 삭제
+        myArr.shift();
+        console.log('상수배열 myArr 전체값:', myArr.valueOf());
+        
+        // 배열값 삭제 2
+        // pop() - 맨뒤 배열 삭제
+        myArr.pop();
+        console.log('상수배열 myArr 전체값:', myArr.valueOf());
+
+
+
+        // 객체일 경우
+
+        
     </script>
 
 </head>
