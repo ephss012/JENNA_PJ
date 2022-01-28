@@ -44,6 +44,7 @@ body * {
 /* 촛불 */
 .candle>img{
     position: absolute;
+    z-index: 99;
     width: 100px;
     left: 40px;
     top: 40px;
@@ -52,6 +53,7 @@ body * {
 }
 .candle2>img{
     position: absolute;
+    z-index: 99;
     width: 100px;
     right: 20px;
     top: 420px;
