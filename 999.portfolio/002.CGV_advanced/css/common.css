@@ -49,6 +49,9 @@ h1.tit {
     padding-bottom: 10px;
     position: relative;
 }
+.glist>li:first-child{
+    display:none;
+}
 .glist>li>a {
     display: block;
     color: white;

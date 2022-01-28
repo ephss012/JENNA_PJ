@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>for문 확장 - for of문</title>
+    <script>
+        // 배열 만들기
+        var mv1 = ["조제", "한지민(조제), 남주혁(영석)",
+            "자신을 ‘조제’로 불러달라는 그녀처음 만난 그날부터 ‘조제’는 ‘영석’에게 잊을 수 없는 이름으로 남는다.할머니와 단둘이 사는 집, 그곳에서 책을 읽고 상상하며자신만의 세계를 살고 있는 ‘조제’.우연히 만난 그녀에게 특별한 감정을 느끼기 시작한 ‘영석’은천천히, 그리고 솔직하게 다가가기 시작한다.하지만 처음 경험해보는 사랑이 설레는 한편 가슴 아픈 ‘조제’는자신에게 찾아온 낯선 감정을 밀어내는데…기억할 거야너와 함께한 모든 순간을"
+        ];
+        var mv2 = ["원더 우먼 1984", "갤 가돗(다이애나/원더우먼), 크리스 파인(스티브 트레버)",
+            "1984년 모든 것이 활기찬 시대, 다이애나 프린스는 고고학자로서 인간들 사이에서 조용히 살고 있다. 단지 원더 우먼으로서 위기에 처한 사람을 구할 때만 빼고는. 그런 다이애나 앞에 거짓말처럼 죽었던 스티브 트레버가 나타나고, 거부할 수 없는 적마저 함께 찾아오는데…"
+        ];
+        var mv3 = ["도굴", "이제훈(동구), 조우진(존스박사)",
+            "흙 맛만 봐도 보물을 찾아내는 타고난 천재 도굴꾼 강동구(이제훈).자칭 한국의 '인디아나 존스'로 불리는 고분벽화 도굴 전문가 존스 박사(조우진), 전설의 삽질 달인 삽다리(임원희)를 만나 환상(?)의 팀플레이를 자랑하며 위험천만하고도 짜릿한 도굴의 판을 키운다."
+        ];
+
+        // 로드구역 ///////////////////////////////
+        window.addEventListener('load', () => {
+
+            console.log('로딩완료');
+
+            // 이벤트 대상선정 .btngo
+            let btngo =
+                document.querySelectorAll('.btngo');
+            // console.log('버튼개수:',btngo.length);
+
+            // 출력 대상선정: .minfo
+            let minfo =
+                document.querySelectorAll(".minfo");
+
+            // for of를 이용한 버튼에 링크 걸기
+            // fo (변수 of 배열/컬렉션){실행문}
+            for (let x of btngo) {
+                // 변수 x에 버튼요소 개수만큼 하나씩 들어옴
+                // x는 요소 자신을 말함
+                // console.log(x.innerText);
+
+                // 클릭설정하기
+                x.onclick = () => {
+
+                    // 데이터 타겟변수
+                    let data;
+
+                    // 버튼별로 구분하여 배열변수 할당
+                    switch (x.innerText) {
+                        case '조제':
+                            data = mv1;
+                            break;
+                        case '원더 우먼 1984':
+                            data = mv2;
+                            break;
+                        case '도굴':
+                            data = mv3;
+                            break;
+                    }
+
+                    // console.log('데이터:',data);
+
+                    // 해당요소(.minfo)에 배열값 넣기
+                    // val - 배열값, idx - 배열순번
+                    data.forEach((val,idx)=>{
+                        minfo[idx].innerText = val ;
+                    });
+
+
+                    // 배열전용 for문
+                    // forEach() 메서드를 사용함이 더 편하다
+
+                    /* 배열객체.forEach(
+                        function(item, idex,arr){})
+
+                        forEach는 함수 내부에 3가지 값을 전달한다
+                        1. item: 배열값
+                        2. index: 배열순번 (0부터~)
+                        3. arr: 배열객체 자신
+                            ㄴ 전달변수의 숫자와 순서가 중요
+                        ___________________________
+
+                        다르게 표현해 보기
+
+                        배열객체.forEach((배열값)=>{})
+                        배열객체.forEach((배열값,순번)=>{})
+                        배열객체.forEach((배열값,순번,배열자신)=>{})
+                    
+                    */
+
+                    // 해당요소(.minfo)에 배열값 넣기
+                    // for of문 사용
+                    // let num = 0;
+                    
+                    /* for (let x of data) {
+                        // x는 배열의 각 주소의 값
+                        console.log(x);
+                        // 해당 출력요소에 값 넣기
+                        minfo[num].innerText = x;
+                        num++; //순번증가
+                        // let minfo = document.querySelectorAll('.minfo');
+                    }
+                    */
+
+                };
+
+            }
+
+        });
+
+
+
+        /***************************************************** 
+            1. 일반for문
+            for(시;한;증){}
+
+            2. 배열/컬렉션을 위한 for문 : for of문
+            - 특징: 배열/컬렉션 개수만큼 알아서 순번을 돌고 
+                해당 순번의 배열/컬렉션을 선택할 수 있다!
+            - 형식:
+                for(변수명 of 배열/컬렉션변수){실행문}
+
+            -> 추가기능: 문자데이터를 for of문에 넣고
+            돌리면 글자 하나씩 잘라서 for문을 돌아준다!
+        *****************************************************/
+    </script>
+    <style>
+        .btns {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .btns>button {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .wrap {
+            min-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 4px double #555;
+            border-radius: 10px;
+            font-size: 24px;
+            line-height: 2;
+        }
+
+        .wrap>div {
+            color: 444px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            border-top: 2px dashed #ccc;
+            border-bottom: 2px dashed #ccc;
+            font-size: 35px;
+            /* border: 4px dotted purple; */
+        }
+        h1+div{
+            /* + 형제선택자 */
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        h2+div{
+            /* + 형제선택자 */
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btns">
+        <button class="btngo">조제</button>
+        <button class="btngo">원더 우먼 1984</button>
+        <button class="btngo">도굴</button>
+    </div>
+    <div class="wrap">
+        <!--1.영화제목-->
+        <h1>영화제목</h1>
+        <div class="minfo"></div>
+
+        <!--2.주연배우-->
+        <h2>주연배우</h2>
+        <div class="minfo"></div>
+
+        <!--3.영화스토리-->
+        <h3>영화스토리</h3>
+        <div class="minfo"></div>
+    </div>
+</body>
+
+</html>
