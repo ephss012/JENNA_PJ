@@ -151,7 +151,8 @@ h1.tit {
     transform: translateY(-50%);
 }
 .sns li{
-    margin: 10px;
+    /* margin: 10px; */
+    padding: 10px;
 }
 .sns a{
     display: block;
@@ -169,4 +170,5 @@ h1.tit {
     background-color: #fff;
     color: #000;
     transition: .3s ease-out;
+    transform: scale(1.15);
 }
