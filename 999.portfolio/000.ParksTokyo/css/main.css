@@ -38,16 +38,26 @@ h1.logo {
     position: absolute;
     top: 40%;
     left: 10%;
+    /* display: inline-flex; */
     /* padding-left: 5%; */
 }
 
-.menu span {}
+.menu span {
+    display: inline-block;
+    width: 80px;
+    height: 12px;
+    /* background-color: #111; */
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    margin-right: 15px;
+}
 
 .menu a {
-    display: block;
+    /* display: inline-block; */
     font-family: 'PT Serif', serif;
-    font-weight: normal;
-    font-size: 18px;
+    font-weight: 200;
+    vertical-align: top;
+
 }
 
 /* 햄버거 서브 메뉴 가리기 */
