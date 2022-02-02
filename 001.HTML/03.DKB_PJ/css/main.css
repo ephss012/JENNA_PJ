@@ -131,8 +131,8 @@ body {
   font-size: 14px;
 
   line-height: 30px;
-  display: block;
   height: 45px;
+  display: block;
   box-sizing: border-box;
 }
 
@@ -208,7 +208,7 @@ body {
 /* 하단 보더 처리 */
 .gnb>ul>li:first-child:hover::after,
 .gnb>ul>li:nth-child(3):hover::after,
-.gnb>ul>li:nth-child(3):hover::after{
+.gnb>ul>li:nth-child(4):hover::after{
   border-bottom: 3px solid red;
 }
 
@@ -407,6 +407,10 @@ body:hover .open{
 
 
 /*--------------------------------- 하단영역 ---------------------------------*/
+.info *{
+  outline: 1px dashed silver;
+}
+
 .info {
   /* height: 240px; */
   /* 모바일 버전으로 줄였을때 바닥까지 배경색 표시하려면 높이 잡지 않기 */
@@ -417,7 +421,7 @@ body:hover .open{
 
 .blink{
   margin: 0 auto;
-  max-width: 760px;
+  max-width: 690px;
 }
 .blink ul{
   margin: 0;

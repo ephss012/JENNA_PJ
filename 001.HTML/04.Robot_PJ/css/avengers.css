@@ -60,13 +60,12 @@ body{
   transition: all 2s ease-in-out;
 }
 
-
-
 .abg>div>img{
   border-radius: 50%;
   box-shadow: 0 0 20px 1px yellow;
     /* x y blur spread; */
 }
+
 
 /* 공통설명박스 */
 .cat{

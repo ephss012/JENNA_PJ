@@ -19,7 +19,7 @@
 
       /* 
       [relative 포지션] 
-      1) 위치 이동 속성이 적용됨
+      1) 위치 이동 속성이 적용됨 - top bottom left right 등이 적용됨
       2) 위치이동의 기준은 원래 있던 위치
         (상대적인, relative라는 단어 사용)
       3) 이동시에 다른 요소에 영향 없이 겹쳐질 수 있다.
@@ -42,14 +42,6 @@
           (relative를 주고 나면 아무런 기존 디자인의 변화가 없기 때문)
 
       */
-
-      position: relative;
-      color: white;
-      background: url(./ab_img/ab5.jpg) no-repeat center/cover;
-      top: 50px;
-      left: 50px;
-      margin-bottom: 50px;
-
       /* [z-index?]
         겹치는 포지션을 주는 경우 윛 ㅣ순서를 정하여 디스플레이를 변경하는 속성
         z는 화면방향의 z축을 의미하며 기본값은 0. 같은 층에 있다는 의미. 설정 안해도 0.
@@ -61,17 +53,15 @@
         z-index 비교 시에 형제 레벨에 있어야 비교 가능
         -> 자손 요소의 zindex를 아무리 높이 줘도 부모 요소의 다른 형제요소가 zindex가 높다면 위로 올라갈 수 없다
       */
-      z-index: 1;
 
-    }
-
-    #r2{
       position: relative;
-      bottom: 75px;
-      right: -75px;
       color: white;
-      background: url(./ab_img/ab4.jpg) no-repeat center/cover;
-      z-index: -1;
+      background: url(./ab_img/ab5.jpg) no-repeat center/cover;
+      top: 50px;
+      left: 50px;
+      margin-bottom: 50px;
+
+      /* z-index: 1; */
     }
 
     #s2,
@@ -80,6 +70,15 @@
       background-color: yellow;
       top: -50px;
     }
+    #r2{
+      position: relative;
+      bottom: 75px;
+      right: -75px;
+      color: white;
+      background: url(./ab_img/ab4.jpg) no-repeat center/cover;
+      /* z-index: -1; */
+    }
+
 
   </style>
 </head>

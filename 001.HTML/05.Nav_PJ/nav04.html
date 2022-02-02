@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>4. 세로네비 서브별 드롭다운 세로형</title>
   <style>
-    ul, ol{
+    ul,
+    ol {
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
+
+    body * {
+      /* outline: 2px dotted gray; */
+    }
+
+
     /* flex 디스플레이 클래스 */
 
-    .fll{
+    .fll {
       display: flex;
       flex-direction: column;
       /* 플렉스 세로방향으로 변경 */
     }
-  
 
-
-    body *{
-      /* outline: 2px dotted gray; */
-    }
-
- 
-    .gnb{
+    .gnb {
       background-color: rgb(138, 138, 250);
       width: 200px;
       height: 700px;
     }
 
-    .gnb>ul{
-      width: autopx;
+    .gnb>ul {
+      width: auto;
       margin: 0 auto;
     }
 
-    .gnb>ul>li{
+    .gnb>ul>li {
       width: 200px;
       text-align: center;
     }
 
 
-    /* ************************************네비게이션 바************************************ */
-    .gnb>ul>li>a{
+    .gnb>ul>li>a {
       width: 200px;
       line-height: 50px;
-        /* a에서 라인하이트로 네비바 높이 조절하기 */
-        /* a는 인라인 요소라서 크기 적용 안됨 */
-        /* 그래서 block 으로 설정 */
+      /* a에서 라인하이트로 네비바 높이 조절하기 */
+      /* a는 인라인 요소라서 크기 적용 안됨 */
+      /* 그래서 block 으로 설정 */
       display: block;
       color: white;
       text-decoration: none;
@@ -57,16 +57,16 @@
       transition: all .4s;
     }
 
-    .gnb>ul>li:hover>a{
+    .gnb>ul>li:hover>a {
       background-color: rgb(235, 237, 255);
       color: navy;
       font-weight: bold;
     }
 
     /* 서브메뉴 */
-    .smenu{
+    .smenu {
       position: static;
-        /* static으로 변경하면 자리 차지함 */
+      /* static으로 변경하면 자리 차지함 */
       height: 0;
       overflow: hidden;
 
@@ -75,23 +75,25 @@
     }
 
     /* 상위 li메뉴에 마우스 오버 시 서브메뉴 보이게 하기 */
-    .gnb>ul>li:nth-child(2):hover .smenu{
+    .gnb>ul>li:nth-child(2):hover .smenu {
       height: 180px;
     }
-    .gnb>ul>li:nth-child(3):hover .smenu{
+
+    .gnb>ul>li:nth-child(3):hover .smenu {
       height: 100px;
     }
 
-    .smenu a:hover{
+    .smenu a:hover {
       background-color: rgb(255, 255, 255);
       color: royalblue;
       font-weight: bold;
     }
 
-    .smenu ol{
+    .smenu ol {
       padding: 10px;
     }
-    .smenu a{
+
+    .smenu a {
       display: block;
       width: 180px;
       line-height: 40px;
@@ -100,7 +102,6 @@
       color: navy;
       text-decoration: none;
     }
-
   </style>
 </head>
 
@@ -158,4 +159,5 @@
     </ul>
   </nav>
 </body>
+
 </html>
