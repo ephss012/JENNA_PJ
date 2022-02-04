@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 보이는 화면 기준채우기 */
+        }
+
+        body {
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+
+        /* a요소 */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* 갤러리 부모박스 */
+        .wrap {
+            position: relative;
+            /* 부모자격 - #mini */
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+
+        /* 메인이미지박스 */
+        #mbox {
+            display: inline-block;
+        }
+
+        /* 이미지 중간맞추기 */
+        #mbox img {
+            vertical-align: -79px;
+        }
+
+        /* 이미지 텍스트 출력박스 */
+        .imgtxt {
+            text-align: center;
+            color: red;
+            text-shadow: 1px 1px 1px #777;
+        }
+
+        /* 자동넘김 버튼박스 */
+        .abtn {
+            text-align: center;
+        }
+        .abtn button {
+            font-size: 1.5rem;
+        }
+        /* 처음에 멈춤버튼 숨기기 */
+        .stop{
+            display: none;
+        }
+
+        /* 미니언즈 */
+        #mini {
+            position: absolute;
+            top: 80%;
+            left: -20%;
+            /* 부모는? #wrap */
+            width: 150px;
+            transform: rotate(720deg);
+            transition: all 1.5s ease-out;
+        }
+        /* 미니언즈 변경클래스1 */
+        #mini.on1{
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+        }
+        /* 미니언즈 변경클래스2 */
+        #mini.on2{
+            top: 0;
+            left: 80%;
+            transform: rotate(-720deg);
+        }
+    </style>
+    <!-- JS코딩구역 -->
+    <script>
+        //////////////////////////////////////////////////
+        // 함수바깥에 선언하여 쓰는 변수를 전역변수라고 한다!
+        // 전역변수의 의미는? -> 공용메모리의 의미임!
+        // 저장된 정보를 유지하며 업데이트하여 브라우저 프로그램
+        // 전체에서 그 현재정보를 공유함! 전역변수가 중요한 역할을 함
+        ///////////////////////////////////////////////////
+
+        // 이미지번호 전역변수!
+        let num = 1;
+
+        // 이미지설명 배열변수
+        const itxt = [
+            "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
+            "분홍장미가 머리칼을 너풀너풀 날려요~",
+            "백조같은 거위가 뚱하니 바라보아요~",
+            "바이킹이 너무 어지러워 토가 나와요~",
+            "눈사람이 가짜인데 진짜같아 보여요~",
+            "이 양은 보통양이 아니고 복제양 돌리예요~",
+            "잉꼬 한쌍이 영화를 찍어요~"
+        ];
+
+        // 이미지 설명 글자색 배열변수
+        const tcolor = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+
+        /////////////////////////////////////////////////
+
+
+        /* 
+            갤러리 기능정의: 
+            1. 버튼클릭시 이미지가 변경됨
+            2. 오른쪽버튼 클릭시 다음이미지
+            3. 왼쪽버튼 클릭시 이전이미지
+            4. 맨처음과 맨끝에서는 서로의 끝으로 연결하여 이동함
+        */
+
+        // html이 모두 로딩된 후 실행구역 //
+        // JS코드가 html 코드보다 위에 있으면
+        //아래있는 html코드를 모르게 됨!
+        /* 
+        window.addEventListener(이벤트명,함수)
+        -> 설정된 이벤트가 발생하면 함수를 실행
+        -> load이벤트를 사용하여 html 페이지가
+        모두 로딩된 후 함수를 실행함
+        -> 함수는 외부에 함수를 만들어도 되지만
+        function(){} -> 익명함수를 사용할 수 있다!
+        */
+
+        /////////////// 로드구역 ////////////////////////////
+        window.addEventListener("load",
+            () => {
+
+                console.log("로딩완료!");
+
+                // 대상선정: 버튼요소 - .btn
+                let btn = document.querySelectorAll(".btn");
+                console.log("버튼개수:", btn.length);
+
+                // 오른쪽버튼 클릭시
+                // item(순번) -> 버튼이 담긴 컬렉션집합 순번
+                // (오른쪽버튼은 2번째이므로 0,1 순서니까 1번이다!!!)
+                // onclick은 html요소의 이벤트속성이다!
+                // 이퀄뒤에 function(){코드} -> 이벤트발생시 실행코드!
+                btn[1].onclick = () => chgImg(1);
+                ///////// click 함수 ////////////
+
+                // 왼쪽버튼 클릭시 /////////////////
+                btn[0].onclick = () => chgImg(0);
+                ///////// click 함수 ////////////
+
+
+                /////////////////////////////////////////
+                /////////////// 변경대상 ////////////////
+                ////////////////////////////////////////
+
+                // 중앙이미지 : #mbox img ////////////////
+                let tg = document.querySelector("#mbox img");
+                // console.log("이미지경로:",tg.src);
+
+                // 글자출력박스 : .imgtxt ////////////////////
+                let imgtxt = document.querySelector(".imgtxt");
+
+                //////////////////////////////////////////////
+
+                // 첫번째 이미지 설명 넣기
+                // 대상: .imgtxt -> imgtxt변수
+                imgtxt.innerText = itxt[0];
+
+
+                /********************************** 
+                    함수명: chgImg
+                    기능: 버튼 클릭시 이미지변경
+                **********************************/
+                const chgImg = gubun => {
+                    // gubun - 구분값 전달변수(1-오른쪽,0-왼쪽)
+
+                    // 1. 함수호출확인
+                    console.log("나야나!", gubun);
+
+                    // 2. 변경대상: 
+                    // 중앙이미지 : #mbox img -> tg변수
+                    // 글자출력박스 : .imgtxt -> imgtxt변수
+
+                    // 3. 이미지번호 전역변수 증감분기
+                    // 3-1.오른쪽버튼처리
+                    if (gubun) { // gubun에 1이 들어오면 true
+                        num++; // 1씩증가
+                        if (num === 8) num = 1; // 한계값
+                    } /////////// if ///////////////
+                    // 3-2.왼쪽버튼처리
+                    else {
+                        num--; // 1씩감소
+                        if (num === 0) num = 7; // 한계값
+                    } ////////// else ///////////////
+
+                    console.log("이미지번호:", num);
+
+                    // 4. 변경내용: 이미지 src를 이전/다음 이미지로 변경
+                    tg.setAttribute("src", `./images/img${num}.jpg`);
+                    // tg.src = `./images/img${num}.jpg`;
+
+                    // 속성셋팅 방법 2가지:
+                    // (1) 선택요소.속성명 = 속성값
+                    // (2) 선택요소.setAttribute(속성명,속성값)
+
+                    // 5. 이미지 설명 배열에서 읽어와서 넣기
+                    // 배열번호 = 이미지번호(num) - 1
+                    imgtxt.innerText = itxt[num - 1];
+
+                    // 6. 이미지설명 글자색 변경하기
+                    imgtxt.style.color = tcolor[num - 1];
+
+
+                }; ////////// chgImg 함수 ///////////
+                ////////////////////////////////////
+
+                /****************************************** 
+                    [ JS 타이밍 함수 : Timing Function ]
+
+                    1. setInterval(함수,시간)
+                    - 일정시간 간격으로 함수를 호출!
+                    - 시간은 1/1000초, 단위안씀(예:1000->1초)
+                    -> 인터발함수를 지울때는 변수에 담고
+                    아래 함수를 호출한다!
+                        ->>> clearInterval(변수)
+                    _________________________________________
+
+                    2. setTimeout(함수,시간)
+                    - 일정시간 후 한번만 함수를 호출!
+                    - 시간은 1/1000초, 단위안씀(예:1000->1초)
+                    -> 타임아웃함수를 지울때는 변수에 담고
+                    아래 함수를 호출한다!
+                        ->>> clearTimeout(변수)
+
+                    *******************************
+
+                    [ JS 클래스 관련 내장함수 ]
+                    classList
+                    -> 클래스를 요소에 넣거나 빼기위한 객체
+                    ((관련메서드))
+                    1. add(클래스명) : 클래스추가
+                    2. remove(클래스명) : 클래스제거
+                    3. toggle(클래스명) : 클래스추가/제거
+
+
+                ******************************************/
+
+
+                /// 자동넘김 버튼 클릭시 인터발함수 셋팅하기! ////
+                // 이벤트 대상: .abtn button
+                let abtn = document
+                .querySelectorAll(".abtn button");
+                // console.log("자동버튼개수:",abtn.length);
+
+                // 인터발용 변수
+                let autoI;
+
+                // 자동넘김버튼 클릭시
+                abtn[0].onclick = ()=>{
+                    // console.log("자동넘김!");
+
+                    // 자동넘김 버튼자신 숨기기
+                    // 자기자신 -> this키워드
+                    // 화살표함수에서 this는 window이므로
+                    // event.currentTarget 을 사용함!
+                    event.currentTarget
+                    .style.display = "none";
+
+                    // 멈춤버튼 보이기(원래 display값으로!)
+                    abtn[1].style.display = "inline-block";
+
+                    // 인터발셋팅 -> 변수에 담아야 지울 수 있다!
+                    autoI = setInterval(()=>{
+                        chgImg(1);
+                    },800);
+
+                }; //////// click함수 /////////
+
+                // 멈춤버튼 클릭시 인터발지우기!
+                abtn[1].onclick = ()=>{
+                    // 자기자신 숨기기
+                    event.currentTarget
+                    .style.display="none";
+
+                    // 자동넘김 버튼 보이기
+                    abtn[0].style.display = "inline-block";
+
+                    // 인터발지우기
+                    clearInterval(autoI);
+
+                }; /////// click 함수 ////////
+
+                /// 타임아웃 함수로 미니언즈 애니하기! ///////
+                // 원리: 미리셋팅된 클래스를 미니언즈요소에
+                // 일정시간 후 넣고/빼고/넣기를 해준다!!!
+                // 변경대상: #mini
+                let mini = document.querySelector("#mini");
+
+                // 2초후 미니언즈에 class "on1" 넣기
+                setTimeout(() => {
+                    mini.classList.add("on1");
+                }, 2000); //// 타임아웃 ///
+
+                // 4초후 미니언즈에 class "on1"빼기
+                setTimeout(() => {
+                    mini.classList.remove("on1");
+                },4000);
+
+                // 6초후 미니언즈에 class "on2"넣기
+                setTimeout(() => {
+                    mini.classList.toggle("on2");
+                },6000);
+
+                // 8초후 미니언즈에 class "on1,on2"빼기
+                setTimeout(() => {
+                    mini.classList.toggle("on1");
+                    mini.classList.toggle("on2");
+                },8000);
+
+
+
+            }); //////// 로드구역 ////////////////
+            /////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <!-- 갤러리 박스 -->
+    <div class="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽이동버튼 -->
+        <a href="#" class="btn lb">
+            <img src="./images/left_btn.png" alt="왼쪽버튼">
+        </a>
+        <!-- 메인이미지박스 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽이동버튼 -->
+        <a href="#" class="btn rb">
+            <img src="./images/right_btn.png" alt="오른쪽버튼">
+        </a>
+        <!-- 미니언즈 -->
+        <img src="./images/Minions.png" alt="미니언즈" id="mini">
+    </div>
+
+    <!-- 이미지별 설명 텍스트 출력박스 -->
+    <h2 class="imgtxt"></h2>
+
+    <!-- 자동넘김 버튼박스 -->
+    <div class="abtn">
+        <button class="start">자동넘김</button>
+        <button class="stop">멈춤</button>
+    </div>
+
+</body>
+
+</html>

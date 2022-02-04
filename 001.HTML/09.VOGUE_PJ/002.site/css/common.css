@@ -10,6 +10,11 @@ body * {
     /* outline: 1px dashed silver; */
 }
 
+/* 부드러운 스크롤 */
+html{
+    scroll-behavior: smooth;
+}
+
 /* 
     공통기능: 
     상단영역 - 로고 메뉴 네비바
@@ -200,7 +205,7 @@ body * {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 10px;
+    padding: 15px;
 }
 #top.on .logo img{
     width: 100px;
@@ -212,6 +217,31 @@ body * {
 /* 속박스에 최소높이 없애기 */
 #top.on .top{
     min-height: auto;
+}
+
+/* 탑버튼 */
+.tbtn{
+    position: fixed;
+    bottom: -35px;
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    color: white;
+    text-align: center;
+    z-index: 999;
+    opacity: 0;
+    transition: background-color .3s, opacity .3s, bottom: .01s .3s;
+}
+.tbtn.on{
+    bottom:0;
+    opacity: 1;
+    transition: background-color .3s, opacity .3s;
+}
+.tbtn:hover{
+    background-color: #F00;
 }
 
 
