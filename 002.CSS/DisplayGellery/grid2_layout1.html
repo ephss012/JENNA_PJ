@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 2 - Layout 1</title>
+
+    <style>
+
+        /************************************************ 
+
+            [ 변수 사용하기 ]
+            1. 변수 세팅법
+                :root{
+                    --변수명1: 값1;
+                    --변수명2: 값2;
+                    --변수명3: 값3;
+                }
+            2. 변수 사용법
+                var(--변수명)
+
+        ************************************************/
+
+        /* 변수세팅 */
+        :root{
+            --ht1:200px;
+            --ht2:400px;
+            --ht3:300px;
+
+            --bc1: lightskyblue;
+            --bc2: lightgreen;
+            --bc3: pink;
+
+        }
+
+        .tit {
+            text-align: center;
+            font-size: 3vw;
+        }
+
+        /* 그리드박스 */
+        .grid {
+            display: grid;
+            /* 가로방향 12그리드 세팅 */
+            grid-template-columns: repeat(12, 1fr);
+            /* 세로방향 높이값 셋팅 */
+            grid-template-rows: 
+                var(--ht1) var(--ht2) var(--ht3);
+            /* grid-template-rows: 200px 400px 300px; */
+            /* 상하갭 */
+            grid-row-gap: 10px;
+            /* 좌우갭 */
+            grid-column-gap: 5px;
+
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 컨텐츠 영역 박스 */
+        .grid div {
+            /* border: 2px solid #CCC; */
+            font-size: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+
+        .rw1 {
+            background-color: var(--bc1);
+            line-height: 200px var(--ht1);
+        }
+
+        .rw2 {
+            background-color: var(--bc2);
+            line-height: 400px var(--ht2);
+        }
+
+        .rw3 {
+            background-color: var(--bc3);
+            line-height: 300px var(--ht3);
+        }
+
+        /* 각 컨텐츠 박스의 그리드 위치영역 설정하기 */
+        .logo {
+            grid-column: 1 / 3;
+        }
+
+        .gnb {
+            grid-column: 3 / 10;
+        }
+
+        .side {
+            grid-column: 10 / 13;
+        }
+
+        .ban {
+            grid-column: 1 / 11;
+        }
+
+        .bside {
+            grid-column: 11 / 13;
+        }
+
+        .bleft {
+            grid-column: 1 / 4;
+        }
+
+        .binfo {
+            grid-column: 4/10;
+        }
+
+        .bright {
+            grid-column: 10/13;
+        }
+
+        /* 
+            [ 그리드 위치영역 속성 ]
+
+            1. 가로방향 위치속성
+                grid-column : 시작위치 / 끝위치
+            2. 세로방향 위치속성
+                grid-row :  시작위치 / 끝위치
+            -> 각 위치값은 그리드 기준선 번호를 참고함 - 브라우저에서 그리드 소스 버튼 클릭하여 보기
+
+            *** 영역이 잡혀 그리드 범위를 넘어가면 자동으로 밑으로 떨어짐 - 그리드 로 굳이 안 잡아도 됨
+        */
+    </style>
+</head>
+
+<body>
+    <h1 class="tit">
+        그리드 2 - 사이트 레이아웃 1
+    </h1>
+    <div class="grid">
+        <div class="logo rw1">Logo</div>
+        <div class="gnb rw1">GNB</div>
+        <div class="side rw1">Side</div>
+        <div class="ban rw2">Banner</div>
+        <div class="bside rw2">Bside</div>
+        <div class="bleft rw3">Bleft</div>
+        <div class="binfo rw3">Binfo</div>
+        <div class="bright rw3">Bright</div>
+    </div>
+</body>
+
+</html>

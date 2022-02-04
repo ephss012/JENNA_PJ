@@ -1,212 +1,218 @@
-@charset "utf-8"
-/* 보그 PG 공통 기능 디자인 css */
+@charset "utf-8";
+/* 보그 PJ 공통 기능 디자인 CSS - common.css */
 
-/* 외부파일 합치기 */
-@import url(reset.css);
-@import url(core.css);
-@import url(main.css);
-
-body * {
-    /* outline: 1px dashed silver; */
-}
-
-/* 부드러운 스크롤 */
-html{
+/* 부드러운 스크롤 : 위치이동시 */
+/* html{
     scroll-behavior: smooth;
-}
+} */
 
-/* 
-    공통기능: 
-    상단영역 - 로고 메뉴 네비바
-    하단영역 - 하단로고 회사정보
-*/
+/****************************************** 
+    공통기능: 상단영역(로고, 메뉴, GNB)
+             하단영역(하단로고, 회사정보)
+******************************************/
 
-
-/************************* 상단영역 *************************/
-.top {
-    min-height: 206px;
-    /* 최소높이 - 컨텐츠가 많아지면 늘어남 */
-}
+/*************** 1. 상단영역 ***************/
 #top{
     position: relative;
-    z-index: 99;
+    /* 포지션이 있어야 z-index적용됨! */
+    z-index: 9999;
+    box-shadow: 0 2px 2px rgba(0 0 0 / 12%);
+    /* rgba 색상표기 2가지
+        rgba(0, 0, 0, 0.12)
+        rgba(0 0 0 / 12%)
+    */
     background-color: #fff;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.166);
-    /* rgba(0 2px 2px / 12%) */
 }
-
-/* 맨위 티메뉴들 */
+.top{
+    min-height: 206px;
+    /* 최소높이값 설정 - 컨텐츠가 많아지면 자동으로 늘어남! */
+}
+/* 1-1.상단메뉴 */
 .tmenu{
     display: flex;
+    /* 플렉스박스 */
     max-width: 970px;
     height: 45px;
     margin: 0 auto;
 }
-/* 맨 위 직계박스 등분할 설정 */
-.tmenu div{
+/* 직계박스 등분할 설정 */
+.tmenu>div{
     flex: 1;
 }
-
-/* sns 아이콘 */
+/* 1-1-1.sns박스 */
 .sns a{
     width: 16px;
     height: 16px;
-    /* .fi 설정 inline-block */
+    /* .fi설정에 inline-block되어 있음(크기적용됨) */
     font-size: 16px;
     text-align: center;
-
-    /* 아이콘 세로로 중앙정렬 */
     vertical-align: top;
     line-height: 16px;
 
+    /* 위치조정 */
     margin-top: 14px;
     margin-right: 16px;
 
+    /* 트랜지션: 속시이지*/
     transition: opacity .2s;
 }
+/* a요소 오버시 */
 .sns a:hover{
     opacity: 0.8;
 }
 
-/* sns 첫번째 a요소 왼쪽 밀기 */
-.sns a:first-child{
-    margin-left: 0;
-}
-/* sns 마지막 a요소 카스 이미지 넣기 */
-.sns a:last-child{
-    display: inline-block;
-    /* 크기 디자인 적용을 위해 인라인블록 */
-    background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
-}
-/* 아이콘 사이즈 조정 */
+
+/* 트위터 아이콘 조정 */
 .sns a.fi-twitter{
     font-size: 13px;
 }
+/* 유튜브 아이콘 조정 */
 .sns a.fi-youtube-play{
     font-size: 11px;
 }
+/* sns 첫번째 a요소 왼쪽밀기 */
+.sns a:first-child{
+    margin-left: 0;
+}
+/* sns 마지막 a요소에 카스 이미지 넣기 */
+.sns a:last-child{
+    display: inline-block;
+    /* 크기디자인 적용위해! */
+    background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
+}
 
-
-/* 사이드메뉴 */
+/* 1-1-2.사이드메뉴 */
 .smbx{
     display: flex;
     justify-content: flex-end;
+    /* 플렉스 내용박스 오른쪽 끝정렬 */
 }
+/* 메뉴 사이 구분선 넣기 */
+.smbx>li:first-child{
+    border-right: 1px solid #e5e5e5;
+}
+/* 사이드 메뉴 상위a요소 */
 .smbx>li>a{
     display: block;
     padding: 0 13px;
     line-height: 44px;
 
+    /* 글자셋팅 */
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
-    font-family: 'Roboto Condensed', sans-serif;
     color: #747474;
 }
-/* 첫번째 사이드메뉴 마우스 오버시 커서모양 텍스트 */
+/* 첫번째 사이드 메뉴 마우스 오버시 커서모양 text */
 .smbx>li:first-child>a{
-    cursor: default;
-    /* css 커서 모양 참고 */
-    /* https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
-}
+    /* 직계a로 잡을 것! 서브a엔 미적용! */
+    cursor: text;
+    /* 
+        참고) css커서모양종류
+        https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor
+    */
 
-.smbx li:first-child{
-    border-right: 1px solid #eee;
 }
-
-/* 사이드메뉴 서브박스 */
+/* 사이드 메뉴 서브박스 */
 .smsub{
     position: absolute;
     border: 1px solid #e5e5e5;
     opacity: 0;
+    /* 투명하게-오버시 트랜지션 보이기! */
     height: 0;
     overflow: hidden;
+    /* 높이값0에 넘치는요소 숨기기! */
 }
-.smbx>li:hover .smsub{
+/* 상위메뉴 li오버시 하위메뉴 보이기 */
+.smbx>li:hover .smsub {
     opacity: 1;
     height: auto;
+    /* 원래자신의 높이값으로 돌아감!(트랜지션과 무관) */
     transition: opacity .4s ease-in-out;
 }
+/* 서브메뉴 a요소 */
 .smsub a{
     display: block;
     padding: 7px 10px;
+
+    /* 글자설정 */
     font-family: nbg;
     font-size: 12px;
     color: #747474;
 
+    /* 트랜지션: 속시이지 */
     transition: all .2s ease-in-out;
 }
+/* 서브메뉴 a에 마우스 오버시 */
 .smsub a:hover{
     background-color: #fafafa;
-    color: #333333;
+    color: #333;
 }
 
-
-/* 로고 */
-.logo {
+/* 1-2. 로고박스 */
+.logo{
     text-align: center;
-    padding-bottom: 20px;
-}
-.logo img {
-    top: 30px;
 }
 
-
-/* ***************************************** */
-/* 네비게이션바 */
-.gnb {
-    position: relative;
+/* 1-3. GNB 박스 */
+.gnb{
+    /* 글자설정 */
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 700;
-    /* line-height: 40px; */
-    line-height: 50px;
-    font-size: 14px;
-    
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0 30px;
+    margin-top: 11px;
 }
-/* 네비게이션 바 오른쪽 옆으로 디스플레이 플렉스 */
-.glist {
+.gnb>ul{
     display: flex;
+    /* 플렉스박스 */
     justify-content: center;
+    /* 컨텐츠 가로중앙 */
     flex-wrap: wrap;
-        /* 좁아지면 자동 줄바꿈 */
-    /* white-space: nowrap; */
+    /* 좁아지면 자동줄바꿈 */
 }
-.glist li {
-    /* display: block; */
-    padding-right: 35px;
-    color: black;
+/* 리스트 요소 */
+.gnb li{
+    padding-right: 45px;
 }
-/* 마지막 물음표 패딩 제거 */
-.glist li:last-child{
+/* 마지막 리스트 li 돋보기 두꺼운체 */
+.gnb li:last-child a{
+    font-weight: bold;
+    padding-top: 12px;
+}
+/* 마지막li는 패딩없앰 */
+.gnb li:last-child {
     padding-right: 0;
 }
-.glist .fi{
-    font-weight: bold;
+/* GNB 링크 트랜지션 */
+.gnb a{
+    transition: color .3s;
 }
-/* 호버 시 텍스트 컬러 변화 */
-.gnb a:hover{
+/* 링크 오버시 */
+.gnb a:hover {
     color: red;
-    transition: .3s ease-in-out;
 }
 
+/************** 슬림 스타일 상단영역 셋팅 **************/
+/* 상단변경은 모두 #top최상위 박스에 class="on"이 된경우
+적용되도록 한다!!! -> #top.on 하위변경 */
 
-/************* 슬림스타일 상단영역 *************/
-/* 전체 상단영영역 고정하기 */
+/* 전체 상단영역 고정하기 */
 #top.on{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 }
-/* gnb 마진탑 없애기 - 부모 박스 바깥쪽을 밀기 때문 */
-#top.on .gnb{
-    margin-top: 0;
-    padding: 5px 30px 5px 120px;
-}
+
+/* 로고박스이동 */
 #top.on .logo{
     position: absolute;
-    left: 0;
     top: 0;
-    padding: 15px;
+    left: 0;
+    padding: 10px;
 }
+/* 로고이미지 크기변경 */
 #top.on .logo img{
     width: 100px;
 }
@@ -216,77 +222,99 @@ html{
 }
 /* 속박스에 최소높이 없애기 */
 #top.on .top{
-    min-height: auto;
+    min-height: 50px;
 }
 
-/* 탑버튼 */
-.tbtn{
-    position: fixed;
-    bottom: -35px;
-    right: 75px;
-    width: 48px;
-    height: 35px;
-    line-height: 35px;
-    background-color: #333;
-    border-radius: 4px 4px 0 0;
-    color: white;
-    text-align: center;
-    z-index: 999;
-    opacity: 0;
-    transition: background-color .3s, opacity .3s, bottom: .01s .3s;
+/* GNB 마진탑 없애기(부모박스 바깥쪽을 밀기때문!) */
+#top.on .gnb{
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 37px;
+    padding: 5px 30px 5px 121px;
+    /* 기존양쪽패딩 30px 중 왼쪽만 로고만큼 더 밀기 */
 }
-.tbtn.on{
-    bottom:0;
-    opacity: 1;
-    transition: background-color .3s, opacity .3s;
+/* 메뉴글자색 변경 */
+#top.on .gnb a {
+    color: #333;
 }
-.tbtn:hover{
-    background-color: #F00;
+/* GNB li 리스트 */
+#top.on .gnb li {
+    padding-right: 35px;
 }
 
 
-/************************* 하단영역 *************************/
-.info {
+/*************** 2. 하단영역 ***************/
+.info{
     min-height: 286px;
-    background: #000;
+    /* 최소 286px높이를 유지하다가
+    내용이 많아지면 늘어남 */
+    background-color: #000;
     padding: 70px;
     box-sizing: border-box;
-
-    text-align: center;
-    font-family: 'Roboto Condensed', nbg;
-    font-weight: normal;
-
+    /* 크기유지,패딩,보더포함 */
+    font-family: 'Roboto',nbg;
 }
 
-.blogo {
-    vertical-align: bottom;
-    /* display: block; */
-    /* margin: 0 auto; */
+/* 3-1.하단로고 */
+.blogo{
     text-align: center;
 }
-
-.addr {
+/* 3-2. 회사주소 */
+.addr{
     color: #747474;
     text-align: center;
-    font-style: normal;
     font-size: 11px;
+    font-style: normal;
+    /* 이탤릭해제 */
     margin: 20px 0 10px;
-    /* display: block; */
+    /* 마진: 위 양쪽 아래 */
 }
-
-ul.blink {
+/* 3-3.하단링크 */
+.blink{
     display: flex;
+    /* 플렉스박스 */
     flex-wrap: wrap;
+    /* 플렉스 자동줄바꿈 */
     justify-content: center;
+    /* 가로중앙정렬 */
 }
-
-.blink a {
-    /* padding: 0 10px; */
+.blink a{
     color: #747474;
     font-size: 13px;
     margin: 0 5px;
 }
-
+/* 마지막li만 글자 두껍게 */
 .blink li:last-child a{
     font-weight: bold;
+}
+
+/* 위로가기 버튼 */
+.tbtn{
+    position: fixed;
+    bottom: -35px;
+    /* 처음에 아래에 나가있음! */
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    /* 둥근모서리: 왼위 오른위 오른아래 왼아래 */
+    color: #fff;
+    z-index: 9999;
+    opacity: 0;/* 투명 */
+    transition: background-color .3s,
+    opacity .3s,bottom .001s .3s;
+}
+/* 위로이동버튼 .on주기 */
+.tbtn.on{
+    bottom: 0;/* 위로올라옴 */
+    opacity: 1;/* 나타나기 */
+    transition: background-color .3s, 
+    opacity .3s;
+}
+/* 탑버튼 마우스 오버시 */
+.tbtn:hover{
+    background-color: #f00;
 }
