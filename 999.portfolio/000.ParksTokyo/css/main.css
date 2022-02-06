@@ -94,6 +94,28 @@ h1.logo {
     margin: 200px 0;
 }
 
+/* 컨텐츠 2 News 영역 */
+#news {
+    color: #dbdbdb;
+    font-size: 92px;
+    font-family: 'PT Serif', serif;
+    font-weight: lighter;
+
+    padding-top: 200px;
+    position: sticky;
+    top: 100px;
+}
+/* 등장액션 class */
+.scAct1{
+    transform: translateY(100px);
+    /* opacity: 0; */
+    transition: 1s ease-in-out;
+}
+/* 원위치 복귀 등장! */
+.scAct1.on{
+    transform: translateY(0);
+    opacity: 1;
+}
 /* 이미지 위로 겹치는 텍스트 정렬 */
 .odd {
     display: block;
@@ -105,7 +127,7 @@ h1.logo {
     margin-left: 32%;
 }
 
-/* 컨텐츠 상단에 표시되는 로고 */
+/* 컨텐츠2 상단에 표시되는 PARKS 로고 */
 .cont2 h3 a {
     display: block;
     margin-left: 60%;
@@ -201,6 +223,11 @@ h1.logo {
     color: #fff;
 }
 
+.cont3 h3:hover {
+    transform: translateX(50px);
+    transition: .5s ease-out .5s;
+}
+
 /* 컨텐츠4 */
 .cont4 {
     position: relative;
@@ -249,9 +276,27 @@ h1.logo {
 #email {
     font-family: 'Poppins', sans-serif;
     font-size: 100px;
-    line-height: 300px;
     white-space: nowrap;
+    /* line-height: 300px; */
+
+    display: block;
+    box-sizing: border-box;
+    height: 300px;
+    padding-top: 70px;
+
+    transition: all 1s ease;
 }
+
+#email span {
+    display: block;
+    width: 100%;
+    /* height: auto; */
+    border: 5px solid #111;
+}
+#email:hover span{
+    border: none;
+}
+
 
 
 
@@ -293,13 +338,14 @@ h1.logo {
 
 /* 회사정보 영역 */
 .contact ul {
-    display: flex;
+    display: flex;   
 }
 
 .contact ul li {
     flex-wrap: wrap;
     padding-right: 150px;
     margin-bottom: 40px;
+
 }
 
 /* 메일, 전화번호, 주소 */
@@ -315,6 +361,10 @@ h1.logo {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #fff;
+}
+
+.contact a:hover{
+    border-bottom: 2px solid white;
 }
 
 
