@@ -105,17 +105,20 @@ h1.logo {
     position: sticky;
     top: 100px;
 }
+
 /* 등장액션 class */
-.scAct1{
+.scAct1 {
     transform: translateY(100px);
     /* opacity: 0; */
     transition: 1s ease-in-out;
 }
+
 /* 원위치 복귀 등장! */
-.scAct1.on{
+.scAct1.on {
     transform: translateY(0);
     opacity: 1;
 }
+
 /* 이미지 위로 겹치는 텍스트 정렬 */
 .odd {
     display: block;
@@ -293,7 +296,8 @@ h1.logo {
     /* height: auto; */
     border: 5px solid #111;
 }
-#email:hover span{
+
+#email:hover span {
     border: none;
 }
 
@@ -338,7 +342,7 @@ h1.logo {
 
 /* 회사정보 영역 */
 .contact ul {
-    display: flex;   
+    display: flex;
 }
 
 .contact ul li {
@@ -363,7 +367,7 @@ h1.logo {
     color: #fff;
 }
 
-.contact a:hover{
+.contact a:hover {
     border-bottom: 2px solid white;
 }
 
