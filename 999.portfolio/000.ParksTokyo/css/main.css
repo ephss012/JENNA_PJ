@@ -79,6 +79,8 @@ h1.logo {
     /* display: none    ; */
 }
 
+
+
 /* 컨텐츠2 */
 .cont2 {
     position: relative;
@@ -106,7 +108,7 @@ h1.logo {
     top: 100px;
 }
 
-/* 등장액션 class */
+/*•••••••••• 등장액션 class ••••••••••*/
 .scAct1 {
     transform: translateY(100px);
     /* opacity: 0; */
@@ -199,6 +201,8 @@ h1.logo {
     border-bottom: 1px solid #111;
 }
 
+
+
 /* 컨텐츠3 */
 /* 아티스트 소개 */
 .cont3 {
@@ -230,6 +234,17 @@ h1.logo {
     transform: translateX(50px);
     transition: .5s ease-out .5s;
 }
+
+/* .cont3 h3:first-child::after {
+    position: absolute;
+    background: url(../images/parks_kayo_yoshida.png) no-repeat center/cover;
+}
+
+.cont3 h3:first-child:hover {
+    background: url(../images/parks_kayo_yoshida.png);
+} */
+
+
 
 /* 컨텐츠4 */
 .cont4 {
@@ -274,6 +289,8 @@ h1.logo {
     width: 25%;
     padding-left: 62.5%;
 }
+
+
 
 /* PARKS TOKYO 이메일 */
 #email {
