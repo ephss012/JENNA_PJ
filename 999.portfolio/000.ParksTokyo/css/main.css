@@ -60,8 +60,14 @@ h1.logo {
 }
 
 .menu:hover span {
-    transform: scaleY(50%);
+    height: 6px;
+    margin-bottom: 3px;
     transition: .3s;
+}
+.menu.on span{
+    height: 0;
+    margin-bottom: 6px;
+    border-bottom: none !important;
 }
 
 /* 햄버거 서브 메뉴 가리기 */
