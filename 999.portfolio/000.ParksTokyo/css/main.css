@@ -232,6 +232,9 @@ h1.logo {
 /* 아티스트 2명 이름 */
 .cont3 h3 {
     position: relative;
+
+}
+.cont3 h3 span{
     font-size: 62px;
     font-family: 'PT Serif', serif;
     font-weight: lighter;
@@ -258,7 +261,7 @@ h1.logo {
 
 .cont3 h3:hover img {
     display: block;
-    transition: .5s ease-out;
+    transition: ease-out 1s;
     transform: scale(1);
 }
 
