@@ -22,18 +22,18 @@ $(()=>{
 
     // 대상4: 메시지 박스 .msg
     let msg = $('.msg');
-        // 삽입이미지 변수 세팅
+    
+        //// 삽입이미지 변수 셋팅 ////////
         // 좀비 이미지 태그
         let mz1 = 
-            '<img src="images/mz1.png" alt="좀비" class="mz"';
+        '<img src="images/mz1.png" alt="좀비1" class="mz">';
         let mz2 = 
-            '<img src="images/mz2.png" alt="좀비" class="mz"';
+        '<img src="images/mz2.png" alt="좀비2" class="mz">';
         let zom = 
-            '<img src="images/zom.png" alt="좀비들" class="mz"';
+        '<img src="images/zom.png" alt="좀비들" class="mz">';
         // 주사기 이미지 태그
         let inj = 
-            '<img src="images/inj.png" alt="주사기" class="inj"';
-    
+        '<img src="images/inj.png" alt="주사기" class="inj">';
 
     /******************************** 
         2. 초기화 세팅
@@ -44,14 +44,59 @@ $(()=>{
         //버튼들.숨겨.첫번째.보여
 
     // 2-2. 빌딩 숫자 세팅
-    bd.each();
+    // -> 모든 빌딩 li를 순서대로 돌면서 순번넣기 + 좀비넣기
+    bd.each((idx,ele)=>{
+        // console.log(idx);
+
+        // 1. 각 li요소에 글자넣기(순번)
+        $(ele).text(idx);
+
+        // 2. 좀비 + 주사기 넣기
+        // append(요소) - 선택요소 내부에 맨뒤추가
+        if(idx===9) $(ele).append(mz1);
+        else if(idx===7) $(ele).append(mz2);
+        else if(idx===1) $(ele).append(zom);
+        else if(idx===2) $(ele).append(inj);
+
+    // 2-3. 좀비 숨기기
+    $('.mz').hide();
+
+    }); // each ///////////////////////
+
     /* 
-        for문을 사용하지 않고 돌게 해주는 제이쿼리 메서드
+        [ each - for문을 사용하지 않고 돌게 해주는 제이쿼리 메서드 ]
         >> each(function(idx,ele){구현부})
         >> each((idx,ele)=>{구현부})
 
         - 선택요소를 순서대로 돌면서 구현부를 실행
         - idx 첫번째 전달변수는 순번이 전달됨(0부터)
-        - ele 두번째 전달변수는 요소자신(this키워드)
+        - ele (element) 두번째 전달변수는 요소자신(this키워드)
+        - 전달변수는 순서와 개수 가중요함
+        - 이 메서드는 for문을 안 써도 됨
     */
+
+
+    /**************************************** 
+        3. 버튼별 클릭 이벤트 함수 만들기
+    ****************************************/
+
+    // 3-1. 들어가기 버튼 클릭 시작
+    btns.first()
+        .click(function(){
+            console.log($(this).text(),'버튼');
+            // console.log('들어가기 버튼');
+
+            // 클릭 시 버튼 없애기
+            $(this).slideUp(400); // slideUp(시간)
+
+            // 메시지 지우기
+            msg.fadeOut(200);
+        })
+
+    // 3-1. 들어가기 버튼 클릭 
+
+
+
+
+
 });
