@@ -1,9 +1,73 @@
 // 공통 기능 구현 JS - common.js //
 
+// 전역변수 구역 ///////////////
+// 모바일여부변수(1-모바일,0-아님)
+let mob = 0;
+
+// 모바일 체크 함수 //
+const chgMob = () => {
+    // 500px이하 모바일
+    if($(window).width()<=500){ 
+        mob=1;
+        // 상단영역 변경 클래스 강제제거하기!
+        $("#top").removeClass("on");
+        // removeClass(클래스명) -> 클래스제거
+    } ////// if ///////////
+    // 500px 초과시
+    else mob=0;
+    console.log("모바일:",mob);
+}; ///////// chgMob함수 ///////
+
+// 모바일 체크 함수 최초호출
+chgMob();
+
+// 윈도우 리사이즈시 모바일 체크함수 호출
+$(window).resize(chgMob);
+
+
+
+//// 제이쿼리 코드구역 /////////////////////////////
+$(()=>{
+
+    // 1. 햄버거 버튼(.hbtn) 클릭시
+    // 전체 메뉴 보이기: .mobwrap -> 검색창은 숨김!
+    $(".hbtn").click(()=>{
+        $(".mobwrap").slideToggle(400,"easeInOutCubic");
+        $(".mos").hide();
+    });////// click ////////
+
+    // 2. 검색 버튼(.sbtn) 클릭시
+    // 검색창 보이기: .mos -> 전체메뉴는 숨김!
+    $(".sbtn").click(()=>{
+        $(".mos").slideToggle(300,"easeInOutCubic");
+        $(".mobwrap").hide();
+    }); //////// click /////////////
+
+
+    /* 
+        slideUp(시간,이징,함수)
+        원래크기에서 height값을 0으로 만듬
+        0이된후 display:none
+        slideDown(시간,이징,함수)
+        display:none이 다시 보이면서
+        height값이 0에서 원래 크기로 돌아감
+        내가 계산 안해도 됨!!!
+        slideToggle(시간,이징,함수)
+        slideUp/slideDown 자동전환함!
+    
+    */
+
+}); /////////// jQB ////////////////////////
+
+
+
+
+
+
 ///////////// 로드구역 //////////////////////
 window.addEventListener("DOMContentLoaded",
     () => {
-        console.log("로딩완료!");
+        // console.log("로딩완료!");
 
         /// 부드러운 스크롤 호출!(제이쿼리 아님!)
         startSS();
@@ -30,7 +94,7 @@ window.addEventListener("DOMContentLoaded",
         // for(시작값;한계값;증감){코드}
         for(let i=0; i<scAct.length;i++){
             scPos[i] = scAct[i].offsetTop;
-            console.log("페이지위치값",i,"번째:",scPos[i]);
+            // console.log("페이지위치값",i,"번째:",scPos[i]);
         } ///////// for문 ////////////////////////
 
         /****************************************** 
@@ -62,7 +126,9 @@ window.addEventListener("DOMContentLoaded",
         tbtn.onclick = () => {pos=0; return false;};
         // return false -> a요소의 기본이동기능을 못하게 막음!
 
-        ///// 윈도우 스크롤 이벤트 함수 //////
+        ////////////////////////////////////////////
+        ///////// 윈도우 스크롤 이벤트 함수 /////////
+        ////////////////////////////////////////////
         // 스크롤 이벤트 : scroll
         // window객체에 스크롤이벤트를 걸어준다!(전체스크롤)
         window.addEventListener("scroll", () => {
@@ -93,8 +159,8 @@ window.addEventListener("DOMContentLoaded",
             // 상단영역 스크롤 반응하기 ///
             /////////////////////////////
 
-            // 1. 스크롤위치가 100px이상일때
-            if (scTop >= 100) {
+            // 1. 스크롤위치가 100px이상일때+모바일아닐때
+            if (scTop >= 100 && !mob) {
                 topA.classList.add("on");
             } /////////// if ////////////
             // 2. 스크롤위치가 100px미만일때
