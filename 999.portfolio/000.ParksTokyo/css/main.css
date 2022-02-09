@@ -64,7 +64,8 @@ h1.logo {
     margin-bottom: 3px;
     transition: .3s;
 }
-.menu.on span{
+
+.menu.on span {
     height: 0;
     margin-bottom: 6px;
     border-bottom: none !important;
@@ -84,17 +85,27 @@ h1.logo {
 .cont1 {
     position: relative;
     left: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+
     transition: left 1s;
     white-space: nowrap;
     /* 여기다 줘야 전체글이 줄바꿈 안됨! */
 }
+
+.cont1 h2 {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    line-height: 1;
+}
+
 .cont1 b {
     font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30vw;
     font-weight: 500;
-    font-size: 27vw;
     /* white-space: nowrap; */
-    /* display: none    ; */
-
 }
 
 
@@ -119,24 +130,26 @@ h1.logo {
     position: sticky;
     top: 100px;
     display: block;
+    padding-left: 5%;
+    /* padding-top: 200px; */
+}
 
+.cont2 h1 b {
     color: #dbdbdb;
     font-family: 'PT Serif', serif;
     font-size: 92px;
     font-weight: lighter;
-    /* padding-top: 200px; */
 }
 
-
 /*•••••••••• 등장액션 class ••••••••••*/
-.scAct1 {
+.scAct {
     transform: translateY(100px);
     /* opacity: 0; */
     transition: 1s ease-in-out;
 }
 
 /* 원위치 복귀 등장! */
-.scAct1.on {
+.scAct.on {
     transform: translateY(0);
     opacity: 1;
 }
@@ -248,7 +261,8 @@ h1.logo {
     position: relative;
 
 }
-.cont3 h3 span{
+
+.cont3 h3 span {
     font-size: 62px;
     font-family: 'PT Serif', serif;
     font-weight: lighter;
