@@ -102,16 +102,18 @@ font-family: 'Roboto Condensed', sans-serif;
         linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 
-/* 컨텐츠박스 가상요소로 보더애니 구현 */
+/* 컨텐츠박스 가상요소로 빨강색 보더 애니 구현 */
 .cbx::after {
     content: '';
     display: block;
+
     position: absolute;
+    /* 나의 부모? .cbx */
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    /* 나의 부모? .cbx */
+
     box-sizing: border-box;
     /* 박스크기 유지(보더포함) */
     border: 0px solid transparent;
@@ -123,7 +125,7 @@ font-family: 'Roboto Condensed', sans-serif;
     transition: border .2s ease-in;
 }
 
-/* .cbx에 마우스 오버시 보더애니 */
+/* .cbx에 마우스 오버시 빨강색 보더 애니 */
 .cbx:hover::after {
     border: 20px solid red;
 }
@@ -182,9 +184,13 @@ font-family: 'Roboto Condensed', sans-serif;
     background-color: #f9f9f9;
 }
 
+
+/* ***************************** */
+
 /* 등장액션 class */
 .scAct {
     transform: translateY(100px);
+        /* 100px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
     transition: 1s ease-in-out;
 }
@@ -194,3 +200,4 @@ font-family: 'Roboto Condensed', sans-serif;
     transform: translateY(0);
     opacity: 1;
 }
+/* ***************************** */
