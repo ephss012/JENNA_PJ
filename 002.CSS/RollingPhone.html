@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling phone 3D Animation</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 높이값 기준 보이는 화면채우기! */
+        }
+
+        body {
+            background-image:
+                linear-gradient(to bottom, #fff 20%, #c1e1ff 40%, #fff);
+            overflow: hidden;
+        }
+
+        /* 폰 */
+        .phone {
+            position: absolute;
+            top: calc(50% - 200px);
+            left: calc(50% - 100px);
+            width: 200px;
+            height: 400px;
+            /* outline: 2px solid #000; */
+
+            /* 
+                [ 입체로 설정하기! ]
+                - 입체로 설정할 요소의 부모박스에 아래와 같이 설정함
+                transform-style: preserve-3d;
+                - 기본값은 flat, 즉 2D
+                - preserve-3d 는 3D 전환설정!
+            */
+            transform-style: preserve-3d;
+
+            /* 입체를 잘보이게 하기 위해 x축, y축으로 약간회전 */
+            transform: rotateX(10deg) rotateY(30deg);
+        }
+
+        /* 폰 각면 공통 */
+        .phone>span {
+            position: absolute;
+            width: 200px;
+            height: 400px;
+            /* outline: 1px solid #000; */
+            background-size: 100% 100%;
+                /* 꽉채우기 */
+        }
+
+        /* 1. 앞면 */
+        .phone>span:first-child {
+            background-image: url(images/ip01.png);
+            transform: translateZ(10px);
+        }
+
+        /* 2. 오른쪽면 */
+        .phone>span:nth-child(2) {
+            background-image: url(images/ip03.png);
+            width: 20px;
+            right: -10px;
+            transform: rotateY(90deg);
+        }
+
+        /* 3. 뒷면 */
+        .phone>span:nth-child(3) {
+            background-image: url(images/ip02.png);
+            transform: translateZ(-10px) rotateY(180deg);
+                /* 이미지가 뒤에서 바로보이게 Y축으로 뒤집어놓음 */
+        }
+
+        /* 4. 왼쪽면 */
+        .phone>span:nth-child(4) {
+            background-image: url(images/ip04.png);
+            width: 20px;
+            left: -10px;
+            transform: rotateY(-90deg);
+        }
+
+        /* 5. 윗면 */
+        .phone>span:nth-child(5) {
+            background-image: url(images/ip06.png);
+            height: 20px;
+            top: -10px;
+            transform: rotateX(-90deg);
+        }
+
+        /* 6. 아랫면 */
+        .phone>span:nth-child(6) {
+            background-image: url(images/ip05.png);
+            height: 20px;
+            bottom: -10px;
+            transform: rotateX(90deg);
+        }
+
+        
+
+        /* 폰회전 애니메이션 클래스 */
+        .phone-ani {
+            /* 애니메이션 */
+            animation: rolling 2s ease-in-out 1s 2 alternate;
+            /* 2회 반복 */
+        }
+
+        .phone-ani.on {
+            animation-play-state: running;
+        }
+
+        @keyframes rolling {
+            to {
+                transform: rotateX(370deg) rotateY(-330deg);
+                /* 
+                    x축은 10도 나가 있고 같은방향(+)으로 한바퀴 회전하려면 360도 + 10도 = 370도
+                    y축은 30도 나가 있고 반대방향(-)으로 한바퀴 회전하려면 -360도 + 30도 = -330도 
+                */
+            }
+        }
+
+        /* 흘러가는 글자박스 */
+        .fbx {
+            position: absolute;
+            top: 10%;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        /* 텍스트박스(움직일박스) */
+        .tbx {
+            position: relative;
+            left: 0;
+                /* left값이 -100%까지 애니메이션됨! */
+            width: 200vw;
+            display: flex;
+                /* 직계자식 ul이 옆으로 흐름 */
+            /* 애니메이션 */
+            animation: textFlow1 5s linear infinite;
+        }
+
+        .tbx ul {
+            display: flex;
+                /* 직계자식li가 옆으로 흐름 */
+            flex: 1;
+                /* 등분할 */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 각 리스트 */
+        .tbx li {
+            flex: 1;
+            /* 등분할 */
+            text-align: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 4vw;
+            color: #d3d3d3;
+        }
+
+
+        /* 글자 흐르게 하기 키프레임 1 */
+        @keyframes textFlow1 {
+            to {
+                left: -100%;
+            }
+        }
+
+        /* 두번째 흘러가는 글자박스 */
+        .f2 {
+            top: auto;
+            bottom: 10%;
+        }
+
+        /* 오른쪽으로 흘러가기 하기위해 left를 왼쪽으로 나가있게함 */
+        .f2 .tbx {
+            left: -100%;
+            animation-name: textFlow2;
+                /* 기본 애니설정중 호출 키프레임 이름만 변경! */
+        }
+        /* 글자 흐르게 하기 키프레임 2 */
+        @keyframes textFlow2 {
+            to {
+                left: 0;
+            }
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(() => {
+
+            // 변경대상: 폰 .phone
+            let phone = $(".phone");
+
+            // 버튼 클릭 시 폰 돌리기
+            $('.btns button').click(function () {
+
+                // 버튼텍스트
+                let txt = $(this).text();
+                console.log(txt);
+
+                // 분기하기
+                switch (txt) {
+                    case '돌아':
+                        phone.addClass('on');
+                        break;
+                    case '멈춰':
+                        phone.removeClass('on');
+                        break;
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <!-- 흘러가는 글자 박스 1 -->
+    <div class="fbx">
+        <div class="tbx">
+            <ul>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+            </ul>
+            <ul>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 흘러가는 글자 박스 2 -->
+    <div class="fbx f2">
+        <div class="tbx">
+            <ul>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+            </ul>
+            <ul>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+                <li>iphone 2022</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 폰박스 -->
+    <div class="phone phone-ani">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</body>
+
+</html>

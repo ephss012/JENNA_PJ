@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Cube 3D Animation</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 높이값 기준 보이는 화면채우기! */
+        }
+
+        body {
+            background-image:
+                linear-gradient(to bottom, #777 30%, #ccc 70%);
+            overflow: hidden;
+        }
+
+        /* 큐브 */
+        .cube {
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 150px);
+            width: 300px;
+            height: 300px;
+            outline: 2px solid #000;
+
+            /* 
+                [ 입체로 설정하기! ]
+                - 입체로 설정할 요소의 부모박스에 아래와 같이 설정함
+                transform-style: preserve-3d;
+                - 기본값은 flat, 즉 2D
+                - preserve-3d 는 3D 전환설정!
+            */
+            transform-style: preserve-3d;
+
+            /* 입체를 잘보이게 하기 위해 x축, y축으로 약간회전 */
+            transform: rotateX(10deg) rotateY(30deg);
+        }
+
+        /* 큐브 각면 공통 */
+        .cube>span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            outline: 1px solid #000;
+        }
+
+        /* 1. 앞면 */
+        .cube>span:first-child {
+            /* background-color: red; */
+            background: url(images/newyorkCity.jpg) no-repeat right/cover;
+            /* 화면방향(z축)으로 이동하기 */
+            transform: translateZ(150px);
+        }
+
+        /* 2. 오른쪽면 */
+        .cube>span:nth-child(2) {
+            /* background-color: green; */
+            background: url(images/cityMain.jpg) no-repeat center/cover;
+            transform: rotateY(90deg) translateZ(150px);
+            /* y축 회전먼저하고 z축밀기 해야함(순서중요!) */
+        }
+
+        /* 3. 뒷면 */
+        .cube>span:nth-child(3) {
+            /* background-color: orange; */
+            background: url(images/newyorkCity.jpg) no-repeat right/cover;
+            transform: rotateY(180deg) translateZ(150px);
+            /* y축 회전먼저하고 z축밀기 해야함(순서중요!) */
+        }
+
+        /* 4. 왼쪽면 */
+        .cube>span:nth-child(4) {
+            /* background-color: yellow; */
+            background: url(images/citys.jpg) no-repeat right/cover;
+            transform: rotateY(-90deg) translateZ(150px);
+            /* y축 회전먼저하고 z축밀기 해야함(순서중요!) */
+        }
+
+        /* 5. 윗면 */
+        .cube>span:nth-child(5) {
+            /* background-color: blue; */
+            background: url(images/parisCity.jpg) no-repeat right/cover;
+            transform: rotateX(90deg) translateZ(150px);
+            /* x축 회전먼저하고 z축밀기 해야함(순서중요!) */
+        }
+
+        /* 6. 아랫면 */
+        .cube>span:nth-child(6) {
+            /* background-color: purple; */
+            background: url(images/seoulCity.jpg) no-repeat right/cover;
+
+            transform: rotateX(-90deg) translateZ(150px);
+            /* x축 회전먼저하고 z축밀기 해야함(순서중요!) */
+        }
+
+        /* 버튼박스 */
+        .btns {
+            text-align: center;
+            padding: 50px;
+
+        }
+
+        .btns button {
+            font-size: 40px;
+            padding: 10px 40px;
+            border-radius: 5px;
+        }
+
+        /* 큐브회전 애니메이션 클래스 */
+        .cube-ani {
+            /* 애니메이션 */
+            animation: rolling 5s linear /* 계속 한결같이 */ infinite;
+            /* 처음에 애니메이션 멈춤 */
+            animation-play-state: paused;
+        }
+
+        .cube-ani.on {
+            animation-play-state: running;
+        }
+
+        @keyframes rolling {
+            to {
+                transform: rotateX(370deg) rotateY(-330deg);
+                /* 
+                    x축은 10도 나가 있고 같은방향(+)으로 한바퀴 회전하려면 360도 + 10도 = 370도
+                    y축은 30도 나가 있고 반대방향(-)으로 한바퀴 회전하려면 -360도 + 30도 = -330도 
+                */
+            }
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(() => {
+
+            // 변경대상: 큐브 .cube
+            let cube = $(".cube");
+
+            // 버튼 클릭 시 큐브 돌리기
+            $('.btns button').click(function(){
+                
+                // 버튼텍스트
+                let txt = $(this).text();
+                console.log(txt);
+
+                // 분기하기
+                switch(txt){
+                    case '돌아':
+                        cube.addClass('on');
+                        break;
+                    case '멈춰':
+                        cube.removeClass('on');
+                        break;
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <!-- 버튼박스 -->
+    <div class="btns">
+        <button>돌아</button>
+        <button>멈춰</button>
+    </div>
+
+    <!-- 큐브 -->
+    <div class="cube cube-ani">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</body>
+
+</html>
