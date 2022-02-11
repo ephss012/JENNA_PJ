@@ -12,7 +12,9 @@ $(()=>{
     })
 
     // gnb메뉴 클릭 시 이동하기
-    $('.gnb a').click(function(e){
+    // 대상: .gnb a + .mognb a
+
+    $('.gnb a, .mognb a').click(function(e){
 
         // 기본이동 막기
         e.preventDefault();

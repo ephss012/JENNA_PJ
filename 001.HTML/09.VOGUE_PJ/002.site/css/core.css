@@ -130,6 +130,11 @@ font-family: 'Roboto Condensed', sans-serif;
     border: 20px solid red;
 }
 
+/* 컨텐츠 타이틀 박스 하위 small요소 */
+.cbx h2 small{
+    font-size: 14px;
+}
+
 /* 컨텐츠 타이틀박스 */
 .cbx h2 {
     position: absolute;

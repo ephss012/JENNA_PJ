@@ -85,3 +85,19 @@ font-family: 'PT Serif', serif;
     color: #dbdbdb;
     letter-spacing: 1px;
 }
+
+
+
+/* 등장액션 class */
+.scAct {
+    transform: translateY(100px);
+        /* 100px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+/* 원위치 복귀 등장! */
+.scAct.on {
+    transform: translateY(0);
+    opacity: 1;
+}

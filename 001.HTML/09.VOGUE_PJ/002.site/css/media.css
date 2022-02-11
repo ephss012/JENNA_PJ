@@ -7,6 +7,15 @@
 /* 모바일 미디어쿼리 - 500px 이하 */
 @media screen and (max-width:500px) {
 
+    /* 서브페이지 2가지 글자크기만 변경 */
+    .stit {
+        font-size: 30px;
+    }
+    .lnb a{
+        font-size: 14px;
+    }
+
+    
     /* 1. 상단영역 요소 없앰 */
     .tmenu,
     .gnb {

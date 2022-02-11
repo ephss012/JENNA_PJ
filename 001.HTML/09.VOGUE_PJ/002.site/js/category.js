@@ -13,14 +13,14 @@ if (pm.indexOf("?") === -1) {
 // url로 받은 문자값 가공하기!
 pm = pm.split("?")[1].split("=")[1];
 
-console.log("카테고리->",pm);
+console.log("카테고리->", pm);
 
 ////// 제이쿼리 코드구역 /////////
-$(()=>{
+$(() => {
 
     // 0. 카테고리별 해당 정보 객체로부터 셋팅하기
     const data = sinfo[pm];
-    console.log("선택객체정보:",data);
+    console.log("선택객체정보:", data);
 
     // 1. 카테고리명을 main.cont에 클래스로 추가
     // -> 셋팅된 각 컨텐츠박스 배경이미지가 들어옴!
@@ -28,7 +28,16 @@ $(()=>{
     // pm - 카테고리명
 
     // 2. 서브 타이틀 넣기 : .stit
-    $(".stit").text(data["제목"]);
+    let stit = $(".stit");
+    stit.text(data["제목"]);
+    // 만약 pm값이 "runway"이면
+    //  -> 배경이미지넣고 글자색 흰색
+    if (pm === "runway") {
+        stit.css({
+            background: "url(images/bg_02.jpg) no-repeat center/cover",
+            color: "#fff"
+        }); //// css /////
+    } /////// if ///////////////
 
     // 3. 서브 메뉴 넣기 : .lnb
     // 서브가 있는 경우에만 ul>li>a 구조로 만든다!
@@ -41,19 +50,41 @@ $(()=>{
     let menu = data["메뉴"];
 
     // 메뉴 셋업
-    if(menu !== "없음"){ // 메뉴가 있을 경우!
-        let temp=""; // 임시변수
+    if (menu !== "없음") { // 메뉴가 있을 경우!
+        let temp = ""; // 임시변수
         // 메뉴배열 개수만큼 돌기!
-        menu.forEach((item)=>{//item은 배열값
+        menu.forEach((item) => { //item은 배열값
             temp +=
-            `<li>
+                `<li>
                 <a href="#">${item}</a>
              </li>`;
-        });//// forEach /////
+        }); //// forEach /////
 
         // LNB 메뉴 박스에 html넣기!
         lnb.html(`<ul>${temp}</ul>`);
+
     } /////// if /////////////////
+    else { /// "없음" 이면
+        lnb.remove(); // nav.lnb를 없앤다!
+    } //////// else ///////////////
+
+    // 4. 컨텐츠 타이틀 넣기
+    // 대상: .cbx h2
+    let cbxtit = $(".cbx h2");
+    // 배열데이터 개수만큼 forEach() 메서드 사용!
+    // forEach((값,순번)=>{})
+    // data["타이틀"].forEach((tit,idx)=>{
+    //     // console.log(idx);
+    //     cbxtit.eq(idx).html(tit);
+    // }); /////// forEach //////////////
+
+    // 제이쿼리 each() 메서드사용하면?
+    // each((idx,ele)=>{})
+    cbxtit.each((idx, ele) => {
+        $(ele).html(data["타이틀"][idx]);
+    }); //////////// each /////////////
+
+
 
 
 

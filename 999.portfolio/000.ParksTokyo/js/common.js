@@ -13,37 +13,50 @@ window.addEventListener("DOMContentLoaded",
         let scAct = document.querySelectorAll(".scAct");
 
         // (4) 타이틀 박스
-        let titBx = document.querySelector(".cont");
+        let titBx = document.querySelector(".cont1");
 
-        // 
-        let comp = document.querySelector('.comp');
+        // (5) PARKS MANAGEMENT 글자 흐르기
+        let comp = document.querySelector('.cont2');
+
+        let winH = window.innerHeight / 2;
+
+
 
         /////// 스크롤 액션 구역 ///////////////
-        window.addEventListener("scroll",()=>{
+        window.addEventListener("scroll", () => {
 
             // 스크롤 위치값
             scTop = this.scrollY;
-            console.log("스크롤위치:",scTop);
+            console.log("스크롤위치:", scTop);
 
             // 타이틀 글자 움직이기
-            if(scTop < 50){
+            if (scTop < 50) {
                 titBx.style.left = "0";
-            }
-            else if(scTop < 200){
+            } else if (scTop < 200) {
                 titBx.style.left = "-50%";
-            }
-            else if(scTop < 400){
+            } else if (scTop < 400) {
                 titBx.style.left = "-80%";
-            }
-            else if(scTop < 500){
+            } else if (scTop < 500) {
                 titBx.style.left = "-100%";
             }
 
-            else if(scTop < 3240){
+            // PARKS MANAGEMENT 움직이기
+            if (scTop < 4120) {
+                comp.style.left = '0';
+            } else if (scTop < 4250) {
+                comp.style.left = '-40%';
+            } else if (scTop < 4400) {
+                comp.style.left = '-70%';
+            } else if (scTop < 4600) {
                 comp.style.left = '-100%';
             }
 
-            
+
+
+
+
+
+
 
         }); ////////////// scroll //////////////////
         ////////////////////////////////////////////

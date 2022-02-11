@@ -84,7 +84,8 @@ h1.logo {
 /* 애니메이션 텍스트 PARKS */
 .cont1 {
     position: relative;
-    left: 0;
+    left: -50%;
+    /* transform: translateX(50%); */
     min-height: 100vh;
     min-width: 100vw;
 
@@ -217,7 +218,11 @@ h1.logo {
 }
 
 /* PARKS MANAGEMENT 문구 */
-.cont2 h4 {
+.comp {
+    position: relative;
+    /* left: -50%; */
+    width: 100vw;
+
     display: block;
     box-sizing: border-box;
     border-top: 1px solid #111;
@@ -229,7 +234,7 @@ h1.logo {
     white-space: nowrap;
 }
 
-.cont2 h4:last-child {
+.comp:last-child {
     display: block;
     box-sizing: border-box;
     border-bottom: 1px solid #111;
@@ -354,6 +359,18 @@ h1.logo {
 
     transition: all 1s ease;
 }
+/* 이메일 애니메이션 */
+.email{
+    position: relative;
+    left: 0;
+    width: 200vw;
+    animation: eflow 20s linear infinite;
+}
+@keyframes eflow {
+    to {
+        left: -100%;
+    }
+}
 
 #email span {
     display: block;
@@ -366,6 +383,9 @@ h1.logo {
     border: none;
 }
 
+#email:hover .email{
+    animation-play-state: paused;
+}
 
 
 

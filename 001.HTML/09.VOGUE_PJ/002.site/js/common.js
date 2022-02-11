@@ -8,15 +8,15 @@ let mob = 0;
 // 모바일 체크 함수 //
 const chgMob = () => {
     // 500px이하 모바일
-    if($(window).width()<=500){ 
-        mob=1;
+    if ($(window).width() <= 500) {
+        mob = 1;
         // 상단영역 변경 클래스 강제제거하기!
         $("#top").removeClass("on");
         // removeClass(클래스명) -> 클래스제거
     } ////// if ///////////
     // 500px 초과시
-    else mob=0;
-    console.log("모바일:",mob);
+    else mob = 0;
+    console.log("모바일:", mob);
 }; ///////// chgMob함수 ///////
 
 // 모바일 체크 함수 최초호출
@@ -28,19 +28,19 @@ $(window).resize(chgMob);
 
 
 //// 제이쿼리 코드구역 /////////////////////////////
-$(()=>{
+$(() => {
 
     // 1. 햄버거 버튼(.hbtn) 클릭시
     // 전체 메뉴 보이기: .mobwrap -> 검색창은 숨김!
-    $(".hbtn").click(()=>{
-        $(".mobwrap").slideToggle(400,"easeInOutCubic");
+    $(".hbtn").click(() => {
+        $(".mobwrap").slideToggle(400, "easeInOutCubic");
         $(".mos").hide();
-    });////// click ////////
+    }); ////// click ////////
 
     // 2. 검색 버튼(.sbtn) 클릭시
     // 검색창 보이기: .mos -> 전체메뉴는 숨김!
-    $(".sbtn").click(()=>{
-        $(".mos").slideToggle(300,"easeInOutCubic");
+    $(".sbtn").click(() => {
+        $(".mos").slideToggle(300, "easeInOutCubic");
         $(".mobwrap").hide();
     }); //////// click /////////////
 
@@ -83,17 +83,17 @@ window.addEventListener("DOMContentLoaded",
         // (3) 스크롤 등장요소
         let scAct = document.querySelectorAll(".scAct");
         // (4) 보이는 화면의 절반(등장위치보정)
-        let winH = window.innerHeight/2;
+        let winH = window.innerHeight / 2;
         // window.innerHeight는 윈도우의 창높이(스크롤미포함)
 
         /***********************************/
-        
+
         /////////////////////////////////////////////
         /// 페이지 등장요소의 페이지 위치값 셋팅하기 ///
         /////////////////////////////////////////////
         // offsetTop은 선택요소의 맨위로 부터의 top값!
         // for(시작값;한계값;증감){코드}
-        for(let i=0; i<scAct.length;i++){
+        for (let i = 0; i < scAct.length; i++) {
             scPos[i] = scAct[i].offsetTop;
             // console.log("페이지위치값",i,"번째:",scPos[i]);
         } ///////// for문 ////////////////////////
@@ -103,17 +103,17 @@ window.addEventListener("DOMContentLoaded",
             기능: 스크롤 위치값이 설정범위에 들어가면
                 해당 순번의 요소가 등장한다!
         ******************************************/
-       const scAction = seq => { // seq 순번
+        const scAction = seq => { // seq 순번
 
             // console.log("순번:",seq);
 
-            if (scTop > scPos[seq]-winH && // 시작위치
+            if (scTop > scPos[seq] - winH && // 시작위치
                 scTop < scPos[seq]) { // 끝위치
                 scAct[seq].classList.add("on");
             } ///////// if ////////////////////
 
-       }; /////////// scAction 함수 ////////////////////
-       /////////////////////////////////////////////////
+        }; /////////// scAction 함수 ////////////////////
+        /////////////////////////////////////////////////
 
 
         // 변경대상 /////////////////////
@@ -124,7 +124,10 @@ window.addEventListener("DOMContentLoaded",
 
         /////// 위로가기버튼 클릭시 맨위로 가기! ///////
         /// 부드러운 스크롤의 위치변수 pos에 0값을 주면 위로이동함
-        tbtn.onclick = () => {pos=0; return false;};
+        tbtn.onclick = () => {
+            pos = 0;
+            return false;
+        };
         // return false -> a요소의 기본이동기능을 못하게 막음!
 
         ////////////////////////////////////////////
@@ -193,7 +196,7 @@ window.addEventListener("DOMContentLoaded",
             // 위치체크를 하여 클래스"on"을 넣어주는 함수
             // scAction() 함수를 순번과 함께 호출해 준다!!!
 
-            scPos.forEach((val,idx)=>scAction(idx));
+            scPos.forEach((val, idx) => scAction(idx));
             // 배열객체.forEach((배열값,순번)=>{});
 
             /* 
