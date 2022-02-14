@@ -53,14 +53,29 @@ window.addEventListener("DOMContentLoaded",
 
 
 
-
-
-
-
-
         }); ////////////// scroll //////////////////
-        ////////////////////////////////////////////
 
+
+
+        // 컨텐츠2 잡지 이미지 6개  //////////////////////
+        window.addEventListener('load',()=>{
+    
+            console.log("로딩완료!");
+
+            // 이미지 번호
+            let num = 1;
+
+            // 잡지 이미지
+            let tg = document.querySelector(".pics img");
+
+            // 스크롤 시 잡지 이미지 변경
+            const chgImg = gubun => {
+                console.log("매거진!", gubun);
+
+                tg.setAttribute('src', `./images/pics${num}.jpg`)
+            }
+
+        })
 
 
     }); /////////////// load /////////////////////////

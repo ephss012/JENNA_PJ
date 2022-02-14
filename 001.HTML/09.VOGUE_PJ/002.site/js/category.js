@@ -22,6 +22,11 @@ $(() => {
     const data = sinfo[pm];
     console.log("선택객체정보:", data);
 
+    // 0.5.상단 탭메뉴 타이틀 넣기
+    $("title").prepend(data["제목"]);
+    // prepend(내용) -> 내용 앞에 추가!
+    // 비교) append(내용) -> 내용 뒤에 추가!
+
     // 1. 카테고리명을 main.cont에 클래스로 추가
     // -> 셋팅된 각 컨텐츠박스 배경이미지가 들어옴!
     $(".cont").addClass(pm);
