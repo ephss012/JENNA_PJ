@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Page Scroll</title>
+    <style>
+        html,
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;/* 보이는 화면기준 채우기 */
+            /* body하위 요소의 높이값 %의 기준이됨! */
+        }
+        /* 공통셋팅 */
+        a{
+            text-decoration: none;
+            color: #fff;
+            text-shadow: 0 0 2px #777;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul::after{/* float해제 */
+            content: '';
+            display: block;
+            clear: both;
+        }
+        li{
+            float: left;/* 옆으로 흐르게 */
+        }
+        img{
+            border: none;
+            /* 이미지 링크시 테두리없앰 */
+        }
+        h1,
+        h2,
+        h3{
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        /* 공통 class */
+
+        /* 페이지 공통 class */
+        .page{/* 한페이지 보이는 화면 채우기 */
+            width: 100%;
+            height: 100%;
+            /* 
+                width: 100vw;
+                height: 100vh;
+                보이는 화면 기준의 뷰포트단위를 쓰면
+                body의 height 100%가 필요없다!
+                왜냐하면 보이는 화면을 기준하니까!
+                단, vw단위는 스크롤바 트랙까지 포함한
+                화면 전체를 기준하므로
+                데스트탑에서는 100%를 사용하는게 좋다!
+                (이유는 가로스크롤바가 생기게 되므로!)
+             */
+        }
+
+        /* IR(배경이미지 설명 숨기기) class */
+        .ir{
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 중앙 속박스 */
+        .ibx{
+            width: 1920px;
+            max-width: 100%;
+            /* 1920px보다 작을땐 100%를 유지함! */
+            margin: 0 auto;/* 마영오 - 중앙정렬 */
+        }
+
+        /* 1. 상단영역 */
+        #top{
+            position: fixed;
+            /* 상단고정-보이는화면기준 */
+            width: 100%;
+            z-index: 9999;/* 맨위! */
+            background-color: rgba(0,0,0,.7);
+        }
+        /* 상단영역 속박스 */
+        .top{
+            position: relative;
+            /* 부모자격 */
+            height: 80px;
+        }
+
+        /* 1-1.로고 */
+        #logo{
+            width: 250px;
+            height: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        #logo img{
+            width: 100%;
+            margin-top: -24px;
+        }
+
+        /* 1-2. GNB 메뉴 */
+        .gnb{
+            position: absolute;
+            /* 부모는? .top */
+            top: 40px;
+            right: 2%;
+        }
+        .gnb li{
+            margin: 0 7px;
+        }
+        /* 메뉴에 마우스 오버시 */
+        .gnb a:hover,
+        .gnb li.on a {
+            display: inline-block;/* 트랜스폼 적용 위해 - 그냥 인라인일 때는 트랜스폼 안먹힘 */
+            color: lime;
+
+            text-decoration: overline;/* 윗줄 */
+            transform: scale(1.1);
+        }
+
+        /* 2. 페이지영역 */
+        /* 개별 페이지 셋팅 */
+        #pg1{
+            background: url(images/pic1.png) no-repeat top/cover;
+        }
+        #pg2{
+            background: url(images/pic2.png) no-repeat top/cover;
+        }
+        #pg3{
+            background: url(images/pic3.png) no-repeat top/cover;
+        }
+        #pg4{
+            background: url(images/pic4.png) no-repeat top/cover;
+        }
+        #pg5{
+            background: url(images/pic5.png) no-repeat top/cover;
+        }
+        #pg6{
+            background: url(images/pic6.png) no-repeat top/cover;
+        }
+        #pg7{
+            background: url(images/pic7.png) no-repeat top/cover;
+        }
+
+    </style>
+
+    <!-- 부드러운 스크롤 플러그인:제이쿼리아님! -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-autoScroll.1.0.js"></script>
+    
+
+    <script>
+        $(()=>{ // 제이쿼리 코딩구역 ///////////////////////////
+
+
+            // 새로고침 시 스크롤 맨 위로 이동하기 - css적용해도 안 먹어서 애니메이트로 시간차 주기
+            $('html,body').animate({scrollTop:'0'},100)
+
+
+            // gnb 클릭 시 스크롤 이동 애니메이션
+            // ㄴ 부드러운 스크롤 사용 안함
+            // 대상: .gnb a
+
+            $('.gnb a').click(function(e){ // e - 이벤트 전달 변수
+
+                // 0. a요소 기본이동 막기 -  gnb 클릭해도 이미지가 바뀌지 않음
+                e.preventDefault();
+                    // preventDefault() 기본기능 막는 메서드
+                    // e -> 이벤트 저달변수 하위 메서드로 사용함
+
+                // 1. 클릭된 a요소의 링크값 읽어오기
+                let link = $(this).attr('href');
+                console.log('링크:', $(this).attr('href'))
+
+                // 2. 해당 아이디 요소의 위치 알아내기
+                let pos = $(link).offset().top; 
+                    // offset top 은 위에서부터 위치값을 알아낼 수 있음
+                    // offset() : link변수에 '#아이디명' 값으로 실제 요소의 top값을 알아내는 메서드
+                console.log('위치:', pos);
+
+                // 3. 스크롤 위치 이동 애니메이션
+                // 대상: html, body -> 최상위 부모 2개 그룹 선택함
+                // 스크롤 이동 속성: scrollTop -> 세로 스크롤 위치
+                // 참고) scrollLeft는 가로스크롤 위치속성 
+                $('html,body').animate({
+                    scrollTop:pos+'px'
+                }, 700, 'easeInOutQuint');
+
+                // 4. 클릭된 a요소 부모 li에 클래스 on 넣기
+                // -> css 세팅에 현재위치 표시자
+                $(this).parent() // 나 자신 a, 부모 li
+                .addClass('on') // 클래스 넣기 on
+                .siblings() // 현재 li 이외에 다른 형제 li 선택
+                .removeClass('on')
+
+            }) // gnb click //////////////
+
+        });
+    </script>
+</head>
+
+
+<body>
+    <!-- 1. 상단영역 -->
+    <div id="top">
+        <header class="top ibx">
+            <!-- 1-1.로고 -->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!-- 1-2.GNB메뉴 -->
+            <nav class="gnb">
+                <ul>
+                    <li class="on">
+                        <a href="#pg1">아수라</a>
+                    </li>
+                    <li>
+                        <a href="#pg2">고산자</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">인천상륙작전</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">봉이김선달</a>
+                    </li>
+                    <li>
+                        <a href="#pg5">비밀은없다</a>
+                    </li>
+                    <li>
+                        <a href="#pg6">아가씨</a>
+                    </li>
+                    <li>
+                        <a href="#pg7">탐정홍길동</a>
+                    </li>
+                </ul>
+            </nav>
+
+            
+
+        </header>
+    </div>
+
+    <!-- 2. 페이지영역 -->
+    <section id="pg1" class="page"></section>
+    <section id="pg2" class="page"></section>
+    <section id="pg3" class="page"></section>
+    <section id="pg4" class="page"></section>
+    <section id="pg5" class="page"></section>
+    <section id="pg6" class="page"></section>
+    <section id="pg7" class="page"></section>
+
+    
+</body>
+</html>
