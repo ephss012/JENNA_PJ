@@ -57,6 +57,36 @@ window.addEventListener("DOMContentLoaded",
 
 
 
+        // 하위메뉴 - smenu 마우스 오버 시 펼침
+        window.addEventListener('DOMContentLoaded',
+            function (){
+                let smenu = document.querySelectorAll('.smenu');
+
+                for (let x of smenu) {
+
+                    // 마우스 오버
+                    x.onmouseover = () => {
+
+                        // smenu - Artist 하위요소
+                        let tg = x.querySelector('div');
+                        // 아티스트 이름 2개
+                        let hv = tg.querySelector('ol').offsetHeight;
+
+                        // smenu 펼치기
+                        tg.style.height = (hv + 10) + 'px';
+                        tg.style.transition = 'height .4s ease-out';
+                    }; // 마우스 오버 ////
+
+                    x.onmouseout = () => {
+                        let tg = x.querySelector('div');
+                        tg.style.height = '0';
+                    }; // 마우스 아웃 ////
+
+                } // for of ////
+                
+            })
+
+
         // 컨텐츠2 잡지 이미지 6개  //////////////////////
         window.addEventListener('load',()=>{
     

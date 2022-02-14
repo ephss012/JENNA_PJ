@@ -52,7 +52,7 @@ font-family: 'PT Serif', serif;
 }
 
 /* 가렸던 하위메뉴 표시하기 */
-.menu.on div {
+.menu.on>div {
     display: block;
     padding: 110px 100px;
 }
@@ -67,6 +67,25 @@ font-family: 'PT Serif', serif;
 .menu.on div ul {
     margin-bottom: 120px;
 }
+
+
+/* 하위메뉴의 서브메뉴 smenu */
+.menu.on .smenu div {
+    height: 0;
+    display: none;
+    transition: height .4s ease-out;
+}
+.menu.on .smenu:hover div {
+    height: auto;
+    display: block;
+}
+.menu.on .smenu>div>ol>li>a{
+    display: block;
+    padding: 10px 50px;
+    font-size: 52px;
+}
+    
+
 
 /* 하위메뉴 sns 영역 */
 .menu.on .sns a {
@@ -85,6 +104,16 @@ font-family: 'PT Serif', serif;
     color: #dbdbdb;
     letter-spacing: 1px;
 }
+
+
+
+/* 하위메뉴 마우스오버 */
+.menu.on a:hover{
+    color: white;
+    transition: .4s ease-out;
+
+}
+
 
 
 
