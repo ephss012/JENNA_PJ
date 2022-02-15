@@ -11,7 +11,6 @@ window.addEventListener("DOMContentLoaded",
         let scPos = []; // 배열변수
         // (3) 스크롤 등장요소
         let scAct = document.querySelectorAll(".scAct");
-
         // (4) 타이틀 박스
         let titBx = document.querySelector(".cont1");
 
@@ -51,40 +50,37 @@ window.addEventListener("DOMContentLoaded",
                 comp.style.left = '-100%';
             }
 
-
-
         }); ////////////// scroll //////////////////
 
 
 
         // 하위메뉴 - smenu 마우스 오버 시 펼침
-        window.addEventListener('DOMContentLoaded',
-            function (){
-                let smenu = document.querySelectorAll('.smenu');
+        
+        let smenu = document.querySelectorAll('.smenu');
 
-                for (let x of smenu) {
+        for (let x of smenu) {
 
-                    // 마우스 오버
-                    x.onmouseover = () => {
+            // 마우스 오버
+            x.onmouseover = () => {
 
-                        // smenu - Artist 하위요소
-                        let tg = x.querySelector('div');
-                        // 아티스트 이름 2개
-                        let hv = tg.querySelector('ol').offsetHeight;
+                // smenu - Artist 하위요소
+                let tg = x.querySelector('div');
+                // 아티스트 이름 2개
+                let hv = tg.querySelector('ol').offsetHeight;
 
-                        // smenu 펼치기
-                        tg.style.height = (hv + 10) + 'px';
-                        tg.style.transition = 'height .4s ease-out';
-                    }; // 마우스 오버 ////
+                // smenu 펼치기
+                tg.style.height = (hv + 10) + 'px';
+                tg.style.transition = 'height .4s ease-out';
+            }; // 마우스 오버 ////
 
-                    x.onmouseout = () => {
-                        let tg = x.querySelector('div');
-                        tg.style.height = '0';
-                    }; // 마우스 아웃 ////
+            x.onmouseout = () => {
+                let tg = x.querySelector('div');
+                tg.style.height = '0';
+            }; // 마우스 아웃 ////
 
-                } // for of ////
+        } // for of ////
                 
-            })
+            
 
 
         // 컨텐츠2 잡지 이미지 6개  //////////////////////
@@ -99,8 +95,8 @@ window.addEventListener("DOMContentLoaded",
             let tg = document.querySelector(".pics img");
 
             // 스크롤 시 잡지 이미지 변경
-            const chgImg = gubun => {
-                console.log("매거진!", gubun);
+            const chgImg = magaz => {
+                console.log("매거진!", magaz);
 
                 tg.setAttribute('src', `./images/pics${num}.jpg`)
             }
