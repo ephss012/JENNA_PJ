@@ -20,6 +20,10 @@ window.addEventListener("DOMContentLoaded",
         let winH = window.innerHeight / 2;
 
 
+        // News 타이틀 요소
+        let newsEle =  $(".cont2 h1");
+        let neH = newsEle.offset().top;
+
 
         /////// 스크롤 액션 구역 ///////////////
         window.addEventListener("scroll", () => {
@@ -27,6 +31,17 @@ window.addEventListener("DOMContentLoaded",
             // 스크롤 위치값
             scTop = this.scrollY;
             console.log("스크롤위치:", scTop);
+
+            if(scTop > neH-100) {
+                newsEle.css({
+                    position: "fixed",
+                    top: "100px",
+                    zIndex:"999"
+                })
+            }
+            else{
+                newsEle.attr("style","");
+            }
 
             // 타이틀 글자 움직이기
             if (scTop < 50) {
