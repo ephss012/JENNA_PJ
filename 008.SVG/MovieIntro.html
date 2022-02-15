@@ -34,7 +34,7 @@
             stroke-dashoffset: 150%;/* 공백부터 */
 
             /* 애니메이션: 이시이지반방마 */
-            /* animation: lineAni 5s ease-in-out 2s forwards; */
+            animation: lineAni 5s ease-in-out 2s forwards;
         }
         /* 라인애니메이션 키프레임 */
         @keyframes lineAni {
@@ -64,60 +64,59 @@
             background-repeat: no-repeat;
             background-position: top;
             background-size: cover;
-            /* opacity: 0; */
-            /* 모두투명! */
+            opacity: 0;/* 모두투명! */
         }
         /* 윗박스 */
         #stc>div:first-child{
-            top: 0;
+            top: -15%;
             left: 0;
             width: 100%;
             height: 50%;
             background-image: url(images/sc1.jpg);
             /* 삼각형 클리핑 */
-            
+            clip-path: polygon(0% 0%,100% 0%,50% 100%);
 
             /* 애니메이션 */
-            /* animation: sc1 3s ease-in-out 7s forwards; */
+            animation: sc1 3s ease-in-out 7s forwards;
         }
         /* 오른쪽박스 */
         #stc>div:nth-child(2){
             top: 0;
-            right: 0;
+            right: -15%;
             width: 50%;
             height: 100%;
             background-image: url(images/sc4.jpg);
             /* 삼각형 클리핑 */
-            
+            clip-path: polygon(100% 0%,0% 50%,100% 100%);
 
             /* 애니메이션 */
-            /* animation: sc2 3s ease-in-out 8.5s forwards; */
+            animation: sc2 3s ease-in-out 8.5s forwards;
         }
         /* 아랫박스 */
         #stc>div:nth-child(3){
-            bottom: 0;
+            bottom: -15%;
             left: 0;
             width: 100%;
             height: 50%;
             background-image: url(images/sc3.jpg);
             /* 삼각형 클리핑 */
-            
+            clip-path: polygon(0% 100%,50% 0%,100% 100%);
             
             /* 애니메이션 */
-            /* animation: sc3 3s ease-in-out 10s forwards; */
+            animation: sc3 3s ease-in-out 10s forwards;
         }
         /* 왼쪽박스 */
         #stc>div:nth-child(4){
             top: 0;
-            left: 0;
+            left: -15%;
             width: 50%;
             height: 100%;
             background-image: url(images/sc2.jpg);
             /* 삼각형 클리핑 */
-            
+            clip-path: polygon(0% 0%,100% 50%,0% 100%);
             
             /* 애니메이션 */
-            /* animation: sc4 5s cubic-bezier(0.77, 0.26, 0.27, 0.82) 11.5s forwards; */
+            animation: sc4 5s cubic-bezier(0.77, 0.26, 0.27, 0.82) 11.5s forwards;
         }
 
         /* 스틸컷 등장애니 키프레임 */
@@ -157,7 +156,7 @@
             /* 애니메이션으로 배경색 투명도를 변경함 */
 
             /* 애니메이션 */
-            /* animation: logobg 2s ease-out 22s forwards; */
+            animation: logobg 2s ease-out 22s forwards;
         }
         /* 로고배경 키프레임 */
         @keyframes logobg {
@@ -175,7 +174,7 @@
             opacity: 0;
             
             /* 애니메이션 */
-            /* animation: showlogo 2s ease-out 22s forwards; */
+            animation: showlogo 2s ease-out 22s forwards;
         }
         /* 로고이미지 키프레임 */
         @keyframes showlogo {
@@ -199,7 +198,7 @@
             stroke-dashoffset: 330%;
             
             /* 애니메이션 */
-            /* animation: lineAni 5s ease-out 17s forwards; */
+            animation: lineAni 5s ease-out 17s forwards;
         }
 
 

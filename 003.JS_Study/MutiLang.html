@@ -136,10 +136,58 @@
             }
         }; ///////// lang 객체 ///////
 
-        window.addEventListener("DOMContentLoaded", () => {
-            // console.log("로딩완료!");
+        //// 로드구역 //////////
+        window.addEventListener("load",()=>{
 
-            
+            // 대상선정1 : 메뉴 - #gnb a
+            let gnb = document.querySelectorAll("#gnb a");
+            // console.log("메뉴개수:",gnb.length);
+
+            // 대상선정2 : 메인이미지 - #cont img
+            let cimg = document.querySelector("#cont img");
+
+            // 대상선정3 : 주소박스 - #info address
+            let info = document.querySelector("#info address");
+
+            // 선택박스 변경시 사이트 다국어 변경하기
+            // 이벤트대상: .sel
+            // 이벤트종류: change
+            // 변경대상: 메뉴, 이미지, 하단정보
+            document.querySelector(".sel")
+            .onchange = () => {
+
+                // 1. 선택 option value 읽어오기
+                // 화살표함수에서는 this대신 event.currentTarget
+                let opt = event.currentTarget.value;
+                // console.log("변경!",opt);
+
+                // 2. 언어코드에 따른 객체 데이타 읽어오기
+                let data = lang[opt];
+                // console.log("데이타:",data);
+
+                // 3. "메뉴" 데이타에 따른 메뉴셋팅하기
+                // 배열값이므로 for of문으로 셋팅한다!
+                let i=0;//요소순번
+                for(let x of data["메뉴"]){
+                    // console.log(x);
+                    // 각 메뉴 a요소에 메뉴텍스트 넣기
+                    gnb[i].innerText = x;
+                    i++;//요소순번증가
+                } ///////// for of ///////////////
+
+                // 4. 메인이미지 변경하기
+                // 이미지명에 언어코드가 들어감!
+                // 대상: #cont img -> cimg 변수
+                cimg.setAttribute("src",`images/${opt}.jpg`);
+                // setAttribute(속성명,속성값)
+                // 백틱(`)을 사용한 변수넣기를 "템플릿 리터럴"이라함
+
+                // 5. 주소박스에 다국어 적용하기
+                // 대상: #info address -> info 변수
+                info.innerText = data["주소"];
+
+            }; ////////////// change ///////////////
+            ////////////////////////////////////////
 
             
 
