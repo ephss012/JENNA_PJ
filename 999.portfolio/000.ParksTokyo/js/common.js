@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded",
             scTop = this.scrollY;
             console.log("스크롤위치:", scTop);
 
+            // news타이틀 글자를 고정함!
             if(scTop > neH-100) {
                 newsEle.css({
                     position: "fixed",
@@ -39,7 +40,7 @@ window.addEventListener("DOMContentLoaded",
                     zIndex:"999"
                 })
             }
-            else{
+            else{ // 기타경우 기존 넣은 값 지움!
                 newsEle.attr("style","");
             }
 

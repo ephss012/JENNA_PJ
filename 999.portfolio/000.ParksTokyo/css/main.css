@@ -134,6 +134,7 @@ h1.logo {
     display: block;
     padding-left: 5%;
     /* padding-top: 200px; */
+    mix-blend-mode: exclusion;
 }
 
 .cont2 h1 b {
