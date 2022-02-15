@@ -18,16 +18,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/smoothScroll20.js"></script>
     <script src="js/common.js"></script>
+
     <script>
-    function showMenu(){
-        document.getElementsByClassName("menu").item(0)
-        .classList.toggle("on")  
-      }
+        function showMenu() {
+            document.getElementsByClassName("menu").item(0)
+                .classList.toggle("on")
+        }
     </script>
 
 </head>
 
 <body>
+    <!-- 마우스 이동 -->
+    <div id="mbx">
+        <div id="view">view</div>
+    </div>
+
     <!-- 1. 상단영역 -->
     <header id="top" class="ibx">
         <h1 class="logo">
@@ -137,19 +143,21 @@
     <!-- 컨텐츠2 -->
     <div>
         <section class="cont cont2 ibx">
-            <!-- <div id="news" class="scAct1"> -->
-                <h1>
-                    <span>
-                        <b>N</b><b>e</b><b>w</b><b>s</b>
-                    </span>
-                </h1>
+            <!-- <div id="news" class="scAct"> -->
+            <h1>
+                <span>
+                    <b>N</b><b>e</b><b>w</b><b>s</b>
+                </span>
+            </h1>
             <!-- </div> -->
-            <div class="odd" class="scAct">
-                <h2>
-                    <a href="#">年末年始のご案内</a>
-                </h2>
-                <span class="category">Info</span>
-                <div class="date">2021.12.27 Mon</div>
+            <div class="scAct">
+                <div class="odd">
+                    <h2>
+                        <a href="#">年末年始のご案内</a>
+                    </h2>
+                    <span class="category">Info</span>
+                    <div class="date">2021.12.27 Mon</div>
+                </div>
             </div>
             <h3>
                 <a href="#">
@@ -160,46 +168,55 @@
     </div>
     <div>
         <section class="cont cont2 ibx">
-            <div class="even" class="scAct">
-                <h2>NaNatural</h2>
-                <span class="category">Media</span>
-                <div class="date">2021.12.27 Mon</div>
-            </div>
+            <!-- <div class="scAct"> -->
+                <div class="even">
+                    <h2>NaNatural</h2>
+                    <span class="category">Media</span>
+                    <div class="date">2021.12.27 Mon</div>
+                </div>
+            <!-- </div> -->
             <img src="./images/news2.png" class="newspic-left" alt="2">
         </section>
     </div>
     <div>
         <section class="cont cont2 ibx">
-            <div class="odd" class="scAct">
-                <h2>SPUR January issue</h2>
-                <span class="category">Media</span>
-                <div class="date">2021.12.12 Sun</div>
-            </div>
+            <!-- <div class="scAct"> -->
+                <div class="odd">
+                    <h2>SPUR January issue</h2>
+                    <span class="category">Media</span>
+                    <div class="date">2021.12.12 Sun</div>
+                </div>
+            <!-- </div> -->
             <img src="./images/news3.png" class="newspic-right" alt="">
         </section>
     </div>
     <div>
         <section class="cont cont2 ibx">
-            <div class="even" class="scAct">
-                <h2>Song Association with BE:FIRST</h2>
-                <span class="category">Media</span>
-                <div class="date">2021.12.10 Fri</div>
-            </div>
+            <!-- <div class="scAct"> -->
+                <div class="even">
+                    <h2>Song Association with BE:FIRST</h2>
+                    <span class="category">Media</span>
+                    <div class="date">2021.12.10 Fri</div>
+                </div>
+            <!-- </div> -->
             <img src="./images/news4.png" class="newspic-left" alt="">
         </section>
     </div>
     <div>
         <section class="cont cont2 ibx">
-            <div class="odd" class="scAct">
-                <h2>United Arrows UAW CLUB</h2>
-                <span class="category">Media</span>
-                <div class="date">2021.12.07 Tue</div>
-            </div>
+            <!-- <div class="scAct"> -->
+                <div class="odd">
+                    <h2>United Arrows UAW CLUB</h2>
+                    <span class="category">Media</span>
+                    <div class="date">2021.12.07 Tue</div>
+                </div>
+            <!-- </div> -->
             <img src="./images/news5.jpg" class="newspic-right" alt="">
         </section>
     </div>
     <div>
         <section class="cont cont2 ibx">
+            <span class="comp"></span>
             <span class="comp">
                 Parks Management Parks Management
                 Parks Management Parks Management
@@ -213,6 +230,7 @@
 
     <!-- <hr> -->
 
+    <!-- 컨텐츠 3 -->
     <div>
         <section class="cont cont3 ibx">
             <h2>Artist</h2>
@@ -229,6 +247,7 @@
 
     <!-- <hr> -->
 
+    <!-- 컨텐츠 4 -->
     <div>
         <section class="cont cont4 ibx">
             <ul class="left-text">
@@ -341,6 +360,7 @@
             </span>
         </a>
     </div>
+
 
     <!-- 3. 하단영역 -->
     <div>

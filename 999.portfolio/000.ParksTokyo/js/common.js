@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded",
     () => {
         console.log('로딩완료');
-
         /// 부드러운 스크롤 호출!(제이쿼리 아님!)
         startSS();
 
@@ -9,9 +8,11 @@ window.addEventListener("DOMContentLoaded",
         let scTop;
         // (2) 스크롤 등장요소 위치값
         let scPos = []; // 배열변수
-        // (3) 스크롤 등장요소
+
+        // (3) 스크롤 등장요소 - 스크롤액션
         let scAct = document.querySelectorAll(".scAct");
-        // (4) 타이틀 박스
+
+        // (4) 상단 타이틀 박스 - left로 이동
         let titBx = document.querySelector(".cont1");
 
         // (5) PARKS MANAGEMENT 글자 흐르기
@@ -20,8 +21,24 @@ window.addEventListener("DOMContentLoaded",
         let winH = window.innerHeight / 2;
 
 
+        //  스크롤액션 
+        for (let i = 0; i < scAct.length; i++) {
+            scPos[i] = scAct[i].offsetTop;
+            console.log("페이지위치값",i,"번째:",scPos[i]);
+
+        } ///////// for문 ////////////////////////
+
+        const scAction = seq => { // seq 순번
+            if (scTop > scPos[seq] - winH && // 시작위치
+                scTop < scPos[seq]) { // 끝위치
+                scAct[seq].classList.add("on");
+            } ///////// if ////////////////////
+        }; /////////// scAction 함수 ////////////////////
+
+
+
         // News 타이틀 요소
-        let newsEle =  $(".cont2 h1");
+        let newsEle = $(".cont2 h1");
         let neH = newsEle.offset().top;
 
 
@@ -30,17 +47,17 @@ window.addEventListener("DOMContentLoaded",
 
             // 스크롤 위치값
             scTop = this.scrollY;
+
             console.log("스크롤위치:", scTop);
 
-            if(scTop > neH-100) {
+            if (scTop > neH - 100) {
                 newsEle.css({
                     position: "fixed",
                     top: "100px",
-                    zIndex:"999"
+                    zIndex: "999"
                 })
-            }
-            else{
-                newsEle.attr("style","");
+            } else {
+                newsEle.attr("style", "");
             }
 
             // 타이틀 글자 움직이기
@@ -54,6 +71,10 @@ window.addEventListener("DOMContentLoaded",
                 titBx.style.left = "-100%";
             }
 
+            scPos.forEach((val, idx) => scAction(idx));
+
+            //////////////////////////////////////////////
+            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             // PARKS MANAGEMENT 움직이기
             if (scTop < 4120) {
                 comp.style.left = '0';
@@ -63,14 +84,31 @@ window.addEventListener("DOMContentLoaded",
                 comp.style.left = '-70%';
             } else if (scTop < 4600) {
                 comp.style.left = '-100%';
-            }
+            } /////////////////////////////////////////////
 
         }); ////////////// scroll //////////////////
 
 
+        /* mousemove */
+        /* let mbx = $('#mbx');
+        let hz = mbx.width() / 2;
 
+        $('body').mousemove((e) => { // e 이벤트 전달변수
+            let posx = e.pageX - hz;
+            let posy = e.pageY - hz;
+
+            mbx.css({
+                top: posy + 'px',
+                left: posx + 'px'
+            }) // css //////////
+        }) */ // mousemove //////////
+
+
+
+        //////////////////////////////////////////////////
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         // 하위메뉴 - smenu 마우스 오버 시 펼침
-        
+
         let smenu = document.querySelectorAll('.smenu');
 
         for (let x of smenu) {
@@ -94,13 +132,13 @@ window.addEventListener("DOMContentLoaded",
             }; // 마우스 아웃 ////
 
         } // for of ////
-                
-            
+        ///////////////////////////////////////////////////////
+
 
 
         // 컨텐츠2 잡지 이미지 6개  //////////////////////
-        window.addEventListener('load',()=>{
-    
+        window.addEventListener('load', () => {
+
             console.log("로딩완료!");
 
             // 이미지 번호
@@ -120,3 +158,22 @@ window.addEventListener("DOMContentLoaded",
 
 
     }); /////////////// load /////////////////////////
+
+/* 
+    $(() => {
+            
+        /* mousemove ///////
+        let mbx = $('#mbx');
+        let hz = mbx.width() / 2;
+
+        $('body').mousemove((e) => { // e 이벤트 전달변수
+            let posx = e.pageX - hz;
+            let posy = e.pageY - hz;
+
+            mbx.css({
+                top: posy + 'px',
+                left: posx + 'px'
+            }) // css //////////
+        }) // mousemove //////////
+    });
+ */
