@@ -115,18 +115,23 @@
 				중요정보: 마우스 포인터의 x,y 위치값
 				사용메서드: mousemove()
 			***********************************************/
-			
+
 			let mbx = $('#mbx');
 
 			// mbx 박스 크기의 절반 - 써클 중앙이 마우스에 딱 오게 하기
-			let hz = mbx.width()/2;
+			let hz = mbx.width() / 2;
 
 
-			$('body').mousemove((e)=>{ // e 이벤트 전달변수
+			$('body').mousemove((e) => { // e 이벤트 전달변수
+
+				// 0. 메뉴가 열린 상태면 아래코드 실행 안함
+				if (!mw) return;
+				// mw가 0이면 메뉴가 열린 상태
+				// 
 
 				// 1. 마우스 위치값 정보 알아내기 (hz보정값 뺌)
-				let posx = e.pageX-hz;
-				let posy = e.pageY-hz;
+				let posx = e.pageX - hz;
+				let posy = e.pageY - hz;
 
 				// console.log(`x:${posx}\ny:${posy}`);
 
@@ -140,14 +145,101 @@
 					top: posy + 'px',
 					left: posx + 'px'
 				}) // css //////////
-					// 트랜지션 설정되어서 css 변경 시 애니메이션 됨
-					// ease-out으로 설정해서 시작 속도가 빨라야 자연스러움 - ease-in은 느림
-
-				
-
+				// 트랜지션 설정되어서 css 변경 시 애니메이션 됨
+				// ease-out으로 설정해서 시작 속도가 빨라야 자연스러움 - ease-in은 느림
 
 			}) // mousemove //////////
 
+
+
+			// #mbx 클릭 시 메뉴 보이기
+			// 변경대상: #menu
+			let menu = $('#menu');
+			// 변경값: 최대사이즈 660px
+			let mw = 660;
+
+			mbx.click(() => {
+
+				// 메뉴 펼치기/숨기기
+				menu.stop().animate({ // stop 나중에 씀
+					width: mw + 'px'
+				}, 400, 'easeOutExpo')
+
+				// 토글구현: 한번은 660, 한번은 0
+				mw === 660 ? mw = 0 : mw = 660;
+				// 비?집:놀이동산;
+				console.log('mw값:', mw);
+				// mw값이 0이면 메뉴가 열린상태임!
+
+			}) // click ///////////
+
+
+
+			// 메뉴 li에 마우스 오버시 오퍼시티 1로 만들기
+			// hover() 메서드 사용
+			// hover(함수1, 함수2) -> 호버 시 함수 1 실행, 아웃 시 함수 2 실행
+
+			// 이벤트 대상: #menu li
+			// 사용 메서드: fadeTo(시간, 오퍼시티, 이징, 함수) - 중간 오퍼시티로 만듬
+			// 시간 1/1000초, opacity, easing, 콜백함수
+
+			menu.find('li')
+				.hover(
+					function () { // over
+						// 자기자신(li) 오퍼시티 1로 변경 애니
+						$(this).stop().fadeTo(200, 1)
+						// 자기자신 아래 span태그 글자보이기 애니
+						$('span', this).stop().delay(100).fadeIn(200);
+						// $(this).find('span')===$('span',this)
+						// $(this).children('span')===$('>span',this)
+					},
+					function () { // out
+						// 자기자신(li) 오퍼시티 .7로 변경 애니
+						$(this).stop().fadeTo(200, 0.7)
+						// 자기자신 아래 span태그 글자숨기기 애니
+						$('span', this).stop().fadeOut(200);
+					}) /////// hover /////////
+
+				// 위에서 이어짐!
+				// 메뉴 클릭시 사이트 새창 띄우기
+				.click(function (e) {
+
+					e.stopPropagation();
+					// 메뉴 클릭시 문제 발생!!!!!!!!
+					// li클릭시 상위 요소로 이벤트가 올라간다!
+					// -> 이벤트 버블링발생!!!
+					// 막는 방법: jQuery에서는 e.stopPropagation()
+					// 또는 하단에 return false로 처리!
+
+						// 이벤트 버블링 참고
+						// 004.jQuery학습\001.기본사용법\002.선택자메서드연습\jQuery-02.메서드연습\41.eventFlow.html
+
+					// 클릭된 li요소의 span글자읽어오기
+					// 링크주소 구분하기 위해!
+					let txt = $("span", this).text();
+					console.log("링크:", txt);
+
+					// 이동할 주소
+					let url;
+
+					switch (txt) {
+						case "Google":
+							url = "https://www.google.com/";
+							break;
+						case "Naver":
+							url = "https://www.naver.com/";
+							break;
+						case "Daum":
+							url = "https://www.daum.net/";
+							break;
+					} ///////// switch case /////////
+
+					// url 새창열기
+					window.open().location.href = url;
+					// window.open() -> 새창열기
+					// location.href = 주소 -> 페이지 이동하기
+
+				}); ///////// click ///////////
 		}); //////////////////////////// jQB /////////////////////
 	</script>
 </head>

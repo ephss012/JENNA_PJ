@@ -50,19 +50,29 @@
 	</style>
 
 	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+
 	<!-- 제이쿼리 라이브러리 아래에 제이쿼리 UI 가 있어야 
 		드래그 앤 드롭 기능을 사용할 수 있다! -->
 	<!-- 
 		미리보기:
 		https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/01_Postit/ready.html
 	 -->
+
 	 <script>
 		 $(()=>{ /////////// jQB ////////////////////////
 
 			// [ 드래그 기능 적용하기 ]
 			// 제이쿼리 UI의 draggable() 메서드를 호출함
 			// 대상: .draggable
+			$(".draggable").draggable({
+				cursor: "move", 
+				// 커서모양이 "이동중"표시로 변경
+				stack: ".draggable", 
+				// 드래그대상 상위처리(선택요소명)
+				opacity: 0.7
+				// 이동 중 투명도 설정
+			});
 			
 
 			/// 1. 드래그가 시작될때 배경이미지 class로 변경하기
@@ -70,14 +80,21 @@
 			// 이벤트와 함수를 묶어주는 메서드를 사용함!
 			// -> on(이벤트명,함수)
 			// 대상: .draggable
-			
+			$('.draggable').on('dragstart', function(){
+				console.log('드래그시작');
+				$(this).addClass('invert')
+			}) // dragstart ///////////////
+
 
 			/// 2. 드래그가 끝날때 배경이미지 class로 변경하기
 			// 이벤트 종류: dragstop (드래그끝날때 발생하는 이벤트)
 			// 이벤트와 함수를 묶어주는 메서드를 사용함!
 			// -> on(이벤트명,함수)
 			// 대상: .draggable
-			
+			$('.draggable').on('dragstop', function(){
+				console.log('드래그멈춤');
+				$(this).removeClass('vntert')})
+
 
 			//// 드롭할때 발생하는 이벤트 처리하기 ///////
 			/// droppable() 메서드 : 드롭되는 요소처리 ///
@@ -85,7 +102,7 @@
 			
 
 		 }); /////////////// jQB ////////////////////////
-	 </script>
+	</script>
 </head>
 
 <body>
