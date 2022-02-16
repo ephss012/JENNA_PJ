@@ -57,6 +57,7 @@ div#view {
 }
 */
 
+
 /* 햄버거 메뉴 클릭 시 하위메뉴 펼쳐짐 */
 #top.on {
     position: relative;
@@ -167,7 +168,7 @@ div#view {
     transform: translateY(1000px);
         /* 500px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 /* 원위치 복귀 등장! */
@@ -175,3 +176,4 @@ div#view {
     transform: translateY(0);
     opacity: 1;
 }
+

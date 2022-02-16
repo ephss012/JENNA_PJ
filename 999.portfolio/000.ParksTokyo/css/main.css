@@ -372,7 +372,7 @@ h1.logo {
 }
 
 /* 오른쪽 - 텍스트와 함께오는 이미지 */
-.cont4 .pics img {
+.cont4 #mbox img {
     right: 12.5%;
     width: 25%;
     padding-left: 60%;

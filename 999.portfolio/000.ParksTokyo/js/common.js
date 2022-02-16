@@ -21,10 +21,15 @@ window.addEventListener("DOMContentLoaded",
         let winH = window.innerHeight / 2;
 
 
-        //  스크롤액션 
+        /////////////////////////////////////////////////
+        /////////////////////////////////////////////////
+
+
+        // 컨텐츠 2를 위한 스크롤액션 
+
         for (let i = 0; i < scAct.length; i++) {
             scPos[i] = scAct[i].offsetTop;
-            console.log("페이지위치값",i,"번째:",scPos[i]);
+            // console.log("페이지위치값",i,"번째:",scPos[i]);
 
         } ///////// for문 ////////////////////////
 
@@ -36,10 +41,20 @@ window.addEventListener("DOMContentLoaded",
         }; /////////// scAction 함수 ////////////////////
 
 
+        // 상단탑 메뉴랑 로고 화이트로 변경
+        let wlogo = document.querySelector(".logo");
+        if (scTop >= 4900){
+            wlogo.classList.add('on');
+        }
+        else {;
+            wlogo.classList.remove('on')
+        }
 
-        // News 타이틀 요소
+
+        // News 타이틀 요소 ///////////////////
         let newsEle = $(".cont2 h1");
         let neH = newsEle.offset().top;
+
 
 
         /////// 스크롤 액션 구역 ///////////////
@@ -139,17 +154,17 @@ window.addEventListener("DOMContentLoaded",
         // 컨텐츠2 잡지 이미지 6개  //////////////////////
         window.addEventListener('load', () => {
 
-            console.log("로딩완료!");
+            // console.log("로딩완료!");
 
             // 이미지 번호
             let num = 1;
 
             // 잡지 이미지
-            let tg = document.querySelector(".pics img");
+            let tg = document.querySelector("#mbox img");
 
             // 스크롤 시 잡지 이미지 변경
-            const chgImg = magaz => {
-                console.log("매거진!", magaz);
+            const chgImg = pics => {
+                console.log("매거진!", pics);
 
                 tg.setAttribute('src', `./images/pics${num}.jpg`)
             }
