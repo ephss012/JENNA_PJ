@@ -41,6 +41,8 @@ window.addEventListener("DOMContentLoaded",
         }; /////////// scAction 함수 ////////////////////
 
 
+
+
         // 상단탑 메뉴랑 로고 화이트로 변경
         let wlogo = document.querySelector(".logo");
         if (scTop >= 4900){

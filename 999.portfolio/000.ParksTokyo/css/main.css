@@ -284,7 +284,7 @@ h1.logo {
     width: 100%;
     /* height: 1200px;  */
     background-color: #111;
-    padding: 20% 0 40% 4%;
+    padding: 10% 0 20% 4%;
 }
 
 .cont3 h2 {
@@ -296,12 +296,12 @@ h1.logo {
 }
 
 /* 아티스트 2명 이름 */
-.cont3 h3 {
+.cont3 li {
     position: relative;
     display: block;
 }
 
-.cont3 h3 span {
+.cont3 a {
     font-size: 62px;
     font-family: 'PT Serif', serif;
     font-weight: lighter;
@@ -309,7 +309,7 @@ h1.logo {
     cursor: pointer;
 }
 
-.cont3 h3 img {
+.cont3 img {
     position: absolute;
     top: -100px;
     /* left: 10%; */
@@ -321,13 +321,13 @@ h1.logo {
     transform: scale(0);
 }
 
-.cont3 h3:hover {
+.cont3 li:hover {
     transform: translateX(50px);
     transition: .5s ease-in-out;
     cursor: pointer;
 }
 
-.cont3 h3:hover img {
+.cont3 li:hover img {
     display: block;
     /* transition: ease-out 1s; */
     transform: scale(1);

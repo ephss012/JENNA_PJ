@@ -86,8 +86,29 @@ $(() => {
             else if (cid === 'mid') {
                 console.log('검사결과:',vReg(cv,cid));
 
-            } // else if /////////////
+                // 검사결과가 불통과이면
+                if(vReg(cv,cid)){ // !(NOT)  반대로 돌아감
+                    $(this).siblings('.msg')
+                    .text('영문자로 시작하는 6~20글자 영문/숫자')
+                    .removeClass('on')
+                } // if: 아이디 검사 불통과 ////////////////
 
+                // 검사결과가 통과이면
+                else {
+                    // 아이디 중복검사
+                    $(this).siblings('.msg')
+                    .text('멋진 아이디네요')
+                    .addClss('on');
+
+                    // 글자색 변경 클래스
+                    
+
+                }
+
+            } // else if: 아이디일 경우 /////////////
+
+
+            
             else {
                 // 메시지 지우기
                 $(this).siblings('.msg').empty();
