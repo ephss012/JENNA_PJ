@@ -25,6 +25,7 @@ body * {
 h1.logo {
     text-align: center;
     margin-top: 37px;
+    mix-blend-mode: exclusion;
 }
 
 .logo a img {
@@ -148,15 +149,32 @@ h1.logo {
 
 
 /* 이미지 위로 겹치는 텍스트 정렬 */
-.odd {
-    /* display: block; */
-    margin-left: 23%;
+.firstAct {
+    margin-top: 15%;
+    margin-left: 53%;
 }
 
-.even {
-    /* display: block; */
+.secAct {
+    margin-top: 50%;
+    margin-left: 53%;
+}
+
+.thirdAct {
+    margin-top: 20%;
     margin-left: 32%;
 }
+
+.forthAct {
+    margin-top: 10%;
+    margin-left: 67%;
+
+}
+
+.fifAct {
+    margin-top: 40%;
+    margin-left: 32%;
+}
+
 
 /* 컨텐츠2 상단에 표시되는 PARKS 로고 */
 .cont2 h3 a {
@@ -234,6 +252,7 @@ h1.logo {
     box-sizing: border-box;
     border-top: 1px solid #111;
 }
+
 .comp:last-child {
     display: block;
     box-sizing: border-box;
@@ -242,19 +261,22 @@ h1.logo {
 }
 
 /* 문구 양쪽으로 이동하기 */
-.comp:nth-child(2){
+.comp:nth-child(2) {
     left: 0;
     animation: p1flow 10s linear infinite;
 }
+
 @keyframes p1flow {
     to {
         left: 100%;
     }
 }
-.comp:last-child{
+
+.comp:last-child {
     left: 0;
     animation: p2flow 10s linear infinite;
 }
+
 @keyframes p2flow {
     to {
         left: -100%;
@@ -325,24 +347,47 @@ h1.logo {
 .cont4 {
     position: relative;
     /* background: linear-gradient(to bottom, #5F6C68); */
-    background-color: #5F6C68;
+    /* background-color: #5F6C68; */
     font-weight: lighter;
-    padding: 25% 0;
+    padding: 10% 35%;
+    height: 100vh;
 }
 
-.cont4 ul {
-    padding-left: 8%;
+.cont4>div {
+    width: 30vw;
 }
+
+/* 이미지 슬라이드 */
+#slide {
+    display: flex;
+    overflow: hidden;
+
+}
+
+#slide img {
+    width: 30vw;
+}
+
+/* #slide img {
+    right: 12.5%;
+    width: 25%;
+    padding-left: 60%;
+} */
+
+.abtn {
+    display: none;
+}
+
 
 /* 왼쪽 - 타이틀, 이름, 직업 텍스트 */
-.cont4 .title {
+.c4-text .title {
     font-family: 'Noto Sans JP', 'Poppins', sans-serif;
     font-size: 32px;
     color: #fff;
     margin-bottom: 30px;
 }
 
-.cont4 .kayo,
+.c4-text .kayo,
 .gou {
     font-size: 20px;
     font-family: 'PT Serif', serif;
@@ -350,7 +395,7 @@ h1.logo {
     margin-bottom: 10px;
 }
 
-.cont4 .stylist,
+.c4-text .stylist,
 .hair {
     font-size: 16px;
     font-family: 'PT Serif', serif;
@@ -358,12 +403,11 @@ h1.logo {
     color: #dbdbdb;
 }
 
-/* 오른쪽 - 텍스트와 함께오는 이미지 */
-.cont4 #mbox img {
-    right: 12.5%;
-    width: 25%;
-    padding-left: 60%;
+.c4-text {
+    display: none;
 }
+
+
 
 
 
@@ -383,12 +427,13 @@ h1.logo {
 }
 
 /* 이메일 애니메이션 */
-.email{
+.email {
     position: relative;
     left: 0;
     width: 200vw;
     animation: eflow 20s linear infinite;
 }
+
 @keyframes eflow {
     to {
         left: -100%;
@@ -406,7 +451,7 @@ h1.logo {
     border: none;
 }
 
-#email:hover .email{
+#email:hover .email {
     animation-play-state: paused;
 }
 

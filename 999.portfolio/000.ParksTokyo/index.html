@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/smoothScroll20.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/cont4.js"></script>
 
     <script>
         function showMenu() {
@@ -149,7 +150,7 @@
                 </span>
             </h1>
             <div class="scAct">
-                <div class="odd">
+                <div class="firstAct">
                     <h2>
                         <a href="#">年末年始のご案内</a>
                     </h2>
@@ -167,7 +168,7 @@
     <div>
         <section class="cont cont2 ibx">
             <div class="scAct">
-                <div class="even">
+                <div class="secAct">
                     <h2>NaNatural</h2>
                     <span class="category">Media</span>
                     <div class="date">2021.12.27 Mon</div>
@@ -179,7 +180,7 @@
     <div>
         <section class="cont cont2 ibx">
             <div class="scAct">
-                <div class="odd">
+                <div class="thirdAct">
                     <h2>SPUR January issue</h2>
                     <span class="category">Media</span>
                     <div class="date">2021.12.12 Sun</div>
@@ -191,7 +192,7 @@
     <div>
         <section class="cont cont2 ibx">
             <div class="scAct">
-                <div class="even">
+                <div class="forthAct">
                     <h2>Song Association with BE:FIRST</h2>
                     <span class="category">Media</span>
                     <div class="date">2021.12.10 Fri</div>
@@ -203,7 +204,7 @@
     <div>
         <section class="cont cont2 ibx">
             <div class="scAct">
-                <div class="odd">
+                <div class="fifAct">
                     <h2>United Arrows UAW CLUB</h2>
                     <span class="category">Media</span>
                     <div class="date">2021.12.07 Tue</div>
@@ -254,7 +255,7 @@
     <!-- 컨텐츠 4 -->
     <div>
         <section class="cont cont4 ibx">
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     SPUR 渡り鳥は翼に乗って
                 </li>
@@ -265,7 +266,7 @@
                     Stylist
                 </li>
             </ul>
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     SPUR みんなのパッチワーク広場
                 </li>
@@ -276,7 +277,7 @@
                     Stylist
                 </li>
             </ul>
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     SPUR 絵筆がわたしの拡声器
                 </li>
@@ -287,7 +288,7 @@
                     Stylist
                 </li>
             </ul>
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     LEE
                 </li>
@@ -298,7 +299,7 @@
                     Hair
                 </li>
             </ul>
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     ELLE
                 </li>
@@ -309,7 +310,7 @@
                     Hair
                 </li>
             </ul>
-            <ul class="left-text">
+            <ul class="c4-text">
                 <li class="title">
                     25ans
                 </li>
@@ -322,43 +323,48 @@
             </ul>
 
             <!-- 메인이미지박스 -->
-            <div id="mbox">
+            <!-- <div id="mbox">
                 <img src="./images/pics1.jpg" alt="메인이미지">
-            </div>
-            <!--  
-            <ul class="right-pics">
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics1.jpg" alt="">
-                    </a>
-                </li>
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics2.jpg" alt="">
-                    </a>
-                </li>
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics3.jpg" alt="">
-                    </a>
-                </li>
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics4.jpg" alt="">
-                    </a>
-                </li>
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics5.jpg" alt="">
-                    </a>
-                </li>
-                <li class="pics">
-                    <a href="#">
-                        <img src="./images/pics6.jpg" alt="">
-                    </a>
-                </li>
-            </ul>
-        -->
+            </div> -->
+            <div>
+                <ul id="slide">
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics3.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics4.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics5.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="pics">
+                        <a href="#">
+                            <img src="./images/pics6.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div> 
+
+            <!--이동버튼-->
+            <a href="#" class="abtn ab1"><img src="images/left_btn.png" alt="왼쪽이동버튼"></a>
+            <a href="#" class="abtn ab2"><img src="images/right_btn.png" alt="오른쪽이동버튼"></a>
+       
         </section>
     </div>
     <div class="email">
@@ -425,7 +431,6 @@
 
 <!-- 
     https://github.com/tombap8/GITA-FED213/tree/main/1000.layout/%EB%B0%95%EC%A7%80%EC%9C%A4
-
     https://tombap8.github.io/GITA-FED213/1000.layout/%EB%B0%95%EC%A7%80%EC%9C%A4/index.html
     
  -->

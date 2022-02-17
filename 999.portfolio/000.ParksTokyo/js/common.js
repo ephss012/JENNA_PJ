@@ -21,8 +21,8 @@ window.addEventListener("DOMContentLoaded",
         let winH = window.innerHeight / 2;
 
         // .scAct위치값 셋업
-        let inum=0;
-        for(let x of scAct){
+        let inum = 0;
+        for (let x of scAct) {
             // console.log($(x).offset().top);
             scPos[inum] = $(x).offset().top;
             inum++;
@@ -33,15 +33,15 @@ window.addEventListener("DOMContentLoaded",
         // 위치액션
         const showAct = seq => {
 
-            if(scTop > scPos[seq] - winH && 
+            if (scTop > scPos[seq] - winH &&
                 scTop < scPos[seq]) {
-                    $(scAct[seq]).addClass('on');
+                $(scAct[seq]).addClass('on');
             } //// if /////
         }; ////////// showAct /////////////
 
 
         // News 타이틀 요소
-        let newsEle =  $(".cont2 h1");
+        let newsEle = $(".cont2 h1");
         let neH = newsEle.offset().top;
 
 
@@ -53,15 +53,14 @@ window.addEventListener("DOMContentLoaded",
             console.log("스크롤위치:", scTop);
 
             // news타이틀 글자를 고정함!
-            if(scTop > neH-100) {
+            if (scTop > neH - 100) {
                 newsEle.css({
                     position: "fixed",
                     top: "100px",
-                    zIndex:"999"
+                    zIndex: "999"
                 })
-            }
-            else{ // 기타경우 기존 넣은 값 지움!
-                newsEle.attr("style","");
+            } else { // 기타경우 기존 넣은 값 지움!
+                newsEle.attr("style", "");
             }
 
             // 타이틀 글자 움직이기
@@ -76,7 +75,8 @@ window.addEventListener("DOMContentLoaded",
             }
 
             // PARKS MANAGEMENT 움직이기
-            if (scTop < 4120) {
+            // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            /* if (scTop < 4120) {
                 comp.style.left = '0';
             } else if (scTop < 4250) {
                 comp.style.left = '-40%';
@@ -84,17 +84,19 @@ window.addEventListener("DOMContentLoaded",
                 comp.style.left = '-70%';
             } else if (scTop < 4600) {
                 comp.style.left = '-100%';
-            }
+            } */
 
-            for(let i=0;i< scAct.length;i++) showAct(i);
+            for (let i = 0; i < scAct.length; i++) showAct(i);
 
         }); ////////////// scroll //////////////////
 
 
 
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         // 하위메뉴 - smenu 마우스 오버 시 펼침
-        
-        let smenu = document.querySelectorAll('.smenu');
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+        /* let smenu = document.querySelectorAll('.smenu');
 
         for (let x of smenu) {
 
@@ -116,14 +118,16 @@ window.addEventListener("DOMContentLoaded",
                 tg.style.height = '0';
             }; // 마우스 아웃 ////
 
-        } // for of ////
-                
-            
+        } */ // for of ////
 
 
-        // 컨텐츠2 잡지 이미지 6개  //////////////////////
-        window.addEventListener('load',()=>{
-    
+
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        // 컨텐츠2 잡지 이미지 6개  ///////////////
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+        window.addEventListener('load', () => {
+
             console.log("로딩완료!");
 
             // 이미지 번호
@@ -143,3 +147,25 @@ window.addEventListener("DOMContentLoaded",
 
 
     }); /////////////// load /////////////////////////
+
+
+
+// MOUSEMOVE /////////////////////////
+$(() => { // jQB /////////////////////
+
+    /* mousemove */
+    let mbx = $('#mbx');
+    let hz = mbx.width() / 2;
+
+    $('body').mousemove((e) => { // e 이벤트 전달변수
+
+        let posx = e.pageX - hz;
+        let posy = e.pageY - hz;
+
+        mbx.css({
+            top: posy + 'px',
+            left: posx + 'px'
+        }) // css //////////
+    }) // mousemove //////////
+
+}); // jQB /////////////////////
