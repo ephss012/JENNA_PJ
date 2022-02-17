@@ -1,0 +1,82 @@
+@charset "utf-8"
+/* 보그 PG 메인 css */
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap');
+
+/* 박스 */
+
+body {
+    /* letter-spacing: 0px; */
+    /* background-color: #f9f9f9; */
+}
+
+
+/************************* 메인영역 *************************/
+
+
+/* 컨텐츠 이미지 */
+.bg1 {
+    background-image: url(../images/cont1a.jpg);
+}
+
+.bg2 {
+    background-image: url(../images/cont2-1.jpg);
+}
+
+.bg3 {
+    background-image: url(../images/cont2-2.jpeg);
+}
+
+.bg4 {
+    background-image: url(../images/cont2-3.jpg);
+}
+
+.bg5 {
+    background-image: url(../images/cont3a.jpg);
+}
+
+.bg6 {
+    background-image: url(../images/cont4-1.jpg);
+}
+
+.bg7 {
+    background-image: url(../images/cont4-2.jpg);
+}
+
+.bg8 {
+    background-image: url(../images/cont4-3.jpg);
+}
+
+.bg9 {
+    background-image: url(../images/cont5a.jpg);
+}
+
+.bg10 {
+    background-image: url(../images/cont6-1.png);
+}
+
+.bg11 {
+    background-image: url(../images/cont6-2.jpg);
+}
+
+.bg12 {
+    background-image: url(../images/cont6-3.png);
+}
+
+.bg13 {
+    background-image: url(../images/cont7-1.jpg);
+}
+
+.bg14 {
+    background-image: url(../images/cont7-2.jpg);
+}
+
+.bg15 {
+    background-image: url(../images/cont7-3.jpg);
+}
+
+

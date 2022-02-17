@@ -81,7 +81,9 @@ h1.logo {
 
 /*************************** 메인영역 ***************************/
 
+/* ///////////////////////////////////////////// */
 /* 컨텐츠1 */
+
 /* 애니메이션 텍스트 PARKS */
 .cont1 {
     position: relative;
@@ -111,7 +113,7 @@ h1.logo {
 }
 
 
-
+/* ///////////////////////////////////////////// */
 /* 컨텐츠2 */
 .cont2 {
     position: relative;
@@ -160,12 +162,12 @@ h1.logo {
 
 /* 이미지 위로 겹치는 텍스트 정렬 */
 .odd {
-    display: block;
+    /* display: block; */
     margin-left: 23%;
 }
 
 .even {
-    display: block;
+    /* display: block; */
     margin-left: 32%;
 }
 
@@ -186,6 +188,7 @@ h1.logo {
     font-weight: lighter;
     display: block;
     margin-bottom: 5px;
+    white-space: nowrap;
 }
 
 .cont2 .category {
@@ -229,7 +232,7 @@ h1.logo {
 
     display: block;
     box-sizing: border-box;
-    border-top: 1px solid #111;
+    /* border-top: 1px solid #111; */
 
     font-size: 120px;
     font-family: 'Poppins', sans-serif;
@@ -238,14 +241,21 @@ h1.logo {
     white-space: nowrap;
 }
 
+
+.comp:first-child {
+    display: block;
+    box-sizing: border-box;
+    border-top: 1px solid #111;
+}
 .comp:last-child {
     display: block;
     box-sizing: border-box;
+    border-top: 1px solid #111;
     border-bottom: 1px solid #111;
 }
 
 /* 문구 양쪽으로 이동하기 */
-.comp:first-child{
+.comp:nth-child(2){
     left: 0;
     animation: p1flow 10s linear infinite;
 }
@@ -274,7 +284,7 @@ h1.logo {
     width: 100%;
     /* height: 1200px;  */
     background-color: #111;
-    padding: 20% 0 40% 4%;
+    padding: 10% 0 20% 4%;
 }
 
 .cont3 h2 {
@@ -286,12 +296,12 @@ h1.logo {
 }
 
 /* 아티스트 2명 이름 */
-.cont3 h3 {
+.cont3 li {
     position: relative;
-
+    display: block;
 }
 
-.cont3 h3 span {
+.cont3 a {
     font-size: 62px;
     font-family: 'PT Serif', serif;
     font-weight: lighter;
@@ -299,25 +309,27 @@ h1.logo {
     cursor: pointer;
 }
 
-.cont3 h3 img {
+.cont3 img {
     position: absolute;
     top: -100px;
-    left: 10%;
+    /* left: 10%; */
 
     display: none;
     width: 500px;
 
+    opacity: .5;
     transform: scale(0);
 }
 
-.cont3 h3:hover {
+.cont3 li:hover {
     transform: translateX(50px);
     transition: .5s ease-in-out;
+    cursor: pointer;
 }
 
-.cont3 h3:hover img {
+.cont3 li:hover img {
     display: block;
-    transition: ease-out 1s;
+    /* transition: ease-out 1s; */
     transform: scale(1);
 }
 
@@ -360,7 +372,7 @@ h1.logo {
 }
 
 /* 오른쪽 - 텍스트와 함께오는 이미지 */
-.cont4 .pics img {
+.cont4 #mbox img {
     right: 12.5%;
     width: 25%;
     padding-left: 60%;
@@ -382,6 +394,7 @@ h1.logo {
 
     transition: all 1s ease;
 }
+
 /* 이메일 애니메이션 */
 .email{
     position: relative;

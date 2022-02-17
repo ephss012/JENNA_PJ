@@ -12,6 +12,51 @@ font-family: 'PT Serif', serif;
     height: auto;
 }
 
+/* 마우스 이동 */
+/*
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+div#mbx {
+    position: absolute;
+    transition: .6s ease-out;
+}
+
+div#view {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 14px;
+    color: #111;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 50px;
+
+    background-color: #fff;
+    border: 1px solid #111;
+    border-radius: 50%;
+
+    cursor: pointer;
+    z-index: 100;
+
+    mix-blend-mode: exclusion;
+
+}
+*/
+
 
 /* 햄버거 메뉴 클릭 시 하위메뉴 펼쳐짐 */
 #top.on {
@@ -119,10 +164,11 @@ font-family: 'PT Serif', serif;
 
 /* 등장액션 class */
 .scAct {
-    transform: translateY(100px);
-        /* 100px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
+    display: block;
+    transform: translateY(30%);
+        /* 500px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 /* 원위치 복귀 등장! */
@@ -130,3 +176,4 @@ font-family: 'PT Serif', serif;
     transform: translateY(0);
     opacity: 1;
 }
+
