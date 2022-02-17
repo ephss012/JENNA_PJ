@@ -176,10 +176,11 @@ h1.logo {
 }
 
 
-/* 컨텐츠2 상단에 표시되는 PARKS 로고 */
+/* 컨텐츠2 PARKS 로고이미지 */
 .cont2 h3 a {
     display: block;
     margin-left: 60%;
+    margin-bottom: 20%;
 }
 
 .cont2 h3 img {
@@ -519,8 +520,22 @@ h1.logo {
     font-size: 16px;
     color: #fff;
 }
+/* 각 정보 밑줄긋기 */
+.contact a::after {
+    /* position: absolute; */
+    display: block;
+    content: '';
+    box-sizing: border-box;
 
-.contact a:hover {
+    width: 100%;
+    border-bottom: 2px solid transparent;
+    transform: translateX(-100%);
+}
+
+.contact a:hover::after {
+    width: 100%;
+    transform: translateX(0);
+    transition: .1s;
     border-bottom: 2px solid white;
 }
 

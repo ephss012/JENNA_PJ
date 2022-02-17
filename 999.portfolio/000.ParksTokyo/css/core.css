@@ -30,6 +30,8 @@ body {
 div#mbx {
     position: absolute;
     transition: .6s ease-out;
+    top: 45%;
+    left: 48%;
     width: 60px;
     height: 60px;
 }
@@ -166,8 +168,8 @@ div#view {
 /* 등장액션 class */
 .scAct {
     display: block;
-    transform: translateY(150px);
-        /* 500px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
+    transform: translateY(120px);
+        /* 120px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
     transition: 1s ease-in-out;
 }
