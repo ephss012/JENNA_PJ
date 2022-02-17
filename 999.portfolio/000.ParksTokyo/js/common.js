@@ -17,7 +17,27 @@ window.addEventListener("DOMContentLoaded",
         // (5) PARKS MANAGEMENT 글자 흐르기
         let comp = document.querySelector('.cont2');
 
+
         let winH = window.innerHeight / 2;
+
+        // .scAct위치값 셋업
+        let inum=0;
+        for(let x of scAct){
+            // console.log($(x).offset().top);
+            scPos[inum] = $(x).offset().top;
+            inum++;
+        }
+
+        console.log(scPos);
+
+        // 위치액션
+        const showAct = seq => {
+
+            if(scTop > scPos[seq] - winH && 
+                scTop < scPos[seq]) {
+                    $(scAct[seq]).addClass('on');
+            } //// if /////
+        }; ////////// showAct /////////////
 
 
         // News 타이틀 요소
@@ -65,6 +85,8 @@ window.addEventListener("DOMContentLoaded",
             } else if (scTop < 4600) {
                 comp.style.left = '-100%';
             }
+
+            for(let i=0;i< scAct.length;i++) showAct(i);
 
         }); ////////////// scroll //////////////////
 
