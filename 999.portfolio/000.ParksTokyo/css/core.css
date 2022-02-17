@@ -12,7 +12,7 @@ font-family: 'PT Serif', serif;
     height: auto;
 }
 
-/* 마우스 이동 */
+/* mousemove */
 /*
 * {
     margin: 0;
@@ -165,7 +165,7 @@ div#view {
 /* 등장액션 class */
 .scAct {
     display: block;
-    transform: translateY(30%);
+    transform: translateY(300px);
         /* 500px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
     transition: 2s ease-in-out;

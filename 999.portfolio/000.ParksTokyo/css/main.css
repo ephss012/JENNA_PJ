@@ -146,19 +146,6 @@ h1.logo {
     font-weight: lighter;
 }
 
-/*•••••••••• 등장액션 class ••••••••••*/
-.scAct {
-    transform: translateY(100px);
-    /* opacity: 0; */
-    transition: 1s ease-in-out;
-}
-
-/* 원위치 복귀 등장! */
-.scAct.on {
-    transform: translateY(0);
-    opacity: 1;
-}
-
 
 /* 이미지 위로 겹치는 텍스트 정렬 */
 .odd {

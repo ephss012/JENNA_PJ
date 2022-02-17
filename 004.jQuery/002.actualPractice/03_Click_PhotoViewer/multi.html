@@ -4,71 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> 슬라이딩 내비게이션(무한이동) </title>
+	<title> 슬라이딩 내비게이션(무한이동) - 다중처리 </title>
 	<script src="jquery-3.6.0.min.js"></script>
 	<script src="jquery-ui.min.js"></script>
 	<script>
+		/// 광클금지
+		let sprot = 0; //0-허용,1-불허용
+
+
 		$(function () { ///// jQB ///////////////////////////
-
-			/// 광클금지
-			let sprot = 0; //0-허용,1-불허용
-
-			/// 등장글자 배열
-			let stxt = [
-				"What a Wonderful!",
-				"You are a Good Guy!",
-				"What's Up!",
-				"Check it Out!"
-			];
-
-			/************************************* 
-				함수명: showTxt
-				기능: 배너이동후 글자보이기
-			*************************************/
-			const showTxt = ()=>{
-
-				console.log("글자등장!");
-
-				// 기존에 만들어졌을 수 있는 .sldtit를 지운다!
-				$(".sldtit").remove();
-
-
-				// 대상: 첫번째 슬라이드!
-				let tg = sbx.find("li").first();
-
-				// 슬라이드 순번
-				let snum = tg.attr("data-seq");
-
-				// 글자태그만들기
-				let txt = `<h2 class="sldtit">${stxt[snum]}</h2>`;
-
-				// 글자태그 넣기: 기존 이미지 다음에 추가!
-				tg.append(txt);
-
-				// 글자디자인잡기
-				$(".sldtit").css({
-					position: "absolute",
-					top: "60%",
-					left: "50%",
-					transform: "translate(-50%,-50%)",
-					whiteSpace: "nowrap",
-					color:"#fff",
-					textShadow: "1px 1px 1px #000",
-					fontSize:"min(3vw,30px)",
-					opacity: "0"
-				}) /////// css //////////
-				.animate({
-					top:"50%",
-					opacity: "1"
-				},400);
-
-
-
-			}; /////////// showTxt함수 ///////////////
-
-			// 최초호출
-			setTimeout(showTxt, 1000);
-
 
 			// 변경 대상: #viewer ul
 			let sbx = $("#viewer ul");
@@ -122,7 +66,6 @@
 						left: "-100%"
 					}, 600, "easeOutQuint",
 					function () { // 콜백함수
-
 						// 1. 첫번째 슬라이드 맨뒤로이동
 						// this는 sbx변수의 요소
 						$(this).append($("li", this).first())
@@ -131,10 +74,6 @@
 								left: "0"
 							});
 						// 맨뒤이동 메서드 : append()
-
-						// 3. 글자등장함수 호출!
-						showTxt();
-
 					}); ///// animate //////
 
 				// 블릿변경하기 : 슬라이드 순번 2번째가 주인공!
@@ -175,9 +114,7 @@
 					// 2. 슬라이드 박스 left:0으로 애니메이션!
 					.animate({
 						left: "0"
-					}, 600, "easeOutQuint",showTxt);
-					// 이동후 바로 글자등장함수를 호출
-					// (전달값없으면 이름만써도 된다!)
+					}, 600, "easeOutQuint");
 
 				// 블릿변경하기 : 슬라이드 순번 1번째가 주인공!
 				// 주인공 슬라이드의 data-seq값을 읽어와서
@@ -412,8 +349,6 @@
 		}
 
 		#viewer li {
-			position: relative;
-			/* 부모자격 - 등장글자! */
 			flex: 1;
 		}
 
