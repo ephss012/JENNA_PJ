@@ -1,6 +1,5 @@
 <div id="top">
     <header class="top ibx">
-
         <!-- 1-1.상단메뉴 -->
         <div class="tmenu">
             <!-- 1-1-1.sns박스 -->
@@ -44,10 +43,10 @@
                                 <a href="#">회사 소개</a>
                             </li>
                             <li>
-                                <a href="#">광고 및 제휴</a>
+                                <a href="login.php">보그 로그인</a>
                             </li>
                             <li>
-                                <a href="#">개인정보 처리방침</a>
+                                <a href="member.php">보그 회원가입</a>
                             </li>
                         </ol>
                     </li>
@@ -59,14 +58,12 @@
                 </ul>
             </div>
         </div>
-
         <!-- 1-2.로고박스 -->
         <h1 class="logo">
             <a href="#">
                 <img src="images/mlogo.png" alt="메인로고">
             </a>
         </h1>
-
         <!-- 1-3.GNB박스 -->
         <nav class="gnb">
             <ul>
@@ -98,28 +95,22 @@
                 </li>
             </ul>
         </nav>
-
         <!-- 모바일용 햄버거버튼 -->
         <a href="#" class="mobtn hbtn fi fi-nav-icon">
             <span class="ir">GNB button</span>
         </a>
-
         <!-- 모바일용 검색버튼 -->
         <a href="#" class="mobtn sbtn fi fi-search">
             <span class="ir">search</span>
         </a>
-
     </header>
-
     <!-- 1.4.모바일 검색박스 -->
     <div class="mos">
         <div class="mwrap">
-
             <!-- 입력창박스 -->
             <div id="search">
-                <input type="text">
+                <input type="text" class="search">
             </div>
-
             <!-- 검색버튼 -->
             <button class="scbtn fi fi-search">
                 <span class="ir">돋보기검색아이콘</span>
@@ -127,11 +118,9 @@
         </div>
     </div>
 
-    <!-- /////////////////////////////////////// -->
     <!-- 1.5.모바일 전체메뉴 -->
     <div class="mobwrap">
         <div id="mobx">
-
             <!-- 1.5-1.모바일 GNB 메뉴 -->
             <nav class="mognb">
                 <ul>
@@ -158,7 +147,6 @@
                     </li>
                 </ul>
             </nav>
-
             <!-- 1.5-2.모바일 sns 메뉴 -->
             <div class="mosns">
                 <a href="#" class="fi fi-instagram">
@@ -177,7 +165,6 @@
                     <span class="ir">카카오스토리</span>
                 </a>
             </div>
-
             <!-- 1.5-3.매거진박스 -->
             <figure class="magbox">
                 <!-- 잡지커버이미지 -->
@@ -191,24 +178,21 @@
                 <!-- 정기구독버튼 -->
                 <button class="magbtn">정기구독 신청</button>
             </figure>
-
             <!-- 하단링크박스 -->
             <ul class="moblink">
                 <li>
-                    <a href="#">회사소개</a>
+                    <a href="#">회사소개 /</a>
                 </li>
                 <li>
-                    <a href="login.php">보그 로그인</a>
+                    <a href="#">광고 및 제휴 /</a>
                 </li>
                 <li>
-                    <a href="member.php">
-                        <strong>보그 회원가입</strong>
+                    <a href="#">
+                        <strong>개인정보 처리방침</strong>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-    <!-- /////////////////////////////////////// -->
-
 
 </div>

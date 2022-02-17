@@ -1,6 +1,5 @@
 // 공통 기능 구현 JS - common.js //
 
-
 // 전역변수 구역 ///////////////
 // 모바일여부변수(1-모바일,0-아님)
 let mob = 0;
@@ -16,7 +15,7 @@ const chgMob = () => {
     } ////// if ///////////
     // 500px 초과시
     else mob = 0;
-    console.log("모바일:", mob);
+    // console.log("모바일:",mob);
 }; ///////// chgMob함수 ///////
 
 // 모바일 체크 함수 최초호출
@@ -55,57 +54,58 @@ $(() => {
         내가 계산 안해도 됨!!!
         slideToggle(시간,이징,함수)
         slideUp/slideDown 자동전환함!
-    */
-
-        
-    /************************************** 
-        마우스 따라다니는 원 구현하기
-        이벤트 대상: body
-        이벤트 종류: mousemove
-        변경대상: div#cs (cursor)
-        방법: 동적으로 body에 #cs를 추가함
-    **************************************/
-
-    $('body').append('<div id="cs"></div>');
-        // 뒤에 추가하는 게 append
-
-    // 커서 변수에 할당
-    let cs = $('#cs');
-
-    // 커서에 css 설정
-    cs.css({
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        width: '80px',
-        height: '80px',
-        borderRadius: '50%', 
-        backgroundColor: 'silver',
-        transition:'.4s ease-out',
-        mixBlendMode: 'exclusion',
-            // 겹쳐질 때 색상변경 모드
-        zIndex: '99999'
-    });
-
-    /* 
-        mix-blend-mode 속성
-        https://www.w3schools.com/csSref/playdemo.asp?filename=playcss_mix-blend-mode&preval=normal
-    */
-
-    // 윈도우에서 마우스 움직일 때 커서 따라다니기
-/*     $(window).mousemove((e)=>{
-        // console.log(e.pageX, e.pageY);
-        // 커서의 top, left 위치값 변경
-        cs.css({
-            top: (e.pageY-40) + 'px',
-            left: (e.pageX-40) + 'px'
-        }); // css //////////////////
-    }); */
-
-    // a요소 따라단는 커서보다 위에 오도록 포지션, z-index 높이기
-    // relative 부터 겹칠 수 있음
-    $('a').css({position:'relative', zIndex:'99999', cursor:'pointer'})
     
+    */
+
+
+    /************************************** 
+        [ 따라다니는 원 구현하기 ]
+        - 이벤트 대상: window
+        - 이벤트 종류: mousemove
+        - 변경대상: div#cs (cursor를 줄임)
+        - 방법: 동적으로 body에 #cs를 추가함
+    **************************************/
+    // $("body").append('<div id="cs"></div>');
+    // // 커서 변수에 할당
+    // let cs = $("#cs");
+    // // 커서에 css설정
+    // cs.css({
+    //     position: "fixed",
+    //     top: "0",
+    //     left: "0",
+    //     width: "80px",
+    //     height: "80px",
+    //     borderRadius: "50%",
+    //     backgroundColor: "silver",
+    //     transition: ".4s ease-out",
+    //     mixBlendMode: "exclusion",
+    //     /* 겹쳐질때 색상변경모드 */
+    //     zIndex: "9999"
+    // }); ////// css /////////
+
+    // /* 
+    //     mix-blend-mode 속성 : 겹쳐져서 색상을 변경하는 속성
+    //     https://www.w3schools.com/csSref/playdemo.asp?filename=playcss_mix-blend-mode&preval=normal
+    // */
+
+    // // 윈도우에서 마우스 움직일때 커서 따라다니기!
+    // $(window).mousemove((e)=>{
+    //     console.log(e.pageX,e.clientX, e.pageY,e.clientY);
+    //     // 커서의 top, left 위치값 변경
+    //     cs.css({
+    //         top: (e.clientY-40) + "px",
+    //         left: (e.clientX-40) + "px"
+    //     }); ///// css /////////
+
+    // }); /////// mousemove ///////////
+
+    // // a요소를 따라다니는 커서 보다 위에오도록
+    // // 포지션을 주고 z-index를 높인다!
+    // // z-index는 포지션이 있어야 적용됨!
+    // $("a").css({position:"relative",zIndex:"99999"})
+
+
+
 
 }); /////////// jQB ////////////////////////
 

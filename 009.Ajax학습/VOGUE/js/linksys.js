@@ -8,7 +8,7 @@ $(()=>{
 
     // 로고 클릭 시 첫페이지로 가기
     $('.logo a').click(function(){
-        location.href = 'index.html';
+        location.href = 'index.php';
     })
 
     // gnb메뉴 클릭 시 이동하기
@@ -26,6 +26,6 @@ $(()=>{
         console.log(txt);
 
         if(txt!=='search')
-        location.href = "category.html?cat="+txt;
+        location.href = "category.php?cat="+txt;
     })
 });
