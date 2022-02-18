@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded",
                     top: "100px",
                     zIndex: "999"
                 })
-            } else { // 기타경우 기존 넣은 값 지움!
+            } else { // 기타 경우 기존 넣은 값 지움!
                 newsEle.attr("style", "");
             }
 
