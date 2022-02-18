@@ -69,6 +69,14 @@
 			// 최초호출
 			setTimeout(showTxt, 1000);
 
+			// 글자등장함수 호출함수! 이동시간후!
+			let callT;
+			const callShow = () => {
+				// console.log("콜쇼우~!!");
+				clearTimeout(callT);//기존설정지우기!
+				callT = setTimeout(showTxt, 700);
+			}; ////// callShow함수 //////////
+
 
 			// 변경 대상: #viewer ul
 			let sbx = $("#viewer ul");
@@ -126,14 +134,12 @@
 						// 1. 첫번째 슬라이드 맨뒤로이동
 						// this는 sbx변수의 요소
 						$(this).append($("li", this).first())
-							// 2. 이때 동시에 left값 0
-							.css({
-								left: "0"
-							});
-						// 맨뒤이동 메서드 : append()
 
-						// 3. 글자등장함수 호출!
-						showTxt();
+						// 2. 이때 동시에 left값 0
+						.css({
+							left: "0"
+						});
+						// 맨뒤이동 메서드 : append()
 
 					}); ///// animate //////
 
@@ -143,6 +149,9 @@
 				let num = sbx.find("li").eq(1).attr("data-seq");
 				console.log("슬순번:", num);
 				chgIndic(num);
+
+				// 글자등장함수 호출함수
+				callShow();
 
 			}); //////////// click ////////////////////////////
 
@@ -175,7 +184,7 @@
 					// 2. 슬라이드 박스 left:0으로 애니메이션!
 					.animate({
 						left: "0"
-					}, 600, "easeOutQuint",showTxt);
+					}, 600, "easeOutQuint");
 					// 이동후 바로 글자등장함수를 호출
 					// (전달값없으면 이름만써도 된다!)
 
@@ -185,6 +194,9 @@
 				let num = sbx.find("li").eq(0).attr("data-seq");
 				console.log("슬순번:", num);
 				chgIndic(num);
+
+				// 글자등장함수 호출함수
+				callShow();
 
 			}); ///////////////// click ///////////////////////
 
@@ -317,6 +329,9 @@
 					5. 블릿변경하기 : 클릭된순번 보내기
 				**************************************/
 				chgIndic(cseq);
+
+				// 글자등장함수 호출함수
+				callShow();
 
 			}); ////////////////// click ////////////////////
 

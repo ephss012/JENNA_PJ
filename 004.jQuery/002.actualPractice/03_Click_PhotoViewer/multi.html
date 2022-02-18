@@ -14,13 +14,18 @@
 
 		$(function () { ///// jQB ///////////////////////////
 
-			// 변경 대상: #viewer ul
-			let sbx = $("#viewer ul");
+			// a태그 기본기능막기
+			$("a").click(function (e) {
+				e.preventDefault();
+			}); /////// click //////////
+
+			// 변경 대상: .viewer
+			let sbx = $(".viewer");
 
 			////////////// 블릿변경함수 /////////////
-			// 대상: #indic li
+			// 대상: .indic li
 			////////////////////////////////////////
-			let indic = $("#indic li");
+			let indic = $(".indic li");
 			/************************************** 
 						블릿변경함수
 			**************************************/
@@ -37,9 +42,14 @@
 				예) data-seq="0"
 			**************************************/
 			// each() 메서드는 요소개수 만큼 돌아줌!
-			sbx.find("li").each((idx, ele) => {
+			sbx.find("ul").each((idx, ele) => {
 				// idx-순번, ele-요소자신
-				$(ele).attr("data-seq", idx);
+
+				// 각 ul 아래 li를 다시한번 each()로 돌아줌!
+				$(ele).find("li").each((idx, ele) => {
+					$(ele).attr("data-seq", idx);
+				}); ////////// each //////////
+
 			}); /////// each /////////////////
 
 
@@ -48,7 +58,7 @@
 			// 오른쪽 이동버튼 클릭시 슬라이드박스 왼쪽으로 이동
 			// 이벤트 대상: .rb
 			// 이벤트: click
-			// 변경 대상: #viewer ul -> sbx변수
+			// 변경 대상: .viewer ul -> sbx변수
 			// 변경 내용: 슬라이드 박스의 left값을 -100%로 이동 후
 			//			첫번째 슬라이드를 맨끝으로 이동 + left:0
 			///////////////////////////////////////////////////
@@ -60,6 +70,13 @@
 				setTimeout(() => sprot = 0, 600);
 				// 0.6초후 다시 해제! ///////
 				////////////////////////////
+
+				// 변경 대상: .viewer ul 
+				let sbx = $(this).parent().find(".viewer ul");
+				// $(this).parent() 는 클릭된 버튼자신의 부모인 .slider
+
+				// 변경 대상: .indic li
+				let indic = $(this).parents(".slider").find(".indic li");
 
 				// 변경대상 left값 -100%로 변경하기
 				sbx.animate({
@@ -81,7 +98,10 @@
 				// 블릿변경함수를 호출함!
 				let num = sbx.find("li").eq(1).attr("data-seq");
 				console.log("슬순번:", num);
-				chgIndic(num);
+				// chgIndic(num);
+				// 블릿 직접변경하기!
+				indic.eq(num).addClass("on")
+					.siblings().removeClass("on");
 
 			}); //////////// click ////////////////////////////
 
@@ -90,7 +110,7 @@
 			// 왼쪽 이동버튼 클릭시 슬라이드박스 오른쪽으로 이동
 			// 이벤트 대상: .lb
 			// 이벤트: click
-			// 변경 대상: #viewer ul
+			// 변경 대상: .viewer ul
 			// 변경 내용: 
 			// 		마지막 슬라이드를 맨앞으로 이동 + left:-100%
 			//			슬라이드 박스 left:0으로 애니메이션!
@@ -103,6 +123,14 @@
 				setTimeout(() => sprot = 0, 600);
 				// 0.6초후 다시 해제! ///////
 				////////////////////////////
+
+				// 변경 대상: .viewer ul 
+				let sbx = $(this).parent().find(".viewer ul");
+				// $(this).parent() 는 클릭된 버튼자신의 부모인 .slider
+
+				// 변경 대상: .indic li
+				let indic = $(this).parents(".slider").find(".indic li");
+
 
 				// 1. 마지막 슬라이드를 맨앞으로 이동 + left:-100%
 				sbx.prepend(sbx.find("li").last())
@@ -121,7 +149,11 @@
 				// 블릿변경함수를 호출함!
 				let num = sbx.find("li").eq(0).attr("data-seq");
 				console.log("슬순번:", num);
-				chgIndic(num);
+				// chgIndic(num);
+
+				// 블릿 직접변경하기!
+				indic.eq(num).addClass("on")
+					.siblings().removeClass("on");
 
 			}); ///////////////// click ///////////////////////
 
@@ -135,7 +167,7 @@
 			//	블릿li중 on이 있는 순번을
 			//	비교하여 슬라이드 이동방향을 결정한다!!!
 			//////////////////////////////////////////////////
-			// 이벤트 대상: #indic li -> indic변수
+			// 이벤트 대상: .indic li -> indic변수
 			// 이벤트 종류: click 
 			/////////////////////////////////////////////////
 			indic.click(function () {
@@ -146,6 +178,15 @@
 				setTimeout(() => sprot = 0, 600);
 				// 0.6초후 다시 해제! ///////
 				////////////////////////////
+
+				// 변경 대상: .viewer ul 
+				let sbx = $(this).parents(".slider").find(".viewer ul");
+				// $(this).parents(".slider") 는 클릭된 버튼자신의 
+				// 조상요소들 중 .slider를 선택
+
+				// 변경 대상: .indic li
+				let indic = $(this).parents(".slider").find(".indic li");
+
 
 				/****************************
 				 	1. 현재 클릭된 블릿순번 
@@ -253,7 +294,11 @@
 				/************************************** 
 					5. 블릿변경하기 : 클릭된순번 보내기
 				**************************************/
-				chgIndic(cseq);
+				// chgIndic(cseq);
+
+				// 블릿 직접변경하기!
+				indic.eq(cseq).addClass("on")
+					.siblings().removeClass("on");
 
 			}); ////////////////// click ////////////////////
 
@@ -276,8 +321,8 @@
 			margin: 0;
 			padding: 0;
 			width: 100%;
-			height: 100%;
-			overflow: hidden;
+			/* height: 100%;
+			overflow: hidden; */
 		}
 
 		body {
@@ -299,29 +344,29 @@
 		}
 
 		/* 슬라이드 전체박스 */
-		#slider {
+		.slider {
 			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
+			/* top: 50%;
+			transform: translateY(-50%); */
 			/* 세로중앙이동 */
 			width: 600px;
 			max-width: 90%;
 			/* 양쪽에 여백있게 */
-			margin: 0 auto;
+			margin: 50px auto;
 			/* 가로중앙 마영오! */
 			background-color: #FFF;
 			border: 2px solid #FDF6DD;
 		}
 
 		/* 가상요소로 비율밀기! */
-		#slider::before {
+		.slider::before {
 			content: '';
 			display: block;
 			margin-top: 60%;
 		}
 
 		/* 비율유지속박스 */
-		#viewer {
+		.viewer {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -331,14 +376,14 @@
 		}
 
 		/* 슬라이드 이동박스 */
-		#viewer ul {
+		.viewer ul {
 			position: relative;
 			/* 위치이동포지션 */
 			left: 0;
 			/* 기준위치값 */
 			display: flex;
 			/* 플랙스박스 */
-			width: 400%;
+			/* width: 400%; -> 크기주지말것!! */
 			/* 사진4장 */
 			height: 100%;
 
@@ -348,12 +393,18 @@
 			list-style: none;
 		}
 
-		#viewer li {
-			flex: 1;
+		.viewer li {
+			/* flex: 1; */
+			flex-shrink: 0;
+			/* flex-shrink 기본값은 1 즉, 줄어들어라!
+			이것을 0으로 해야 안줄어듬! */
+			flex-basis: 100%;
+			/* width와 같은 설정. flex에서 가로크기지정 
+			100%는 부모박스에 가로크기 맞춤!*/
 		}
 
 		/* 각 슬라이드 공통 이미지 셋팅 */
-		#viewer li img {
+		.viewer li img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
@@ -362,7 +413,7 @@
 
 
 		/* 블릿표시자 */
-		#indic {
+		.indic {
 			position: absolute;
 			bottom: 5px;
 			right: 5px;
@@ -375,7 +426,7 @@
 			list-style: none;
 		}
 
-		#indic li {
+		.indic li {
 			width: 16px;
 			height: 16px;
 			margin-right: 6px;
@@ -387,13 +438,13 @@
 		}
 
 		/* 마우스 오버시 + 선택메뉴 class="on" */
-		#indic li:hover,
-		#indic li.on {
+		.indic li:hover,
+		.indic li.on {
 			background-color: #222;
 			border: 2px solid lightgoldenrodyellow;
 		}
 
-		#indic li a {
+		.indic li a {
 			display: block;
 			width: 100%;
 			height: 100%;
@@ -447,10 +498,11 @@
 
 <body>
 
-	<div id="slider">
+	<!-- 1. 풍경슬라이드 -->
+	<div class="slider">
 
 		<!-- 슬라이드 속박스 -->
-		<div id="viewer">
+		<div class="viewer">
 			<!-- 슬라이드 이동박스 -->
 			<ul>
 				<li>
@@ -469,8 +521,112 @@
 		</div>
 
 		<!-- 블릿표시자 -->
-		<ul id="indic">
+		<ul class="indic">
 			<li class="on"><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+		</ul>
+
+		<!-- 양쪽이동버튼 -->
+		<a href="#" class="abtn lb">
+			<span class="ir">왼쪽이동버튼</span>
+		</a>
+		<a href="#" class="abtn rb">
+			<span class="ir">오른쪽이동버튼</span>
+		</a>
+
+
+
+	</div>
+
+	<!-- 2. 영화슬라이드 -->
+	<div class="slider">
+
+		<!-- 슬라이드 속박스 -->
+		<div class="viewer">
+			<!-- 슬라이드 이동박스 -->
+			<ul>
+				<li>
+					<img src="image/m1.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m2.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m3.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m4.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m5.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m6.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/m7.jpg" alt="슬라이드">
+				</li>
+			</ul>
+		</div>
+
+		<!-- 블릿표시자 -->
+		<ul class="indic">
+			<li class="on"><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+		</ul>
+
+		<!-- 양쪽이동버튼 -->
+		<a href="#" class="abtn lb">
+			<span class="ir">왼쪽이동버튼</span>
+		</a>
+		<a href="#" class="abtn rb">
+			<span class="ir">오른쪽이동버튼</span>
+		</a>
+
+
+
+	</div>
+
+	<!-- 3. 자동차슬라이드 -->
+	<div class="slider">
+
+		<!-- 슬라이드 속박스 -->
+		<div class="viewer">
+			<!-- 슬라이드 이동박스 -->
+			<ul>
+				<li>
+					<img src="image/country1.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/country8.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/country14.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/country18.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/country21.jpg" alt="슬라이드">
+				</li>
+				<li>
+					<img src="image/country45.jpg" alt="슬라이드">
+				</li>
+			</ul>
+		</div>
+
+		<!-- 블릿표시자 -->
+		<ul class="indic">
+			<li class="on"><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
+			<li><a href="#"><span class="bld">블릿</span></a></li>
 			<li><a href="#"><span class="bld">블릿</span></a></li>
 			<li><a href="#"><span class="bld">블릿</span></a></li>
 			<li><a href="#"><span class="bld">블릿</span></a></li>
