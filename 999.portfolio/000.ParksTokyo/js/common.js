@@ -40,6 +40,7 @@ window.addEventListener("DOMContentLoaded",
         }; ////////// showAct /////////////
 
 
+
         // News 타이틀 요소
         let newsEle = $(".cont2 h1");
         let neH = newsEle.offset().top;
