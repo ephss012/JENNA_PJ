@@ -57,14 +57,13 @@
             padding: 0;
             font-size: 100%;
         }
-        
 
         /* 공통 class */
-        /* body 아래 page를 옆으로 흐르게 하기 */
-        body {
+        /* body 아래 page를 옆으로 흐르게하기 */
+        body{
             display: flex;
             width: 700vw;
-            /* 화면의 7배 - 7개의 슬라이드 크기 */
+            /* 화면의 7배 즉, 7개의 슬라이드크기 */
         }
 
         /* 페이지 공통 class */
@@ -212,7 +211,6 @@
             margin-top: 4px;
             transition: width .4s;
         }
-
         /* a의 가상요소로 얇은 디자인만들기 */
         .indic a::after {
             content: '';
@@ -229,7 +227,6 @@
         .indic li.on a {
             width: 150%;
         }
-
         /* 배경색은 a의 가상요소 */
         .indic li:hover a::after,
         .indic li.on a::after {
@@ -244,12 +241,11 @@
     </style>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery-autoScroll_HR.1.0.js"></script>
-
+    <script src="js/jquery-autoScrollHR.1.0.js"></script>
     <script>
         $(() => { ///////// jQB ////////////////////////
 
-            // 새로고침시 스크롤 맨위로 이동하기
+            // 새로고침시 스크롤 맨왼쪽으로 이동하기
             $("html,body").animate({
                 scrollLeft: "0"
             }, 100);
@@ -272,7 +268,7 @@
                 // li순번===전역페이지번호pno
                 pno = idx; // li순번을 페이지번호에 할당!!!
 
-                // 2. 이동할 위치 -> 페이지 가로값 * 페이지번호
+                // 2. 이동할 위치 -> 페이지가로값*페이지번호
                 let pos = $(window).width() * pno;
 
                 // 3. 스크롤 위치 이동 애니메이션
