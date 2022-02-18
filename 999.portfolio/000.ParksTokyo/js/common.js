@@ -43,6 +43,7 @@ window.addEventListener("DOMContentLoaded",
         // News 타이틀 요소
         let newsEle = $(".cont2 h1");
         let neH = newsEle.offset().top;
+        let parksFlow = $(".parksFlow").offset().top;
 
 
         /////// 스크롤 액션 구역 ///////////////
@@ -52,15 +53,29 @@ window.addEventListener("DOMContentLoaded",
             scTop = this.scrollY;
             console.log("스크롤위치:", scTop);
 
+            let stopF = 0;//한번만실행변수
+
             // news타이틀 글자를 고정함!
-            if (scTop > neH - 100) {
+            if (scTop > neH - 100 && scTop < parksFlow-100) {
                 newsEle.css({
                     position: "fixed",
                     top: "100px",
                     zIndex: "999"
                 })
-            } else { // 기타 경우 기존 넣은 값 지움!
+                stopF=0;
+            }
+            else if(scTop >= parksFlow-200 && !stopF){
+                if(stopF) return;
+                stopF=1;//한번만 실행
+
+                newsEle.css({
+                    position: "absolute",
+                    top: (parksFlow-200-winH*2)+"px"
+                })
+            }
+             else { // 기타 경우 기존 넣은 값 지움!
                 newsEle.attr("style", "");
+                stopF=0;
             }
 
             // 타이틀 글자 움직이기
