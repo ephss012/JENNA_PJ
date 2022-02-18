@@ -247,6 +247,7 @@ h1.logo {
     white-space: nowrap;
 }
 
+/* PARKS MANAGEMENT 문구 위아래 가로선 */
 
 .comp:first-child {
     display: block;
@@ -261,10 +262,10 @@ h1.logo {
     border-bottom: 1px solid #111;
 }
 
-/* 문구 양쪽으로 이동하기 */
+/* PARKS MANAGEMENT 문구 양쪽으로 이동하기 */
 .comp:nth-child(2) {
-    left: 0;
-    animation: p1flow 10s linear infinite;
+    left: -300%;
+    animation: p1flow 30s linear infinite forwards;
 }
 
 @keyframes p1flow {
@@ -275,7 +276,7 @@ h1.logo {
 
 .comp:last-child {
     left: 0;
-    animation: p2flow 10s linear infinite;
+    animation: p2flow 15s linear infinite;
 }
 
 @keyframes p2flow {
