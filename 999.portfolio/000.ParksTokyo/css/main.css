@@ -82,13 +82,13 @@ h1.logo {
 
 /*************************** 메인영역 ***************************/
 
-/* ///////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////// */
 /* 컨텐츠1 */
 
 /* 애니메이션 텍스트 PARKS */
 .cont1 {
     position: relative;
-    left: -50%;
+    /* left: -50%; */
     /* transform: translateX(50%); */
     min-height: 100vh;
     min-width: 100vw;
@@ -114,7 +114,7 @@ h1.logo {
 }
 
 
-/* ///////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////// */
 /* 컨텐츠2 */
 .cont2 {
     position: relative;
@@ -264,7 +264,7 @@ h1.logo {
 
 /* PARKS MANAGEMENT 문구 양쪽으로 이동하기 */
 .comp:nth-child(2) {
-    left: -300%;
+    left: -200%;
     animation: p1flow 30s linear infinite forwards;
 }
 
@@ -286,7 +286,7 @@ h1.logo {
 }
 
 
-
+/* ////////////////////////////////////////////////////////// */
 /* 컨텐츠3 */
 /* 아티스트 소개 */
 .cont3 {
@@ -303,13 +303,14 @@ h1.logo {
     font-family: 'PT Serif', serif;
     font-weight: lighter;
     color: #dbdbdb;
-    margin-bottom: 90px;
+    margin-bottom: 120px;
 }
 
 /* 아티스트 2명 이름 */
 .cont3 li {
     position: relative;
     display: block;
+    margin-bottom: 40px;
 }
 
 .cont3 a {
@@ -345,6 +346,8 @@ h1.logo {
 }
 
 
+
+/* ////////////////////////////////////////////////////////// */
 /* 컨텐츠4 */
 .cont4 {
     position: relative;
@@ -352,11 +355,12 @@ h1.logo {
     /* background-color: #5F6C68; */
     font-weight: lighter;
     padding: 10% 35%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .cont4>div {
     width: 30vw;
+    height: auto;
 }
 
 /* 이미지 슬라이드 */
@@ -376,8 +380,29 @@ h1.logo {
     padding-left: 60%;
 } */
 
+/* 자동넘김용 버튼 보이지 않게 */
 .abtn {
     display: none;
+}
+
+/* svg 시도 실패 */
+.rsvg {
+    width: 100%;
+    height: 100%;
+}
+
+.rsvg rect {
+    fill: none;
+    stroke: black;
+    stroke-width: 10;
+    stroke-linecap: square;
+    stroke-dasharray: 400%;
+    stroke-dashoffset: 400%;
+    transition: all .4s ease-in-out;
+}
+
+.cont4>div:hover rect {
+    stroke-dashoffset: 0;
 }
 
 
@@ -408,8 +433,6 @@ h1.logo {
 .c4-text {
     display: none;
 }
-
-
 
 
 
@@ -465,7 +488,7 @@ h1.logo {
 .contact {
     position: relative;
     background-color: #111;
-    padding: 10% 0 10% 5%;
+    padding: 10% 5%;
     font-weight: 300;
 }
 
@@ -495,7 +518,7 @@ h1.logo {
     line-height: 32px;
 }
 
-/* 회사정보 영역 */
+/* 회사정보영역 */
 .contact ul {
     display: flex;
 }
@@ -517,11 +540,13 @@ h1.logo {
 }
 
 .contact a {
+    white-space: nowrap;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #fff;
 }
-/* 각 정보 밑줄긋기 */
+
+/* 각 정보 보더라인 */
 .contact a::after {
     /* position: absolute; */
     display: block;

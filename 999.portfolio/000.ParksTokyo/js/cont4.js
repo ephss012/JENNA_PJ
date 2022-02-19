@@ -12,10 +12,14 @@ window.addEventListener('load', () => {
     let slide = document.querySelector("#slide");
     // 추가 대상: .indic li
     let indic = document.querySelectorAll(".indic li");
-    // 슬라이드 개수 구해오기
+    // 콘4 이미지 슬라이드 개수 구해오기
     const scnt =
         document.querySelectorAll("#slide li").length;
     // console.log("슬라이드개수:", scnt);
+
+    // 콘4 텍스트 슬라이드 개수 구해오기
+    const c4text = document.querySelectorAll('.c4-text').length;
+    // console.log('텍스트개수:',c4text);
 
     // 슬라이드가 순서가 바뀌므로 처음에 슬라이드 li에
     // 클래스를 순번에 맞게 부여해 준다!

@@ -47,36 +47,36 @@ window.addEventListener("DOMContentLoaded",
         let parksFlow = $(".parksFlow").offset().top;
 
 
-        /////// 스크롤 액션 구역 ///////////////
+
+
+        /////// 타이틀 스크롤 액션 구역 ///////////////
         window.addEventListener("scroll", () => {
 
             // 스크롤 위치값
             scTop = this.scrollY;
             console.log("스크롤위치:", scTop);
 
-            let stopF = 0;//한번만실행변수
+            let stopF = 0; //한번만실행변수
 
             // news타이틀 글자를 고정함!
-            if (scTop > neH - 100 && scTop < parksFlow-100) {
+            if (scTop > neH - 100 && scTop < parksFlow - 100) {
                 newsEle.css({
                     position: "fixed",
                     top: "100px",
                     zIndex: "999"
                 })
-                stopF=0;
-            }
-            else if(scTop >= parksFlow-200 && !stopF){
-                if(stopF) return;
-                stopF=1;//한번만 실행
+                stopF = 0;
+            } else if (scTop >= parksFlow - 200 && !stopF) {
+                if (stopF) return;
+                stopF = 1; //한번만 실행
 
                 newsEle.css({
                     position: "absolute",
-                    top: (parksFlow-200-winH*2)+"px"
+                    top: (parksFlow - 200 - winH * 2) + "px"
                 })
-            }
-             else { // 기타 경우 기존 넣은 값 지움!
+            } else { // 기타 경우 기존 넣은 값 지움!
                 newsEle.attr("style", "");
-                stopF=0;
+                stopF = 0;
             }
 
             // 타이틀 글자 움직이기
@@ -104,7 +104,40 @@ window.addEventListener("DOMContentLoaded",
 
             for (let i = 0; i < scAct.length; i++) showAct(i);
 
-        }); ////////////// scroll //////////////////
+
+        }); ////////////// 타이틀 scroll //////////////////
+
+
+
+
+
+        /* ************************************ */
+
+        //////// 탑버튼 //////////
+        let tbtn = document.querySelector(".tbtn");
+
+        // 탑버튼 클릭 시 위로가기
+        tbtn.onclick = () => {
+            pos = 0;
+            // return false;
+        };
+
+        window.addEventListener('scroll', () => {
+
+            scTop = this.scrollY;
+
+            // 탑버튼 위로 올라오기
+            if (scTop > 500) {
+                tbtn.classList.add("on");
+            } /////////// if ////////////
+            else {
+                tbtn.classList.remove("on");
+            } /////////// else ///////////
+
+            // scPos.forEach((val, idx) => scAction(idx));
+
+
+        }) // 탑버튼 스크롤 //////////////////
 
 
 
@@ -142,24 +175,24 @@ window.addEventListener("DOMContentLoaded",
         // 컨텐츠2 잡지 이미지 6개  ///////////////
         // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-        window.addEventListener('load', () => {
+        // window.addEventListener('load', () => {
 
-            console.log("로딩완료!");
+        //     console.log("로딩완료!");
 
-            // 이미지 번호
-            let num = 1;
+        //     // 이미지 번호
+        //     let num = 1;
 
-            // 잡지 이미지
-            let tg = document.querySelector(".pics img");
+        //     // 잡지 이미지
+        //     let tg = document.querySelector(".pics img");
 
-            // 스크롤 시 잡지 이미지 변경
-            const chgImg = magaz => {
-                console.log("매거진!", magaz);
+        //     // 스크롤 시 잡지 이미지 변경
+        //     const chgImg = magaz => {
+        //         console.log("매거진!", magaz);
 
-                tg.setAttribute('src', `./images/pics${num}.jpg`)
-            }
+        //         tg.setAttribute('src', `./images/pics${num}.jpg`)
+        //     }
 
-        })
+        // })
 
 
     }); /////////////// load /////////////////////////

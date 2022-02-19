@@ -91,6 +91,8 @@ div#view {
     height: 100vh;
     z-index: 99;
     background-color: #7D8884;
+    transition: height 1s ease-in-out;
+
 }
 
 .menu.on h2 a span {
@@ -125,16 +127,18 @@ div#view {
     display: none;
     transition: height .4s ease-out;
 }
+
 .menu.on .smenu:hover div {
     height: auto;
     display: block;
 }
-.menu.on .smenu>div>ol>li>a{
+
+.menu.on .smenu>div>ol>li>a {
     display: block;
     padding: 10px 50px;
     font-size: 52px;
 }
-    
+
 
 
 /* 하위메뉴 sns 영역 */
@@ -156,7 +160,7 @@ div#view {
 }
 
 /* 하위메뉴 마우스오버 */
-.menu.on a:hover{
+.menu.on a:hover {
     color: white;
     transition: .4s ease-out;
 
@@ -169,7 +173,7 @@ div#view {
 .scAct {
     display: block;
     transform: translateY(120px);
-        /* 120px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
+    /* 120px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
     opacity: 0;
     transition: 1s ease-in-out;
 }
@@ -180,3 +184,45 @@ div#view {
     opacity: 1;
 }
 
+
+
+/* 탑버튼 */
+.tbtn {
+    position: fixed;
+    bottom: -5%;
+    /* 처음에 아래에 나가있음! */
+    right: 5%;
+    width: 56px;
+    height: 56px;
+    
+    mix-blend-mode: exclusion;
+    background-color: rgba(255, 255, 255, 0.63);
+    border: 1px solid #111;
+    border-radius: 50%;
+    /* 둥근모서리: 왼위 오른위 오른아래 왼아래 */
+    
+    line-height: 56px;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #111;
+    font-size: 12px;
+
+    z-index: 9999;
+    opacity: 0;
+    /* 투명 */
+    transition: background-color .3s,
+        opacity .3s, bottom .001s .3s;
+}
+
+.tbtn.on {
+    bottom: 5%;
+    right: 5%;
+    opacity: 1;
+    transition: background-color .3s, opacity .3s;
+}
+
+/* 탑버튼 마우스 오버 */
+.tbtn:hover {
+    background-color: #111;
+    color: #fff;
+}
