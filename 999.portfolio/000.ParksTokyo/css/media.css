@@ -14,7 +14,7 @@
         height: 70px;
     }
 
-    /* 메인 로고 사이즈 조절 */
+    /* 메인 로고 이미지 위치/사이즈 조절 */
     h1.logo {
         margin-top: 28px;
     }
@@ -210,13 +210,14 @@
 
     /* 메뉴버튼 클릭 시 */
     .menu.on h2 a span {
-        width: 40px;
+        width: 48px;
     }
 
     .menu.on ul li a {
         font-size: 12vw;
     }
 
+    /* 서브메뉴 위치 조절 */
     .menu.on div {
         padding-left: 10%;
     }
@@ -227,7 +228,7 @@
         transform: translateY(100px);
         /* 100px 떨어진 곳에서부터 서서히 스크롤 올라옴 */
         opacity: 0;
-        transition: .7s ease-in-out;
+        : .7s ease-in-out;
     }
 
     /* 원위치 복귀 등장! */

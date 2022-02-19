@@ -65,7 +65,7 @@ div#view {
 
 /* 햄버거 메뉴 클릭 시 하위메뉴 펼쳐짐 */
 #top.on {
-    position: relative;
+    position: fixed;
     z-index: 999;
     height: 100px;
     width: 100%;
@@ -77,7 +77,7 @@ div#view {
 .menu.on h2 a {
     position: absolute;
     color: white;
-    top: 4.5%;
+    top: 3.7%;
     left: 5%;
 }
 
@@ -91,7 +91,6 @@ div#view {
     height: 100vh;
     z-index: 99;
     background-color: #7D8884;
-    transition: height 1s ease-in-out;
 
 }
 
@@ -125,12 +124,13 @@ div#view {
 .menu.on .smenu div {
     height: 0;
     display: none;
-    transition: height .4s ease-out;
+    transition: height 1s ease-out;
 }
 
 .menu.on .smenu:hover div {
     height: auto;
     display: block;
+    transition: height 1s ease-in-out;
 }
 
 .menu.on .smenu>div>ol>li>a {
@@ -162,8 +162,6 @@ div#view {
 /* 하위메뉴 마우스오버 */
 .menu.on a:hover {
     color: white;
-    transition: .4s ease-out;
-
 }
 
 
@@ -210,8 +208,7 @@ div#view {
     z-index: 9999;
     opacity: 0;
     /* 투명 */
-    transition: background-color .3s,
-        opacity .3s, bottom .001s .3s;
+    transition: background-color .3s, opacity .3s, bottom .001s .3s;
 }
 
 .tbtn.on {
