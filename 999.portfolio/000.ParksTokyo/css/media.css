@@ -222,6 +222,12 @@
         padding-left: 10%;
     }
 
+    .menu.on .smenu>div>ol>li>a {
+        display: block;
+        padding: 10px 40px;
+        font-size: 8vw;
+        white-space: nowrap;
+    }
 
     /* 등장액션 class */
     .scAct {

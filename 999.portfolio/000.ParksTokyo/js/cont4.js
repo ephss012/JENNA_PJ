@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 
 
     // 이벤트 대상: .abtn
-    let abtn = document.querySelectorAll(".abtn");
+    // let abtn = document.querySelectorAll(".abtn");
     // 변경 대상: #slide
     let slide = document.querySelector("#slide");
     // 추가 대상: .indic li
@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
     // console.log("슬라이드개수:", scnt);
 
     // 콘4 텍스트 슬라이드 개수 구해오기
-    const c4text = document.querySelectorAll('.c4-text').length;
+    // const c4text = document.querySelectorAll('.c4-text').length;
     // console.log('텍스트개수:',c4text);
 
     // 슬라이드가 순서가 바뀌므로 처음에 슬라이드 li에

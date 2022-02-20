@@ -481,7 +481,7 @@ h1.logo {
 }
 
 .contact ul li {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     padding-right: 150px;
     margin-bottom: 40px;
 
@@ -511,7 +511,7 @@ h1.logo {
     box-sizing: border-box;
 
     width: 100%;
-    border-bottom: 2px solid transparent;
+    /* border-bottom: 2px solid transparent; */
     transform: translateX(-100%);
 }
 
