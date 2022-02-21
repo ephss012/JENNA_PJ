@@ -232,21 +232,35 @@
     <!-- 2. 메인영역 -->
     <!-- 메인영역 최상위 박스 #cont가 Vue JS의 대상! -->
     <div id="cont" class="bgc">
-        <main class="cont ibx" v-for="(v,i) in vals.data" v-if="v.경로===catName">
+        <main class="cont ibx" v-for="(v,i) in vals.data" v-if="v.경로===catName" v-bind:class="catName">
             <!-- 
                 v-for="(v,i) in vals.data"
                 해석: 제이슨 데이터 만큼 for문을 돈다!
                 
                 v-if="v.경로===catName"
                 해석: 데이터중 경로값이 카테고리 전달값과 같으면
+                v-bind:class="클래스명"
+                데이터 바인드 할때 클래스명을 지정함!
+                catName은 Vue 데어터 변수임! 여기에 pm값이 들어감!
              -->
+
+             <!-- 탭 타이틀 변경 메서드 호출하기 -->
+             {{chgTit(v.제목)}}
+             <!-- 콧수명으로 Vue 메서드도 호출가능! -->
+
             <!-- 1. 카테고리 페이지 탑영역 -->
             <header class="ctop">
                 <!-- 1-1.서브타이틀 -->
                 <h2 class="stit">{{v.제목}}</h2>
                 <!-- 1-2.서브메뉴
                     (LNB-Local Navigation Bar) -->
-                <nav class="lnb"></nav>
+                <nav class="lnb" v-if="v.메뉴!=='없음'">
+                    <ul>
+                        <li v-for="(m,i) in v.메뉴">
+                            <a href="#">{{m}}</a>
+                        </li>
+                    </ul>
+                </nav>
             </header>
             
             <!-- 2. 카테고리 페이지 컨텐츠박스 -->
@@ -254,13 +268,22 @@
             <div class="pt3 rbx">
                 <div class="rbxIn fbx">
                     <div class="cbx bgi bg1-1">
-                        <h2></h2>
+                        <!-- <h2>{{v.타이틀[0]}}</h2> -->
+                        <h2 v-html="v.타이틀[0]"></h2>
+                        <!-- 
+                            콧수염 표시자로 넣으면
+                            html 특수문자, 태그가 처리안되고
+                            그대로 보인다! 따라서 html
+                            넣기를 하려면
+                            v-html 디렉티브를 사용해야함!
+                            v-html="값"
+                         -->
                     </div>
                     <div class="cbx bgi bg1-2">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[1]"></h2>
                     </div>
                     <div class="cbx bgi bg1-3">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[2]"></h2>
                     </div>
                 </div>
             </div>
@@ -268,13 +291,13 @@
             <div class="pt3 rbx">
                 <div class="rbxIn fbx">
                     <div class="cbx bgi bg2-1">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[3]"></h2>
                     </div>
                     <div class="cbx bgi bg2-2">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[4]"></h2>
                     </div>
                     <div class="cbx bgi bg2-3">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[5]"></h2>
                     </div>
                 </div>
             </div>
