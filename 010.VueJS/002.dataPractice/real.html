@@ -49,11 +49,19 @@
             [ 배열일때 ]
             (값,순번) in 변수.data
             v-if 디렉티브를 사용하여 조건에 맞을때만 출력!
+            쌍따옴표 안에 조건문을 쓴다!
+            v-if="value.메뉴!=='없음'"
+            해석: 메뉴의 값이 '없음'이 아니면 출력함!
          -->
         <li v-for="(value,name) in vals.data">
-            <h2>{{value["제목"]}}</h2>
+            <h2>{{value.제목}}</h2>
+            <!-- 
+                속성명은 문자형이지만 아래 두가지로 사용가능 
+                value.제목 or value["제목"]
+            -->
+
             <ol v-if="value.메뉴!=='없음'">
-                <li v-for="(v,i) in value.메뉴"></li>
+                <li v-for="(v,i) in value.메뉴">{{v}}</li>
             </ol>
         </li>
     </ul>

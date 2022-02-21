@@ -4,37 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion | Vogue Korea</title>
-
+    <title> | 보그 코리아 (Vogue Korea)</title>
     <!-- 탭메뉴 아이콘 (favicon) -->
     <link rel="shortcut icon" href="images/icon.jpg" type="image/x-icon">
     <!-- 폰티스토 아이콘 CDN CSS불러오기 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
-    
     <link rel="stylesheet" href="css/category.css">
-    <!-- <link rel="stylesheet" href="css/main.css"> -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/core.css">
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/media.css">
-
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-
     <!-- 부드러운 스크롤 플러그인 -->
     <script src="js/smoothScroll20.js"></script>
-    <!-- 공통JS -->
+    <!-- 링크시스템 JS -->
     <script src="js/linksys.js"></script>
-    <script src="js/category.js"></script>
+    <!-- 공통JS -->
     <script src="js/common.js"></script>
 
+    <!-- 뷰JS 프레임워크 스텐드얼론 버전 가져오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 엑시오스 라이브러리 스텐드얼론 버전 가져오기(제이슨불러오기) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+
+    <!-- 카테고리 페이지 JS -->
+    <script src="js/category.js"></script>
 </head>
 
 <body>
     <!-- 1. 상단영역 -->
     <div id="top">
         <header class="top ibx">
-
             <!-- 1-1.상단메뉴 -->
             <div class="tmenu">
                 <!-- 1-1-1.sns박스 -->
@@ -93,14 +91,12 @@
                     </ul>
                 </div>
             </div>
-
             <!-- 1-2.로고박스 -->
             <h1 class="logo">
                 <a href="#">
                     <img src="images/mlogo.png" alt="메인로고">
                 </a>
             </h1>
-
             <!-- 1-3.GNB박스 -->
             <nav class="gnb">
                 <ul>
@@ -132,28 +128,22 @@
                     </li>
                 </ul>
             </nav>
-
             <!-- 모바일용 햄버거버튼 -->
             <a href="#" class="mobtn hbtn fi fi-nav-icon">
                 <span class="ir">GNB button</span>
             </a>
-
             <!-- 모바일용 검색버튼 -->
             <a href="#" class="mobtn sbtn fi fi-search">
                 <span class="ir">search</span>
             </a>
-
         </header>
-
         <!-- 1.4.모바일 검색박스 -->
         <div class="mos">
             <div class="mwrap">
-
                 <!-- 입력창박스 -->
                 <div id="search">
                     <input type="text">
                 </div>
-
                 <!-- 검색버튼 -->
                 <button class="scbtn fi fi-search">
                     <span class="ir">돋보기검색아이콘</span>
@@ -161,11 +151,9 @@
             </div>
         </div>
 
-        <!-- /////////////////////////////////////// -->
         <!-- 1.5.모바일 전체메뉴 -->
         <div class="mobwrap">
             <div id="mobx">
-
                 <!-- 1.5-1.모바일 GNB 메뉴 -->
                 <nav class="mognb">
                     <ul>
@@ -192,7 +180,6 @@
                         </li>
                     </ul>
                 </nav>
-
                 <!-- 1.5-2.모바일 sns 메뉴 -->
                 <div class="mosns">
                     <a href="#" class="fi fi-instagram">
@@ -211,7 +198,6 @@
                         <span class="ir">카카오스토리</span>
                     </a>
                 </div>
-
                 <!-- 1.5-3.매거진박스 -->
                 <figure class="magbox">
                     <!-- 잡지커버이미지 -->
@@ -225,7 +211,6 @@
                     <!-- 정기구독버튼 -->
                     <button class="magbtn">정기구독 신청</button>
                 </figure>
-
                 <!-- 하단링크박스 -->
                 <ul class="moblink">
                     <li>
@@ -242,45 +227,29 @@
                 </ul>
             </div>
         </div>
-        <!-- /////////////////////////////////////// -->
-
 
     </div>
-
-
     <!-- 2. 메인영역 -->
-    <div class="bgc">
-        <main class="cont ibx">
-
-            <!-- 1. 카테고리 서브 페이지 탑 영역 -->
+    <!-- 메인영역 최상위 박스 #cont가 Vue JS의 대상! -->
+    <div id="cont" class="bgc">
+        <main class="cont ibx" v-for="(v,i) in vals.data" v-if="v.경로===catName">
+            <!-- 
+                v-for="(v,i) in vals.data"
+                해석: 제이슨 데이터 만큼 for문을 돈다!
+                
+                v-if="v.경로===catName"
+                해석: 데이터중 경로값이 카테고리 전달값과 같으면
+             -->
+            <!-- 1. 카테고리 페이지 탑영역 -->
             <header class="ctop">
-                <!-- 1-1. 서브타이틀 -->
-                <h2 class="stit">
-                    Fashion
-                </h2>
-                <!-- 1-2. 서브메뉴 -->
-                <nav class="lnb">
-                    <ul>
-                        <li>
-                            <a href="#">전체</a>
-                        </li>
-                        <li>
-                            <a href="#">트렌드</a>
-                        </li>
-                        <li>
-                            <a href="#">아이템</a>
-                        </li>
-                        <li>
-                            <a href="#">피플</a>
-                        </li>
-                        <li>
-                            <a href="#">화보</a>
-                        </li>
-                    </ul>
-                </nav>
+                <!-- 1-1.서브타이틀 -->
+                <h2 class="stit">{{v.제목}}</h2>
+                <!-- 1-2.서브메뉴
+                    (LNB-Local Navigation Bar) -->
+                <nav class="lnb"></nav>
             </header>
-
-            <!-- 2. 카테고리 페이지 컨텐츠 -->
+            
+            <!-- 2. 카테고리 페이지 컨텐츠박스 -->
             <!-- 컨텐츠 유형3 -->
             <div class="pt3 rbx">
                 <div class="rbxIn fbx">
@@ -311,8 +280,6 @@
             </div>
         </main>
     </div>
-
-
     <!-- 3. 하단영역 -->
     <div class="bgc">
         <footer class="info ibx">
